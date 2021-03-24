@@ -81,57 +81,67 @@ local function start_boss_cinematic()
 
   hero:freeze()
 
-  -- Create the grim creeper and its minions.
-  local x, y, layer = placeholder_grim_creeper:get_position()
+  -- Create characters.
+  local x, y, layer = placeholder_boss:get_position()
   local grim_creeper = create_custom_entity(x, y, "enemies/boss/evil_eagle/grim_creeper")
   local minion_1 = create_custom_entity(x - 24, y - 24, "enemies/boss/grim_creeper/minion")
   local minion_2 = create_custom_entity(x + 24, y - 24, "enemies/boss/grim_creeper/minion")
+  local eagle = create_custom_entity(368, 40, "enemies/boss/evil_eagle/eagle")
+  local eagle_sprite = eagle:get_sprite()
   grim_creeper:get_sprite():set_animation("waiting")
 
-  -- Then make the eagle appear.
-  sol.timer.start(map, 2000, function()
-    local x, y, layer = placeholder_boss:get_position()
-    local eagle = map:create_custom_entity({
-      direction = 2,
-      x = x + 224,
-      y = y,
-      layer = hero:get_layer(),
-      width = 16,
-      height = 16,
-      sprite = "enemies/boss/evil_eagle/eagle"
-    })
-    local eagle_sprite = eagle:get_sprite()
-    eagle_sprite:set_animation("rushing")
-
-    -- Start eagle movement to the grim creeper.
-    start_straight_movement(eagle, 240, math.pi, 448, function()
-      sol.timer.start(map, 1000, function()
-        eagle:set_position(x - 224, y + 54)
-        eagle_sprite:set_direction(0)
-        start_straight_movement(eagle, 240, 0, 448, function()
+  -- Start the actual cinematic.
+  sol.timer.start(map, 100, function()
+    map:set_cinematic_mode(true, {entities_ignore_suspend = {grim_creeper, minion_1, minion_2, eagle}})
+    game:set_suspended(false) -- Workaround: Don't use the game suspension of the cinematic mode.
+    sol.timer.start(map, 1500, function()
+      game:start_dialog("maps.dungeons.7.boss_threat")
+      sol.timer.start(map, 1500, function()
+        eagle_sprite:set_animation("rushing")
+        eagle_sprite:set_direction(2)
+        start_straight_movement(eagle, 240, math.pi, 416, function()
           sol.timer.start(map, 1000, function()
-            eagle:set_position(x + 224, y + 108)
-            eagle_sprite:set_direction(2)
-            start_straight_movement(eagle, 240, math.pi, 184, function()
-              eagle_sprite:set_animation("flying")
-              start_straight_movement(eagle, 120, math.pi, 48, function()
-                start_straight_movement(minion_1, 120, math.pi * 0.9, 240, function()
-                  minion_1:remove()
-                end)
-                start_straight_movement(minion_2, 120, math.pi * 0.9, 240, function()
-                  minion_2:remove()
-                end)
-                start_jumping(grim_creeper, 700, 32, grim_creeper:get_angle(eagle), grim_creeper:get_distance(eagle) + 32, function()
-                  grim_creeper:remove()
-                  eagle:remove_sprite(eagle_sprite)
-                  eagle_sprite = eagle:create_sprite("enemies/boss/evil_eagle")
+            eagle:set_position(-48, 82)
+            eagle_sprite:set_direction(0)
+            start_straight_movement(eagle, 240, 0, 416, function()
+              sol.timer.start(map, 1000, function()
+                eagle:set_position(368, 124)
+                eagle_sprite:set_direction(2)
+                start_straight_movement(eagle, 240, math.pi, 160, function()
                   eagle_sprite:set_animation("flying")
-                  eagle_sprite:set_direction(2)
-                  sol.timer.start(map, 1000, function()
-                    hero:unfreeze()
-                    start_straight_movement(eagle, 120, math.pi * 0.9, 240, function()
-                      eagle:remove()
-                      boss:start_fighting()
+                  start_straight_movement(eagle, 120, math.pi, 48, function()
+                    start_straight_movement(minion_1, 120, math.pi * 0.9, 240, function()
+                      minion_1:remove()
+                    end)
+                    start_straight_movement(minion_2, 120, math.pi * 0.9, 240, function()
+                      minion_2:remove()
+                    end)
+                    sol.timer.start(map, 500, function()
+                      start_jumping(grim_creeper, 700, 32, grim_creeper:get_angle(eagle), grim_creeper:get_distance(eagle) + 32, function()
+                        grim_creeper:remove()
+                        eagle:remove_sprite(eagle_sprite)
+                        eagle_sprite = eagle:create_sprite("enemies/boss/evil_eagle")
+                        eagle_sprite:set_animation("flying")
+                        eagle_sprite:set_direction(2)
+                        sol.timer.start(map, 1000, function()
+                          map:set_cinematic_mode(false, {entities_ignore_suspend = {grim_creeper, minion_1, minion_2, eagle}})
+                          hero:unfreeze()
+                          start_straight_movement(eagle, 120, math.pi * 0.9, 40, function()
+                            eagle_sprite:set_animation("rushing")
+                            start_straight_movement(eagle, 180, math.pi * 0.95, 200, function()
+                              eagle:remove()
+                              enemy_manager:launch_boss_if_not_dead(map)
+                              sol.timer.start(map, 2000, function()
+                                boss:start_fighting()
+                              end)
+
+                              function boss:on_dying()
+                                game:start_dialog("maps.dungeons.7.boss_dying")
+                              end
+                            end)
+                          end)
+                        end)
+                      end)
                     end)
                   end)
                 end)
@@ -159,16 +169,26 @@ function map:init_music()
   audio_manager:play_music("20_sidescrolling")
 end
 
--- Start the boss
-function sensor_1:on_activated()
+-- Start the boss when entering the top screen or deactivate it when leaving.
+function separator_1:on_activating(direction4)
 
-  if is_boss_active == false then
-    is_boss_active = true
-    enemy_manager:launch_boss_if_not_dead(map)
-    start_boss_cinematic()
+  -- If the boss exists, deactivate it when going to the south and restart it when going to the north.
+  -- Manually handle the activation cause the enemy may not be on the hero region nor the map when taking the separator.
+  if boss and boss:exists() then
+    if direction4 == 1 and not boss:is_enabled() then
+      boss:set_enabled(true)
+      boss:start_restoring() -- Restart the boss if coming up again after falling.
 
-    function boss:on_dying()
-      game:start_dialog("maps.dungeons.7.boss_dying")
+    elseif direction4 == 3 and boss:is_enabled() then
+      sol.timer.stop_all(boss)
+      boss:stop_movement()
+      boss:set_enabled(false)
     end
+  end
+
+  -- Start the boss if needed.
+  if is_boss_active == false and not game:get_value("dungeon_" .. game:get_dungeon_index() .. "_boss") then
+    is_boss_active = true
+    start_boss_cinematic()
   end
 end
