@@ -100,7 +100,7 @@ local function update_sprite_elevations(direction_ratio, distance, speed, on_fin
   end)
 end
 
--- Make the tail stop rising.
+-- Make the tail stop moving.
 enemy:register_event("stop_moving", function(enemy, speed)
 
   is_spinning = false
