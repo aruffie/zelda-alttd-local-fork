@@ -343,7 +343,7 @@ function common_actions.learn(enemy)
     enemy:set_obstacle_behavior("flying")
   end
 
-  -- Make the enemy stop flying.
+  -- Make the enemy start landing. Works even if start_flying() was not called, as long as y sprites offset is negative.
   function enemy:stop_flying(landing_duration, on_finished_callback)
 
     -- Make the enemy sprites start landing.

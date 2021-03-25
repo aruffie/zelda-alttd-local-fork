@@ -40,14 +40,16 @@ local wind_duration = 5000
 local after_wind_duration = 1000
 local between_feathers_duration = 500
 local hurt_duration = 600
+local rushing_probability = 0.2
+local diving_probability = 0.3
 
 -- Choose the next attack randomly.
 local function set_next_attack()
 
-  local rng = math.random(3)
-  if enemy:get_life() > 18 or rng == 0 then
+  local rng = math.random()
+  if enemy:get_life() > 18 or rng < rushing_probability then
     next_attack = "rushing"
-  elseif rng == 1 then
+  elseif rng < rushing_probability + diving_probability then
     next_attack = "diving"
   else
     next_attack = "wind"
