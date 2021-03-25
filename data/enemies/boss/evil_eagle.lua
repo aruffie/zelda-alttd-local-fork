@@ -31,7 +31,7 @@ local is_on_left_side = true
 local rushing_speed = 240
 local flying_speed = 120
 local diving_speed = 280
-local between_attacks_duration = 1500
+local between_attacks_duration = 2000
 local before_diving_duration = 1000
 local feather_speed = 240
 local wind_speed = 104
@@ -69,6 +69,7 @@ local function on_hurt(damage)
     local x, y = sprite:get_xy()
     enemy:start_death(function()
       sprite:set_animation("hurt")
+      sprite:set_shader(hurt_shader)
       sol.timer.start(enemy, 1500, function()
         enemy:start_close_explosions(32, 2500, "entities/explosion_boss", x, y, function()
           sol.timer.start(enemy, 1000, function()

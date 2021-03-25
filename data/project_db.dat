@@ -501,6 +501,7 @@ sprite{ id = "entities/effects/impact_stone", description = "Impact stone" }
 sprite{ id = "entities/effects/lightning_strike", description = "Lightning strike" }
 sprite{ id = "entities/effects/lightning_strike_core", description = "Lightning stright core" }
 sprite{ id = "entities/effects/rain", description = "Rain" }
+sprite{ id = "entities/effects/sideview_rain", description = "Sideview rain" }
 sprite{ id = "entities/effects/sparkle_big", description = "Sparkle big" }
 sprite{ id = "entities/effects/sparkle_small", description = "Sparkle small" }
 sprite{ id = "entities/explosion", description = "Explosion" }

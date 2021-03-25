@@ -6,6 +6,8 @@ local is_boss_active = false
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
 local enemy_manager = require("scripts/maps/enemy_manager")
+local treasure_manager = require("scripts/maps/treasure_manager")
+local weather_manager = require("scripts/maps/weather_manager")
 
 -- Create a custom entity.
 local function create_custom_entity(x, y, sprite)
@@ -161,6 +163,12 @@ function map:on_started()
   map:init_music()
   -- Sideview
   map:set_sideview(true)
+  -- Weather
+  weather_manager:launch_sideview_rain(map, 200, 2)
+  weather_manager:launch_sideview_rain(map, 50, 1)
+  -- Pickables
+  treasure_manager:disappear_pickable(map, "heart_container")
+  treasure_manager:appear_heart_container_if_boss_dead(map)
 end
 
 -- Initialize the music of the map
@@ -177,7 +185,7 @@ function separator_1:on_activating(direction4)
   if boss and boss:exists() then
     if direction4 == 1 and not boss:is_enabled() then
       boss:set_enabled(true)
-      boss:start_restoring() -- Restart the boss if coming up again after falling.
+      boss:start_fighting() -- Restart the boss if coming up again after falling.
 
     elseif direction4 == 3 and boss:is_enabled() then
       sol.timer.stop_all(boss)
