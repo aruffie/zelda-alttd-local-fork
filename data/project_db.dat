@@ -319,6 +319,7 @@ sprite{ id = "enemies/helmasaur", description = "Helmasaur" }
 sprite{ id = "enemies/helmasaur/mask", description = "Mask" }
 sprite{ id = "enemies/helmasaur/maskless", description = "Helmasaur maskless" }
 sprite{ id = "enemies/keese", description = "Keese" }
+sprite{ id = "enemies/lakitu", description = "Lakitu" }
 sprite{ id = "enemies/leever", description = "Leever" }
 sprite{ id = "enemies/like_like", description = "Like Like" }
 sprite{ id = "enemies/mad_bomber", description = "Mad Bomber" }
@@ -365,6 +366,7 @@ sprite{ id = "enemies/projectiles/laser", description = "Beamos laser" }
 sprite{ id = "enemies/projectiles/magmaball", description = "Magmaball" }
 sprite{ id = "enemies/projectiles/sai", description = "Moblin chief spear" }
 sprite{ id = "enemies/projectiles/spear", description = "Moblin Pig Spear (Spear)" }
+sprite{ id = "enemies/projectiles/spiked_ball", description = "Spiked ball" }
 sprite{ id = "enemies/projectiles/stone", description = "Stone" }
 sprite{ id = "enemies/raven", description = "Raven" }
 sprite{ id = "enemies/rope", description = "Rope" }
@@ -501,6 +503,7 @@ sprite{ id = "entities/effects/impact_stone", description = "Impact stone" }
 sprite{ id = "entities/effects/lightning_strike", description = "Lightning strike" }
 sprite{ id = "entities/effects/lightning_strike_core", description = "Lightning stright core" }
 sprite{ id = "entities/effects/rain", description = "Rain" }
+sprite{ id = "entities/effects/sideview_rain", description = "Sideview rain" }
 sprite{ id = "entities/effects/sparkle_big", description = "Sparkle big" }
 sprite{ id = "entities/effects/sparkle_small", description = "Sparkle small" }
 sprite{ id = "entities/explosion", description = "Explosion" }
@@ -1417,6 +1420,7 @@ enemy{ id = "goponga_flower_giant", description = "Goponga Flower Giant" }
 enemy{ id = "hardhat_beetle", description = "Hardhat Beetle" }
 enemy{ id = "helmasaur", description = "Helmasaur" }
 enemy{ id = "keese", description = "Keese" }
+enemy{ id = "lakitu", description = "Lakitu" }
 enemy{ id = "leever", description = "Leever" }
 enemy{ id = "like_like", description = "Like Like" }
 enemy{ id = "mad_bomber", description = "Mad bomber" }
@@ -1648,6 +1652,7 @@ file{ path = "enemies/goponga_flower_giant.lua", author = "Vlag", license = "GPL
 file{ path = "enemies/hardhat_beetle.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "enemies/helmasaur.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/keese.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/lakitu.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/leever.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/lib", license = "GPL v3" }
 file{ path = "enemies/lib/common_actions.lua", author = "Vlag", license = "GPL v3" }

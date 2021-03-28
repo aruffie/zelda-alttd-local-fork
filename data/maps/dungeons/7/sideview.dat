@@ -17,7 +17,7 @@ tile{
   y = 0,
   width = 336,
   height = 480,
-  pattern = "108",
+  pattern = "94",
   tileset = "sideview/sideview",
 }
 
@@ -242,22 +242,14 @@ wall{
 custom_entity{
   name = "ladder_bottom",
   layer = 1,
-  x = 184,
+  x = 192,
   y = 165,
-  width = 32,
+  width = 16,
   height = 256,
   origin_y = 5,
   direction = 0,
   tiled = true,
   model = "ladder",
-}
-
-destination{
-  name = "stairs_11_B",
-  layer = 1,
-  x = 192,
-  y = 261,
-  direction = 1,
 }
 
 teletransporter{
@@ -269,6 +261,49 @@ teletransporter{
   height = 16,
   destination_map = "dungeons/7/3f",
   destination = "stairs_12_B",
+}
+
+destination{
+  name = "stairs_11_B",
+  layer = 1,
+  x = 160,
+  y = 413,
+  direction = 1,
+}
+
+wall{
+  layer = 1,
+  x = 176,
+  y = 160,
+  width = 8,
+  height = 224,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 1,
+  x = 200,
+  y = 160,
+  width = 8,
+  height = 224,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+pickable{
+  name = "heart_container",
+  layer = 1,
+  x = 160,
+  y = 157,
+  treasure_name = "heart_container",
+  treasure_savegame_variable = "dungeon_7_heart_container",
 }
 
 separator{

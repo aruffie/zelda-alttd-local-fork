@@ -82,4 +82,50 @@ function weather_manager:launch_rain(map)
 
 end
 
+-- Start a rain on a sideview map.
+function weather_manager:launch_sideview_rain(map, frequency, layer)
+
+  local drop = sol.sprite.create("entities/effects/sideview_rain")
+  local splash = sol.sprite.create("entities/effects/sideview_rain")
+  local positions = {}
+  drop:set_animation("drop")
+  splash:set_animation("splash")
+
+  local function start_drop()
+    local camera_x, camera_y, camera_width, camera_height = map:get_camera():get_bounding_box()
+    table.insert(positions, {x = math.random(camera_x, camera_x + camera_width * 1.5), y = camera_y - 16})
+  end
+
+  -- Start a drop periodically.
+  local game = map:get_game()
+  sol.timer.start(game, frequency, function() -- Start timer on game to not stop it during dialogs.
+    if map ~= game:get_map() then
+      return
+    end
+    start_drop()
+    return true
+  end)
+
+  -- Draw and move.
+  map:register_event("on_draw", function(map, dst_surface)
+
+    local camera_x, camera_y, camera_width, camera_height = map:get_camera():get_bounding_box()
+    for i, position in pairs(positions) do
+      if not position.is_stopped then
+        map:draw_visual(drop, position.x, position.y)
+        position.x = position.x - 2
+        position.y = position.y + 4
+        if map:get_ground(position.x, position.y, layer) == "wall" then
+          position.is_stopped = true
+          splash:set_frame(0)
+          map:draw_visual(splash, position.x, position.y)
+          positions[i] = nil
+        elseif position.y > camera_y + camera_height + 16 then
+          positions[i] = nil
+        end
+      end
+    end
+  end)
+end
+
 return weather_manager

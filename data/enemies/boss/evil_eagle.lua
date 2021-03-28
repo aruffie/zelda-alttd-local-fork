@@ -31,7 +31,7 @@ local is_on_left_side = true
 local rushing_speed = 240
 local flying_speed = 120
 local diving_speed = 280
-local between_attacks_duration = 1500
+local between_attacks_duration = 2000
 local before_diving_duration = 1000
 local feather_speed = 240
 local wind_speed = 104
@@ -40,14 +40,16 @@ local wind_duration = 5000
 local after_wind_duration = 1000
 local between_feathers_duration = 500
 local hurt_duration = 600
+local rushing_probability = 0.2
+local diving_probability = 0.3
 
 -- Choose the next attack randomly.
 local function set_next_attack()
 
-  local rng = math.random(3)
-  if enemy:get_life() > 18 or rng == 0 then
+  local rng = math.random()
+  if enemy:get_life() > 18 or rng < rushing_probability then
     next_attack = "rushing"
-  elseif rng == 1 then
+  elseif rng < rushing_probability + diving_probability then
     next_attack = "diving"
   else
     next_attack = "wind"
@@ -69,6 +71,7 @@ local function on_hurt(damage)
     local x, y = sprite:get_xy()
     enemy:start_death(function()
       sprite:set_animation("hurt")
+      sprite:set_shader(hurt_shader)
       sol.timer.start(enemy, 1500, function()
         enemy:start_close_explosions(32, 2500, "entities/explosion_boss", x, y, function()
           sol.timer.start(enemy, 1000, function()
