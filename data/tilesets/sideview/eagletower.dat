@@ -220,3 +220,12 @@ tile_pattern{
   height = 32,
 }
 
+tile_pattern{
+  id = "23",
+  ground = "traversable",
+  default_layer = 0,
+  x = 64,
+  y = 128,
+  width = 8,
+  height = 8,
+}

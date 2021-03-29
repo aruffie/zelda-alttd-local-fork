@@ -31,27 +31,27 @@ precision mediump float;
 #define COMPAT_PRECISION
 #endif
 
-// Shader that copy the sprites hurt animation, looping on 150ms.
-
 uniform sampler2D sol_texture;
 uniform int sol_time;
+uniform float started_time;
+uniform float duration;
 COMPAT_VARYING vec2 sol_vtex_coord;
 COMPAT_VARYING vec4 sol_vcolor;
 
 void main() {
-    vec4 texel = COMPAT_TEXTURE(sol_texture, sol_vtex_coord);
+  vec4 texel = COMPAT_TEXTURE(sol_texture, sol_vtex_coord);
+  vec3 full_lum = vec3(0.6, 0.6, 0.6);
 
-  // Invert colors on the first 50ms.
-	if (mod(float(sol_time), 150.0) < 50.0)
-		FragColor = vec4(1.0 - texel.r, 1.0 - texel.g, 1.0 - texel.r, texel.a);
-
-  // Then display the image as black and white for 50ms.
-	else if (mod(float(sol_time), 150.0) < 100.0) {
-		vec3 lum = vec3(0.299, 0.587, 0.114);
-		FragColor = vec4(vec3(dot(texel.rgb, lum)), texel.a);
-	}
-
-  // Finally display the image normally for the last 50ms.
-  else
-		FragColor = texel;
+  // Display the image more luminous for some time then revert back to the original colors.
+  if (sol_time - started_time < duration * 0.5) {
+    vec3 lum = full_lum * sqrt(sqrt(sqrt(sin((float(sol_time) - started_time) / duration * radians(180)))));
+    FragColor = vec4(vec3(texel.rgb + lum), texel.a);
+  }
+  else if (sol_time - started_time < duration) {
+    vec3 lum = full_lum * sqrt(sin((float(sol_time) - started_time) / duration * radians(180)));
+    FragColor = vec4(vec3(texel.rgb + lum), texel.a);
+  }
+  else {
+    FragColor = texel;
+  }
 }

@@ -1,6 +1,8 @@
 -- Variables
 local map = ...
 local game = map:get_game()
+local camera = map:get_camera()
+local thunder_shader = sol.shader.create("thunder")
 local is_boss_active = false
 
 -- Include scripts
@@ -156,6 +158,76 @@ local function start_boss_cinematic()
   end)
 end
 
+-- Make the given cloud moves.
+local function start_cloud_movement(entity, speed)
+
+  local x, y = entity:get_position()
+  local movement = sol.movement.create("straight")
+  movement:set_speed(speed)
+  movement:set_max_distance(264)
+  movement:set_angle(0)
+  movement:set_ignore_obstacles()
+  movement:start(entity)
+
+  function movement:on_finished()
+    entity:set_position(x, y)
+    start_cloud_movement(entity, speed)
+  end
+end
+
+-- Create and animate clouds.
+local function start_clouds()
+
+  for y = 104, 168, 8 do
+    local cloud = map:create_custom_entity({
+      direction = 0,
+      x = math.random(-464, -264),
+      y = y,
+      layer = 0,
+      width = 792,
+      height = 72,
+      sprite = "entities/decorations/clouds"
+    })
+    cloud:set_tiled()
+    start_cloud_movement(cloud, math.random(10, 30))
+  end
+end
+
+-- Clouds managment.
+local function start_thunder()
+
+  local brightness_duration = 1000
+  thunder_shader:set_uniform("duration", brightness_duration)
+
+  sol.timer.start(map, math.random(3000, 5000), function()
+    local thunder = map:create_custom_entity({
+      direction = 0,
+      x = math.random(48, 272),
+      y = 0,
+      layer = 0,
+      width = 32,
+      height = 72,
+      sprite = "entities/effects/thunder"
+    })
+    local sprite = thunder:get_sprite()
+    sprite:set_animation("appearing", function()
+      sprite:set_animation("visible")
+      sol.timer.start(thunder, 300, function()
+        thunder:remove()
+      end)
+    end)
+
+    -- Apply a light effect on the camera.
+    camera:get_surface():set_shader(thunder_shader)
+    thunder_shader:set_uniform("started_time", sol.main.get_elapsed_time())
+    sol.timer.start(camera, brightness_duration, function()
+      camera:get_surface():set_shader(nil)
+    end)
+
+    return math.random(2000, 4000)
+  end)
+end
+
 -- Map events
 function map:on_started()
 
@@ -164,6 +236,8 @@ function map:on_started()
   -- Sideview
   map:set_sideview(true)
   -- Weather
+  start_clouds()
+  start_thunder()
   weather_manager:launch_sideview_rain(map, 200, 2)
   weather_manager:launch_sideview_rain(map, 50, 1)
   -- Pickables
