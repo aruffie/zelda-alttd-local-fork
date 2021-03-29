@@ -180,6 +180,7 @@ tileset{ id = "out/light_world_legacy", description = "Light world legacy" }
 tileset{ id = "out/outside_buildings", description = "Outside buildings" }
 tileset{ id = "out/outside_main", description = "Outside main" }
 tileset{ id = "out/outside_special", description = "Outside special" }
+tileset{ id = "sideview/clouds", description = "Clouds" }
 tileset{ id = "sideview/eagletower", description = "Eagle tower" }
 tileset{ id = "sideview/sideview", description = "Side view tileset" }
 tileset{ id = "sideview/sideview_dungeon", description = "Sideview Dungeon" }
@@ -506,6 +507,7 @@ sprite{ id = "entities/effects/rain", description = "Rain" }
 sprite{ id = "entities/effects/sideview_rain", description = "Sideview rain" }
 sprite{ id = "entities/effects/sparkle_big", description = "Sparkle big" }
 sprite{ id = "entities/effects/sparkle_small", description = "Sparkle small" }
+sprite{ id = "entities/effects/thunder", description = "Thunder" }
 sprite{ id = "entities/explosion", description = "Explosion" }
 sprite{ id = "entities/explosion_boss", description = "Explosion boss" }
 sprite{ id = "entities/fire", description = "Fire" }

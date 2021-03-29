@@ -156,6 +156,47 @@ local function start_boss_cinematic()
   end)
 end
 
+-- Make the given cloud moves.
+local function start_cloud_movement(entity, speed)
+
+  local x, y = entity:get_position()
+  local movement = sol.movement.create("straight")
+  movement:set_speed(speed)
+  movement:set_max_distance(264)
+  movement:set_angle(0)
+  movement:set_ignore_obstacles()
+  movement:start(entity)
+
+  function movement:on_finished()
+    entity:set_position(x, y)
+    start_cloud_movement(entity, speed)
+  end
+end
+
+-- Clouds managment.
+local function start_thunder()
+
+  sol.timer.start(map, math.random(2000, 4000), function()
+    local thunder = map:create_custom_entity({
+      direction = 0,
+      x = math.random(0, 320),
+      y = 0,
+      layer = 0,
+      width = 32,
+      height = 72,
+      sprite = "entities/effects/thunder"
+    })
+    local sprite = thunder:get_sprite()
+    sprite:set_animation("appearing", function()
+      sprite:set_animation("visible")
+      sol.timer.start(thunder, 300, function()
+        thunder:remove()
+      end)
+    end)
+    return math.random(2000, 4000)
+  end)
+end
+
 -- Map events
 function map:on_started()
 
@@ -166,6 +207,10 @@ function map:on_started()
   -- Weather
   weather_manager:launch_sideview_rain(map, 200, 2)
   weather_manager:launch_sideview_rain(map, 50, 1)
+  for cloud in map:get_entities("clouds") do
+    start_cloud_movement(cloud, math.random(10, 30))
+  end
+  start_thunder()
   -- Pickables
   treasure_manager:disappear_pickable(map, "heart_container")
   treasure_manager:appear_heart_container_if_boss_dead(map)
