@@ -180,7 +180,6 @@ tileset{ id = "out/light_world_legacy", description = "Light world legacy" }
 tileset{ id = "out/outside_buildings", description = "Outside buildings" }
 tileset{ id = "out/outside_main", description = "Outside main" }
 tileset{ id = "out/outside_special", description = "Outside special" }
-tileset{ id = "sideview/clouds", description = "Clouds" }
 tileset{ id = "sideview/eagletower", description = "Eagle tower" }
 tileset{ id = "sideview/sideview", description = "Side view tileset" }
 tileset{ id = "sideview/sideview_dungeon", description = "Sideview Dungeon" }
@@ -432,6 +431,7 @@ sprite{ id = "entities/decorations/background_introduction", description = "Back
 sprite{ id = "entities/decorations/big_torch", description = "Big Torch" }
 sprite{ id = "entities/decorations/bubble_lava", description = "Bubble lava" }
 sprite{ id = "entities/decorations/bubble_swamp", description = "Bubble swamp" }
+sprite{ id = "entities/decorations/clouds", description = "Clouds" }
 sprite{ id = "entities/decorations/fire", description = "Fire" }
 sprite{ id = "entities/decorations/mini_candle", description = "Mini candle" }
 sprite{ id = "entities/decorations/photographer_canvas", description = "Photographer canvas" }
@@ -1573,6 +1573,7 @@ shader{ id = "power_effect", description = "Power effect" }
 shader{ id = "radial_fade_out", description = "Radial fade out" }
 shader{ id = "sepia", description = "Sepia" }
 shader{ id = "starman", description = "Starman-like effect" }
+shader{ id = "thunder", description = "Thunder" }
 shader{ id = "toon", description = "Toon" }
 shader{ id = "water_effect", description = "water_effect" }
 
@@ -2356,12 +2357,14 @@ file{ path = "scripts/states/sword_loading.lua", author = "PhoenixII54", license
 file{ path = "scripts/states/sword_spin_attack.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/states/sword_swinging.lua", author = "PhoenixII54", license = "GPL v3" }
 file{ path = "scripts/states/sword_tapping.lua", author = "PhoenixII54", license = "GPL v3" }
+file{ path = "shaders/hurt.dat", author = "Vlag", license = "GPL v3" }
 file{ path = "shaders/pixellisation.dat", author = "PhoenixII54", }
 file{ path = "shaders/pixellisation.frag.glsl", author = "PhoenixII54", }
 file{ path = "shaders/power_effect.dat", author = "PhoenixII54", }
 file{ path = "shaders/radial_fade_out.dat", author = "PhoenixII54", }
 file{ path = "shaders/radial_fade_out.frag.glsl", author = "PhoenixII54", }
 file{ path = "shaders/starman.dat", author = "PhoenixII54", }
+file{ path = "shaders/thunder.dat", author = "Vlag", license = "GPL v3" }
 file{ path = "sounds", author = "Nintendo, Diarandor, Franck Jousseaume, Zonzifleur", license = "Proprietary, Fair use, CC BY-SA 4.0" }
 file{ path = "sounds/arrow_hit.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }
 file{ path = "sounds/boomerang.ogg", author = "Franck Jousseaume", license = "CC BY-SA 4.0" }

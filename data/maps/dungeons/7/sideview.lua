@@ -1,6 +1,8 @@
 -- Variables
 local map = ...
 local game = map:get_game()
+local camera = map:get_camera()
+local thunder_shader = sol.shader.create("thunder")
 local is_boss_active = false
 
 -- Include scripts
@@ -173,13 +175,34 @@ local function start_cloud_movement(entity, speed)
   end
 end
 
+-- Create and animate clouds.
+local function start_clouds()
+
+  for y = 104, 168, 8 do
+    local cloud = map:create_custom_entity({
+      direction = 0,
+      x = math.random(-464, -264),
+      y = y,
+      layer = 0,
+      width = 792,
+      height = 72,
+      sprite = "entities/decorations/clouds"
+    })
+    cloud:set_tiled()
+    start_cloud_movement(cloud, math.random(10, 30))
+  end
+end
+
 -- Clouds managment.
 local function start_thunder()
 
-  sol.timer.start(map, math.random(2000, 4000), function()
+  local brightness_duration = 1000
+  thunder_shader:set_uniform("duration", brightness_duration)
+
+  sol.timer.start(map, math.random(3000, 5000), function()
     local thunder = map:create_custom_entity({
       direction = 0,
-      x = math.random(0, 320),
+      x = math.random(48, 272),
       y = 0,
       layer = 0,
       width = 32,
@@ -193,6 +216,14 @@ local function start_thunder()
         thunder:remove()
       end)
     end)
+
+    -- Apply a light effect on the camera.
+    camera:get_surface():set_shader(thunder_shader)
+    thunder_shader:set_uniform("started_time", sol.main.get_elapsed_time())
+    sol.timer.start(camera, brightness_duration, function()
+      camera:get_surface():set_shader(nil)
+    end)
+
     return math.random(2000, 4000)
   end)
 end
@@ -205,12 +236,10 @@ function map:on_started()
   -- Sideview
   map:set_sideview(true)
   -- Weather
+  start_clouds()
+  start_thunder()
   weather_manager:launch_sideview_rain(map, 200, 2)
   weather_manager:launch_sideview_rain(map, 50, 1)
-  for cloud in map:get_entities("clouds") do
-    start_cloud_movement(cloud, math.random(10, 30))
-  end
-  start_thunder()
   -- Pickables
   treasure_manager:disappear_pickable(map, "heart_container")
   treasure_manager:appear_heart_container_if_boss_dead(map)
