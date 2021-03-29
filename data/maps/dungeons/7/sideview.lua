@@ -162,17 +162,10 @@ end
 local function start_cloud_movement(entity, speed)
 
   local x, y = entity:get_position()
-  local movement = sol.movement.create("straight")
-  movement:set_speed(speed)
-  movement:set_max_distance(264)
-  movement:set_angle(0)
-  movement:set_ignore_obstacles()
-  movement:start(entity)
-
-  function movement:on_finished()
+  start_straight_movement(entity, speed, 0, 264, function()
     entity:set_position(x, y)
     start_cloud_movement(entity, speed)
-  end
+  end)
 end
 
 -- Create and animate clouds.
@@ -196,13 +189,11 @@ end
 -- Clouds managment.
 local function start_thunder()
 
-  local brightness_duration = 1000
-  thunder_shader:set_uniform("duration", brightness_duration)
-
   sol.timer.start(map, math.random(3000, 5000), function()
+    local x = math.random(48, 272)
     local thunder = map:create_custom_entity({
       direction = 0,
-      x = math.random(48, 272),
+      x = x,
       y = 0,
       layer = 0,
       width = 32,
@@ -218,9 +209,12 @@ local function start_thunder()
     end)
 
     -- Apply a light effect on the camera.
+    local brightness_duration = math.random(40, 500)
     camera:get_surface():set_shader(thunder_shader)
     thunder_shader:set_uniform("started_time", sol.main.get_elapsed_time())
-    sol.timer.start(camera, brightness_duration, function()
+    thunder_shader:set_uniform("full_luminosity_duration", brightness_duration)
+    thunder_shader:set_uniform("total_duration", brightness_duration + 500)
+    sol.timer.start(camera, brightness_duration + 500, function()
       camera:get_surface():set_shader(nil)
     end)
 

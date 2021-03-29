@@ -34,7 +34,8 @@ precision mediump float;
 uniform sampler2D sol_texture;
 uniform int sol_time;
 uniform float started_time;
-uniform float duration;
+uniform float full_luminosity_duration;
+uniform float total_duration;
 COMPAT_VARYING vec2 sol_vtex_coord;
 COMPAT_VARYING vec4 sol_vcolor;
 
@@ -43,12 +44,12 @@ void main() {
   vec3 full_lum = vec3(0.6, 0.6, 0.6);
 
   // Display the image more luminous for some time then revert back to the original colors.
-  if (sol_time - started_time < duration * 0.5) {
-    vec3 lum = full_lum * sqrt(sqrt(sqrt(sin((float(sol_time) - started_time) / duration * radians(180)))));
-    FragColor = vec4(vec3(texel.rgb + lum), texel.a);
+  if (sol_time - started_time < full_luminosity_duration) {
+    FragColor = vec4(vec3(texel.rgb + full_lum), texel.a);
   }
-  else if (sol_time - started_time < duration) {
-    vec3 lum = full_lum * sqrt(sin((float(sol_time) - started_time) / duration * radians(180)));
+  else if (sol_time - started_time < total_duration) {
+    // Keep using sin of total_duration fraction as fade off to let the possibility to have more variety in light effects, such as double flash.
+    vec3 lum = full_lum * sqrt(sin((float(sol_time) - started_time) / total_duration * radians(180)));
     FragColor = vec4(vec3(texel.rgb + lum), texel.a);
   }
   else {
