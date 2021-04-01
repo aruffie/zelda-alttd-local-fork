@@ -618,7 +618,7 @@ destination{
   layer = 1,
   x = 160,
   y = 413,
-  direction = 1,
+  direction = 0,
 }
 
 separator{

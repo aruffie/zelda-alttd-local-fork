@@ -43,12 +43,13 @@ void main() {
   vec4 texel = COMPAT_TEXTURE(sol_texture, sol_vtex_coord);
   vec3 full_lum = vec3(0.6, 0.6, 0.6);
 
-  // Display the image more luminous for some time then revert back to the original colors.
+  // Display the image constantly more luminous for some time.
   if (sol_time - started_time < full_luminosity_duration) {
     FragColor = vec4(vec3(texel.rgb + full_lum), texel.a);
   }
+  // Then fade off.
   else if (sol_time - started_time < total_duration) {
-    // Keep using sin of total_duration fraction as fade off to let the possibility to have more variety in light effects, such as double flash.
+    // Keep using sin of total_duration fraction to let the possibility to have more variety in light effects, such as double flash.
     vec3 lum = full_lum * sqrt(sin((float(sol_time) - started_time) / total_duration * radians(180)));
     FragColor = vec4(vec3(texel.rgb + lum), texel.a);
   }

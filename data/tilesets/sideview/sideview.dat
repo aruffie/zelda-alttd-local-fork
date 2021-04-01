@@ -1427,16 +1427,6 @@ tile_pattern{
 }
 
 tile_pattern{
-  id = "93",
-  ground = "traversable",
-  default_layer = 0,
-  x = 120,
-  y = 72,
-  width = 8,
-  height = 8,
-}
-
-tile_pattern{
   id = "94",
   ground = "traversable",
   default_layer = 0,
@@ -1528,3 +1518,22 @@ tile_pattern{
   repeat_mode = "none",
 }
 
+tile_pattern{
+  id = "water",
+  ground = "deep_water",
+  default_layer = 0,
+  x = 120,
+  y = 72,
+  width = 8,
+  height = 8,
+}
+
+tile_pattern{
+  id = "invisible_water",
+  ground = "deep_water",
+  default_layer = 0,
+  x = 152,
+  y = 16,
+  width = 8,
+  height = 8,
+}

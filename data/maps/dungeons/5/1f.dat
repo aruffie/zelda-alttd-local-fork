@@ -19653,7 +19653,7 @@ custom_entity{
 }
 
 teletransporter{
-  name = "dungeon_1_2_B",
+  name = "dungeon_5_2_A",
   layer = 0,
   x = 2072,
   y = 1896,
@@ -19665,8 +19665,8 @@ teletransporter{
   },
   width = 16,
   height = 16,
-  destination_map = "out/a4_south_mabe_village",
-  destination = "dungeon_1_2_A",
+  destination_map = "out/c4_martha_bay",
+  destination = "dungeon_5_2_B",
 }
 
 sensor{
