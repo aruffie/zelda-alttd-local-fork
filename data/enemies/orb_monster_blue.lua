@@ -1,5 +1,10 @@
--- Lua script of enemy orb monster blue.
--- This script is executed every time an enemy with this model is created.
+----------------------------------
+--
+-- Orb Monster Blue.
+--
+-- Description.
+--
+----------------------------------
 
 -- Global variables
 local enemy = ...
@@ -38,7 +43,18 @@ enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
   enemy:set_hero_weapons_reactions({
-    sword = 1
+  	arrow = 1,
+  	boomerang = 1,
+  	explosion = 1,
+  	sword = 1,
+  	thrown_item = 1,
+  	fire = 1,
+  	jump_on = "ignored",
+  	hammer = 1,
+  	hookshot = 1,
+  	magic_powder = 1,
+  	shield = "protected",
+  	thrust = 1
   })
 
   -- States.

@@ -2,7 +2,10 @@
 --
 -- Evil Eagle.
 --
--- Description
+-- Flying enemy for sideview map.
+-- It have three random attacks. The first is just an horizontal fly around the screen, the second is a dive to the center of the floor platform,
+-- and the last one is a wind repulsing the hero with a barrage of feathers.
+-- The second and third attacks can only happens if the enemy lost at least three health point, and the first and second attacks loops until the enemy is hurt.
 --
 -- Methods : enemy:start_fighting()
 --
