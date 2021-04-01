@@ -85,11 +85,12 @@ local function start_throwing()
       name = (enemy:get_name() or enemy:get_breed()) .. "_spiked_ball",
       breed = "empty", -- Workaround: Breed is mandatory but a non-existing one seems to be ok to create an empty enemy though.
       direction = 0,
-      layer = floor_layer
+      layer = enemy:get_layer()
     })
     common_actions.learn(spiked_ball)
     local spiked_sprite = spiked_ball:create_sprite("enemies/projectiles/spiked_ball")
     spiked_sprite:set_xy(0, -spiked_holding_height)
+    spiked_ball:set_layer_independent_collisions(true)
     spiked_ball:start_shadow()
 
     -- Throw the spiked ball and transform it on a spiked beetle on floor reached.
@@ -97,7 +98,8 @@ local function start_throwing()
       spiked_ball:create_enemy({
         name = (enemy:get_name() or enemy:get_breed()) .. "_spiked_beetle",
         breed = "spiked_beetle",
-        direction = 0
+        direction = 0,
+        layer = floor_layer
       })
       spiked_ball:start_death()
     end)
@@ -162,6 +164,7 @@ enemy:register_event("on_restarted", function(enemy)
   sprite:set_xy(0, -flying_height)
   enemy:set_can_attack(true)
   enemy:set_damage(2)
+  enemy:set_layer_independent_collisions(true)
   start_targetting()
   sol.timer.start(enemy, math.random(between_throws_minimum_duration, between_throws_maximum_duration), function()
     start_throwing()

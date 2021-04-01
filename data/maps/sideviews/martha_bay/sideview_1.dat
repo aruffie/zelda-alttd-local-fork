@@ -13,9 +13,18 @@ properties{
 tile{
   layer = 0,
   x = 0,
+  y = 144,
+  width = 320,
+  height = 112,
+  pattern = "water",
+}
+
+tile{
+  layer = 0,
+  x = 0,
   y = 0,
   width = 320,
-  height = 256,
+  height = 144,
   pattern = "108",
 }
 
@@ -208,13 +217,32 @@ tile{
   pattern = "117",
 }
 
+teletransporter{
+  name = "sideview_1_2_A",
+  layer = 0,
+  x = 304,
+  y = 64,
+  width = 16,
+  height = 144,
+  destination_map = "out/c4_martha_bay",
+  destination = "sideview_1_2_B",
+}
+
+destination{
+  name = "sideview_1_1_B",
+  layer = 0,
+  x = 296,
+  y = 157,
+  direction = 2,
+}
+
 tile{
   layer = 1,
   x = 0,
   y = 144,
   width = 320,
   height = 112,
-  pattern = "92",
+  pattern = "91",
 }
 
 tile{
@@ -223,6 +251,6 @@ tile{
   y = 136,
   width = 320,
   height = 8,
-  pattern = "96",
+  pattern = "97",
 }
 

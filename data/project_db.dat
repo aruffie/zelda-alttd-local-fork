@@ -139,7 +139,7 @@ map{ id = "out/b4_south_prairie", description = "B4 - South prairie" }
 map{ id = "out/c1_mambos_cave", description = "C1 - Mambo's cave" }
 map{ id = "out/c2_kanalet_castle", description = "C2 - Kanalet castle" }
 map{ id = "out/c3_east_prairie", description = "C3 - East prairie" }
-map{ id = "out/c4_martha_bay", description = "C4 - Baie de Martha" }
+map{ id = "out/c4_martha_bay", description = "C4 - Martha bay" }
 map{ id = "out/d1_east_mt_tamaranch", description = "D1 - East Mt Tamaranch" }
 map{ id = "out/d2_rafting", description = "D2 - Rafting" }
 map{ id = "out/d3_mask_shrine", description = "D3 - Mask shrine" }
@@ -1583,7 +1583,7 @@ file{ path = "enemies/arm_mimic.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/armos.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/beamos.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/beetle.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/bloober.lua", license = "GPL v3" }
+file{ path = "enemies/bloober.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/bomber.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/bombite_green.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/bombite_red.lua", author = "Vlag", license = "GPL v3" }
@@ -1633,7 +1633,7 @@ file{ path = "enemies/buzz_blob.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/camo_goblin_blue.lua", license = "GPL v3" }
 file{ path = "enemies/camo_goblin_green.lua", license = "GPL v3" }
 file{ path = "enemies/camo_goblin_red.lua", license = "GPL v3" }
-file{ path = "enemies/cheep_cheep.lua", license = "GPL v3" }
+file{ path = "enemies/cheep_cheep.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/chicken.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/crow.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/cukeman.lua", author = "Vlag", license = "GPL v3" }
@@ -1685,8 +1685,8 @@ file{ path = "enemies/pike_detect.lua", author = "Christopho", license = "GPL v3
 file{ path = "enemies/pike_fixed.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "enemies/pincer.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/piranha.lua", author = "Vlag", license = "GPL v3" }
-file{ path = "enemies/piranha_plant.lua", license = "GPL v3" }
-file{ path = "enemies/podobo.lua", license = "GPL v3" }
+file{ path = "enemies/piranha_plant.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/podobo.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/pokey.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/pols_voice.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/projectiles", license = "GPL v3" }
