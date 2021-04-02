@@ -1,6 +1,6 @@
 animation{
-  name = "normal",
-  src_image = "enemies/boss/angler_fish/angler_fish_brick.png",
+  name = "default",
+  src_image = "enemies/boss/angler_fish/brick.png",
   frame_delay = 400,
   frame_to_loop_on = 0,
   directions = {

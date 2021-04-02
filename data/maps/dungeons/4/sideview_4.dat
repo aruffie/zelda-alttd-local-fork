@@ -6,15 +6,16 @@ properties{
   min_layer = 0,
   max_layer = 2,
   world = "dungeon_4",
+  floor = 0,
   tileset = "sideview/sideview_dungeon",
   music = "same",
 }
 
 tile{
   layer = 0,
-  x = 0,
+  x = -16,
   y = 0,
-  width = 320,
+  width = 352,
   height = 480,
   pattern = "163",
   tileset = "sideview/sideview_dungeon",
@@ -22,9 +23,9 @@ tile{
 
 tile{
   layer = 0,
-  x = 0,
+  x = -16,
   y = 64,
-  width = 16,
+  width = 32,
   height = 416,
   pattern = "207",
   tileset = "sideview/sideview_dungeon",
@@ -32,9 +33,9 @@ tile{
 
 tile{
   layer = 0,
-  x = 0,
+  x = -16,
   y = 48,
-  width = 16,
+  width = 32,
   height = 16,
   pattern = "203",
   tileset = "sideview/sideview_dungeon",
@@ -42,9 +43,9 @@ tile{
 
 tile{
   layer = 0,
-  x = 0,
+  x = -16,
   y = 0,
-  width = 32,
+  width = 48,
   height = 16,
   pattern = "33",
   tileset = "sideview/sideview_dungeon",
@@ -52,9 +53,9 @@ tile{
 
 tile{
   layer = 0,
-  x = 0,
+  x = -16,
   y = 16,
-  width = 32,
+  width = 48,
   height = 32,
   pattern = "32",
   tileset = "sideview/sideview_dungeon",
@@ -124,7 +125,7 @@ tile{
   layer = 0,
   x = 48,
   y = 0,
-  width = 272,
+  width = 288,
   height = 16,
   pattern = "33",
   tileset = "sideview/sideview_dungeon",
@@ -134,7 +135,7 @@ tile{
   layer = 0,
   x = 48,
   y = 16,
-  width = 272,
+  width = 288,
   height = 32,
   pattern = "32",
   tileset = "sideview/sideview_dungeon",
@@ -205,22 +206,14 @@ tile{
   pattern = "65",
 }
 
-dynamic_tile{
-  layer = 0,
-  x = 0,
-  y = 160,
-  width = 320,
-  height = 8,
-  pattern = "197",
-}
-
-dynamic_tile{
+tile{
   layer = 0,
   x = 0,
   y = 168,
   width = 320,
   height = 312,
-  pattern = "181",
+  pattern = "invisible_water",
+  tileset = "sideview/sideview",
 }
 
 custom_entity{
@@ -273,5 +266,72 @@ custom_entity{
   sprite = "entities/grounds/ladder_wooden_top",
   tiled = true,
   model = "ladder",
+}
+
+destination{
+  name = "destination",
+  layer = 0,
+  x = 88,
+  y = 237,
+  direction = 3,
+}
+
+wall{
+  layer = 0,
+  x = 0,
+  y = 480,
+  width = 320,
+  height = 8,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+custom_entity{
+  name = "placeholder_boss",
+  layer = 0,
+  x = 216,
+  y = 357,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
+pickable{
+  name = "heart_container",
+  layer = 0,
+  x = 160,
+  y = 477,
+  treasure_name = "heart_container",
+  treasure_savegame_variable = "dungeon_4_heart_container",
+}
+
+separator{
+  name = "separator",
+  layer = 0,
+  x = 0,
+  y = 232,
+  width = 320,
+  height = 16,
+}
+
+dynamic_tile{
+  layer = 1,
+  x = -16,
+  y = 160,
+  width = 352,
+  height = 8,
+  pattern = "197",
+}
+
+dynamic_tile{
+  layer = 1,
+  x = -16,
+  y = 168,
+  width = 352,
+  height = 312,
+  pattern = "181",
 }
 
