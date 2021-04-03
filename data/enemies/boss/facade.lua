@@ -215,7 +215,7 @@ local function start_fighting()
   enemy:set_hero_weapons_reactions({explosion = on_hurt})
   sprite:set_animation("waiting")
   earthquake_timer = sol.timer.start(enemy, 400, function()
-    --map_tools.start_earthquake({count = 1, amplitude = 2, speed = 10})
+    map_tools.start_earthquake({count = 1, amplitude = 2, speed = 10})
     return true
   end)
 

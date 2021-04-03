@@ -585,7 +585,6 @@ tile{
   layer = 0,
   x = 112,
   y = 104,
-  enabled_at_start = false,
   width = 96,
   height = 32,
   pattern = "1",
@@ -598,6 +597,14 @@ destination{
   x = 160,
   y = 157,
   direction = -1,
+}
+
+enemy{
+  layer = 0,
+  x = 176,
+  y = 141,
+  direction = 0,
+  breed = "boss/shadow_nightmares/shadow_nightmares",
 }
 
 tile{

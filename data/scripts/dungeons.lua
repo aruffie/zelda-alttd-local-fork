@@ -320,7 +320,7 @@ local function initialize_dungeon_features(game)
       },
       boss = {
         floor = 0,
-        breed = "boss/slime_eye",
+        breed = "boss/angler_fish",
         room = 18,
       }
     },
