@@ -95,7 +95,6 @@ local function on_attack_received()
   -- Custom die if only one more life point.
   if enemy:get_life() < 2 then
 
-    -- Wait a few time, make tail then body sprites explode, wait a few time again and finally make the head explode and enemy die.
     enemy:start_death(function()
       for _, sprite in enemy:get_sprites() do
         if sprite:has_animation("hurt") then
@@ -103,15 +102,8 @@ local function on_attack_received()
         end
       end
 
-      local sorted_tied_sprites = {sprites[5], sprites[4], sprites[3], sprites[2]}
       sol.timer.start(enemy, 2000, function()
-        enemy:start_sprite_explosions(sorted_tied_sprites, "entities/explosion_boss", 0, 0, function()
-          sol.timer.start(enemy, 1000, function()
-            local x, y = head_sprite:get_xy()
-            enemy:start_brief_effect("entities/explosion_boss", nil, x, y)
-            finish_death()
-          end)
-        end)
+        finish_death()
       end)
     end)
     return

@@ -60,5 +60,6 @@ enemy:register_event("on_restarted", function(enemy)
   -- States.
   enemy:set_can_attack(true)
   enemy:set_damage(1)
-  enemy:start_walking()
+  --enemy:start_walking()
+  sprite:set_animation("head")
 end)

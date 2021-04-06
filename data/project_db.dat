@@ -1404,7 +1404,9 @@ enemy{ id = "boss/shadow_nightmares/ganon", description = "Ganon" }
 enemy{ id = "boss/shadow_nightmares/giant_gel", description = "Giant Gel" }
 enemy{ id = "boss/shadow_nightmares/lanmola", description = "Lanmola" }
 enemy{ id = "boss/shadow_nightmares/moldorm", description = "Moldorm" }
-enemy{ id = "boss/shadow_nightmares/projectiles/shadowball", description = "shadowball" }
+enemy{ id = "boss/shadow_nightmares/projectiles/axe", description = "Axe" }
+enemy{ id = "boss/shadow_nightmares/projectiles/bat", description = "Bat" }
+enemy{ id = "boss/shadow_nightmares/projectiles/shadowball", description = "Shadowball" }
 enemy{ id = "boss/shadow_nightmares/shadow_nightmares", description = "Shadow Nightmares" }
 enemy{ id = "boss/slime_eel", description = "Slime Eel" }
 enemy{ id = "boss/slime_eye", description = "Slime Eye" }
@@ -1645,6 +1647,8 @@ file{ path = "enemies/boss/shadow_nightmares/ganon.lua", author = "Vlag", licens
 file{ path = "enemies/boss/shadow_nightmares/giant_gel.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/shadow_nightmares/lanmola.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/shadow_nightmares/moldorm.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/boss/shadow_nightmares/projectiles/axe.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/boss/shadow_nightmares/projectiles/bat.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/shadow_nightmares/projectiles/shadowball.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/shadow_nightmares/shadow_nightmares.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/slime_eel.lua", author = "Vlag", license = "GPL v3" }
