@@ -25,7 +25,7 @@ local thirty_second = math.pi * 0.0625
 local eighth = math.pi * 0.25
 local quarter = math.pi * 0.5
 local circle = math.pi * 2.0
-local flying_angle
+local flying_angle, flying_timer
 local lava, lava_center
 local step = "burning"
 
@@ -33,6 +33,7 @@ local step = "burning"
 local trail_sprites_frame_lags = {10, 20}
 local minimum_waiting_duration = 1500
 local maximum_waiting_duration = 2000
+local waiting_duration_decrease_by_hp = 130
 local jumping_angles = {thirty_second, math.pi - thirty_second, math.pi + thirty_second, circle - thirty_second}
 local jumping_duration = 800
 local jumping_height = 24
@@ -148,7 +149,7 @@ local function start_diving()
 end
 
 -- Makes the enemy go towards the given angle and bounce on obstacle reached.
-local function start_flying()
+local function start_flying(duration)
 
   local function start_movement(angle)
     local movement = enemy:start_straight_walking(angle, flying_speed, nil, function()
@@ -164,7 +165,7 @@ local function start_flying()
   local trail_timer = create_trail()
 
   -- Dive in lava again after some time.
-  sol.timer.start(enemy, flying_duration, function()
+  flying_timer = sol.timer.start(enemy, duration or flying_duration, function()
 
     -- Retry later if the enemy is not over lava.
     if not lava:overlaps(enemy, "containing") then
@@ -178,6 +179,7 @@ local function start_flying()
     end
     enemy:stop_movement()
     start_diving()
+    flying_timer = nil
   end)
 end
 
@@ -221,6 +223,7 @@ local function on_hurt()
 
   -- Freeze the enemy for some time.
   enemy:set_hero_weapons_reactions({fire = "protected"})
+  local remaining_flying_time = flying_timer and flying_timer:get_remaining_time()
   enemy:stop_movement()
   sol.timer.stop_all(enemy)
   for i, trail_sprite in ipairs(trail_sprites) do
@@ -232,7 +235,7 @@ local function on_hurt()
     if step == "weak" then
       start_diving()
     else
-      start_flying()
+      start_flying(remaining_flying_time)
     end
   end)
 
@@ -298,7 +301,8 @@ local function start_waiting()
   local random_x, random_y = enemy:get_random_position_in_area("lava")
   enemy:set_position(random_x, random_y)
 
-  sol.timer.start(enemy, math.random(minimum_waiting_duration, maximum_waiting_duration), function()
+  local duration = math.random(minimum_waiting_duration, maximum_waiting_duration) - waiting_duration_decrease_by_hp * (10 - enemy:get_life())
+  sol.timer.start(enemy, duration, function()
     start_jumping()
   end)
 end

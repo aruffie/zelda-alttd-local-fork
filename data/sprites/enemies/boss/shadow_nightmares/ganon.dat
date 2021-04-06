@@ -1,6 +1,6 @@
 animation{
   name = "waiting",
-  src_image = "enemies/boss/dethl/ganon_form/ganon.png",
+  src_image = "enemies/boss/shadow_nightmares/ganon.png",
   frame_delay = 120,
   frame_to_loop_on = 0,
   directions = {
@@ -11,8 +11,20 @@ animation{
   },
 }
 animation{
-  name = "appear",
-  src_image = "enemies/boss/dethl/ganon_form/ganon.png",
+  name = "aiming",
+  src_image = "enemies/boss/shadow_nightmares/ganon.png",
+  frame_delay = 120,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 352, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 2 },
+    { x = 0, y = 352, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 2 },
+    { x = 0, y = 880, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 2 },
+    { x = 0, y = 880, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 2 },
+  },
+}
+animation{
+  name = "growing",
+  src_image = "enemies/boss/shadow_nightmares/ganon.png",
   frame_delay = 120,
   directions = {
     { x = 0, y = 176, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 6 },
@@ -22,19 +34,8 @@ animation{
   },
 }
 animation{
-  name = "disappear",
-  src_image = "enemies/boss/dethl/ganon_form/ganon.png",
-  frame_delay = 120,
-  directions = {
-    { x = 0, y = 88, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 6 },
-    { x = 0, y = 88, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 6 },
-    { x = 0, y = 704, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 6 },
-    { x = 0, y = 704, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 6 },
-  },
-}
-animation{
-  name = "fork",
-  src_image = "enemies/boss/dethl/ganon_form/ganon.png",
+  name = "invoking",
+  src_image = "enemies/boss/shadow_nightmares/ganon.png",
   frame_delay = 120,
   frame_to_loop_on = 0,
   directions = {
@@ -45,20 +46,19 @@ animation{
   },
 }
 animation{
-  name = "prepare_throw",
-  src_image = "enemies/boss/dethl/ganon_form/ganon.png",
+  name = "reducing",
+  src_image = "enemies/boss/shadow_nightmares/ganon.png",
   frame_delay = 120,
-  frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 352, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 2 },
-    { x = 0, y = 352, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 2 },
-    { x = 0, y = 880, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 2 },
-    { x = 0, y = 880, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 2 },
+    { x = 0, y = 88, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 6 },
+    { x = 0, y = 88, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 6 },
+    { x = 0, y = 704, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 6 },
+    { x = 0, y = 704, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 6 },
   },
 }
 animation{
   name = "throwing",
-  src_image = "enemies/boss/dethl/ganon_form/ganon.png",
+  src_image = "enemies/boss/shadow_nightmares/ganon.png",
   frame_delay = 120,
   frame_to_loop_on = 0,
   directions = {

@@ -277,9 +277,14 @@ sprite{ id = "enemies/boss/shadow_nightmares/ganon", description = "Ganon" }
 sprite{ id = "enemies/boss/shadow_nightmares/giant_gel", description = "Giant Gel" }
 sprite{ id = "enemies/boss/shadow_nightmares/lanmola", description = "Lanmola" }
 sprite{ id = "enemies/boss/shadow_nightmares/moldorm", description = "Moldorm" }
+sprite{ id = "enemies/boss/shadow_nightmares/moldorm/body_1", description = "Body 1" }
+sprite{ id = "enemies/boss/shadow_nightmares/moldorm/body_2", description = "Body 2" }
+sprite{ id = "enemies/boss/shadow_nightmares/moldorm/body_3", description = "Body 3" }
+sprite{ id = "enemies/boss/shadow_nightmares/moldorm/tail", description = "Tail" }
+sprite{ id = "enemies/boss/shadow_nightmares/projectiles/axe", description = "Fork" }
 sprite{ id = "enemies/boss/shadow_nightmares/projectiles/bat", description = "Bat" }
-sprite{ id = "enemies/boss/shadow_nightmares/projectiles/fork", description = "Fork" }
-sprite{ id = "enemies/boss/shadow_nightmares/shadow_nightmares", description = "Spirit" }
+sprite{ id = "enemies/boss/shadow_nightmares/projectiles/shadowball", description = "Shadowball" }
+sprite{ id = "enemies/boss/shadow_nightmares/spirit", description = "Spirit" }
 sprite{ id = "enemies/boss/slime_eel", description = "Slime eel" }
 sprite{ id = "enemies/boss/slime_eel/body", description = "Slime eel Body" }
 sprite{ id = "enemies/boss/slime_eye", description = "Slime eye" }
@@ -1399,6 +1404,7 @@ enemy{ id = "boss/shadow_nightmares/ganon", description = "Ganon" }
 enemy{ id = "boss/shadow_nightmares/giant_gel", description = "Giant Gel" }
 enemy{ id = "boss/shadow_nightmares/lanmola", description = "Lanmola" }
 enemy{ id = "boss/shadow_nightmares/moldorm", description = "Moldorm" }
+enemy{ id = "boss/shadow_nightmares/projectiles/shadowball", description = "shadowball" }
 enemy{ id = "boss/shadow_nightmares/shadow_nightmares", description = "Shadow Nightmares" }
 enemy{ id = "boss/slime_eel", description = "Slime Eel" }
 enemy{ id = "boss/slime_eye", description = "Slime Eye" }
@@ -1639,6 +1645,7 @@ file{ path = "enemies/boss/shadow_nightmares/ganon.lua", author = "Vlag", licens
 file{ path = "enemies/boss/shadow_nightmares/giant_gel.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/shadow_nightmares/lanmola.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/shadow_nightmares/moldorm.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/boss/shadow_nightmares/projectiles/shadowball.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/shadow_nightmares/shadow_nightmares.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/slime_eel.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/slime_eye.lua", author = "Vlag", license = "GPL v3" }
@@ -2729,8 +2736,8 @@ file{ path = "sprites/enemies/boss/ballchain_soldier.png", license = "Proprietar
 file{ path = "sprites/enemies/boss/grim_creeper/minion.dat", author = "JulioTanaka", }
 file{ path = "sprites/enemies/boss/shadow_nightmares/aghanim.dat", author = "JulioTanaka", }
 file{ path = "sprites/enemies/boss/shadow_nightmares/ganon.dat", author = "JulioTanaka", }
+file{ path = "sprites/enemies/boss/shadow_nightmares/projectiles/axe.dat", author = "JulioTanaka", }
 file{ path = "sprites/enemies/boss/shadow_nightmares/projectiles/bat.dat", author = "JulioTanaka", }
-file{ path = "sprites/enemies/boss/shadow_nightmares/projectiles/fork.dat", author = "JulioTanaka", }
 file{ path = "sprites/enemies/boss/slime_eye/splitted_eye.dat", author = "Vlag", license = "GPL v3" }
 file{ path = "sprites/enemies/boulder.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/bubble.png", license = "Proprietary, Fair use" }

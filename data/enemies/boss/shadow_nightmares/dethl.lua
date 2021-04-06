@@ -33,7 +33,7 @@ end
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 
-  enemy:set_life(2)
+  enemy:set_life(16)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
 end)
@@ -44,17 +44,17 @@ enemy:register_event("on_restarted", function(enemy)
   -- Behavior for each items.
   enemy:set_hero_weapons_reactions({
   	arrow = 1,
-  	boomerang = 1,
-  	explosion = 1,
-  	sword = 1,
-  	thrown_item = 1,
-  	fire = 1,
+  	boomerang = 16,
+  	explosion = "protected",
+  	sword = "protected",
+  	thrown_item = "protected",
+  	fire = "protected",
   	jump_on = "ignored",
-  	hammer = 1,
-  	hookshot = 1,
-  	magic_powder = 1,
+  	hammer = "protected",
+  	hookshot = "protected",
+  	magic_powder = "ignored",
   	shield = "protected",
-  	thrust = 1
+  	thrust = "protected"
   })
 
   -- States.

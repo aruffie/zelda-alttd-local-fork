@@ -16,26 +16,25 @@ local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 
--- Configuration variables
-local walking_angles = {0, quarter, 2.0 * quarter, 3.0 * quarter}
-local walking_speed = 32
-local walking_minimum_distance = 16
-local walking_maximum_distance = 96
+-- Configuration variables.
+local before_arming_duration = 800
 
--- Start the enemy movement.
-function enemy:start_walking()
+-- Start taking the axe in hand.
+local function start_taking_axe()
 
-  enemy:start_straight_walking(walking_angles[math.random(4)], walking_speed, math.random(walking_minimum_distance, walking_maximum_distance), function()
-    enemy:start_walking()
+  sprite:set_animation("waiting")
+  sol.timer.start(enemy, before_arming_duration, function()
+    sprite:set_animation("invoking")
   end)
 end
 
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 
-  enemy:set_life(2)
+  enemy:set_life(12)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
+  enemy:set_layer(map:get_max_layer())
 end)
 
 -- Restart settings.
@@ -43,22 +42,23 @@ enemy:register_event("on_restarted", function(enemy)
 
   -- Behavior for each items.
   enemy:set_hero_weapons_reactions({
-  	arrow = 1,
-  	boomerang = 1,
-  	explosion = 1,
+  	arrow = "protected",
+  	boomerang = "protected",
+  	explosion = "protected",
   	sword = 1,
-  	thrown_item = 1,
-  	fire = 1,
+  	thrown_item = "protected",
+  	fire = "protected",
   	jump_on = "ignored",
-  	hammer = 1,
-  	hookshot = 1,
-  	magic_powder = 1,
+  	hammer = "protected",
+  	hookshot = "protected",
+  	magic_powder = "ignored",
   	shield = "protected",
-  	thrust = 1
+  	thrust = 2
   })
 
   -- States.
+  enemy:set_layer_independent_collisions(true)
   enemy:set_can_attack(true)
   enemy:set_damage(1)
-  enemy:start_walking()
+  start_taking_axe()
 end)
