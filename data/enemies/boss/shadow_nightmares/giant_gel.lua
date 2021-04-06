@@ -1,6 +1,6 @@
 ----------------------------------
 --
--- Giant Gel.
+-- Giant Gel's Shadow.
 --
 -- Gel enemy that jumps to the hero and is only vulnerable to magic powder.
 -- Disappear after hurt and reappear at the initial position if not hurt again during the shaking duration.
@@ -24,22 +24,42 @@ local is_hurt = false
 
 -- Configuration variables
 local waiting_minimum_duration = 500
-local waiting_maximum_duration = 1500
+local waiting_maximum_duration = 1000
 local jumping_speed = 120
 local jumping_height = 16
 local jumping_duration = 500
 local hurt_duration = 200
 local shaking_duration = 1300
+local respawning_probability = 0.2
 local disappeared_duration = 1000
 local dying_duration = 2000
 
--- Start a random jump and occasionally a long jump to the hero.
+-- Make the enemy disappear then respawn at the initial position.
+local function start_disappearing()
+
+ enemy:set_hero_weapons_reactions({magic_powder = "protected"})
+ sprite:set_animation("disappearing", function()
+    enemy:set_position(initial_position.x, initial_position.y)
+    sprite:set_xy(0, 0)
+    sol.timer.start(enemy, disappeared_duration, function()
+      sprite:set_animation("appearing", function()
+        enemy:restart()
+      end)
+    end)
+  end)
+end
+
+-- Start a jump to the hero.
 local function start_jumping()
 
   sprite:set_animation("taking_off", function()
     sprite:set_animation("jumping")
     enemy:start_jumping(jumping_duration, jumping_height, enemy:get_angle(hero), jumping_speed, function()
       sprite:set_animation("landing", function()
+        if math.random() < respawning_probability then
+          start_disappearing()
+          return
+        end
         sprite:set_animation("stopped")
         sol.timer.start(enemy, math.random(waiting_minimum_duration, waiting_maximum_duration), function()
           enemy:restart()
@@ -84,15 +104,11 @@ local function hurt()
     enemy:set_hero_weapons_reactions({magic_powder = hurt})
     sprite:set_animation("shaking")
     sol.timer.start(enemy, shaking_duration, function()
-      enemy:set_hero_weapons_reactions({magic_powder = "protected"})
-      sprite:set_animation("disappearing", function()
-        enemy:set_position(initial_position.x, initial_position.y)
-        sol.timer.start(enemy, disappeared_duration, function()
-          sprite:set_animation("appearing", function()
-            enemy:restart()
-          end)
-        end)
-      end)
+      if math.random() < respawning_probability then
+        start_disappearing()
+        return
+      end
+      enemy:restart()
     end)
   end)
 

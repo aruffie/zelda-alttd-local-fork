@@ -53,7 +53,7 @@ local function get_random_position_on_screen_border()
   local random_point = math.random(mid_point * 2)
 
   return x + (random_point > mid_point + width and 0 or math.min(width, random_point % mid_point)), 
-          y + math.min(height, math.max(0, random_point - width) % mid_point)
+         y + math.min(height, math.max(0, random_point - width) % mid_point)
 end
 
 -- Return true if the given sprite is fully visible on the screen.

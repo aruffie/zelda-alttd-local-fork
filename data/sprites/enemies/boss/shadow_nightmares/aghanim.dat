@@ -1,6 +1,61 @@
 animation{
-  name = "waiting",
-  src_image = "enemies/boss/dethl/aghanim_form/aghanim.png",
+  name = "stopped",
+  src_image = "enemies/boss/shadow_nightmares/aghanim.png",
+  directions = {
+    { x = 0, y = 176, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85 },
+    { x = 0, y = 968, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85 },
+    { x = 0, y = 704, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85 },
+    { x = 0, y = 440, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85 },
+  },
+}
+animation{
+  name = "appearing",
+  src_image = "enemies/boss/shadow_nightmares/lanmola.png",
+  frame_delay = 100,
+  directions = {
+    { x = 0, y = 64, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 21, num_frames = 6 },
+    { x = 0, y = 64, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 21, num_frames = 6 },
+    { x = 0, y = 64, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 21, num_frames = 6 },
+    { x = 0, y = 64, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 21, num_frames = 6 },
+  },
+}
+animation{
+  name = "disappearing",
+  src_image = "enemies/boss/shadow_nightmares/lanmola.png",
+  frame_delay = 100,
+  directions = {
+    { x = 0, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 21, num_frames = 6 },
+    { x = 0, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 21, num_frames = 6 },
+    { x = 0, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 21, num_frames = 6 },
+    { x = 0, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 21, num_frames = 6 },
+  },
+}
+animation{
+  name = "growing",
+  src_image = "enemies/boss/shadow_nightmares/aghanim.png",
+  frame_delay = 80,
+  directions = {
+    { x = 0, y = 88, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 6 },
+    { x = 0, y = 880, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 6 },
+    { x = 0, y = 616, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 6 },
+    { x = 0, y = 352, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 6 },
+  },
+}
+animation{
+  name = "hurt",
+  src_image = "enemies/boss/shadow_nightmares/aghanim.png",
+  frame_delay = 50,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 352, y = 176, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 3 },
+    { x = 352, y = 968, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 3 },
+    { x = 352, y = 704, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 3 },
+    { x = 352, y = 440, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 3 },
+  },
+}
+animation{
+  name = "loading",
+  src_image = "enemies/boss/shadow_nightmares/aghanim.png",
   frame_delay = 120,
   frame_to_loop_on = 0,
   directions = {
@@ -11,19 +66,18 @@ animation{
   },
 }
 animation{
-  name = "appear",
-  src_image = "enemies/boss/dethl/aghanim_form/aghanim.png",
-  frame_delay = 80,
+  name = "particle",
+  src_image = "enemies/boss/shadow_nightmares/lanmola.png",
   directions = {
-    { x = 0, y = 88, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 6 },
-    { x = 0, y = 880, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 6 },
-    { x = 0, y = 616, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 6 },
-    { x = 0, y = 352, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 6 },
+    { x = 168, y = 40, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13 },
+    { x = 168, y = 40, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13 },
+    { x = 168, y = 40, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13 },
+    { x = 168, y = 40, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13 },
   },
 }
 animation{
-  name = "disappear",
-  src_image = "enemies/boss/dethl/aghanim_form/aghanim.png",
+  name = "reducing",
+  src_image = "enemies/boss/shadow_nightmares/aghanim.png",
   frame_delay = 80,
   directions = {
     { x = 0, y = 0, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 6 },
@@ -33,14 +87,26 @@ animation{
   },
 }
 animation{
-  name = "firing",
-  src_image = "enemies/boss/dethl/aghanim_form/aghanim.png",
+  name = "spinning",
+  src_image = "enemies/boss/shadow_nightmares/aghanim.png",
+  frame_delay = 80,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 1056, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 4 },
+    { x = 0, y = 1056, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 4 },
+    { x = 0, y = 1056, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 4 },
+    { x = 0, y = 1056, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 4 },
+  },
+}
+animation{
+  name = "throwing",
+  src_image = "enemies/boss/shadow_nightmares/aghanim.png",
   frame_delay = 120,
   frame_to_loop_on = 0,
   directions = {
-    { x = 528, y = 0, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85 },
-    { x = 528, y = 264, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85 },
-    { x = 528, y = 176, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85 },
-    { x = 528, y = 88, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85 },
+    { x = 0, y = 1056, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85 },
+    { x = 264, y = 1056, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85 },
+    { x = 176, y = 1056, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85 },
+    { x = 88, y = 1056, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85 },
   },
 }

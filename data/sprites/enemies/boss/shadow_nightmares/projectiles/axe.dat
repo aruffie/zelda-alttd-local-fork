@@ -1,6 +1,6 @@
 animation{
   name = "turn",
-  src_image = "enemies/boss/dethl/ganon_form/fork.png",
+  src_image = "enemies/boss/shadow_nightmares/projectiles/axe.png",
   frame_delay = 120,
   frame_to_loop_on = 0,
   directions = {
@@ -12,7 +12,7 @@ animation{
 }
 animation{
   name = "get_left",
-  src_image = "enemies/boss/dethl/ganon_form/fork.png",
+  src_image = "enemies/boss/shadow_nightmares/projectiles/axe.png",
   frame_delay = 120,
   frame_to_loop_on = 0,
   directions = {
@@ -24,7 +24,7 @@ animation{
 }
 animation{
   name = "get_right",
-  src_image = "enemies/boss/dethl/ganon_form/fork.png",
+  src_image = "enemies/boss/shadow_nightmares/projectiles/axe.png",
   frame_delay = 120,
   frame_to_loop_on = 0,
   directions = {
@@ -36,7 +36,7 @@ animation{
 }
 animation{
   name = "prepare",
-  src_image = "enemies/boss/dethl/ganon_form/fork.png",
+  src_image = "enemies/boss/shadow_nightmares/projectiles/axe.png",
   frame_delay = 120,
   frame_to_loop_on = 0,
   directions = {
