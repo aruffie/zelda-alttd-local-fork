@@ -1912,9 +1912,9 @@ tile_pattern{
   ground = "traversable",
   default_layer = 0,
   x = 176,
-  y = 336,
+  y = 328,
   width = 64,
-  height = 32,
+  height = 40,
 }
 
 tile_pattern{
