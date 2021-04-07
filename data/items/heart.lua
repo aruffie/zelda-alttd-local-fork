@@ -33,8 +33,14 @@ end
 -- is created on the map.
 function item:on_pickable_created(pickable)
 
-  if pickable:get_falling_height() ~= 0 then
+  if pickable:get_falling_height() == 0 then
+    -- Not falling: don't animate the heart.
+    pickable:get_sprite():set_frame(24)
+  else
     -- Replace the default falling movement by a special one.
+    local main_sprite = pickable:get_sprite()
+    shadow_sprite = pickable:create_sprite("entities/shadow")
+    pickable:bring_sprite_to_back(shadow_sprite)
     local trajectory = {
       { 0,  0},
       { 0, -2},
@@ -66,7 +72,12 @@ function item:on_pickable_created(pickable)
     m:set_delay(100)
     m:set_loop(false)
     m:set_ignore_obstacles(true)
-    m:start(pickable)
+
+    m:start(main_sprite, function()
+      if pickable:exists() then
+        pickable:remove_sprite(shadow_sprite)
+      end
+    end)
   end
 
 end
