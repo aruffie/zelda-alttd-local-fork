@@ -1,8 +1,8 @@
 -- Shadowball projectile, mainly used by the Aghanim enemy.
 
 local enemy = ...
-local projectile_behavior = require("enemies/lib/projectile")
 local common_action = require("enemies/lib/common_actions")
+common_action.learn(enemy)
 
 -- Global variables
 local game = enemy:get_game()
@@ -15,12 +15,63 @@ local quarter = math.pi * 0.5
 local eighth = math.pi * 0.25
 local is_returnable
 
+-- Configuration variables.
 local speed = 160
 
--- Determine the shadowball type now then start going to the hero.
+-- Create an impact and its trail that will go on the given angle.
+local function create_impact(angle)
+
+  local impact = enemy:create_enemy({
+    name = (enemy:get_name() or enemy:get_breed()) .. "_impact",
+    breed = "empty", -- Workaround: Breed is mandatory but a non-existing one seems to be ok to create an empty enemy though.
+    direction = 0,
+  })
+  common_action.learn(impact)
+  impact:set_damage(enemy:get_damage())
+  impact:set_invincible()
+  impact:set_layer_independent_collisions(true)
+  impact:set_obstacle_behavior("flying")
+  impact:set_layer(map:get_max_layer())
+
+  local direction = math.floor(angle / quarter) % 4
+  for i = 1, 3, 1 do
+    local sprite = impact:create_sprite("enemies/" .. enemy:get_breed())
+    sprite:set_animation("impact_" .. i)
+    sprite:set_direction(direction)
+    sprite:set_xy(math.cos(angle) * 8 * (3 - i), -math.sin(angle) * 8 * (3 - i))
+  end
+
+  local movement = sol.movement.create("straight")
+  movement:set_speed(speed)
+  movement:set_angle(angle)
+  movement:set_ignore_obstacles()
+  movement:start(impact)
+
+  -- Remove the impact if off screen.
+  function movement:on_position_changed()
+    if not camera:overlaps(impact:get_max_bounding_box()) then
+      impact:start_death()
+    end
+  end
+end
+
+-- Determine the shadowball type then start going to the hero.
 local function start_throwing()
 
-  local movement = enemy:straight_go(nil, speed)
+  local movement = enemy:start_straight_walking(enemy:get_angle(hero), speed, nil, function()
+
+    -- Impact effect on hit an obstacle.
+    if is_returnable then
+      enemy:start_brief_effect("entities/effects/impact_projectile", "default", sprite:get_xy())
+    else
+      -- Create 4 impacts that can hurt the hero.
+      for i = 0, 4, 1 do
+        create_impact(eighth + quarter * i)
+      end
+    end
+    enemy:start_death()
+  end)
+  movement:set_smooth(false)
 
   -- Make the shadowball returnable by the hero sword if needed.
   if is_returnable then
@@ -53,59 +104,9 @@ local function start_loading()
   end)
 end
 
--- Create an impact and its trail that will go on the given angle.
-local function create_impact(angle)
-
-  local impact = enemy:create_enemy({
-    name = (enemy:get_name() or enemy:get_breed()) .. "_impact",
-    breed = "empty", -- Workaround: Breed is mandatory but a non-existing one seems to be ok to create an empty enemy though.
-    direction = 0,
-  })
-  common_action.learn(impact)
-  impact:set_damage(enemy:get_damage())
-  impact:set_invincible()
-  impact:set_layer_independent_collisions(true)
-  impact:set_obstacle_behavior("flying")
-  impact:set_layer(map:get_max_layer())
-
-  local direction = math.floor(angle / quarter) % 4
-  for i = 1, 3, 1 do
-    local sprite = impact:create_sprite("enemies/" .. enemy:get_breed())
-    sprite:set_animation("impact_" .. i)
-    sprite:set_direction(direction)
-    sprite:set_xy(math.cos(angle) * 8 * (3 - i), -math.sin(angle) * 8 * (3 - i))
-  end
-
-  local movement = sol.movement.create("straight")
-  movement:set_speed(speed)
-  movement:set_angle(angle)
-  movement:set_ignore_obstacles()
-  movement:start(impact)
-
-  function movement:on_position_changed()
-    if not camera:overlaps(impact:get_max_bounding_box()) then
-      impact:start_death()
-    end
-  end
-end
-
--- Create an impact effect on hit.
-enemy:register_event("on_hit", function(enemy)
-
-  if is_returnable then
-    enemy:start_brief_effect("entities/effects/impact_projectile", "default", sprite:get_xy())
-  else
-    -- Create 4 impacts that can hurt the hero.
-    for i = 0, 4, 1 do
-      create_impact(eighth + quarter * i)
-    end
-  end
-end)
-
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 
-  projectile_behavior.apply(enemy, sprite)
   enemy:set_life(1)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 8)

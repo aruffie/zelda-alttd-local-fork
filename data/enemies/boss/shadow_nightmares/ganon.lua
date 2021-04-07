@@ -2,7 +2,7 @@
 --
 -- Shadow of Ganon.
 --
--- Description.
+-- Start by taking a double-axe in his hand, then invoke some bats that charge the hero and finally throw the axe to the hero, then move to another position.
 --
 ----------------------------------
 
@@ -13,23 +13,32 @@ require("enemies/lib/common_actions").learn(enemy)
 local game = enemy:get_game()
 local map = enemy:get_map()
 local hero = map:get_hero()
+local camera = map:get_camera()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local hurt_shader = sol.shader.create("hurt")
 local quarter = math.pi * 0.5
+local circle = math.pi * 2.0
+local center_x, center_y
 local axe
 local is_hurt = false
+local is_pushing_back = false
 
 -- Configuration variables.
 local before_arming_duration = 800
 local after_arming_duration = 800
 local bats_count = 8
+local bats_distance = 40
 local between_bats_duration = 500
 local aiming_duration = 1000
+local moving_speed = 120
+local moving_distance_from_center = 52
 local hurt_duration = 600
 local dying_duration = 2000
 
 -- Check if the custom death as to be started before triggering the built-in hurt behavior.
 local function hurt(damage)
+
+-- TODO Only spin attack on sword case.
 
   if is_hurt then
     return
@@ -66,13 +75,30 @@ local function hurt(damage)
   end
 end
 
+-- Only hurt a sword attack received if the attack is a spin one.
+local function on_sword_attack_received()
+
+  if hero:get_sprite():get_animation() == "spin_attack" then
+    hurt(1)
+  end
+  if not is_pushing_back then
+    is_pushing_back = true
+    enemy:start_pushing_back(hero, 200, 100, sprite, nil, function()
+      is_pushing_back = false
+    end)
+  end
+end
+
 -- Create a sub enemy and echo some of the main enemy methods.
 local function create_sub_enemy(name, breed, x, y, direction)
 
   local sub_enemy = enemy:create_enemy({
-      name = (enemy:get_name() or enemy:get_breed()) .. "_axe",
-      breed = "boss/shadow_nightmares/projectiles/axe",
-      direction = sprite:get_direction()
+      name = (enemy:get_name() or enemy:get_breed()) .. "_" .. name,
+      breed = breed,
+      x = x,
+      y = y,
+      layer = map:get_max_layer(),
+      direction = direction
     })
 
   enemy:register_event("on_removed", function(enemy)
@@ -98,8 +124,9 @@ end
 -- Start throwing the axe to the hero.
 local function start_throwing()
 
+  local mirror_ratio = (sprite:get_direction() == 0) and 1 or -1
   sprite:set_animation("aiming")
-  axe:start_aiming(4, -26)
+  axe:start_aiming(4 * mirror_ratio, -26)
   sol.timer.start(enemy, aiming_duration, function()
     sprite:set_animation("throwing")
     axe:start_throwed(enemy)
@@ -109,16 +136,39 @@ end
 -- Start invoking bats.
 local function start_invoking()
 
+  local mirror_ratio = (sprite:get_direction() == 0) and 1 or -1
   sprite:set_animation("invoking")
-  axe:start_spinning(-28, -20)
+  axe:start_spinning(-28 * mirror_ratio, -20)
 
   -- Start invoking bats.
   local bat_count = 0
+  local angle_gap = circle / bats_count
   sol.timer.start(enemy, between_bats_duration, function()
     bat_count = bat_count + 1
-    create_sub_enemy("bat", "boss/shadow_nightmares/projectiles/bat", bat_count * 20, 50, 2)
-    return bat_count < bats_count
+    local angle = angle_gap * -bat_count
+    create_sub_enemy("bat", "boss/shadow_nightmares/projectiles/bat", math.cos(angle) * bats_distance * mirror_ratio, -math.sin(angle) * bats_distance - 32, 2)
+
+    -- Start throwing the axe after the last invoke.
+    if bat_count >= bats_count then
+      start_throwing()
+      return
+    end
+
+    return true
   end)
+end
+
+-- Start moving to another place.
+local function start_moving()
+
+  local random_angle = math.random() * circle -- Random angle between 0 and pi
+  local x, y = center_x + math.cos(random_angle) * moving_distance_from_center, center_y - math.sin(random_angle) * moving_distance_from_center
+  enemy:start_straight_walking(enemy:get_angle(x, y), moving_speed, enemy:get_distance(x, y), function()
+    local direction = x < center_x and 0 or 2
+    sprite:set_direction(direction)
+    axe:get_sprite():set_direction(direction)
+  end)
+  sprite:set_animation("stopped")
 end
 
 -- Start taking the axe in hand.
@@ -136,7 +186,7 @@ local function start_taking_axe()
     -- Start invoking bats when the axe is holded or catched.
     local function holded()
       sprite:set_animation("stopped")
-      axe_sprite:set_xy(-4, 24)
+      axe:start_holded(-4, 24)
       sol.timer.start(enemy, after_arming_duration, function()
         start_invoking()
       end)
@@ -149,6 +199,11 @@ local function start_taking_axe()
       holded()
     end
     axe:start_taking(-32, -16)
+
+    -- Start moving when axe go back.
+    function axe:on_go_back()
+      start_moving()
+    end
   end)
 end
 
@@ -158,6 +213,9 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(12)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
+
+  local camera_x, camera_y, camera_width, camera_height = camera:get_bounding_box()
+  center_x, center_y = camera_x + camera_width * 0.5, camera_y + camera_height * 0.5
 end)
 
 -- Restart settings.
@@ -168,7 +226,7 @@ enemy:register_event("on_restarted", function(enemy)
   	arrow = "protected",
   	boomerang = "protected",
   	explosion = "protected",
-  	sword = function() hurt(1) end,
+  	sword = on_sword_attack_received,
   	thrown_item = "protected",
   	fire = "protected",
   	jump_on = "ignored",

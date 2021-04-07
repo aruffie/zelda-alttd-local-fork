@@ -12,6 +12,7 @@ require("enemies/lib/common_actions").learn(enemy)
 
 local map = enemy:get_map()
 local camera = map:get_camera()
+local hero = map:get_hero()
 local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 local quarter = math.pi * 0.5
 
@@ -25,7 +26,6 @@ local function start_charging()
   local movement = enemy:start_straight_walking(enemy:get_angle(hero), charging_speed)
   movement:set_ignore_obstacles(true)
   enemy:set_can_attack(true)
-  sprite:set_animation("attacking")
 
   -- Kill the bat when off screen.
   function movement:on_position_changed()
@@ -38,11 +38,10 @@ end
 -- Make the bat appear.
 local function start_appearing()
 
-  sprite:set_animation("appearing", function()
-    sprite:set_animation("walking")
-    sol.timer.start(enemy, waiting_duration, function()
-      start_charging()
-    end)
+  enemy:start_brief_effect("entities/effects/flame")
+  sprite:set_animation("walking")
+  sol.timer.start(enemy, waiting_duration, function()
+    start_charging()
   end)
 end
 
@@ -59,7 +58,6 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   enemy:set_invincible()
-
   enemy:set_can_attack(false)
   enemy:set_damage(4)
   enemy:set_obstacle_behavior("flying")

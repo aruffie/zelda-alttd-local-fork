@@ -99,9 +99,8 @@ local function hurt()
   sprite:set_animation("hurt")
   sol.timer.start(enemy, hurt_duration, function()
     is_hurt = false
-    enemy:set_hero_weapons_reactions({magic_powder = hurt})
     sprite:set_animation("shaking")
-    sol.timer.start(enemy, shaking_duration, function()
+    sol.timer.start(enemy, shaking_duration, function()  
       if math.random() < respawning_probability then
         start_disappearing()
         return
