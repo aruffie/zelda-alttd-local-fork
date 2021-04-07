@@ -13803,7 +13803,7 @@ destination{
   layer = 1,
   x = 72,
   y = 109,
-  direction = 1,
+  direction = 3,
 }
 
 teletransporter{
@@ -13822,7 +13822,7 @@ destination{
   layer = 1,
   x = 592,
   y = 101,
-  direction = 1,
+  direction = 3,
 }
 
 teletransporter{
@@ -13859,7 +13859,7 @@ destination{
   layer = 1,
   x = 120,
   y = 189,
-  direction = 1,
+  direction = 3,
 }
 
 teletransporter{

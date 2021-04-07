@@ -205,7 +205,7 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_can_attack(true)
   enemy:set_damage(4)
   enemy:start_walking()
-  if enemy:get_life() < 4 then
+  if enemy:get_life() < 4 then -- Don't be angry on the first start.
     enemy:set_angry()
   end
 end)

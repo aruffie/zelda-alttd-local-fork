@@ -68,3 +68,28 @@ function mermaid_statue_npc:on_interaction()
   end
 
 end
+
+-- Underwater teleporters.
+local function underwater_teleport(map, destination)
+
+  -- Teleport only if the hero is diving.
+  local custom_state = hero:get_state_object()
+  if custom_state and custom_state:get_description() == "diving" then
+    hero:teleport(map, destination, "fade")
+  end
+end
+
+function sideview_1_1_A:on_activated_repeat() -- Use the on_activated_repeat() event to take care of state changing to swimming while not moving.
+
+  underwater_teleport("sideviews/martha_bay/sideview_1", "sideview_1_1_B")
+end
+
+function sideview_2_1_A:on_activated_repeat()
+
+  underwater_teleport("sideviews/martha_bay/sideview_2", "sideview_2_1_B")
+end
+
+function sideview_2_2_A:on_activated_repeat()
+
+  underwater_teleport("sideviews/martha_bay/sideview_2", "sideview_2_2_B")
+end

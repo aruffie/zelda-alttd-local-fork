@@ -53,5 +53,5 @@ void main() {
 
   // Finally display the image normally for the last 50ms.
   else
-		FragColor = vec4(texel.r, texel.g, texel.b, texel.a);
+		FragColor = texel;
 }

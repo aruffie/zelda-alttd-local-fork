@@ -1,0 +1,75 @@
+animation{
+  name = "head",
+  src_image = "enemies/boss/shadow_nightmares/lanmola.png",
+  directions = {
+    { x = 128, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8 },
+    { x = 128, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8 },
+    { x = 128, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8 },
+    { x = 128, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8 },
+  },
+}
+animation{
+  name = "body",
+  src_image = "enemies/boss/shadow_nightmares/lanmola.png",
+  directions = {
+    { x = 136, y = 40, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8 },
+    { x = 136, y = 40, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8 },
+    { x = 136, y = 40, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8 },
+    { x = 136, y = 40, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8 },
+  },
+}
+animation{
+  name = "growing",
+  src_image = "enemies/boss/shadow_nightmares/lanmola.png",
+  frame_delay = 100,
+  directions = {
+    { x = 0, y = 64, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 16, num_frames = 6 },
+    { x = 0, y = 64, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 16, num_frames = 6 },
+    { x = 0, y = 64, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 16, num_frames = 6 },
+    { x = 0, y = 64, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 16, num_frames = 6 },
+  },
+}
+animation{
+  name = "head_reducing",
+  src_image = "enemies/boss/shadow_nightmares/lanmola.png",
+  frame_delay = 100,
+  directions = {
+    { x = 96, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 16, num_frames = 3 },
+    { x = 96, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 16, num_frames = 3 },
+    { x = 96, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 16, num_frames = 3 },
+    { x = 96, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 16, num_frames = 3 },
+  },
+}
+animation{
+  name = "particle",
+  src_image = "enemies/boss/shadow_nightmares/lanmola.png",
+  directions = {
+    { x = 168, y = 40, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8 },
+    { x = 168, y = 40, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8 },
+    { x = 168, y = 40, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8 },
+    { x = 168, y = 40, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8 },
+  },
+}
+animation{
+  name = "reducing",
+  src_image = "enemies/boss/shadow_nightmares/lanmola.png",
+  frame_delay = 100,
+  directions = {
+    { x = 0, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 16, num_frames = 6 },
+    { x = 0, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 16, num_frames = 6 },
+    { x = 0, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 16, num_frames = 6 },
+    { x = 0, y = 32, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 16, num_frames = 6 },
+  },
+}
+animation{
+  name = "spirit",
+  src_image = "enemies/boss/shadow_nightmares/lanmola.png",
+  frame_delay = 300,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 16, num_frames = 4 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 16, num_frames = 4 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 16, num_frames = 4 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 16, num_frames = 4 },
+  },
+}

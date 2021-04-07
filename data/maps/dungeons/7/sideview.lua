@@ -1,11 +1,15 @@
 -- Variables
 local map = ...
 local game = map:get_game()
+local camera = map:get_camera()
+local thunder_shader = sol.shader.create("thunder")
 local is_boss_active = false
 
 -- Include scripts
 local audio_manager = require("scripts/audio_manager")
 local enemy_manager = require("scripts/maps/enemy_manager")
+local treasure_manager = require("scripts/maps/treasure_manager")
+local weather_manager = require("scripts/maps/weather_manager")
 
 -- Create a custom entity.
 local function create_custom_entity(x, y, sprite)
@@ -154,6 +158,70 @@ local function start_boss_cinematic()
   end)
 end
 
+-- Make the given cloud moves.
+local function start_cloud_movement(entity, speed)
+
+  local x, y = entity:get_position()
+  start_straight_movement(entity, speed, 0, 264, function()
+    entity:set_position(x, y)
+    start_cloud_movement(entity, speed)
+  end)
+end
+
+-- Create and animate clouds.
+local function start_clouds()
+
+  for y = 104, 168, 8 do
+    local cloud = map:create_custom_entity({
+      direction = 0,
+      x = math.random(-464, -264),
+      y = y,
+      layer = 0,
+      width = 792,
+      height = 72,
+      sprite = "entities/decorations/clouds"
+    })
+    cloud:set_tiled()
+    start_cloud_movement(cloud, math.random(10, 30))
+  end
+end
+
+-- Clouds managment.
+local function start_thunder()
+
+  sol.timer.start(map, math.random(3000, 5000), function()
+    local x = math.random(48, 272)
+    local thunder = map:create_custom_entity({
+      direction = 0,
+      x = x,
+      y = 0,
+      layer = 0,
+      width = 32,
+      height = 72,
+      sprite = "entities/effects/thunder"
+    })
+    local sprite = thunder:get_sprite()
+    sprite:set_animation("appearing", function()
+      sprite:set_animation("visible")
+      sol.timer.start(thunder, 300, function()
+        thunder:remove()
+      end)
+    end)
+
+    -- Apply a light effect on the camera.
+    local brightness_duration = math.random(40, 500)
+    camera:get_surface():set_shader(thunder_shader)
+    thunder_shader:set_uniform("started_time", sol.main.get_elapsed_time())
+    thunder_shader:set_uniform("full_luminosity_duration", brightness_duration)
+    thunder_shader:set_uniform("total_duration", brightness_duration + 500)
+    sol.timer.start(camera, brightness_duration + 500, function()
+      camera:get_surface():set_shader(nil)
+    end)
+
+    return math.random(2000, 4000)
+  end)
+end
+
 -- Map events
 function map:on_started()
 
@@ -161,6 +229,14 @@ function map:on_started()
   map:init_music()
   -- Sideview
   map:set_sideview(true)
+  -- Weather
+  start_clouds()
+  start_thunder()
+  weather_manager:launch_sideview_rain(map, 200, 2)
+  weather_manager:launch_sideview_rain(map, 50, 1)
+  -- Pickables
+  treasure_manager:disappear_pickable(map, "heart_container")
+  treasure_manager:appear_heart_container_if_boss_dead(map)
 end
 
 -- Initialize the music of the map
@@ -177,7 +253,7 @@ function separator_1:on_activating(direction4)
   if boss and boss:exists() then
     if direction4 == 1 and not boss:is_enabled() then
       boss:set_enabled(true)
-      boss:start_restoring() -- Restart the boss if coming up again after falling.
+      boss:start_fighting() -- Restart the boss if coming up again after falling.
 
     elseif direction4 == 3 and boss:is_enabled() then
       sol.timer.stop_all(boss)

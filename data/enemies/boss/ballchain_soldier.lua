@@ -10,7 +10,6 @@
 --           enemy:start_attacking()
 --
 ----------------------------------
--- TODO Don't move on restart by hurt and currently attacking or aiming.
 
 -- Global variables
 local enemy = ...
@@ -97,13 +96,13 @@ enemy:register_event("on_created", function(enemy)
     layer = enemy:get_layer() + 1
   })
   enemy:start_welding(flail, right_hand_offset_x, right_hand_offset_y)
+end)
 
-  -- Make flail disappear when the enemy became invisible on dying.
-  enemy:register_event("on_dying", function(enemy)
-    flail:start_death(function()
-      sol.timer.start(flail, 300, function() -- No event when the enemy became invisible, hardcode a timer.
-        finish_death()
-      end)
+-- Make flail disappear when the enemy became invisible on dying.
+enemy:register_event("on_dying", function(enemy)
+  flail:start_death(function()
+    sol.timer.start(flail, 300, function() -- No event when the enemy became invisible, hardcode a timer.
+      finish_death()
     end)
   end)
 end)
@@ -130,5 +129,9 @@ enemy:register_event("on_restarted", function(enemy)
   flail:set_chain_origin_offset(0, 0)
   enemy:set_can_attack(true)
   enemy:set_damage(2)
-  enemy:start_walking()
+  if not is_attacking then
+    enemy:start_walking()
+  else
+    sprite:set_animation(flail:get_state() == "throwing" and "throwing" or "aiming")
+  end
 end)

@@ -224,6 +224,7 @@ local function push(entity, pushing_entity, speed, duration, entity_sprite, push
 end
 
 -- Some items needs to push the enemy, the hero or both on a protected reaction.
+-- TODO Make something like enemy:set_behavior_on_protected(weapon, enemy_behavior, hero_behavior) instead.
 local function on_protected(enemy, attack)
 
   local hero = enemy:get_map():get_hero()

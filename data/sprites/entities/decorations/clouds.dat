@@ -1,0 +1,7 @@
+animation{
+  name = "default",
+  src_image = "entities/decorations/clouds.png",
+  directions = {
+    { x = 0, y = 0, frame_width = 264, frame_height = 72, origin_x = 0, origin_y = 0 },
+  },
+}
