@@ -27,7 +27,6 @@ local function initialize_hud_features(game)
   local item_icons = {}
   local action_icon
   local attack_icon
-  local pause_icon
   local hearts
   local rupees
   local keys
@@ -212,7 +211,7 @@ local function initialize_hud_features(game)
         local hero_x, hero_y = hero:get_position()
         local camera_x, camera_y = map:get_camera():get_position()
         local x, y = hero_x - camera_x, hero_y - camera_y
-        top_left_transparent = x < 92 and y < 72
+        top_left_transparent = x < 92 and y < 50
         top_right_transparent = x > 224 and y < 40
       end
 
@@ -222,9 +221,6 @@ local function initialize_hud_features(game)
       end
       if attack_icon then
         attack_icon:set_transparent(top_left_transparent)
-      end
-      if pause_icon then
-        pause_icon:set_transparent(top_left_transparent)
       end
       for _, item_icon in pairs(item_icons) do
         if item_icon then
@@ -277,11 +273,6 @@ local function initialize_hud_features(game)
         action_icon:set_active(true)
       end
 
-      if pause_icon ~= nil then
-        pause_icon:set_enabled(false)
-        pause_icon:set_active(false)
-      end
-
       for _, item_icon in ipairs(item_icons) do
         if item_icon ~= nil then
           item_icon:set_enabled(false)
@@ -301,11 +292,6 @@ local function initialize_hud_features(game)
         local effect = game.get_custom_command_effect ~= nil and game:get_custom_command_effect("action") or game:get_command_effect("action")
         action_icon:set_enabled(effect ~= nil)
         action_icon:set_active(true)
-      end
-
-      if pause_icon ~= nil then
-        pause_icon:set_enabled(true)
-        pause_icon:set_active(true)
       end
 
       for _, item_icon in ipairs(item_icons) do
@@ -337,11 +323,6 @@ local function initialize_hud_features(game)
         action_icon:set_active(true)
       end
 
-      if pause_icon ~= nil then
-        pause_icon:set_enabled(true)
-        pause_icon:set_active(true)
-      end
-
       for _, item_icon in ipairs(item_icons) do
         if item_icon ~= nil then
           item_icon:set_enabled(true)
@@ -359,11 +340,6 @@ local function initialize_hud_features(game)
         action_icon:set_dst_position(action_icon:get_normal_position())
         action_icon:set_enabled(false)
         action_icon:set_active(false)
-      end
-
-      if pause_icon ~= nil then
-        pause_icon:set_enabled(false)
-        pause_icon:set_active(false)
       end
 
       for _, item_icon in ipairs(item_icons) do
@@ -415,8 +391,6 @@ local function initialize_hud_features(game)
       attack_icon:set_active(is_active)
     elseif command == "action" then
       action_icon:set_active(is_active)
-    elseif command == "pause" then
-      pause_icon:set_active(is_active)
     elseif command == "item_1" then
       hud:set_item_icon_active(1, is_active)
     elseif command == "item_2" then
@@ -430,8 +404,6 @@ local function initialize_hud_features(game)
       return attack_icon:is_active()
     elseif command == "action" then
       return action_icon:is_active()
-    elseif command == "pause" then
-      return pause_icon:is_active()
     elseif command == "item_1" then
       return hud:is_item_icon_active(1)
     elseif command == "item_2" then
@@ -484,9 +456,6 @@ local function initialize_hud_features(game)
     if action_icon then
       sol.menu.bring_to_front(action_icon)
     end
-    if pause_icon then
-      sol.menu.bring_to_front(pause_icon)
-    end
     for _, item_icon in ipairs(item_icons) do
       if item_icon then
         sol.menu.bring_to_front(item_icon)
@@ -519,8 +488,6 @@ local function initialize_hud_features(game)
       function attack_icon:on_command_effect_changed(effect)
         attack_icon:set_enabled(hud:get_mode() ~= "no_buttons" and effect ~= nil)
       end
-    elseif element_config.menu_script == "scripts/hud/pause_icon" then
-      pause_icon = element
     elseif element_config.menu_script == "scripts/hud/hearts" then
       hearts = element
     elseif element_config.menu_script == "scripts/hud/small_keys" then

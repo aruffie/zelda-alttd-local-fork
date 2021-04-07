@@ -19,13 +19,6 @@ local hud_config = {
     y = 8,
   },
 
-  -- Magic bar.
-  -- {
-  --   menu_script = "scripts/hud/magic_bar",
-  --   x = -104,
-  --   y = 27,
-  -- },
-
   -- Rupee counter.
   {
     menu_script = "scripts/hud/rupees",
@@ -47,18 +40,11 @@ local hud_config = {
     y = 70,
   },
 
-  -- Pause icon.
-  {
-    menu_script = "scripts/hud/pause_icon",
-    x = 23,
-    y = 6,
-  },
-
   -- Item icon for slot 1.
   {
     menu_script = "scripts/hud/item_icon",
     x = 9,
-    y = 28,
+    y = 6,
     slot = 1,  -- Item slot (1 or 2).
   },
 
@@ -66,7 +52,7 @@ local hud_config = {
   {
     menu_script = "scripts/hud/item_icon",
     x = 62,
-    y = 28,
+    y = 6,
     slot = 2,  -- Item slot (1 or 2).
   },
 
@@ -74,7 +60,7 @@ local hud_config = {
   {
     menu_script = "scripts/hud/attack_icon",
     x = 35,
-    y = 28,
+    y = 6,
     dialog_x = 15,
     dialog_y = 20,
   },
@@ -83,7 +69,7 @@ local hud_config = {
   {
     menu_script = "scripts/hud/action_icon",
     x = 50,
-    y = 50,
+    y = 28,
     dialog_x = 30,
     dialog_y = 42,
   },
