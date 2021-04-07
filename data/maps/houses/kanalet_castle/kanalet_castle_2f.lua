@@ -74,7 +74,7 @@ function map:init_music()
 end
 
 -- Sensors events
-function sensor_1:on_activated()
+function close_door_sensor:on_activated()
 
   door_manager:close_if_enemies_not_dead(map, "enemy_group_3_", "door_group_1_")
 
