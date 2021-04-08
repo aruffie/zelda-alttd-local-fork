@@ -44,20 +44,20 @@ local dethl_transition_before_reducing_duration = 1000
 local dethl_transition_before_growing_duration = 500
 
 -- Create the given shadow nightmares enemy.
-local function create_shadow(name, breed, on_dead_callback)
+local function create_shadow(name, breed, offset_y, on_dead_callback)
 
   local shadow = enemy:create_enemy({
     name = (enemy:get_name() or enemy:get_breed()) .. "_" .. name,
     breed = breed,
     direction = 3,
-    y = 5
+    y = offset_y
   })
 
   -- Prepare the next transition when shadow defeated.
   shadow:register_event("on_dead", function(shadow)
     local x, y = shadow:get_position()
-    local sprite_x, sprite_y = shadow:get_sprite():get_xy()
-    enemy:set_position(x + sprite_x, y + sprite_y - 13)
+    local sprite_x, sprite_y = shadow:get_sprite("main"):get_xy()
+    enemy:set_position(x + sprite_x, y + sprite_y - 13) -- TODO
     if on_dead_callback then
       on_dead_callback()
     end
@@ -86,7 +86,7 @@ local function start_straight_movement(angle, speed, distance, on_finished_callb
   end
 end
 -- Start a shadow explosion projecting particles.
-local function start_particle_explosion()
+local function start_particle_explosion(on_finished_callback)
 
   -- Create sprite on an independent entity in case the enemy moves.
   local x, y, layer = enemy:get_position()
@@ -106,6 +106,9 @@ local function start_particle_explosion()
     local particle_sprite = explosion:create_sprite("enemies/boss/shadow_nightmares/spirit")
     particle_sprite:set_animation("reducing", function()
       explosion:remove()
+      if on_finished_callback then
+        on_finished_callback()
+      end
     end)
     explosion:bring_sprite_to_back(particle_sprite)
 
@@ -200,7 +203,7 @@ local function start_giant_gel_transition()
   sprite:set_animation("reducing", function()
     sol.timer.start(enemy, giant_gel_transition_before_growing_duration, function()
       sprite:set_animation("growing", function()
-        create_shadow("giant_gel", "boss/shadow_nightmares/giant_gel", function()
+        create_shadow("giant_gel", "boss/shadow_nightmares/giant_gel", 5, function()
           enemy:start_transition("aghanim")
         end)
       end)
@@ -213,8 +216,8 @@ end
 local function start_aghanim_transition()
 
   start_particle_transition(aghanim_transition_before_reducing_duration, aghanim_transition_before_growing_duration, true, function()
-    local growing_entity = enemy:start_brief_effect("enemies/boss/shadow_nightmares/aghanim", "growing", 0, 5, nil, function()
-      create_shadow("aghanim", "boss/shadow_nightmares/aghanim", function()
+    local growing_entity = enemy:start_brief_effect("enemies/boss/shadow_nightmares/aghanim", "growing", 0, 7, nil, function()
+      create_shadow("aghanim", "boss/shadow_nightmares/aghanim", 7, function()
         enemy:start_transition("moldorm")
       end)
     end)
@@ -226,7 +229,7 @@ end
 local function start_moldorm_transition()
 
   start_particle_transition(moldorm_transition_before_reducing_duration, moldorm_transition_before_growing_duration, true, function()
-    create_shadow("moldorm", "boss/shadow_nightmares/moldorm", function()
+    create_shadow("moldorm", "boss/shadow_nightmares/moldorm", 0, function()
       enemy:start_transition("ganon")
     end)
   end)
@@ -236,8 +239,8 @@ end
 local function start_ganon_transition()
 
   start_particle_transition(0, ganon_transition_before_growing_duration, true, function()
-    local growing_entity = enemy:start_brief_effect("enemies/boss/shadow_nightmares/ganon", "growing", 0, 5, nil, function()
-      create_shadow("ganon", "boss/shadow_nightmares/ganon", function()
+    local growing_entity = enemy:start_brief_effect("enemies/boss/shadow_nightmares/ganon", "growing", 0, 12, nil, function()
+      create_shadow("ganon", "boss/shadow_nightmares/ganon", 12, function()
         enemy:start_transition("lanmola")
       end)
     end)
@@ -251,7 +254,7 @@ local function start_lanmola_transition()
   sprite:set_animation("head")
   start_particle_explosion()
   sol.timer.start(enemy, lanmola_transition_before_moving_duration, function()
-    create_shadow("lanmola", "boss/shadow_nightmares/lanmola", function()
+    create_shadow("lanmola", "boss/shadow_nightmares/lanmola", 5, function()
       enemy:start_transition("dethl")
     end)
   end)
@@ -270,8 +273,10 @@ local function start_dethl_transition()
     local distance = enemy:get_distance(spawn_position.x, spawn_position.y)
     start_straight_movement(angle, particle_speed, distance, function()
       start_particle_transition(dethl_transition_before_reducing_duration, dethl_transition_before_growing_duration, false, function()
-        create_shadow("dethl", "boss/shadow_nightmares/dethl", function()
-          enemy:start_death()
+        create_shadow("dethl", "boss/shadow_nightmares/dethl", 22, function()
+          start_particle_explosion(function()
+            enemy:start_death()
+          end)
         end)
       end)
     end)
@@ -311,11 +316,11 @@ end)
 enemy:register_event("on_restarted", function(enemy)
 
   -- States.
+  local hero_x, hero_y = hero:get_position()
   sprite:set_animation("head")
   enemy:set_drawn_in_y_order(false)
-  enemy:set_position(hero:get_position())
+  enemy:set_position(hero_x, hero_y)
   enemy:set_invincible()
   enemy:set_can_attack(false)
-  --start_spirit()
-  enemy:start_transition("ganon")
+  start_spirit()
 end)

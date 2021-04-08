@@ -43,7 +43,6 @@ local function transform_into_stalfos()
   end
   is_firing = true
 
-  local x, y, layer = enemy:get_position()
   local stalfos = enemy:create_enemy({
     name = (enemy:get_name() or enemy:get_breed()) .. "_stalfos",
     breed = "stalfos_red"

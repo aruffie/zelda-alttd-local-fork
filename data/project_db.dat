@@ -54,6 +54,9 @@ map{ id = "dungeons/10/sideview_b", description = "Sideview B" }
 map{ id = "dungeons/10/sideview_c", description = "Sideview C" }
 map{ id = "dungeons/10/sideview_d", description = "Sideview D" }
 map{ id = "dungeons/10/temp_lobby" }
+map{ id = "dungeons/11/1f", description = "Dungeon 11 1F" }
+map{ id = "dungeons/11/b1", description = "Dungeon 11 B1" }
+map{ id = "dungeons/11/b2", description = "Dungeon 11 B2" }
 map{ id = "dungeons/2/1f", description = "Dungeon 2 1F" }
 map{ id = "dungeons/2/sideview_1", description = "Sideview 1" }
 map{ id = "dungeons/2/sideview_2", description = "Sideview 2" }
@@ -78,9 +81,6 @@ map{ id = "dungeons/7/3f", description = "Dungeon 7 3F" }
 map{ id = "dungeons/7/sideview", description = "Sideview" }
 map{ id = "dungeons/8/1f", description = "Dungeon 8 1F" }
 map{ id = "dungeons/9/1f", description = "Dungeon 9 1F" }
-map{ id = "dungeons/egg/1f", description = "Dungeon 11 1F" }
-map{ id = "dungeons/egg/b1", description = "Dungeon 11 B1" }
-map{ id = "dungeons/egg/b2", description = "Dungeon 11 B2" }
 map{ id = "examples/beach_store", description = "Beach Store" }
 map{ id = "examples/cave_store", description = "Cave Store" }
 map{ id = "examples/dungeon_store", description = "Dungeon store" }
@@ -1404,7 +1404,9 @@ enemy{ id = "boss/shadow_nightmares/ganon", description = "Ganon" }
 enemy{ id = "boss/shadow_nightmares/giant_gel", description = "Giant Gel" }
 enemy{ id = "boss/shadow_nightmares/lanmola", description = "Lanmola" }
 enemy{ id = "boss/shadow_nightmares/moldorm", description = "Moldorm" }
-enemy{ id = "boss/shadow_nightmares/projectiles/shadowball", description = "shadowball" }
+enemy{ id = "boss/shadow_nightmares/projectiles/axe", description = "Axe" }
+enemy{ id = "boss/shadow_nightmares/projectiles/bat", description = "Bat" }
+enemy{ id = "boss/shadow_nightmares/projectiles/shadowball", description = "Shadowball" }
 enemy{ id = "boss/shadow_nightmares/shadow_nightmares", description = "Shadow Nightmares" }
 enemy{ id = "boss/slime_eel", description = "Slime Eel" }
 enemy{ id = "boss/slime_eye", description = "Slime Eye" }
@@ -1646,6 +1648,8 @@ file{ path = "enemies/boss/shadow_nightmares/ganon.lua", author = "Vlag", licens
 file{ path = "enemies/boss/shadow_nightmares/giant_gel.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/shadow_nightmares/lanmola.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/shadow_nightmares/moldorm.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/boss/shadow_nightmares/projectiles/axe.lua", author = "Vlag", license = "GPL v3" }
+file{ path = "enemies/boss/shadow_nightmares/projectiles/bat.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/shadow_nightmares/projectiles/shadowball.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/shadow_nightmares/shadow_nightmares.lua", author = "Vlag", license = "GPL v3" }
 file{ path = "enemies/boss/slime_eel.lua", author = "Vlag", license = "GPL v3" }
@@ -2020,6 +2024,13 @@ file{ path = "maps/dungeons/10/1f.dat", author = "Benjamin Schweitzer", license 
 file{ path = "maps/dungeons/10/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/dungeons/10/sideview_a.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/dungeons/10/sideview_a.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/11", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
+file{ path = "maps/dungeons/11/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/11/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/11/b1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/11/b1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/dungeons/11/b2.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/dungeons/11/b2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/dungeons/2", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/dungeons/2/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/dungeons/2/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
@@ -2074,13 +2085,6 @@ file{ path = "maps/dungeons/8/1f.lua", author = "Benjamin Schweitzer, Vlag", lic
 file{ path = "maps/dungeons/9", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/dungeons/9/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/dungeons/9/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/dungeons/egg", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/dungeons/egg/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/egg/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/dungeons/egg/b1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/egg/b1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/dungeons/egg/b2.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
-file{ path = "maps/dungeons/egg/b2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/houses", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/houses/east_prairie", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/houses/east_prairie/telephone_booth_5.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }

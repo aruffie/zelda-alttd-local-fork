@@ -5,7 +5,7 @@ properties{
   height = 480,
   min_layer = 0,
   max_layer = 2,
-  world = "inside_world",
+  world = "dungeon_11",
   floor = 0,
   tileset = "dungeon/blue",
   music = "same",
@@ -1536,7 +1536,7 @@ teletransporter{
   y = 64,
   width = 48,
   height = 96,
-  destination_map = "dungeons/egg/b1",
+  destination_map = "dungeons/11/b1",
   destination = "hole",
 }
 
@@ -1546,7 +1546,7 @@ teletransporter{
   y = 40,
   width = 64,
   height = 160,
-  destination_map = "dungeons/egg/b1",
+  destination_map = "dungeons/11/b1",
   destination = "hole",
 }
 
@@ -1556,7 +1556,7 @@ teletransporter{
   y = 40,
   width = 64,
   height = 160,
-  destination_map = "dungeons/egg/b1",
+  destination_map = "dungeons/11/b1",
   destination = "hole",
 }
 
