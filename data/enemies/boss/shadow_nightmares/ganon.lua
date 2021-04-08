@@ -38,8 +38,6 @@ local dying_duration = 2000
 -- Check if the custom death as to be started before triggering the built-in hurt behavior.
 local function hurt(damage)
 
--- TODO Only spin attack on sword case.
-
   if is_hurt then
     return
   end

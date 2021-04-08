@@ -937,9 +937,29 @@ Prince des Cauchemars
 }
 
 dialog{
+  id = "maps.dungeons.11.boss_dying",
+  text = [[
+maps.dungeons.11.boss_dying
+]],
+}
+
+dialog{
   id = "maps.dungeons.11.boss_name",
   text = [[
 Maleficio
+]],
+}
+
+dialog{
+  id = "maps.dungeons.11.boss_welcome",
+  text = [[
+Nous provenons des cauchemars.
+Pour dominer ce monde, nous avons provoqué un sommeil sans fin chez le Poisson-Rêve.
+Tant qu'il dort, l'île existera !
+Nous sommes les Maîtres ici et toi avorton, tu arrives pour contrecarrer nos plans ?
+Ha ha !
+Tu ne nous battras jamais !
+Tu vas périr ...
 ]],
 }
 
@@ -1128,6 +1148,16 @@ dialog{
   id = "maps.dungeons.4.boss_name",
   text = [[
 Lampoisse
+]],
+}
+
+dialog{
+  id = "maps.dungeons.4.boss_welcome",
+  text = [[
+GLOU GLOU !
+GLOUP ! GLOUP !
+MIAM ! A MANGER !
+GLOUP ! GLOUP !
 ]],
 }
 

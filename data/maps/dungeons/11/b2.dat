@@ -5,7 +5,8 @@ properties{
   height = 240,
   min_layer = 0,
   max_layer = 2,
-  world = "inside_world",
+  world = "dungeon_11",
+  floor = -2,
   tileset = "dungeon/blue",
   music = "same",
 }
@@ -609,19 +610,21 @@ tile{
   tileset = "addition/dungeon",
 }
 
+custom_entity{
+  name = "placeholder_boss",
+  layer = 0,
+  x = 160,
+  y = 157,
+  width = 16,
+  height = 16,
+  direction = 0,
+}
+
 destination{
   name = "hole",
   layer = 0,
   x = 160,
   y = 157,
   direction = -1,
-}
-
-enemy{
-  layer = 0,
-  x = 176,
-  y = 141,
-  direction = 0,
-  breed = "boss/shadow_nightmares/shadow_nightmares",
 }
 
