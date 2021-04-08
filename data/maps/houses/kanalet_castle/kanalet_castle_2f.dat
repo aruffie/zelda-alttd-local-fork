@@ -1544,7 +1544,7 @@ tile{
 tile{
   layer = 0,
   x = 336,
-  y = 384,
+  y = 376,
   width = 24,
   height = 32,
   pattern = "wall_decor.3-3",
@@ -1553,7 +1553,7 @@ tile{
 tile{
   layer = 0,
   x = 600,
-  y = 384,
+  y = 376,
   width = 24,
   height = 32,
   pattern = "wall_decor.4-3",
@@ -2891,7 +2891,16 @@ custom_entity{
 }
 
 sensor{
-  name = "sensor_1",
+  name = "close_door_sensor",
+  layer = 0,
+  x = 480,
+  y = 197,
+  width = 16,
+  height = 16,
+}
+
+sensor{
+  name = "respawn_sensor",
   layer = 0,
   x = 480,
   y = 197,

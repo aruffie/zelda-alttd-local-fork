@@ -8891,71 +8891,11 @@ tile{
 
 tile{
   layer = 1,
-  x = 304,
-  y = 552,
-  width = 8,
-  height = 24,
-  pattern = "7697",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 1,
-  x = 376,
-  y = 552,
-  width = 8,
-  height = 24,
-  pattern = "7698",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 1,
-  x = 296,
-  y = 528,
-  width = 16,
-  height = 24,
-  pattern = "7700",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 1,
-  x = 376,
-  y = 528,
-  width = 16,
-  height = 24,
-  pattern = "7702",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 1,
-  x = 384,
-  y = 536,
-  width = 16,
-  height = 40,
-  pattern = "7672",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 1,
   x = 288,
   y = 576,
   width = 16,
   height = 48,
   pattern = "7668",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 1,
-  x = 288,
-  y = 536,
-  width = 16,
-  height = 40,
-  pattern = "7671",
   tileset = "out/outside_buildings",
 }
 
@@ -9776,6 +9716,12 @@ dynamic_tile{
   layer = 1,
   x = 312,
   y = 552,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
   width = 64,
   height = 24,
   pattern = "4070",
@@ -10586,6 +10532,70 @@ custom_entity{
   width = 32,
   height = 32,
   direction = 0,
+}
+
+dynamic_tile{
+  layer = 1,
+  x = 304,
+  y = 552,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
+  width = 8,
+  height = 24,
+  pattern = "7697",
+  tileset = "out/outside_buildings",
+}
+
+dynamic_tile{
+  layer = 1,
+  x = 376,
+  y = 552,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
+  width = 8,
+  height = 24,
+  pattern = "7698",
+  tileset = "out/outside_buildings",
+}
+
+dynamic_tile{
+  layer = 1,
+  x = 384,
+  y = 536,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 40,
+  pattern = "7672",
+  tileset = "out/outside_buildings",
+}
+
+dynamic_tile{
+  layer = 1,
+  x = 288,
+  y = 536,
+  properties = {
+    {
+      key = "draw_in_y_order",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 40,
+  pattern = "7671",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -11690,9 +11700,9 @@ tile{
 
 tile{
   layer = 2,
-  x = 304,
+  x = 288,
   y = 520,
-  width = 80,
+  width = 112,
   height = 8,
   pattern = "12596",
   tileset = "out/outside_buildings",
@@ -11868,6 +11878,26 @@ tile{
   height = 24,
   pattern = "32",
   tileset = "addition/out",
+}
+
+tile{
+  layer = 2,
+  x = 296,
+  y = 528,
+  width = 16,
+  height = 24,
+  pattern = "7700",
+  tileset = "out/outside_buildings",
+}
+
+tile{
+  layer = 2,
+  x = 376,
+  y = 528,
+  width = 16,
+  height = 24,
+  pattern = "7702",
+  tileset = "out/outside_buildings",
 }
 
 wall{

@@ -42,7 +42,7 @@ sensor_meta:register_event("on_activated", function(sensor)
 
   -- Sensors prefixed by "save_solid_ground_sensor" are where the hero come back
   -- when falling into a hole or other bad ground.
-  if sensor:get_property("save_solid_ground") or name:match("^save_solid_ground_sensor")  then
+  if sensor:get_property("save_solid_ground") or name:match("^save_solid_ground_sensor") then
     if not hero.respawn_point_saved then
       hero:save_solid_ground()
       hero.respawn_point_saved=true
@@ -52,10 +52,12 @@ sensor_meta:register_event("on_activated", function(sensor)
 
   -- Sensors prefixed by "reset_solid_ground_sensor" clear any place for the hero
   -- to come back when falling into a hole or other bad ground.
-  if sensor:get_property("reset_solid_ground") or name:match("^reset_solid_ground_sensor")  then
+  if sensor:get_property("reset_solid_ground") or name:match("^reset_solid_ground_sensor") then
     hero:reset_solid_ground()
     hero.respawn_point_saved=nil
-    if hero.initialize_unstable_floor_manager then hero:initialize_unstable_floor_manager() end
+    if hero.initialize_unstable_floor_manager then
+      hero:initialize_unstable_floor_manager()
+    end
     return
   end
 
