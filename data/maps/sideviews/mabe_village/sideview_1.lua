@@ -290,6 +290,7 @@ local function start_launching()
 
     local initial_x = -200
     local initial_y = -150
+    local fall_factor = 0.3
 
     mov:set_ignore_obstacles(false)
     mov:set_ignore_suspend(true)
@@ -297,9 +298,12 @@ local function start_launching()
     mov:start(ledger_hook)
 
     sol.timer.start(map, 20, function()
+      if not game:is_command_pressed("action") then
+        fall_factor = 0.8
+      end
       set_mov_vec(mov,
         clamp(initial_x, 0, initial_x + current() * 0.00), 
-        math.min(1000, initial_y + current() * 0.5)
+        math.min(1000, initial_y + current() * fall_factor)
       )
 
       if ledger_hook:overlaps(water_ent) then
