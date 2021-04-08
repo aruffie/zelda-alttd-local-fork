@@ -546,7 +546,13 @@ local function initialize_dungeon_features(game)
       rows = 6,
       cols= 7,
       music = "74_wind_fish_egg.ogg",
-      no_map = true
+      no_map = true,
+      boss = {
+        floor = -2,
+        breed = "boss/shadow_nightmares/shadow_nightmares",
+        x = 640 + 1440,
+        y = 720 + 365
+      }
     }
   }
 

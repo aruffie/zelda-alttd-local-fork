@@ -29,6 +29,19 @@ local bomb_throw_duration = 600
 local bomb_throw_height = 16
 local bomb_throw_speed = 88
 
+-- Transform into fairy on hit by magic powder.
+local function transform_into_fairy()
+
+  local x, y, layer = enemy:get_position()
+  local fairy = map:create_pickable({
+    x = x,
+    y = y,
+    layer = layer,
+    treasure_name = "fairy"
+  })
+  enemy:start_death()
+end
+
 -- Make the enemy appear.
 local function appear()
 
@@ -46,7 +59,7 @@ local function appear()
     	jump_on = "ignored",
     	hammer = "protected",
     	hookshot = 1,
-    	magic_powder = "ignored",
+    	magic_powder = transform_into_fairy,
     	shield = "protected",
     	thrust = 1
     })

@@ -39,10 +39,10 @@ animation{
   frame_delay = 120,
   frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 264, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 2 },
-    { x = 0, y = 264, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 2 },
-    { x = 0, y = 792, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 2 },
-    { x = 0, y = 792, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 2 },
+    { x = 0, y = 264, frame_width = 88, frame_height = 88, origin_x = 37, origin_y = 85, num_frames = 2 },
+    { x = 0, y = 264, frame_width = 88, frame_height = 88, origin_x = 37, origin_y = 85, num_frames = 2 },
+    { x = 0, y = 792, frame_width = 88, frame_height = 88, origin_x = 51, origin_y = 85, num_frames = 2 },
+    { x = 0, y = 792, frame_width = 88, frame_height = 88, origin_x = 52, origin_y = 85, num_frames = 2 },
   },
 }
 animation{
@@ -54,6 +54,16 @@ animation{
     { x = 0, y = 88, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 6 },
     { x = 0, y = 704, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 6 },
     { x = 0, y = 704, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85, num_frames = 6 },
+  },
+}
+animation{
+  name = "stopped",
+  src_image = "enemies/boss/shadow_nightmares/ganon.png",
+  directions = {
+    { x = 0, y = 0, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85 },
+    { x = 0, y = 0, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85 },
+    { x = 0, y = 528, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85 },
+    { x = 0, y = 528, frame_width = 88, frame_height = 88, origin_x = 44, origin_y = 85 },
   },
 }
 animation{

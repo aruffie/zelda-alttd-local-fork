@@ -80,10 +80,8 @@ local function hurt()
   enemy:stop_movement()
   enemy:set_hero_weapons_reactions({magic_powder = "protected"})
 
-  -- Die without animation if no more life.
+  -- Die if no more life.
   if enemy:get_life() - 1 < 1 then
-
-    -- Wait a few time, start 2 sets of explosions close from the enemy, wait a few time again and finally make the final explosion and enemy die.
     enemy:start_death(function()
       sprite:set_animation("hurt")
       sol.timer.start(enemy, hurt_duration, function()
@@ -101,9 +99,8 @@ local function hurt()
   sprite:set_animation("hurt")
   sol.timer.start(enemy, hurt_duration, function()
     is_hurt = false
-    enemy:set_hero_weapons_reactions({magic_powder = hurt})
     sprite:set_animation("shaking")
-    sol.timer.start(enemy, shaking_duration, function()
+    sol.timer.start(enemy, shaking_duration, function()  
       if math.random() < respawning_probability then
         start_disappearing()
         return

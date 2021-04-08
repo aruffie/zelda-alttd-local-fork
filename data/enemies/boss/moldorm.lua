@@ -20,7 +20,6 @@ local map = enemy:get_map()
 local hero = map:get_hero()
 local sprites = {}
 local head_sprite, tail_sprite
-local tied_sprites_frame_lags = {}
 local last_positions, frame_count
 local walking_movement
 local is_angry

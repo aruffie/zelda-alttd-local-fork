@@ -119,7 +119,7 @@ local function attach_to_entity(entity)
 end
 
 -- Hurt enemies.
-arrow:add_collision_test("sprite", function(arrow, entity)
+arrow:add_collision_test("sprite", function(arrow, entity, arrow_sprite, entity_sprite)
 
   if entity:get_type() == "enemy" then
     local enemy = entity
@@ -128,9 +128,9 @@ arrow:add_collision_test("sprite", function(arrow, entity)
       return
     end
     enemies_touched[enemy] = true
-    local reaction = enemy:get_arrow_reaction(enemy_sprite)
+    local reaction = enemy:get_arrow_reaction(entity_sprite)
     enemy:receive_attack_consequence("arrow", reaction)
-    attach_to_entity(enemy)
+    attach_to_entity(enemy) -- TODO Don't attach if protected
   end
 end)
 
