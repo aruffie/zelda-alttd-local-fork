@@ -4,7 +4,7 @@
 
 This package contains the data files of the Solarus quest *The Legend of Zelda: A Link to the Dream*. This game is a remake of the original Nintendo Game Boy game *The Legend of Zelda: Link's Awakening (DX)*.
 
-This quest is a free, open-source game that works with Solarus, a free and open-source Action-RPG 2D game engine. See the [Solarus website](http://www.solarus-games.org) to get more information and install Solarus.
+This quest is a free, open-source game that works with Solarus, a free and open-source Action-RPG 2D game engine. See the [Solarus website](https://www.solarus-games.org) to get more information and install Solarus.
 
 - **Release Date:** TBA
 - **Players:** 1

@@ -3167,8 +3167,8 @@ Non
 dialog{
   id = "maps.out.mabe_village.fishman_2",
   text = [[
-Avec  \[arrow_left\]  et  \[arrow_right\], évalue la distance de ton lancer.  
-Dès que le poisson est ferré, presse vite la touche Action pour le remonter !
+Appuie sur la touche Action plus ou moins longtemps pour évaluer la distance de ton lancer.  
+Dès que le poisson est ferré, presse vite à nouveau la touche Action pour le remonter !
 ]],
 }
 
@@ -3902,6 +3902,8 @@ dialog{
   question = "1",
   text = [[
 Je t'offre aussi 20 rubis.
+
+
 Un autre essai ?
     Oui
     Non
