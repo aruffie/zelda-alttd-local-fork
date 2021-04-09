@@ -2,10 +2,10 @@ animation{
   name = "eye_opened",
   src_image = "enemies/boss/shadow_nightmares/dethl.png",
   directions = {
-    { x = 96, y = 0, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45 },
-    { x = 96, y = 0, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45 },
-    { x = 96, y = 0, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45 },
-    { x = 96, y = 0, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45 },
+    { x = 128, y = 0, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45 },
+    { x = 128, y = 0, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45 },
+    { x = 128, y = 0, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45 },
+    { x = 128, y = 0, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45 },
   },
 }
 animation{
@@ -23,20 +23,20 @@ animation{
   name = "arm_big",
   src_image = "enemies/boss/shadow_nightmares/dethl.png",
   directions = {
-    { x = 96, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12 },
-    { x = 96, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12 },
-    { x = 96, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12 },
-    { x = 96, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 12 },
   },
 }
 animation{
   name = "arm_small",
   src_image = "enemies/boss/shadow_nightmares/dethl.png",
   directions = {
-    { x = 120, y = 48, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8 },
-    { x = 120, y = 48, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8 },
-    { x = 120, y = 48, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8 },
-    { x = 120, y = 48, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8 },
+    { x = 24, y = 48, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8 },
+    { x = 24, y = 48, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8 },
+    { x = 24, y = 48, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8 },
+    { x = 24, y = 48, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 8 },
   },
 }
 animation{
@@ -52,23 +52,23 @@ animation{
 animation{
   name = "eye_closing",
   src_image = "enemies/boss/shadow_nightmares/dethl.png",
-  frame_delay = 300,
+  frame_delay = 150,
   directions = {
-    { x = 0, y = 48, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45, num_frames = 3 },
-    { x = 0, y = 48, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45, num_frames = 3 },
-    { x = 0, y = 48, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45, num_frames = 3 },
-    { x = 0, y = 48, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45, num_frames = 3 },
+    { x = 128, y = 0, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45, num_frames = 4 },
+    { x = 128, y = 0, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45, num_frames = 4 },
+    { x = 128, y = 0, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45, num_frames = 4 },
+    { x = 128, y = 0, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45, num_frames = 4 },
   },
 }
 animation{
   name = "eye_opening",
   src_image = "enemies/boss/shadow_nightmares/dethl.png",
-  frame_delay = 300,
+  frame_delay = 150,
   directions = {
-    { x = 0, y = 0, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45, num_frames = 3 },
-    { x = 0, y = 0, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45, num_frames = 3 },
-    { x = 0, y = 0, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45, num_frames = 3 },
-    { x = 0, y = 0, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45, num_frames = 3 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45, num_frames = 4 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45, num_frames = 4 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45, num_frames = 4 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45, num_frames = 4 },
   },
 }
 animation{
@@ -77,9 +77,9 @@ animation{
   frame_delay = 120,
   frame_to_loop_on = 0,
   directions = {
-    { x = 96, y = 72, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 8, num_frames = 4 },
-    { x = 96, y = 72, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 8, num_frames = 4 },
-    { x = 96, y = 72, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 8, num_frames = 4 },
-    { x = 96, y = 72, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 8, num_frames = 4 },
+    { x = 0, y = 72, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 8, num_frames = 4 },
+    { x = 0, y = 72, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 8, num_frames = 4 },
+    { x = 0, y = 72, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 8, num_frames = 4 },
+    { x = 0, y = 72, frame_width = 24, frame_height = 16, origin_x = 12, origin_y = 8, num_frames = 4 },
   },
 }

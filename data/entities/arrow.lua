@@ -72,6 +72,9 @@ local function attach_to_obstacle()
       entity:on_hit_by_arrow()
     end
   end
+
+  -- Prevent collision tests once the arrow is not moving anymore.
+  arrow:clear_collision_tests()
 end
 
 -- Attaches the arrow to an entity and make it follow it.
@@ -116,6 +119,8 @@ local function attach_to_entity(entity)
     return true
   end)
 
+  -- Prevent collision tests once the arrow is not moving anymore.
+  arrow:clear_collision_tests()
 end
 
 -- Hurt enemies.
