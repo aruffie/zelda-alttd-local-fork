@@ -56,7 +56,8 @@ local function create_shadow(name, breed, offset_y, on_dead_callback)
   -- Prepare the next transition when shadow defeated.
   shadow:register_event("on_dead", function(shadow)
     local x, y = shadow:get_position()
-    local sprite_x, sprite_y = shadow:get_sprite("main"):get_xy()
+    local shadow_sprite = shadow:get_sprite("main") or shadow:get_sprite()
+    local sprite_x, sprite_y = shadow_sprite:get_xy()
     enemy:set_position(x + sprite_x, y + sprite_y - 13) -- TODO
     if on_dead_callback then
       on_dead_callback()
