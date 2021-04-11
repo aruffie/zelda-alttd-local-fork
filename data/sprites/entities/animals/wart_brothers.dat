@@ -1,24 +1,22 @@
 animation{
   name = "waiting",
-  src_image = "npc/warts_brother.png",
+  src_image = "entities/animals/wart_brothers.png",
   frame_delay = 500,
   frame_to_loop_on = 0,
   directions = {
-    { x = 16, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 2 },
-    { x = 16, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 2 },
-    { x = 16, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 2 },
-    { x = 16, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 2 },
+    { x = 16, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 2 },
+    { x = 16, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 2 },
+    { x = 16, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 2 },
+    { x = 16, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29, num_frames = 2 },
   },
 }
 animation{
   name = "singing",
-  src_image = "npc/warts_brother.png",
-  frame_delay = 200,
-  frame_to_loop_on = 0,
+  src_image = "entities/animals/wart_brothers.png",
   directions = {
-    { x = 48, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
-    { x = 48, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
+    { x = 48, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29 },
+    { x = 48, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29 },
+    { x = 0, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29 },
+    { x = 0, y = 0, frame_width = 16, frame_height = 32, origin_x = 8, origin_y = 29 },
   },
 }

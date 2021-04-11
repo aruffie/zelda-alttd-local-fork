@@ -685,6 +685,28 @@ tile{
   tileset = "addition/dungeon",
 }
 
+sensor{
+  name = "wart_sensor",
+  layer = 0,
+  x = 112,
+  y = 77,
+  width = 112,
+  height = 80,
+}
+
+wall{
+  layer = 0,
+  x = 128,
+  y = 72,
+  width = 64,
+  height = 24,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
 npc{
   name = "wart",
   layer = 0,
@@ -699,7 +721,7 @@ destination{
   name = "stair",
   layer = 0,
   x = 224,
-  y = 189,
+  y = 173,
   direction = 1,
 }
 
@@ -731,17 +753,17 @@ npc{
   name = "wart_brother_1",
   layer = 0,
   x = 96,
-  y = 101,
+  y = 117,
   direction = 3,
   subtype = 1,
-  sprite = "npc/warts_brother",
+  sprite = "entities/animals/wart_brothers",
 }
 
 npc{
   name = "wart_brother_2",
   layer = 0,
   x = 224,
-  y = 101,
+  y = 117,
   direction = 3,
   subtype = 1,
   sprite = "entities/animals/wart_brothers",

@@ -56,7 +56,7 @@ local function hurt(damage)
     return
   end
 
-  -- Make the enemy manually hurt, then shake, the disappear and reappear at its initial position.
+  -- Make the enemy manually hurt to not restart it automatically.
   enemy:set_life(enemy:get_life() - damage)
   sprite:set_shader(hurt_shader)
   sol.timer.start(enemy, hurt_duration, function()
