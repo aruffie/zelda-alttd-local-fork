@@ -41,7 +41,7 @@ function item:on_obtaining()
   if slot then
     game:set_item_assigned(slot, item)
   end
-  
+  audio_manager:play_sound("items/fanfare_item_extended")
 end
 
 function item:brandish(callback)

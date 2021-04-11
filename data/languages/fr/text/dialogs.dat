@@ -850,6 +850,56 @@ Je vais te corriger !!
 }
 
 dialog{
+  id = "maps.caves.south_prairie.caves_5.wart_done",
+  text = [[
+Si tu joues cet air, certains objets s'animeront !
+]],
+}
+
+dialog{
+  id = "maps.caves.south_prairie.caves_5.wart_no_ocarina",
+  text = [[
+Croâ croâ !
+Je suis Wart, le chanteur.
+Tu es nul en musique !
+Reviens avec du matos, vieux !
+Croâ croâ !
+]],
+}
+
+dialog{
+  id = "maps.caves.south_prairie.caves_5.wart_ocarina",
+  question = "1",
+  text = [[
+Croâ croâ !
+Je suis Wart, le chanteur.    
+Inutile de me présenter : je suis le roi du Rap ...       
+Tu veux rester et nous écouter ?
+Pour 300 rubis, on te chante un méga morceau !
+Alors ?...
+
+Oui
+Non
+]],
+}
+
+dialog{
+  id = "maps.caves.south_prairie.caves_5.wart_ocarina_played",
+  text = [[
+Merci ...
+Je suis ému.
+Merci ... Croâ !
+]],
+}
+
+dialog{
+  id = "maps.caves.south_prairie.caves_5.wart_refused",
+  text = [[
+De toute façon, on ne fait pas dans le bénévolat ...
+]],
+}
+
+dialog{
   id = "maps.dungeons.1.boss_description",
   text = [[
 Lombric Zélé
