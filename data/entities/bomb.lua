@@ -7,6 +7,7 @@
 
 -- Global variables.
 local bomb = ...
+local audio_manager = require("scripts/audio_manager")
 local carriable_behavior = require("entities/lib/carriable")
 carriable_behavior.apply(bomb, {bounce_sound = "items/shield", is_offensive = false})
 
@@ -38,6 +39,7 @@ local function explode()
       {key = "explosive_type_5", value = "sensor"}
     }
   })
+  audio_manager:play_sound("items/bomb_explode")
   bomb:remove()
 end
 
@@ -73,4 +75,5 @@ end)
 bomb:register_event("on_created", function(bomb)
 
   start_countdown()
+  audio_manager:play_sound("items/bomb_drop")
 end)

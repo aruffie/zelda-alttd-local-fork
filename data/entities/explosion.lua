@@ -127,6 +127,8 @@ end)
 -- Explode on created.
 explosion:register_event("on_created", function(explosion)
 
+  explosion:set_size(32, 32)
+  explosion:set_origin(16, 16)
   sprite:set_animation("explosion", function()
     if explosion.on_finished then
       explosion:on_finished()

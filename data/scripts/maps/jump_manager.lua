@@ -14,7 +14,7 @@ local jump_manager={}
 require("scripts/states/jumping")(jump_manager)
 require("scripts/states/running")(jump_manager)
 local jump_timer
-local gravity = 0.12
+local gravity = 0.095
 local max_yvel = 2
 local y_factor = 1.0
 

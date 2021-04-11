@@ -17,13 +17,13 @@ local function initialize_darknut_statues()
     local darknut
     for enemy in map:get_entities_by_type("enemy") do
       if enemy:get_breed() == "darknut" and enemy:overlaps(statue) then
-        enemy.is_enabled = false
+        enemy.is_free = false
         enemy:set_enabled(false)
         darknut = enemy
 
         -- Workaround : Avoid the darknut to be reenabled by the separator manager.
         enemy:register_event("on_enabled", function()
-          if not enemy.is_enabled then
+          if not enemy.is_free then
             enemy:set_enabled(false)
           end
         end)
@@ -32,9 +32,9 @@ local function initialize_darknut_statues()
 
     -- Destroy the statue on explosed and wake up the darknut if any.
     statue:add_collision_test("overlapping", function(statue, entity)
-      if entity:get_type() == "explosion" then
+      if entity:get_type() == "explosion" or (entity:get_type() == "custom_entity" and entity:get_model() == "explosion")then
         if darknut then
-          darknut.is_enabled = true
+          darknut.is_free = true
           darknut:wake_up()
         end
         statue:get_sprite():set_animation("opened")

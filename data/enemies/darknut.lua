@@ -143,9 +143,9 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_damage(1)
   if not is_waking_up then
     if is_charging then
-      start_walking()
-    else
       start_charging()
+    else
+      start_walking()
     end
   end
 end)

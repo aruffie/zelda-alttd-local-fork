@@ -93,9 +93,9 @@ enemy:register_event("on_created", function(enemy)
     direction = 2,
     x = right_hand_offset_x,
     y = right_hand_offset_y,
-    layer = enemy:get_layer() + 1
+    layer = enemy:get_layer()
   })
-  enemy:start_welding(flail, right_hand_offset_x, right_hand_offset_y)
+  enemy:start_welding(flail, right_hand_offset_x, right_hand_offset_y, 1)
 end)
 
 -- Make flail disappear when the enemy became invisible on dying.
