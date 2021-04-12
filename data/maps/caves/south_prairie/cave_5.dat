@@ -12,6 +12,24 @@ properties{
 
 tile{
   layer = 0,
+  x = 16,
+  y = 16,
+  width = 288,
+  height = 16,
+  pattern = "ceiling.2",
+}
+
+tile{
+  layer = 0,
+  x = 40,
+  y = 16,
+  width = 240,
+  height = 24,
+  pattern = "wall.1-3",
+}
+
+tile{
+  layer = 0,
   x = 64,
   y = 64,
   width = 192,
@@ -685,6 +703,15 @@ tile{
   tileset = "addition/dungeon",
 }
 
+tile{
+  layer = 0,
+  x = 144,
+  y = 16,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.1-5",
+}
+
 sensor{
   name = "wart_sensor",
   layer = 0,
@@ -782,27 +809,9 @@ tile{
   layer = 1,
   x = 16,
   y = 16,
-  width = 288,
-  height = 16,
-  pattern = "ceiling.2",
-}
-
-tile{
-  layer = 1,
-  x = 16,
-  y = 16,
   width = 16,
   height = 224,
   pattern = "ceiling.2",
-}
-
-tile{
-  layer = 1,
-  x = 40,
-  y = 16,
-  width = 240,
-  height = 24,
-  pattern = "wall.1-3",
 }
 
 tile{
@@ -875,15 +884,6 @@ tile{
   width = 24,
   height = 24,
   pattern = "wall.corner_reverse.2-3",
-}
-
-tile{
-  layer = 1,
-  x = 144,
-  y = 16,
-  width = 32,
-  height = 24,
-  pattern = "wall_decor.1-5",
 }
 
 tile{

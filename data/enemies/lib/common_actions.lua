@@ -23,7 +23,7 @@
 --           enemy:stop_attracting([entity])
 --           enemy:start_impulsion(angle, speed, acceleration, deceleration, [distance])
 --           enemy:start_throwing(entity, duration, start_height, [maximum_height, [angle, speed, [on_finished_callback]]])
---           enemy:start_welding(entity, [x, [y]])
+--           enemy:start_welding(entity, [x, [y, [layer]]])
 --           enemy:start_leashed_by(entity, maximum_distance)
 --           enemy:stop_leashed_by(entity)
 --           enemy:start_pushed_back(entity, [speed, [duration, [sprite, [entity_sprite, [on_finished_callback]]]]])
@@ -582,13 +582,17 @@ function common_actions.learn(enemy)
   end
 
   -- Make the entity welded to the enemy at the given offset position, and propagate main events and methods.
-  function enemy:start_welding(entity, x, y)
+  function enemy:start_welding(entity, x, y, layer)
 
     x = x or 0
     y = y or 0
+    layer = layer or 0
+
+    local minimum_layer = enemy:get_map():get_min_layer()
+    local maximum_layer = enemy:get_map():get_max_layer()
     enemy:register_event("on_update", function(enemy) -- Workaround : Replace the entity in on_update() instead of on_position_changed() to take care of hurt movements.
       local enemy_x, enemy_y, enemy_layer = enemy:get_position()
-      entity:set_position(enemy_x + x, enemy_y + y, enemy_layer)
+      entity:set_position(enemy_x + x, enemy_y + y, math.max(math.min(enemy_layer + layer, maximum_layer), minimum_layer))
     end)
     enemy:register_event("on_removed", function(enemy)
       if entity:exists() then
@@ -619,11 +623,11 @@ function common_actions.learn(enemy)
       if enemy:get_distance(entity) > maximum_distance then
         local enemy_x, enemy_y, layer = enemy:get_position()
         local hero_x, hero_y, _ = hero:get_position()
-        local vX = enemy_x - hero_x;
-        local vY = enemy_y - hero_y;
-        local magV = math.sqrt(vX * vX + vY * vY);
-        local x = hero_x + vX / magV * maximum_distance;
-        local y = hero_y + vY / magV * maximum_distance;
+        local vX = enemy_x - hero_x
+        local vY = enemy_y - hero_y
+        local magV = math.sqrt(vX * vX + vY * vY)
+        local x = hero_x + vX / magV * maximum_distance
+        local y = hero_y + vY / magV * maximum_distance
 
         -- Move the entity.
         if not enemy:test_obstacles(x - enemy_x, y - enemy_y) then

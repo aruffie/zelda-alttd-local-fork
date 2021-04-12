@@ -56,6 +56,11 @@ local function start_wart_song(on_finished_callback)
         start_sprite_animation(brother_1_sprite, "singing", (i + 1) % 2 * 2)
         start_sprite_animation(brother_2_sprite, "singing", i % 2 * 2)
         wait(500)
+        if i == 6 then
+          sol.timer.start(wart, 200, function()
+            sprite:set_paused() -- Pause the Wart sprite before the Chorus.
+          end)
+        end
         start_sprite_animation(brother_1_sprite, "waiting", 0)
         start_sprite_animation(brother_2_sprite, "waiting", 0)
         wait(430)
@@ -69,7 +74,7 @@ local function start_wart_song(on_finished_callback)
       start_sprite_animation(brother_2_sprite, "waiting", 0)
       wait(430)
       start_sprite_animation(brother_2_sprite, "singing", 0)
-      wait(1900)
+      wait(1950)
     end
 
     -- Song finished.
@@ -83,26 +88,8 @@ local function start_wart_song(on_finished_callback)
   end)
 end
 
--- Map events
-map:register_event("on_started", function(map, destination)
-
-  -- Music
-  map:init_music()
-end)
-
--- Initialize the music of the map
-function map:init_music()
-
-  audio_manager:play_music("18_cave")
-end
-
--- Start Wart dialog and sing if requested.
-function wart_sensor:on_activated()
-
-  -- Don't interact if the song is already possessed.
-  if game:has_item("melody_3") then
-    return
-  end
+-- Start Wart dialog.
+local function start_wart_dialog()
 
   if game:has_item("ocarina") then
     game:start_dialog("maps.caves.south_prairie.caves_5.wart_ocarina", function(answer)
@@ -127,8 +114,37 @@ function wart_sensor:on_activated()
   end
 end
 
--- Wart dialog.
+-- Map events
+map:register_event("on_started", function(map, destination)
+
+  -- Music
+  map:init_music()
+end)
+
+-- Initialize the music of the map
+function map:init_music()
+
+  audio_manager:play_music("18_cave")
+end
+
+-- Start Wart interaction on approaching.
+function wart_sensor:on_activated()
+
+  -- Don't interact if the song is already possessed.
+  if game:has_item("melody_3") then
+    return
+  end
+
+  start_wart_dialog()
+end
+
+-- Start Wart dialog on manual interaction.
 function wart:on_interaction()
-  
-  game:start_dialog("maps.caves.south_prairie.caves_5.wart_done")
+
+  if game:has_item("melody_3") then
+    game:start_dialog("maps.caves.south_prairie.caves_5.wart_done")
+    return
+  end
+
+  start_wart_dialog()
 end
