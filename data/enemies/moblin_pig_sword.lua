@@ -100,8 +100,8 @@ enemy:register_event("on_restarted", function(enemy)
   enemy:set_can_attack(true)
   enemy:set_damage(1)
   if is_charging then
-    enemy:start_walking()
-  else
     enemy:start_charging()
+  else
+    enemy:start_walking()
   end
 end)
