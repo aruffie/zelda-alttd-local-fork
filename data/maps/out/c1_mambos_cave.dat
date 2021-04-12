@@ -19070,6 +19070,25 @@ enemy{
   treasure_name = "random_with_charm",
 }
 
+teletransporter{
+  name = "hen_house_1_A",
+  layer = 1,
+  x = 544,
+  y = 16,
+  width = 16,
+  height = 16,
+  destination_map = "houses/mambos_cave/hen_house",
+  destination = "hen_house_1_B",
+}
+
+destination{
+  name = "hen_house_2_B",
+  layer = 1,
+  x = 552,
+  y = 45,
+  direction = 3,
+}
+
 tile{
   layer = 2,
   x = 392,
