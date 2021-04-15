@@ -39,7 +39,7 @@ function item:on_pickable_created(pickable)
   else
     -- Replace the default falling movement by a special one.
     local main_sprite = pickable:get_sprite()
-    shadow_sprite = pickable:create_sprite("entities/shadow")
+    local shadow_sprite = pickable:create_sprite("entities/shadow")
     pickable:bring_sprite_to_back(shadow_sprite)
     local trajectory = {
       { 0,  0},
