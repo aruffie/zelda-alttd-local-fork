@@ -226,6 +226,7 @@ sprite{ id = "enemies/boss/buzz_blob_giant/buzz_blob_giant_zol", description = "
 sprite{ id = "enemies/boss/cue_ball", description = "Cue ball" }
 sprite{ id = "enemies/boss/cue_ball/shadow", description = "Cue ball shadow" }
 sprite{ id = "enemies/boss/cue_ball/splash_effect", description = "Cue ball splash effect" }
+sprite{ id = "enemies/boss/dark_owl", description = "Dark Owl" }
 sprite{ id = "enemies/boss/desert_lanmola", description = "Desert Lanmola" }
 sprite{ id = "enemies/boss/desert_lanmola/body", description = "Desert Lanmola body" }
 sprite{ id = "enemies/boss/desert_lanmola/dust", description = "Desert lanmola Dust" }
@@ -250,6 +251,11 @@ sprite{ id = "enemies/boss/gohma/blue_eye", description = "Gohma blue eye" }
 sprite{ id = "enemies/boss/gohma/eye", description = "Gohma red eye" }
 sprite{ id = "enemies/boss/grim_creeper", description = "Grim creeper" }
 sprite{ id = "enemies/boss/grim_creeper/minion", description = "Grim Minion" }
+sprite{ id = "enemies/boss/helmatwin_purple", description = "Helmatwin Purple" }
+sprite{ id = "enemies/boss/helmatwin_red", description = "Helmatwin Red" }
+sprite{ id = "enemies/boss/helmatwins/helmatwin_mask_full", description = "Helmatwin Mask Full" }
+sprite{ id = "enemies/boss/helmatwins/helmatwin_mask_low", description = "Helmatwin Mask Low" }
+sprite{ id = "enemies/boss/helmatwins/helmatwin_mask_middle", description = "Helmatwin Mask Middle" }
 sprite{ id = "enemies/boss/hinox_master", description = "Hinox master" }
 sprite{ id = "enemies/boss/hinox_master/blue", description = "Hinox master blue" }
 sprite{ id = "enemies/boss/hinox_master/red", description = "Hinox master red" }
@@ -2737,7 +2743,13 @@ file{ path = "sprites/enemies/bombite_green.png", license = "Proprietary, Fair u
 file{ path = "sprites/enemies/bombite_red.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/boo_buddy.png", license = "Proprietary, Fair use" }
 file{ path = "sprites/enemies/boss/ballchain_soldier.png", license = "Proprietary, Fair use" }
+file{ path = "sprites/enemies/boss/dark_owl.dat", author = "Julien Van Steerteghem", }
 file{ path = "sprites/enemies/boss/grim_creeper/minion.dat", author = "JulioTanaka", }
+file{ path = "sprites/enemies/boss/helmatwin_purple.dat", author = "Julien Van Steerteghem", }
+file{ path = "sprites/enemies/boss/helmatwin_red.dat", author = "Julien Van Steerteghem", }
+file{ path = "sprites/enemies/boss/helmatwins/helmatwin_mask_full.dat", author = "Julien Van Steerteghem", }
+file{ path = "sprites/enemies/boss/helmatwins/helmatwin_mask_low.dat", author = "Julien Van Steerteghem", }
+file{ path = "sprites/enemies/boss/helmatwins/helmatwin_mask_middle.dat", author = "Julien Van Steerteghem", }
 file{ path = "sprites/enemies/boss/shadow_nightmares/aghanim.dat", author = "JulioTanaka", }
 file{ path = "sprites/enemies/boss/shadow_nightmares/ganon.dat", author = "JulioTanaka", }
 file{ path = "sprites/enemies/boss/shadow_nightmares/projectiles/axe.dat", author = "JulioTanaka", }
