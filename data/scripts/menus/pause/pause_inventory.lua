@@ -374,7 +374,7 @@ function inventory_submenu:assign_item(slot)
       local y1 = 90 + 32 * self.cursor_row
 
       local x2 = (slot == 1) and 20 or 72
-      local y2 = 46
+      local y2 = 24
 
       self.item_assigned_sprite:set_xy(x1, y1)
       local movement = sol.movement.create("target")
