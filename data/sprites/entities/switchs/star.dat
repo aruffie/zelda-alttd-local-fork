@@ -4,21 +4,45 @@ animation{
   frame_delay = 100,
   frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13, num_frames = 2 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13, num_frames = 2 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13, num_frames = 2 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13, num_frames = 2 },
+    { x = 32, y = 0, frame_width = 16, frame_height = 16, origin_x = 0, origin_y = 0 },
+    { x = 32, y = 0, frame_width = 16, frame_height = 16, origin_x = 0, origin_y = 0 },
+    { x = 32, y = 0, frame_width = 16, frame_height = 16, origin_x = 0, origin_y = 0 },
+    { x = 32, y = 0, frame_width = 16, frame_height = 16, origin_x = 0, origin_y = 0 },
   },
 }
 animation{
   name = "activated",
   src_image = "entities/switchs/star.png",
+  frame_delay = 100,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 32, y = 0, frame_width = 16, frame_height = 16, origin_x = 0, origin_y = 0 },
+    { x = 32, y = 0, frame_width = 16, frame_height = 16, origin_x = 0, origin_y = 0 },
+    { x = 32, y = 0, frame_width = 16, frame_height = 16, origin_x = 0, origin_y = 0 },
+    { x = 32, y = 0, frame_width = 16, frame_height = 16, origin_x = 0, origin_y = 0 },
+  },
+}
+animation{
+  name = "being_activated",
+  src_image = "entities/switchs/star.png",
   frame_delay = 50,
   frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 16, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 37, num_frames = 4 },
-    { x = 0, y = 16, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 37, num_frames = 4 },
-    { x = 0, y = 16, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 37, num_frames = 4 },
-    { x = 0, y = 16, frame_width = 40, frame_height = 40, origin_x = 20, origin_y = 37, num_frames = 4 },
+    { x = 0, y = 16, frame_width = 40, frame_height = 40, origin_x = 12, origin_y = 12, num_frames = 4 },
+    { x = 0, y = 16, frame_width = 40, frame_height = 40, origin_x = 12, origin_y = 12, num_frames = 4 },
+    { x = 0, y = 16, frame_width = 40, frame_height = 40, origin_x = 12, origin_y = 12, num_frames = 4 },
+    { x = 0, y = 16, frame_width = 40, frame_height = 40, origin_x = 12, origin_y = 12, num_frames = 4 },
+  },
+}
+animation{
+  name = "to_activate",
+  src_image = "entities/switchs/star.png",
+  frame_delay = 100,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 0, y = 0, frame_width = 16, frame_height = 16, origin_x = 0, origin_y = 0, num_frames = 2 },
+    { x = 0, y = 0, frame_width = 16, frame_height = 16, origin_x = 0, origin_y = 0, num_frames = 2 },
+    { x = 0, y = 0, frame_width = 16, frame_height = 16, origin_x = 0, origin_y = 0, num_frames = 2 },
+    { x = 0, y = 0, frame_width = 16, frame_height = 16, origin_x = 0, origin_y = 0, num_frames = 2 },
   },
 }

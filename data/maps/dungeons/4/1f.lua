@@ -90,6 +90,11 @@ local function reset_slabs(group, index)
     else
       slab:set_activated(false)
     end
+    if i == index + 1 then
+      slab:get_sprite():set_animation('to_activate')
+    elseif index == 0 then
+      slab:get_sprite():set_animation('inactivated')
+    end
   
   end
   slab_group_index = index
@@ -103,10 +108,20 @@ local function init_slabs(group)
     local slab = map:get_entity("slab_" .. group .. "_" .. i)
     function slab:on_activated()
       local order = tonumber(slab:get_property('order'))
-      print(order)
-      print(slab_group_index + 1)
       if order == slab_group_index + 1 then
+        slab:get_sprite():set_animation('being_activated')
+        audio_manager:play_sound("menus/menu_select")
+        sol.timer.start(map, 200, function() 
+          slab:get_sprite():set_animation('activated')
+        end)
         slab_group_index = slab_group_index + 1
+        if slab_group_index == 5 and group == 1 then
+          map:open_doors("door_group_5_")
+          sensor_12:set_enabled(false)
+          audio_manager:play_sound("misc/secret_1")
+        elseif slab_group_index == 5 and group == 2 then
+          -- Todo
+        end
         reset_slabs(group, slab_group_index)
       else
         reset_slabs(group, 0)
@@ -249,6 +264,22 @@ end
 function sensor_11:on_activated()
 
   sensor_10:on_activated()
+  sensor_12:set_enabled(true)
+  
+end
+
+function sensor_12:on_activated()
+
+  init_slabs(1)
+  map:close_doors("door_group_5_")
+  
+end
+
+function sensor_13:on_activated()
+
+  init_slabs(1)
+  map:set_doors_open("door_group_5_", false)
+  sensor_12:set_enabled(true)
   
 end
 

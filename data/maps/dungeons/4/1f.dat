@@ -12376,6 +12376,56 @@ tile{
   pattern = "water_shallow.corner_reverse.1",
 }
 
+tile{
+  layer = 0,
+  x = 1040,
+  y = 320,
+  width = 16,
+  height = 16,
+  pattern = "188",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1040,
+  y = 384,
+  width = 16,
+  height = 16,
+  pattern = "188",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1104,
+  y = 352,
+  width = 16,
+  height = 16,
+  pattern = "188",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1184,
+  y = 384,
+  width = 16,
+  height = 16,
+  pattern = "188",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1184,
+  y = 320,
+  width = 16,
+  height = 16,
+  pattern = "188",
+  tileset = "addition/dungeon",
+}
+
 wall{
   layer = 0,
   x = 472,
@@ -14843,7 +14893,7 @@ sensor{
   name = "sensor_13",
   layer = 0,
   x = 1200,
-  y = 445,
+  y = 485,
   width = 48,
   height = 16,
 }
@@ -15557,7 +15607,7 @@ switch{
 switch{
   name = "slab_1_5",
   layer = 0,
-  x = 1112,
+  x = 1104,
   y = 352,
   properties = {
     {
@@ -16931,17 +16981,6 @@ chest{
   sprite = "entities/chests/chest_big",
 }
 
-custom_entity{
-  layer = 1,
-  x = 1112,
-  y = 381,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/items/heart_fly",
-  model = "heart_fly",
-}
-
 sensor{
   name = "sensor_5",
   layer = 1,
@@ -16969,6 +17008,17 @@ custom_entity{
   direction = 0,
   sprite = "entities/items/heart_fly",
   model = "heart_fly",
+}
+
+custom_entity{
+  layer = 1,
+  x = 1112,
+  y = 381,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/items/heart_fly",
+  model = "pickable_fly",
 }
 
 tile{

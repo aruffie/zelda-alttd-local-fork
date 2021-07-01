@@ -184,7 +184,9 @@ end
 -- Destructibles events
 function secret_stone:on_removed()
   
-  audio_manager:play_sound("misc/secret1")
+ -- audio_manager:play_sound("misc/secret1")
+ 
+ -- todo
   
 end
 
