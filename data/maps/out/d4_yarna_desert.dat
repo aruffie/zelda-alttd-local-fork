@@ -10001,6 +10001,19 @@ tile{
   pattern = "958",
 }
 
+wall{
+  layer = 1,
+  x = 792,
+  y = 144,
+  width = 16,
+  height = 88,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
 dynamic_tile{
   name = "ground_sand_12",
   layer = 1,
@@ -13462,9 +13475,9 @@ wall{
 wall{
   layer = 1,
   x = 784,
-  y = 0,
-  width = 16,
-  height = 64,
+  y = 16,
+  width = 32,
+  height = 48,
   stops_hero = true,
   stops_npcs = true,
   stops_enemies = true,
@@ -13487,22 +13500,9 @@ wall{
 
 wall{
   layer = 1,
-  x = 792,
-  y = 144,
-  width = 8,
-  height = 88,
-  stops_hero = true,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
-wall{
-  layer = 1,
   x = 752,
   y = 0,
-  width = 32,
+  width = 208,
   height = 16,
   stops_hero = true,
   stops_npcs = true,
@@ -13554,7 +13554,7 @@ wall{
   layer = 1,
   x = 792,
   y = 64,
-  width = 8,
+  width = 16,
   height = 8,
   stops_hero = true,
   stops_npcs = true,
@@ -13792,6 +13792,19 @@ npc{
   direction = 3,
   subtype = 0,
   sprite = "entities/destructibles/sign",
+}
+
+wall{
+  layer = 1,
+  x = 928,
+  y = 184,
+  width = 32,
+  height = 32,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
 }
 
 tile{

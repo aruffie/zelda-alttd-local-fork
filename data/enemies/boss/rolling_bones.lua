@@ -29,6 +29,7 @@ local is_hurt = false
 
 -- Configuration variables
 local waiting_duration = 500
+local before_spike_movement_duration = 350
 local spike_speed = 150
 local spike_slow_speed = 60
 local jumping_speed = 120
@@ -126,10 +127,17 @@ function enemy:start_pushing(angle)
   local spike_sprite = spike:get_sprite()
   sol.timer.start(enemy, waiting_duration, function()
     sprite:set_animation("punching", function()
-
-      -- Start spike movement on punching animation finished.
-      moving_angle = angle -- Set the global direction angle here to not start pushing again if hurt.
       sprite:set_animation("waiting")
+
+      -- Start moving a little after punching animation finished.
+      sol.timer.start(enemy, waiting_duration, function()
+        enemy:start_moving()
+      end)
+    end)
+
+    -- Start spike movement a little after the punching animation started.
+    sol.timer.start(enemy, before_spike_movement_duration, function()
+      moving_angle = angle -- Set the global direction angle here to not start pushing again if hurt.
       spike:start_straight_walking(angle, spike_speed, nil, function()
 
         -- Start an earthquake when the spike hit the wall and slightly move back.
@@ -140,11 +148,6 @@ function enemy:start_pushing(angle)
         spike_sprite:set_frame_delay(100)
       end)
       spike_sprite:set_animation("walking")
-
-      -- Start moving a little after.
-      sol.timer.start(enemy, waiting_duration, function()
-        enemy:start_moving()
-      end)
     end)
   end)
 end

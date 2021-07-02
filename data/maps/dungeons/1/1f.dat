@@ -14115,6 +14115,12 @@ enemy{
   layer = 0,
   x = 1480,
   y = 1309,
+  properties = {
+    {
+      key = "is_unarmed",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "stalfos_red",
   treasure_name = "random_with_charm",
@@ -14125,28 +14131,14 @@ enemy{
   layer = 0,
   x = 1400,
   y = 1309,
+  properties = {
+    {
+      key = "is_unarmed",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "stalfos_red",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  name = "enemy_group_4_3",
-  layer = 0,
-  x = 1456,
-  y = 1365,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
-  name = "enemy_group_4_4",
-  layer = 0,
-  x = 1424,
-  y = 1365,
-  direction = 0,
-  breed = "keese",
   treasure_name = "random_with_charm",
 }
 
@@ -14290,6 +14282,12 @@ enemy{
   layer = 0,
   x = 1672,
   y = 1101,
+  properties = {
+    {
+      key = "is_unarmed",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "stalfos_red",
   treasure_name = "random_with_charm",
@@ -15060,6 +15058,12 @@ enemy{
   layer = 0,
   x = 1496,
   y = 1093,
+  properties = {
+    {
+      key = "is_unarmed",
+      value = "true",
+    },
+  },
   direction = 3,
   breed = "stalfos_red",
   treasure_name = "random_with_charm",
@@ -18998,6 +19002,26 @@ enemy{
   layer = 2,
   x = 1544,
   y = 1149,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "enemy_group_4_4",
+  layer = 2,
+  x = 1424,
+  y = 1365,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "enemy_group_4_3",
+  layer = 2,
+  x = 1456,
+  y = 1365,
   direction = 0,
   breed = "keese",
   treasure_name = "random_with_charm",

@@ -108,7 +108,7 @@ map{ id = "houses/mabe_village/quadruplets_house", description = "Quadruplets ho
 map{ id = "houses/mabe_village/shop_1", description = "Shop 1" }
 map{ id = "houses/mabe_village/shop_2", description = "Shop 2" }
 map{ id = "houses/mabe_village/telephone_booth_1", description = "Telephone booth 1" }
-map{ id = "houses/mambos_cave/cuccos_house", description = "Cucco's house" }
+map{ id = "houses/mambos_cave/hen_house", description = "Hen house" }
 map{ id = "houses/martha_bay/telephone_booth_7", description = "Telephone booth 7" }
 map{ id = "houses/martha_bay/telephone_booth_8", description = "Telephone booth 8" }
 map{ id = "houses/mask_shrine/mask_shrine", description = "Mask shrine" }
@@ -810,7 +810,7 @@ sprite{ id = "npc/statues/owl_dungeon_6", description = "Owl dungeon 6" }
 sprite{ id = "npc/statues/owl_dungeon_7", description = "Owl dungeon 7" }
 sprite{ id = "npc/statues/owl_dungeon_8", description = "owl dungeon 8" }
 sprite{ id = "npc/villagers/crazy_tracy", description = "Crazy Tracy" }
-sprite{ id = "npc/villagers/cucco_man", description = "Cucco's man" }
+sprite{ id = "npc/villagers/cuccos_keeper", description = "Cuccos Keeper" }
 sprite{ id = "npc/villagers/fishman_1", description = "Fishman 1" }
 sprite{ id = "npc/villagers/fishman_2", description = "Fishman 2" }
 sprite{ id = "npc/villagers/game_man", description = "Game man" }
@@ -2131,8 +2131,8 @@ file{ path = "maps/houses/mabe_village/shop_2.lua", author = "Benjamin Schweitze
 file{ path = "maps/houses/mabe_village/telephone_booth_1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/houses/mabe_village/telephone_booth_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/houses/mambos_cave", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
-file{ path = "maps/houses/mambos_cave/cuccos_house.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
-file{ path = "maps/houses/mambos_cave/cuccos_house.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/houses/mambos_cave/hen_house.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
+file{ path = "maps/houses/mambos_cave/hen_house.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/houses/martha_bay", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/houses/martha_bay/telephone_booth_7.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/houses/martha_bay/telephone_booth_7.lua", author = "Benjamin Schweitzer", license = "GPL v3" }

@@ -911,7 +911,9 @@ function common_actions.learn(enemy)
     -- Make the shadow disappear when the enemy became invisible on dying.
     enemy:register_event("on_dying", function(enemy)
       sol.timer.start(shadow, 300, function() -- No event when the enemy became invisible, hardcode a timer.
-        shadow:remove()
+        if shadow:exists() then
+          shadow:remove()
+        end
       end)
     end)
 

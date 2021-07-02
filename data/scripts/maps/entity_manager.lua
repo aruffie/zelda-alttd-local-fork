@@ -2,29 +2,33 @@ local entity_manager = {}
 local audio_manager = require("scripts/audio_manager")
 local common_actions = require("enemies/lib/common_actions")
 
-local function on_fall_finished(entity)
+local function on_fall_finished(base_entity, falling_entity)
 
-  -- Workaround: Kill enemies silently instead of remove() them, as death events are needed for some puzzles.
-  if entity:get_type() == "enemy" and entity:exists() then
-    if not entity.start_death then
-      common_actions.learn(entity)
-    end
-    entity:start_death()
-    return
+  base_entity.is_hurt_silently = true -- Workaround : Don't play generic sounds added by enemy meta script.
+
+  -- Manually call death events on the base entity as enemy ones may be needed for some puzzles.
+  if base_entity.on_dying then
+    base_entity:on_dying()
   end
-  entity:remove()
+
+  falling_entity:remove()
+  base_entity:remove()
+
+  if base_entity.on_dead then
+    base_entity:on_dead()
+  end
 end
 
-function entity_manager:fall(entity)
-  local sprite = entity:get_sprite()
+function entity_manager:fall(base_entity, falling_entity)
+  local sprite = falling_entity:get_sprite()
   if sprite:has_animation("falling") then
     audio_manager:play_sound("enemies/enemy_fall")
     sprite:set_animation("falling", function()
-        on_fall_finished(entity)
+        on_fall_finished(base_entity, falling_entity)
       end)
   else
     --print "Warning : \"falling\" animation not found"
-    on_fall_finished(entity)
+    on_fall_finished(base_entity, falling_entity)
   end
 end
 
@@ -55,7 +59,7 @@ function entity_manager:create_falling_entity(base_entity, sprite_name)
     })
   if falling_entity then --will be nil if the map is in finishing state
     falling_entity:set_can_traverse_ground("hole", true)
-    entity_manager:fall(falling_entity)
+    entity_manager:fall(base_entity, falling_entity)
   end
 end
 

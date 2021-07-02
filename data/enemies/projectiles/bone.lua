@@ -13,6 +13,18 @@ local function on_shield_collision()
   enemy:start_death()
 end
 
+-- Immediately die on hurt.
+local function on_hurt()
+
+  enemy:start_death(function()
+    local sprite_x, sprite_y = sprite:get_xy()
+    enemy:set_visible(false)
+    enemy:start_brief_effect("enemies/enemy_killed", nil, sprite_x, sprite_y, nil, function()
+      finish_death()
+    end)
+  end)
+end
+
 -- Start going to the hero.
 function enemy:go()
   enemy:straight_go()
@@ -35,10 +47,24 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
+  enemy:set_hero_weapons_reactions({
+    arrow = "ignored",
+  	boomerang = "ignored",
+  	explosion = "ignored",
+  	sword = on_hurt,
+  	thrown_item = "ignored",
+  	fire = "ignored",
+  	jump_on = "ignored",
+  	hammer = on_hurt,
+  	hookshot = on_hurt,
+  	magic_powder = "ignored",
+  	shield = on_shield_collision,
+  	thrust = on_attack_received
+  })
+
   sprite:set_animation("walking")
   enemy:set_damage(2)
   enemy:set_obstacle_behavior("flying")
   enemy:set_pushed_back_when_hurt(false)
-  enemy:set_hero_weapons_reactions({shield = on_shield_collision})
   enemy:go()
 end)
