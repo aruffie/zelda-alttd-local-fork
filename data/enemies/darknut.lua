@@ -138,7 +138,6 @@ enemy:register_event("on_restarted", function(enemy)
   })
 
   -- States.
-  is_charging = false
   enemy:set_can_attack(true)
   enemy:set_damage(1)
   if not is_waking_up then
