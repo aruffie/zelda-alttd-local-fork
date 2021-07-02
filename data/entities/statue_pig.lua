@@ -14,7 +14,7 @@ entity:register_event("on_created", function()
 
   entity:set_traversable_by(false)
   entity:add_collision_test("overlapping", function(pig, explosion)
-    if explosion:get_type() == "explosion" then
+    if explosion:get_type() == "explosion" or (explosion:get_type() == "custom_entity" and explosion:get_model() == "explosion") then
       audio_manager:play_sound("misc/secret1")
       sprite:set_animation("destroyed")
       sprite:register_event("on_animation_finished", function(sprite, animation)
