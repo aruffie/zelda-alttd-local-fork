@@ -627,8 +627,7 @@ sprite{ id = "entities/shadows/shadow", description = "Shadow" }
 sprite{ id = "entities/shadows/walrus_shadow", description = "Walrus shadow" }
 sprite{ id = "entities/star", description = "Star" }
 sprite{ id = "entities/statues/block" }
-sprite{ id = "entities/statues/grave_gray", description = "Grave gray" }
-sprite{ id = "entities/statues/grave_pink", description = "Grave pink" }
+sprite{ id = "entities/statues/grave", description = "Grave " }
 sprite{ id = "entities/statues/pillar", description = "Pillar base" }
 sprite{ id = "entities/statues/statue_darknut", description = "Statue darknut" }
 sprite{ id = "entities/statues/statue_koopa", description = "Statue koopa" }
