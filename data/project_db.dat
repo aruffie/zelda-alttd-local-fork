@@ -461,6 +461,7 @@ sprite{ id = "entities/destructibles/bush", description = "Bush" }
 sprite{ id = "entities/destructibles/bush_grass", description = "Bush grass" }
 sprite{ id = "entities/destructibles/crystal_blue", description = "Crystal blue" }
 sprite{ id = "entities/destructibles/crystal_green", description = "Crystal green" }
+sprite{ id = "entities/destructibles/fibonacci", description = "Fibonacci" }
 sprite{ id = "entities/destructibles/genie_bottle", description = "Genie bottle entity" }
 sprite{ id = "entities/destructibles/grass", description = "Grass" }
 sprite{ id = "entities/destructibles/pot", description = "Pot" }
@@ -658,6 +659,7 @@ sprite{ id = "entities/turtlerock_head", description = "Turtlerock head" }
 sprite{ id = "entities/utils/cliff", description = "Cliff marker" }
 sprite{ id = "entities/utils/non_diggable", description = "Non diggable" }
 sprite{ id = "entities/vacuum_cleaner_ground", description = "Vacuum cleaner ground" }
+sprite{ id = "fibonacci", description = "Fibonacci" }
 sprite{ id = "hero/fire_rod", description = "Fire rod" }
 sprite{ id = "hero/ground1", description = "Grass under hero" }
 sprite{ id = "hero/ground2", description = "Shallow water under hero" }
@@ -2835,6 +2837,7 @@ file{ path = "sprites/entities/misc/shell_bar_marker.dat", author = "JulioTanaka
 file{ path = "sprites/entities/misc/shell_mansion_bar.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/utils/cliff.dat", author = "Christopho", license = "CC BY-SA 4.0" }
 file{ path = "sprites/entities/utils/cliff.png", author = "Christopho", license = "CC BY-SA 4.0" }
+file{ path = "sprites/fibonacci.dat", author = "JulioTanaka", }
 file{ path = "sprites/hero/boomerang.shield.png", author = "Nintendo", license = "Proprietary (Fair use)" }
 file{ path = "sprites/hero/falling.png", author = "Nintendo", license = "Proprietary (Fair use)" }
 file{ path = "sprites/hero/fire_rod.png", author = "Nintendo", license = "Proprietary (Fair use)" }

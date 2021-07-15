@@ -1246,8 +1246,8 @@ tile{
 dynamic_tile{
   name = "graveyard_pit_1",
   layer = 0,
-  x = 40,
-  y = 552,
+  x = 48,
+  y = 544,
   properties = {
     {
       key = "area",
@@ -1355,30 +1355,6 @@ destructible{
 destructible{
   layer = 0,
   x = 136,
-  y = 661,
-  treasure_name = "random",
-  sprite = "entities/destructibles/grass",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-  ground = "grass",
-}
-
-destructible{
-  layer = 0,
-  x = 136,
-  y = 645,
-  treasure_name = "random",
-  sprite = "entities/destructibles/grass",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-  ground = "grass",
-}
-
-destructible{
-  layer = 0,
-  x = 152,
   y = 645,
   treasure_name = "random",
   sprite = "entities/destructibles/grass",
@@ -1392,18 +1368,6 @@ destructible{
   layer = 0,
   x = 168,
   y = 645,
-  treasure_name = "random",
-  sprite = "entities/destructibles/grass",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-  ground = "grass",
-}
-
-destructible{
-  layer = 0,
-  x = 168,
-  y = 661,
   treasure_name = "random",
   sprite = "entities/destructibles/grass",
   destruction_sound = "bush",
@@ -1436,18 +1400,6 @@ destructible{
   ground = "grass",
 }
 
-destructible{
-  layer = 0,
-  x = 152,
-  y = 677,
-  treasure_name = "random",
-  sprite = "entities/destructibles/grass",
-  destruction_sound = "bush",
-  weight = -1,
-  can_be_cut = true,
-  ground = "grass",
-}
-
 pickable{
   name = "auto_shovel_seashell",
   layer = 0,
@@ -1455,18 +1407,6 @@ pickable{
   y = 661,
   treasure_name = "seashell",
   treasure_savegame_variable = "seashell_4",
-}
-
-destructible{
-  layer = 0,
-  x = 152,
-  y = 661,
-  treasure_name = "seashell",
-  treasure_savegame_variable = "seashell_4",
-  sprite = "entities/destructibles/bush",
-  destruction_sound = "bush",
-  weight = 1,
-  can_be_cut = true,
 }
 
 destination{
@@ -1771,6 +1711,58 @@ dynamic_tile{
   height = 184,
   pattern = "10347",
   tileset = "out/outside_special",
+}
+
+destructible{
+  layer = 0,
+  x = 152,
+  y = 661,
+  treasure_name = "seashell",
+  treasure_savegame_variable = "seashell_4",
+  sprite = "entities/destructibles/bush",
+  destruction_sound = "bush",
+  weight = 1,
+  can_be_cut = true,
+}
+
+destructible{
+  layer = 0,
+  x = 152,
+  y = 677,
+  sprite = "entities/destructibles/fibonacci",
+  destruction_sound = "arrow_hit",
+  weight = 1,
+  can_be_cut = true,
+}
+
+destructible{
+  layer = 0,
+  x = 136,
+  y = 661,
+  sprite = "entities/destructibles/fibonacci",
+  destruction_sound = "arrow_hit",
+  weight = 1,
+  can_be_cut = true,
+}
+
+destructible{
+  layer = 0,
+  x = 152,
+  y = 645,
+  sprite = "entities/destructibles/fibonacci",
+  destruction_sound = "arrow_hit",
+  weight = 1,
+  can_be_cut = true,
+}
+
+destructible{
+  layer = 0,
+  x = 168,
+  y = 661,
+  sprite = "entities/destructibles/fibonacci",
+  destruction_sound = "arrow_hit",
+  weight = 1,
+  can_be_cut = true,
 }
 
 tile{
@@ -20401,6 +20393,16 @@ tile{
   tileset = "addition/out",
 }
 
+tile{
+  layer = 1,
+  x = 872,
+  y = 600,
+  width = 16,
+  height = 16,
+  pattern = "211",
+  tileset = "addition/out",
+}
+
 block{
   name = "grave_16",
   layer = 1,
@@ -23942,8 +23944,8 @@ custom_entity{
 
 enemy{
   layer = 1,
-  x = 656,
-  y = 637,
+  x = 664,
+  y = 645,
   properties = {
     {
       key = "area",
@@ -23996,7 +23998,7 @@ block{
   name = "grave_pushable_3",
   layer = 1,
   x = 880,
-  y = 613,
+  y = 597,
   sprite = "entities/statues/grave",
   pushable = true,
   pullable = false,
@@ -24098,7 +24100,7 @@ block{
   name = "grave_18",
   layer = 1,
   x = 640,
-  y = 661,
+  y = 645,
   enabled_at_start = false,
   sprite = "entities/statues/grave",
   pushable = true,
@@ -24175,6 +24177,87 @@ block{
   sprite = "entities/statues/grave",
   pushable = false,
   pullable = false,
+}
+
+stairs{
+  layer = 1,
+  x = 632,
+  y = 648,
+  direction = 3,
+  subtype = 3,
+}
+
+stairs{
+  layer = 1,
+  x = 872,
+  y = 600,
+  direction = 3,
+  subtype = 3,
+}
+
+teletransporter{
+  layer = 1,
+  x = 632,
+  y = 648,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "caves/graveyard/cave_1",
+  destination = "stair_east",
+}
+
+teletransporter{
+  layer = 1,
+  x = 872,
+  y = 600,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/9/1f",
+  destination = "entrance",
+}
+
+destructible{
+  layer = 1,
+  x = 184,
+  y = 485,
+  treasure_savegame_variable = "seashell_4",
+  sprite = "entities/destructibles/fibonacci",
+  destruction_sound = "arrow_hit",
+  weight = 1,
+  can_be_cut = true,
+}
+
+destructible{
+  layer = 1,
+  x = 240,
+  y = 445,
+  treasure_savegame_variable = "seashell_4",
+  sprite = "entities/destructibles/fibonacci",
+  destruction_sound = "arrow_hit",
+  weight = 1,
+  can_be_cut = true,
+}
+
+destructible{
+  layer = 1,
+  x = 432,
+  y = 421,
+  treasure_savegame_variable = "seashell_4",
+  sprite = "entities/destructibles/fibonacci",
+  destruction_sound = "arrow_hit",
+  weight = 1,
+  can_be_cut = true,
 }
 
 tile{
@@ -26711,16 +26794,6 @@ tile{
   pattern = "4558",
 }
 
-tile{
-  layer = 2,
-  x = 872,
-  y = 600,
-  width = 16,
-  height = 16,
-  pattern = "211",
-  tileset = "addition/out",
-}
-
 custom_entity{
   name = "butterfly_1",
   layer = 2,
@@ -27064,8 +27137,8 @@ enemy{
 
 enemy{
   layer = 2,
-  x = 880,
-  y = 613,
+  x = 904,
+  y = 629,
   properties = {
     {
       key = "area",
