@@ -17,6 +17,7 @@
 -- Global variables
 local enemy = ...
 require("enemies/lib/common_actions").learn(enemy)
+local audio_manager = require("scripts/audio_manager")
 
 local game = enemy:get_game()
 local map = enemy:get_map()
@@ -60,6 +61,16 @@ local function update_direction()
   sprite:set_direction(hero_x < x and 2 or 0)
 end
 
+-- Start dust effect under the enemy.
+local function start_dust_effect(movement)
+
+  enemy:start_brief_effect("entities/effects/brake_smoke", "default", 0, 0, nil, function()
+    if movement then
+      start_dust_effect(movement)
+    end
+  end)
+end
+
 -- Check if the custom death as to be started before triggering the built-in hurt behavior.
 local function hurt(damage)
 
@@ -69,10 +80,12 @@ local function hurt(damage)
     -- Wait a few time, start 2 sets of explosions close from the enemy, wait a few time again and finally make the final explosion and enemy die.
     enemy:start_death(function()
       sprite:set_animation("hurt")
+      audio_manager:play_sound("enemies/boss_die")
       sol.timer.start(enemy, 1500, function()
         enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -13, function()
           sol.timer.start(enemy, 1000, function()
             enemy:start_brief_effect("entities/explosion_boss", nil, 0, -13)
+            audio_manager:play_sound("enemies/boss_explode")
             finish_death()
           end)
         end)
@@ -86,6 +99,7 @@ local function hurt(damage)
 
   -- Else hurt normally.
   enemy:hurt(damage)
+  audio_manager:play_sound("enemies/boss_hit")
 end
 
 -- Start the enemy jumping movement to the hero.
@@ -139,6 +153,7 @@ function enemy:start_throwing()
       direction = direction
     })
     sai_count = sai_count - 1
+    audio_manager:play_sound("items/bow_arrow")
   end)
 end
 
@@ -153,6 +168,7 @@ function enemy:start_charging()
       enemy:start_brief_effect("entities/effects/brake_smoke", "default", math.cos(angle) * 24, 0)
       enemy:restart()
     end)
+    local dust_effect = enemy:start_dust_effect(movement)
 
     -- Start being shocked and vulnerable if obstacle reached.
     function movement:on_obstacle_reached()
@@ -166,6 +182,7 @@ function enemy:start_charging()
           enemy:restart()
         end)
       end)
+      audio_manager:play_sound("enemies/enemy_rebound")
 
       -- TODO Stop and laugh on hero touched.
 
@@ -173,6 +190,7 @@ function enemy:start_charging()
     end
     sprite:set_animation("attacking")
   end)
+  audio_manager:play_sound("enemies/boss_bursting")
 end
 
 -- Make the enemy search for the hero then start moving.

@@ -3017,16 +3017,6 @@ custom_entity{
   direction = 0,
 }
 
-npc{
-  name = "moblin_chief",
-  layer = 0,
-  x = 160,
-  y = 77,
-  direction = 3,
-  subtype = 1,
-  sprite = "enemies/boss/moblin_chief",
-}
-
 wall{
   layer = 0,
   x = 64,
@@ -3211,6 +3201,16 @@ sensor{
   },
   width = 16,
   height = 16,
+}
+
+npc{
+  name = "moblin_chief",
+  layer = 0,
+  x = 160,
+  y = 77,
+  direction = 3,
+  subtype = 1,
+  sprite = "enemies/boss/moblin_chief",
 }
 
 tile{

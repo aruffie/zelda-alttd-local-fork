@@ -122,7 +122,7 @@ end
 local function start_head_vulnerable(vulnerable)
 
   enemy:set_arrow_reaction_sprite(head_sprite, vulnerable and function() hurt(1) end or "protected")
-  enemy:set_attack_consequence_sprite(head_sprite, "boomerang", vulnerable and function() hurt(1) end or "protected")
+  enemy:set_attack_consequence_sprite(head_sprite, "boomerang", vulnerable and function() hurt(16) end or "protected")
 end
 
 -- Open eye periodically.

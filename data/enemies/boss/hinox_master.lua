@@ -48,7 +48,7 @@ local bomb_throwing_speed = 120
 local hero_holding_duration = 800
 local hero_throwing_duration = 800
 local hero_throwing_height = 60
-local hero_throwing_speed = 240
+local hero_throwing_speed = 300
 local hero_stunned_duration = 1000
 
 -- Hold the given entity in the given hand and wait for the actual throw.

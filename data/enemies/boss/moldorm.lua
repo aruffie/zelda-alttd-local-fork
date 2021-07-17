@@ -14,6 +14,7 @@
 -- Global variables
 local enemy = ...
 require("enemies/lib/common_actions").learn(enemy)
+local audio_manager = require("scripts/audio_manager")
 
 local game = enemy:get_game()
 local map = enemy:get_map()
@@ -28,7 +29,7 @@ local is_angry
 local walking_speed = 88
 local walking_angle = 0.035
 local running_speed = 140
-local tied_sprites_frame_lags = {20, 35, 50, 62}
+local tied_sprites_frame_lags = {25, 45, 65, 80}
 local keeping_angle_duration = 1500
 local angry_duration = 3000
 
@@ -108,6 +109,7 @@ local function on_attack_received()
           sol.timer.start(enemy, 1000, function()
             local x, y = head_sprite:get_xy()
             enemy:start_brief_effect("entities/explosion_boss", nil, x, y)
+            audio_manager:play_sound("enemies/moldorm_segment_explode_full")
             finish_death()
           end)
         end)
@@ -193,7 +195,7 @@ enemy:register_event("on_restarted", function(enemy)
   	hammer = on_attack_received,
   	hookshot = on_attack_received,
   	magic_powder = on_attack_received,
-  	shield = "protected",
+  	shield = "pushed",
   	thrust = on_attack_received
   })
 

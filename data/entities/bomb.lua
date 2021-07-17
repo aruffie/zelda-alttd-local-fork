@@ -39,7 +39,6 @@ local function explode()
       {key = "explosive_type_5", value = "sensor"}
     }
   })
-  audio_manager:play_sound("items/bomb_explode")
   bomb:remove()
 end
 

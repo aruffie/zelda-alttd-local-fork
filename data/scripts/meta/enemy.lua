@@ -221,6 +221,8 @@ local function push(entity, pushing_entity, speed, duration, entity_sprite, push
       end
     end
   end)
+
+  audio_manager:play_sound("items/sword_tap")
 end
 
 -- Some items needs to push the enemy, the hero or both on a protected reaction.
@@ -253,7 +255,10 @@ function enemy_meta:receive_attack_consequence(attack, reaction)
       self:immobilize()
     elseif reaction == "protected" then
       on_protected(self, attack)
-      audio_manager:play_sound("items/sword_tap")
+    elseif reaction == "pushed" then
+      push(self:get_map():get_hero(), self, 180, 100)
+    elseif reaction == "repels" then
+      push(self, self:get_map():get_hero(), 150, 100)
     elseif reaction == "custom" then
       if self.on_custom_attack_received ~= nil then
         self:on_custom_attack_received(attack)

@@ -13475,6 +13475,24 @@ tile{
   pattern = "wall_border.corner.4-2",
 }
 
+tile{
+  layer = 0,
+  x = 2096,
+  y = 496,
+  width = 16,
+  height = 32,
+  pattern = "door_boss.1.pillar.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 2048,
+  y = 496,
+  width = 16,
+  height = 32,
+  pattern = "door_boss.1.pillar.1-1",
+}
+
 sensor{
   name = "sensor_16",
   layer = 0,
@@ -16856,6 +16874,24 @@ sensor{
   height = 16,
 }
 
+wall{
+  layer = 0,
+  x = 2064,
+  y = 672,
+  width = 32,
+  height = 8,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 0,
+  x = 2064,
+  y = 520,
+  width = 32,
+  height = 8,
+  stops_enemies = true,
+}
+
 tile{
   layer = 1,
   x = 528,
@@ -17191,9 +17227,9 @@ tile{
 
 tile{
   layer = 1,
-  x = 2048,
+  x = 2064,
   y = 496,
-  width = 64,
+  width = 32,
   height = 8,
   pattern = "door_cache.1-2",
 }
