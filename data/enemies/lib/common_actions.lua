@@ -965,7 +965,6 @@ function common_actions.learn(enemy)
     explosion_sprite_name = explosion_sprite_name or "entities/explosion_boss"
     x = x or 0
     y = y or 0
-    sound_id = sound_id or "enemies/moldorm_segment_explode"
 
     local elapsed_time = 0
     local function start_close_explosion()
@@ -998,7 +997,6 @@ function common_actions.learn(enemy)
     explosion_sprite_name = explosion_sprite_name or "entities/explosion_boss"
     x = x or 0
     y = y or 0
-    sound_id = sound_id or "enemies/moldorm_segment_explode"
 
     local function start_sprite_explosion(index)
       local sprite = sprites[index]

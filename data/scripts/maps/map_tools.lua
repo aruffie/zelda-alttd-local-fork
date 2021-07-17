@@ -10,12 +10,12 @@ local audio_manager = require("scripts/audio_manager")
 function map_tools.start_earthquake(shake_config)
 
   local map = sol.main.get_game():get_map()
+  local timer_sound = sol.timer.start(map, 0, function()
+    audio_manager:play_sound("misc/dungeon_shake")
+    return shake_config.sound_frequency or 450
+  end)
   map:start_coroutine(function()
     local camera = map:get_camera()
-    local timer_sound = sol.timer.start(map, 0, function()
-      audio_manager:play_sound("misc/dungeon_shake")
-      return 450
-    end)
     timer_sound:set_suspended_with_map(false)
     wait_for(camera.shake, camera, shake_config)
     timer_sound:stop()

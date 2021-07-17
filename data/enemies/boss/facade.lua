@@ -31,6 +31,7 @@ local digging_timer
 local before_waking_up_duration = 2000
 local before_blinking_duration = 1000
 local after_blinking_duration = 300
+local earthquake_frequency = 450
 local between_throws_duration = 1000
 local invisible_minimum_duration = 3000
 local invisible_maximum_duration = 5000
@@ -217,8 +218,8 @@ local function start_fighting()
 
   enemy:set_hero_weapons_reactions({explosion = on_hurt})
   sprite:set_animation("waiting")
-  earthquake_timer = sol.timer.start(enemy, 400, function()
-    map_tools.start_earthquake({count = 1, amplitude = 2, speed = 10})
+  earthquake_timer = sol.timer.start(enemy, earthquake_frequency, function()
+    map_tools.start_earthquake({count = 1, amplitude = 2, speed = 10, sound_frequency = earthquake_frequency})
     return true
   end)
 
