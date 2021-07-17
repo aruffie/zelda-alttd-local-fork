@@ -38,15 +38,18 @@ local minimum_jumping_distance_x = 4
 local jumping_speed = 120
 local jumping_height = 6
 local jumping_duration = 200
-local straight_arming_duration = 1000
-local straight_speed = 248
-local straight_maximum_distance = 96
+local straight_arming_duration = 500
+local straight_arming_speed = 44
+local straight_arming_distance = 12
+local straight_speed = 300
+local straight_maximum_distance = 72
 local straight_duration = 1000
-local uppercut_arming_duration = 2000
+local uppercut_arming_duration = 1400
+local uppercut_arming_loop_number = 3
 local uppercut_arming_speed = 88
 local uppercut_arming_distance = 24
-local uppercut_speed = 248
-local uppercut_maximum_distance = 48
+local uppercut_speed = 300
+local uppercut_maximum_distance = 64
 local uppercut_duration = 1000
 local minimum_jump_in_a_row = 4
 local maximum_jump_in_a_row = 12
@@ -138,12 +141,18 @@ local function start_uppercut()
       end
     end)
   end)
+  sol.timer.start(enemy, sprite:get_num_frames() * sprite:get_frame_delay() * uppercut_arming_loop_number, function()
+    if sprite:get_animation() == "arming_uppercut" then
+      sprite:set_paused()
+    end
+  end)
 end
 
 -- Start a straight punch that stun the hero if hit, and directly start an uppercut in this case.
 local function start_straight()
 
   sprite:set_animation("arming_straight")
+  start_straight_movement(enemy, straight_arming_speed, straight_arming_distance, is_hero_on_left and 0 or math.pi)
   sol.timer.start(enemy, straight_arming_duration, function()
 
     is_straight_punching = true
