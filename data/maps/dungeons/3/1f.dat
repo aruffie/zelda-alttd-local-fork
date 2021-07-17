@@ -10829,6 +10829,7 @@ destination{
   x = 1120,
   y = 1893,
   direction = 1,
+  default = true,
 }
 
 door{

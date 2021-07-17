@@ -6905,6 +6905,7 @@ destination{
   x = 480,
   y = 933,
   direction = 1,
+  default = true,
 }
 
 custom_entity{

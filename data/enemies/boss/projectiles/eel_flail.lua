@@ -140,8 +140,8 @@ enemy:register_event("start_exploding", function(enemy)
       end
     end
 
-    sol.timer.start(enemy, 2000, function()
-      enemy:start_sprite_explosions(sorted_tied_sprites, "entities/explosion_boss", 0, 0, function()
+    sol.timer.start(enemy, 3000, function()
+      enemy:start_sprite_explosions(sorted_tied_sprites, "entities/explosion_boss", 0, 0, "enemies/moldorm_segment_explode", function()
         finish_death()
       end)
     end)

@@ -11,6 +11,7 @@
 
 -- Global variables
 local enemy = ...
+local audio_manager = require("scripts/audio_manager")
 local map_tools = require("scripts/maps/map_tools")
 require("enemies/lib/common_actions").learn(enemy)
 
@@ -174,17 +175,19 @@ local function on_hurt()
     remove_holes()
     enemy:start_death(function()
       sprite:set_animation("hurt")
-      sol.timer.start(enemy, 1500, function()
-        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", x, y - 13, function()
+      sol.timer.start(enemy, 3000, function()
+        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", x, y - 13, "enemies/moldorm_segment_explode", function()
           sol.timer.start(enemy, 1000, function()
             enemy:start_brief_effect("entities/explosion_boss", nil, x, y - 13)
+            audio_manager:play_sound("enemies/boss_explode")
             finish_death()
           end)
         end)
         sol.timer.start(enemy, 200, function()
-          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", x, y - 13)
+          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", x, y - 13, "enemies/moldorm_segment_explode")
         end)
       end)
+      audio_manager:play_sound("enemies/boss_die")
     end)
     return
   end
@@ -278,6 +281,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(5)
   enemy:set_size(96, 72)
   enemy:set_origin(48, 36)
+  enemy:set_hurt_style("boss")
 
   -- Get flying entities and sort them.
   for entity in map:get_entities_in_region(enemy) do

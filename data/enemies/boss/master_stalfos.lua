@@ -16,6 +16,7 @@
 
 -- Global variables
 local enemy = ...
+local audio_manager = require("scripts/audio_manager")
 require("enemies/lib/common_actions").learn(enemy)
 
 local game = enemy:get_game()
@@ -275,17 +276,19 @@ local function hurt(damage)
       shield:set_invincible()
       sword:set_invincible()
       legs_sprite:set_shader(hurt_shader)
-      sol.timer.start(enemy, 1500, function()
-        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -20, function()
+      sol.timer.start(enemy, 3000, function()
+        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -20, "enemies/moldorm_segment_explode", function()
           sol.timer.start(enemy, 1000, function()
             enemy:start_brief_effect("entities/explosion_boss", nil, 0, -20)
+            audio_manager:play_sound("enemies/boss_explode")
             finish_death()
           end)
         end)
         sol.timer.start(enemy, 200, function()
-          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, -20)
+          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, -20, "enemies/moldorm_segment_explode")
         end)
       end)
+      audio_manager:play_sound("enemies/boss_die")
     end)
     return
   end
@@ -498,6 +501,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(12)
   enemy:set_size(32, 16)
   enemy:set_origin(16, 13)
+  enemy:set_hurt_style("boss")
   enemy:start_shadow("enemies/" .. enemy:get_breed() .. "/shadow")
   enemy:set_drawn_in_y_order(false) -- Display the legs and body part as a flat entity.
   enemy:bring_to_front()

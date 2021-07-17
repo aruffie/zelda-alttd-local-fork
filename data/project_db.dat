@@ -507,10 +507,10 @@ sprite{ id = "entities/dungeons/dungeon_6", description = "Dungeon 6" }
 sprite{ id = "entities/dungeons/dungeon_7", description = "Dungeon 7" }
 sprite{ id = "entities/dungeons/eagle_tower_destruction", description = "Eagle tower destruction" }
 sprite{ id = "entities/effects/boulder_explosion", description = "Boulder explosion" }
-sprite{ id = "entities/effects/brake_smoke", description = "Brake Smoke" }
 sprite{ id = "entities/effects/bubble", description = "Bubble" }
 sprite{ id = "entities/effects/collapse_star", description = "Collapse star" }
 sprite{ id = "entities/effects/dark", description = "Dark" }
+sprite{ id = "entities/effects/dust_smoke", description = "Brake Smoke" }
 sprite{ id = "entities/effects/explosion_green", description = "Explosion green" }
 sprite{ id = "entities/effects/fishing_water_effect", description = "Fishing water effect" }
 sprite{ id = "entities/effects/flame", description = "Flame" }
@@ -2826,8 +2826,8 @@ file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_6.dat", author = "J
 file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_7.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_8.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_9.dat", author = "JulioTanaka", }
-file{ path = "sprites/entities/effects/brake_smoke.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/effects/collapse_star.dat", author = "JulioTanaka", }
+file{ path = "sprites/entities/effects/dust_smoke.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/ground_effects/walrus_diving_effect.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/grounds/weak_floor_ghost_house.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/iron_ball.dat", author = "Christopho", license = "CC BY-SA 4.0" }

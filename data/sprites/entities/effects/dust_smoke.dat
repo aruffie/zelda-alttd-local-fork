@@ -1,6 +1,6 @@
 animation{
   name = "default",
-  src_image = "entities/effects/brake_smoke.png",
+  src_image = "entities/effects/dust_smoke.png",
   frame_delay = 100,
   directions = {
     { x = 0, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13, num_frames = 3 },

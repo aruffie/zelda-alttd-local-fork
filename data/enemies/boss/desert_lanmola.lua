@@ -15,6 +15,7 @@
 
 -- Global variables
 local enemy = ...
+local audio_manager = require("scripts/audio_manager")
 local common_actions = require("enemies/lib/common_actions")
 common_actions.learn(enemy)
 
@@ -112,6 +113,7 @@ local function start_part_explosions(on_finished_callback)
       end
     end)
     explosion:set_layer(map:get_max_layer())
+    audio_manager:play_sound("enemies/moldorm_segment_explode")
     part:remove()
   end
   start_part_explosion(1)
@@ -213,16 +215,18 @@ local function hurt(damage)
       end
       remove_effects()
       head_sprite:set_animation("hurt")
-      sol.timer.start(enemy, 2000, function()
+      sol.timer.start(enemy, 3000, function()
         start_part_explosions(function()
           sol.timer.start(enemy, 1000, function()
             local x, y = head_sprite:get_xy()
             enemy:start_brief_effect("entities/explosion_boss", nil, x, y)
             set_treasure_falling_height(-y)
+            audio_manager:play_sound("enemies/boss_explode")
             finish_death()
           end)
         end)
       end)
+      audio_manager:play_sound("enemies/boss_die")
     end)
     return
   end
@@ -356,6 +360,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(8)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
+  enemy:set_hurt_style("boss")
   enemy:start_shadow() -- Head shadow.
   parts[1] = enemy -- Add the enemy as first part since it symbolize the head.
 

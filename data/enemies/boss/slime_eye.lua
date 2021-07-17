@@ -9,8 +9,9 @@
 
 -- Global variables
 local enemy = ...
-require("enemies/lib/common_actions").learn(enemy)
+local audio_manager = require("scripts/audio_manager")
 local map_tools = require("scripts/maps/map_tools")
+require("enemies/lib/common_actions").learn(enemy)
 
 local game = enemy:get_game()
 local map = enemy:get_map()
@@ -189,6 +190,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(5)
   enemy:set_size(64, 24)
   enemy:set_origin(32, 21)
+  enemy:set_hurt_style("boss")
   enemy:start_shadow("entities/shadows/giant_shadow")
 end)
 

@@ -16,8 +16,8 @@
 
 -- Global variables
 local enemy = ...
-require("enemies/lib/common_actions").learn(enemy)
 local audio_manager = require("scripts/audio_manager")
+require("enemies/lib/common_actions").learn(enemy)
 
 local game = enemy:get_game()
 local map = enemy:get_map()
@@ -61,12 +61,12 @@ local function update_direction()
   sprite:set_direction(hero_x < x and 2 or 0)
 end
 
--- Start dust effect under the enemy.
-local function start_dust_effect(movement)
+-- Start a dust effect under the enemy an continue it while the given movement is running.
+local function start_dust_smoke_effect(x, y, movement)
 
-  enemy:start_brief_effect("entities/effects/brake_smoke", "default", 0, 0, nil, function()
-    if movement then
-      start_dust_effect(movement)
+  enemy:start_brief_effect("entities/effects/dust_smoke", "default", x, y, nil, function()
+    if movement and movement == enemy:get_movement() then
+      start_dust_smoke_effect(x, y, movement)
     end
   end)
 end
@@ -81,8 +81,8 @@ local function hurt(damage)
     enemy:start_death(function()
       sprite:set_animation("hurt")
       audio_manager:play_sound("enemies/boss_die")
-      sol.timer.start(enemy, 1500, function()
-        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -13, function()
+      sol.timer.start(enemy, 3000, function()
+        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -13, "enemies/moldorm_segment_explode", function()
           sol.timer.start(enemy, 1000, function()
             enemy:start_brief_effect("entities/explosion_boss", nil, 0, -13)
             audio_manager:play_sound("enemies/boss_explode")
@@ -90,9 +90,10 @@ local function hurt(damage)
           end)
         end)
         sol.timer.start(enemy, 200, function()
-          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, -13)
+          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, -13, "enemies/moldorm_segment_explode")
         end)
       end)
+      audio_manager:play_sound("enemies/boss_die")
     end)
     return
   end
@@ -165,10 +166,11 @@ function enemy:start_charging()
   sol.timer.start(enemy, waiting_duration, function()
     local movement = enemy:start_straight_walking(angle, charging_speed, charging_maximum_distance, function()
       -- Brake and restart jumping on movement finished if no obstacle reached.
-      enemy:start_brief_effect("entities/effects/brake_smoke", "default", math.cos(angle) * 24, 0)
+      enemy:get_movement():stop()
+      start_dust_smoke_effect(math.cos(angle) * 24, 0)
       enemy:restart()
     end)
-    local dust_effect = enemy:start_dust_effect(movement)
+    start_dust_smoke_effect(0, 0, movement)
 
     -- Start being shocked and vulnerable if obstacle reached.
     function movement:on_obstacle_reached()
@@ -217,6 +219,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(8)
   enemy:set_size(48, 48)
   enemy:set_origin(24, 45)
+  enemy:set_hurt_style("boss")
   enemy:start_shadow()
 
   update_direction()

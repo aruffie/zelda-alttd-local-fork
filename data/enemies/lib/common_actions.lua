@@ -34,8 +34,8 @@
 --           enemy:start_death([dying_callback])
 --           enemy:start_shadow([sprite_name, [animation_name, [x, [y]]]])
 --           enemy:start_brief_effect(sprite_name, [animation_name, [x, [y, [maximum_duration, [on_finished_callback]]]]])
---           enemy:start_close_explosions(maximum_distance, duration, [explosion_sprite_name, [x, [y, [on_finished_callback]]]])
---           enemy:start_sprite_explosions([sprites, [explosion_sprite_name, [x, [y, [on_finished_callback]]]]])
+--           enemy:start_close_explosions(maximum_distance, duration, [explosion_sprite_name, [x, [y, [sound_id, [on_finished_callback]]]]])
+--           enemy:start_sprite_explosions([sprites, [explosion_sprite_name, [x, [y, [sound_id, [on_finished_callback]]]]]])
 --           enemy:stop_all()
 --
 -- Usage : 
@@ -48,6 +48,8 @@
 local common_actions = {}
 
 function common_actions.learn(enemy)
+
+  local audio_manager = require("scripts/audio_manager")
 
   local game = enemy:get_game()
   local map = enemy:get_map()
@@ -958,11 +960,12 @@ function common_actions.learn(enemy)
   end
 
   -- Start a new explosion placed randomly around the entity coordinates each time the previous one finished, until duration reached.
-  function enemy:start_close_explosions(maximum_distance, duration, explosion_sprite_name, x, y, on_finished_callback)
+  function enemy:start_close_explosions(maximum_distance, duration, explosion_sprite_name, x, y, sound_id, on_finished_callback)
 
     explosion_sprite_name = explosion_sprite_name or "entities/explosion_boss"
     x = x or 0
     y = y or 0
+    sound_id = sound_id or "enemies/moldorm_segment_explode"
 
     local elapsed_time = 0
     local function start_close_explosion()
@@ -981,6 +984,7 @@ function common_actions.learn(enemy)
         end
       end)
       local sprite = explosion:get_sprite()
+      audio_manager:play_sound(sound_id)
       elapsed_time = elapsed_time + sprite:get_frame_delay() * sprite:get_num_frames()
     end
     start_close_explosion()
@@ -988,12 +992,13 @@ function common_actions.learn(enemy)
   end
 
   -- Make the given enemy sprites explode one after the other in the given order, and remove exploded sprite.
-  function enemy:start_sprite_explosions(sprites, explosion_sprite_name, x, y, on_finished_callback)
+  function enemy:start_sprite_explosions(sprites, explosion_sprite_name, x, y, sound_id, on_finished_callback)
 
     sprites = sprites or enemy:get_sprites()
     explosion_sprite_name = explosion_sprite_name or "entities/explosion_boss"
     x = x or 0
     y = y or 0
+    sound_id = sound_id or "enemies/moldorm_segment_explode"
 
     local function start_sprite_explosion(index)
       local sprite = sprites[index]
@@ -1008,6 +1013,7 @@ function common_actions.learn(enemy)
         end
       end)
       enemy:remove_sprite(sprite)
+      audio_manager:play_sound(sound_id)
     end
     start_sprite_explosion(1)
     enemy:set_drawn_in_y_order(false) -- Display as a flat entity to draw explosions over it.

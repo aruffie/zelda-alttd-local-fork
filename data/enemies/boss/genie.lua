@@ -16,6 +16,7 @@
 
 -- Global variables.
 local enemy = ...
+local audio_manager = require("scripts/audio_manager")
 require("enemies/lib/common_actions").learn(enemy)
 
 local game = enemy:get_game()
@@ -157,17 +158,19 @@ local function hurt(damage)
     -- Wait a few time, start 2 sets of explosions close from the enemy, wait a few time again and finally make the final explosion and enemy die.
     enemy:start_death(function()
       sprite:set_animation("hurt")
-      sol.timer.start(enemy, 1500, function()
-        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -30, function()
+      sol.timer.start(enemy, 3000, function()
+        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -30, "enemies/moldorm_segment_explode", function()
           sol.timer.start(enemy, 1000, function()
             enemy:start_brief_effect("entities/explosion_boss", nil, 0, -30)
+            audio_manager:play_sound("enemies/boss_explode")
             finish_death()
           end)
         end)
         sol.timer.start(enemy, 200, function()
-          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, -30)
+          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", "enemies/moldorm_segment_explode", 0, -30)
         end)
       end)
+      audio_manager:play_sound("enemies/boss_die")
     end)
     return
   end
@@ -400,6 +403,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(4)
   enemy:set_size(32, 32)
   enemy:set_origin(16, 29)
+  enemy:set_hurt_style("boss")
   enemy:set_drawn_in_y_order(false) -- Display as a flat entity to draw fireball over it.
   steps_callback = {start_step_1, start_step_2, start_step_3, start_step_4, start_step_5} -- Fill steps_callback table.
   create_bottle()
