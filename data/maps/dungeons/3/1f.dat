@@ -10823,15 +10823,6 @@ teletransporter{
   destination = "dungeon_3_2_A",
 }
 
-destination{
-  name = "dungeon_3_1_B",
-  layer = 0,
-  x = 1120,
-  y = 1893,
-  direction = 1,
-  default = true,
-}
-
 door{
   name = "door_group_1_1",
   layer = 0,
@@ -12749,6 +12740,15 @@ custom_entity{
   width = 16,
   height = 16,
   direction = 0,
+}
+
+destination{
+  name = "dungeon_3_1_B",
+  layer = 0,
+  x = 1120,
+  y = 1893,
+  direction = 1,
+  default = true,
 }
 
 tile{

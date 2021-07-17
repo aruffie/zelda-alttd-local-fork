@@ -16747,14 +16747,6 @@ enemy{
   treasure_name = "random",
 }
 
-destination{
-  name = "dungeon_5_1_B",
-  layer = 0,
-  x = 2080,
-  y = 1893,
-  direction = 1,
-}
-
 wall{
   layer = 0,
   x = 2072,
@@ -19830,6 +19822,14 @@ dynamic_tile{
   width = 48,
   height = 24,
   pattern = "wall.2-2",
+}
+
+destination{
+  name = "dungeon_5_1_B",
+  layer = 0,
+  x = 2080,
+  y = 1893,
+  direction = 1,
 }
 
 tile{

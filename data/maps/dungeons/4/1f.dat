@@ -13990,14 +13990,6 @@ door{
   opening_condition_consumed = true,
 }
 
-destination{
-  name = "dungeon_4_1_B",
-  layer = 0,
-  x = 1120,
-  y = 1653,
-  direction = 1,
-}
-
 wall{
   layer = 0,
   x = 1112,
@@ -15636,6 +15628,14 @@ destination{
   layer = 0,
   x = 1120,
   y = 405,
+  direction = 1,
+}
+
+destination{
+  name = "dungeon_4_1_B",
+  layer = 0,
+  x = 1120,
+  y = 1653,
   direction = 1,
 }
 

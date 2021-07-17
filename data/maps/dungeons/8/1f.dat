@@ -28124,15 +28124,6 @@ destination{
   direction = 1,
 }
 
-destination{
-  name = "dungeon_8_1_B",
-  layer = 0,
-  x = 1120,
-  y = 1893,
-  direction = 1,
-  default = true,
-}
-
 teletransporter{
   name = "dungeon_8_2_A",
   layer = 0,
@@ -29494,6 +29485,15 @@ dynamic_tile{
   width = 8,
   height = 112,
   pattern = "hole.3",
+}
+
+destination{
+  name = "dungeon_8_1_B",
+  layer = 0,
+  x = 1120,
+  y = 1893,
+  direction = 1,
+  default = true,
 }
 
 tile{

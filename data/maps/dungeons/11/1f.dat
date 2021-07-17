@@ -1500,15 +1500,6 @@ tile{
   tileset = "addition/dungeon",
 }
 
-destination{
-  name = "entrance",
-  layer = 0,
-  x = 160,
-  y = 437,
-  direction = 1,
-  default = true,
-}
-
 wall{
   layer = 0,
   x = 152,
@@ -1573,6 +1564,15 @@ sensor{
   },
   width = 16,
   height = 16,
+}
+
+destination{
+  name = "entrance",
+  layer = 0,
+  x = 160,
+  y = 453,
+  direction = 1,
+  default = true,
 }
 
 tile{

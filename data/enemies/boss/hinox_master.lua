@@ -43,13 +43,13 @@ local frenzy_duration  = 1000
 local right_hand_offset_x = -20
 local right_hand_offset_y = -52
 local bomb_holding_duration = 300
-local bomb_throwing_duration = 800
+local bomb_throwing_duration = 650
 local bomb_throwing_height = 60
-local bomb_throwing_speed = 120
+local bomb_throwing_speed = 130
 local hero_holding_duration = 800
-local hero_throwing_duration = 800
+local hero_throwing_duration = 600
 local hero_throwing_height = 60
-local hero_throwing_speed = 300
+local hero_throwing_speed = 340
 local hero_stunned_duration = 1000
 
 -- Hold the given entity in the given hand and wait for the actual throw.

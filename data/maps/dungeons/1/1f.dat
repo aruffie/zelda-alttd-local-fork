@@ -14549,14 +14549,6 @@ door{
 }
 
 destination{
-  name = "dungeon_1_1_B",
-  layer = 0,
-  x = 1120,
-  y = 1653,
-  direction = 1,
-}
-
-destination{
   name = "stairs_3_B",
   layer = 0,
   x = 160,
@@ -16889,6 +16881,14 @@ wall{
   width = 32,
   height = 8,
   stops_enemies = true,
+}
+
+destination{
+  name = "dungeon_1_1_B",
+  layer = 0,
+  x = 1120,
+  y = 1653,
+  direction = 1,
 }
 
 tile{
