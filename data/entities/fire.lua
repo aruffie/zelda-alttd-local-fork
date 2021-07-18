@@ -145,7 +145,7 @@ fire:add_collision_test("sprite", function(fire, entity, fire_sprite, entity_spr
 
   if is_active and entity:get_type() == "enemy" then
     local enemy = entity
-    local reaction = enemy:get_fire_reaction()
+    local reaction = enemy:get_fire_reaction(entity_sprite)
 
     -- Don't continue if fire has no effect on the enemy.
     if reaction == "protected" then

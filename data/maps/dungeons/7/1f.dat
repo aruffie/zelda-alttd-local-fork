@@ -6899,14 +6899,6 @@ destination{
   direction = 1,
 }
 
-destination{
-  name = "dungeon_7_1_B",
-  layer = 0,
-  x = 480,
-  y = 933,
-  direction = 1,
-}
-
 custom_entity{
   name = "light_torch_1_1",
   layer = 0,
@@ -6917,6 +6909,26 @@ custom_entity{
   direction = 0,
   sprite = "entities/decorations/big_torch",
   model = "torch",
+}
+
+wall{
+  layer = 0,
+  x = 472,
+  y = 920,
+  width = 16,
+  height = 16,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+}
+
+destination{
+  name = "dungeon_7_1_B",
+  layer = 0,
+  x = 480,
+  y = 933,
+  direction = 1,
+  default = true,
 }
 
 tile{

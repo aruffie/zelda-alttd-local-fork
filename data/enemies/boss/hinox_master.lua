@@ -15,6 +15,7 @@
 
 -- Global variables
 local enemy = ...
+local audio_manager = require("scripts/audio_manager")
 require("enemies/lib/common_actions").learn(enemy)
 
 local game = enemy:get_game()
@@ -42,13 +43,13 @@ local frenzy_duration  = 1000
 local right_hand_offset_x = -20
 local right_hand_offset_y = -52
 local bomb_holding_duration = 300
-local bomb_throwing_duration = 800
+local bomb_throwing_duration = 650
 local bomb_throwing_height = 60
-local bomb_throwing_speed = 120
+local bomb_throwing_speed = 130
 local hero_holding_duration = 800
-local hero_throwing_duration = 800
+local hero_throwing_duration = 600
 local hero_throwing_height = 60
-local hero_throwing_speed = 240
+local hero_throwing_speed = 340
 local hero_stunned_duration = 1000
 
 -- Hold the given entity in the given hand and wait for the actual throw.
@@ -79,17 +80,19 @@ local function hurt(damage)
     -- Wait a few time, start 2 sets of explosions close from the enemy, wait a few time again and finally make the final explosion and enemy die.
     enemy:start_death(function()
       sprite:set_animation("hurt")
-      sol.timer.start(enemy, 1500, function()
-        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -30, function()
+      sol.timer.start(enemy, 3000, function()
+        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -30, "enemies/moldorm_segment_explode", function()
           sol.timer.start(enemy, 1000, function()
             enemy:start_brief_effect("entities/explosion_boss", nil, 0, -30)
+            audio_manager:play_sound("enemies/boss_explode")
             finish_death()
           end)
         end)
         sol.timer.start(enemy, 200, function()
-          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, -30)
+          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, -30, "enemies/moldorm_segment_explode")
         end)
       end)
+      audio_manager:play_sound("enemies/boss_die")
     end)
     return
   end
@@ -245,6 +248,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(8)
   enemy:set_size(64, 40) -- Workaround : Adapt the size to never have a part of enemy sprite under ceiling nor holded hero over a wall.
   enemy:set_origin(32, 37)
+  enemy:set_hurt_style("boss")
 
   -- Set the requested skin to the enemy or the default one.
   sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. (skin and "/" .. skin or ""))

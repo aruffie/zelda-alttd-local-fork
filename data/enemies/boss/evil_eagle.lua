@@ -13,6 +13,7 @@
 
 -- Global variables
 local enemy = ...
+local audio_manager = require("scripts/audio_manager")
 require("enemies/lib/common_actions").learn(enemy)
 
 local game = enemy:get_game()
@@ -75,17 +76,19 @@ local function on_hurt(damage)
     enemy:start_death(function()
       sprite:set_animation("hurt")
       sprite:set_shader(hurt_shader)
-      sol.timer.start(enemy, 1500, function()
-        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", x, y, function()
+      sol.timer.start(enemy, 3000, function()
+        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", x, y, "enemies/moldorm_segment_explode", function()
           sol.timer.start(enemy, 1000, function()
             enemy:start_brief_effect("entities/explosion_boss", nil, x, y)
+            audio_manager:play_sound("enemies/boss_explode")
             finish_death()
           end)
         end)
         sol.timer.start(enemy, 200, function()
-          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", x, y)
+          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", x, y, "enemies/moldorm_segment_explode")
         end)
       end)
+      audio_manager:play_sound("enemies/boss_die")
     end)
     return
   end
@@ -323,6 +326,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(24)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 8)
+  enemy:set_hurt_style("boss")
   enemy:set_damage(8)
   _, floor_y = enemy:get_position()
 

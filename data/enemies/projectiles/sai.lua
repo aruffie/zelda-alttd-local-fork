@@ -2,6 +2,7 @@
 
 local enemy = ...
 local projectile_behavior = require("enemies/lib/projectile")
+local audio_manager = require("scripts/audio_manager")
 
 -- Global variables
 local map = enemy:get_map()
@@ -46,6 +47,8 @@ enemy:register_event("on_hit", function(enemy)
       finish_death()
     end)
   end)
+
+  audio_manager:play_sound("items/sword_tap")
 
   return false
 end)

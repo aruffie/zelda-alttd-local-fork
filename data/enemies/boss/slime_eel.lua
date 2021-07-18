@@ -14,6 +14,7 @@
 
 -- Global variables.
 local enemy = ...
+local audio_manager = require("scripts/audio_manager")
 require("enemies/lib/common_actions").learn(enemy)
 
 local game = enemy:get_game()
@@ -100,14 +101,16 @@ local function on_hurt()
 
       -- Start a chained explosion starting by the tail end to the tail base, then to main enemy head.
       function tail:on_dead()
-        enemy:start_sprite_explosions(sorted_tied_sprites, "entities/explosion_boss", 0, 0, function()
+        enemy:start_sprite_explosions(sorted_tied_sprites, "entities/explosion_boss", 0, 0, "enemies/moldorm_segment_explode", function()
           sol.timer.start(enemy, 1500, function()
             enemy:start_brief_effect("entities/explosion_boss")
+            audio_manager:play_sound("enemies/boss_explode")
             finish_death()
           end)
         end)
       end
       tail:start_exploding()
+      audio_manager:play_sound("enemies/boss_die")
     end)
     return
   end
@@ -348,6 +351,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(8)
   enemy:set_size(32, 32)
   enemy:set_origin(16, 29)
+  enemy:set_hurt_style("boss")
   enemy:set_visible(false)
 
   sprites[1] = enemy:create_sprite("enemies/" .. enemy:get_breed())

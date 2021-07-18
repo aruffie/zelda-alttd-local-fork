@@ -28124,15 +28124,6 @@ destination{
   direction = 1,
 }
 
-destination{
-  name = "dungeon_8_1_B",
-  layer = 0,
-  x = 1120,
-  y = 1893,
-  direction = 1,
-  default = true,
-}
-
 teletransporter{
   name = "dungeon_8_2_A",
   layer = 0,
@@ -28981,15 +28972,6 @@ custom_entity{
   model = "cliff",
 }
 
-sensor{
-  name = "sensor_small_boss",
-  layer = 0,
-  x = 2280,
-  y = 485,
-  width = 64,
-  height = 32,
-}
-
 dynamic_tile{
   name = "weak_wall_G_4",
   layer = 0,
@@ -29494,6 +29476,15 @@ dynamic_tile{
   width = 8,
   height = 112,
   pattern = "hole.3",
+}
+
+destination{
+  name = "dungeon_8_1_B",
+  layer = 0,
+  x = 1120,
+  y = 1893,
+  direction = 1,
+  default = true,
 }
 
 tile{
@@ -35573,7 +35564,7 @@ separator{
   layer = 2,
   x = 0,
   y = 472,
-  width = 2560,
+  width = 2240,
   height = 16,
 }
 
@@ -35635,15 +35626,6 @@ separator{
   name = "auto_separator_5",
   layer = 2,
   x = 1592,
-  y = 0,
-  width = 16,
-  height = 1920,
-}
-
-separator{
-  name = "auto_separator_7",
-  layer = 2,
-  x = 2232,
   y = 0,
   width = 16,
   height = 1920,
@@ -35827,5 +35809,23 @@ wall{
   stops_enemies = true,
   stops_blocks = true,
   stops_projectiles = true,
+}
+
+separator{
+  name = "separator_small_boss",
+  layer = 2,
+  x = 2240,
+  y = 472,
+  width = 320,
+  height = 16,
+}
+
+separator{
+  name = "auto_separator_7",
+  layer = 2,
+  x = 2232,
+  y = 0,
+  width = 16,
+  height = 1920,
 }
 

@@ -828,7 +828,7 @@ dialog{
   text = [[
 Halte !
 Tu es bien téméraire pour t'aventurer dans la caverne des Moblins !!
-Je vais m'ocupper de toi !
+Je vais m'occuper de toi !
 ]],
 }
 
@@ -989,7 +989,11 @@ Prince des Cauchemars
 dialog{
   id = "maps.dungeons.11.boss_dying",
   text = [[
-maps.dungeons.11.boss_dying
+Cette île va disparaître ...
+Notre monde va disparaître ...
+Notre monde...
+Notre...
+monde ... !!  
 ]],
 }
 

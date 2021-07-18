@@ -13,6 +13,7 @@
 
 -- Global variables
 local enemy = ...
+local audio_manager = require("scripts/audio_manager")
 require("enemies/lib/common_actions").learn(enemy)
 
 local game = enemy:get_game()
@@ -28,7 +29,7 @@ local is_angry
 local walking_speed = 88
 local walking_angle = 0.035
 local running_speed = 140
-local tied_sprites_frame_lags = {20, 35, 50, 62}
+local tied_sprites_frame_lags = {25, 45, 65, 80}
 local keeping_angle_duration = 1500
 local angry_duration = 3000
 
@@ -103,15 +104,17 @@ local function on_attack_received()
       end
 
       local sorted_tied_sprites = {sprites[5], sprites[4], sprites[3], sprites[2]}
-      sol.timer.start(enemy, 2000, function()
-        enemy:start_sprite_explosions(sorted_tied_sprites, "entities/explosion_boss", 0, 0, function()
+      sol.timer.start(enemy, 3000, function()
+        enemy:start_sprite_explosions(sorted_tied_sprites, "entities/explosion_boss", 0, 0, "enemies/moldorm_segment_explode", function()
           sol.timer.start(enemy, 1000, function()
             local x, y = head_sprite:get_xy()
             enemy:start_brief_effect("entities/explosion_boss", nil, x, y)
+            audio_manager:play_sound("enemies/boss_explode")
             finish_death()
           end)
         end)
       end)
+      audio_manager:play_sound("enemies/boss_die")
     end)
     return
   end
@@ -167,6 +170,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(4)
   enemy:set_size(24, 24)
   enemy:set_origin(12, 12)
+  enemy:set_hurt_style("boss")
   
   -- Create sprites in right z-order.
   sprites[5] = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/tail")
@@ -193,7 +197,7 @@ enemy:register_event("on_restarted", function(enemy)
   	hammer = on_attack_received,
   	hookshot = on_attack_received,
   	magic_powder = on_attack_received,
-  	shield = "protected",
+  	shield = "pushed",
   	thrust = on_attack_received
   })
 

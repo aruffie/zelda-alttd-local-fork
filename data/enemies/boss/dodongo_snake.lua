@@ -13,6 +13,7 @@
 
 -- Global variables
 local enemy = ...
+local audio_manager = require("scripts/audio_manager")
 require("enemies/lib/common_actions").learn(enemy)
 
 local game = enemy:get_game()
@@ -76,6 +77,7 @@ local function eat_bomb(bomb)
         local x, y = body_sprite:get_xy()
         enemy:start_brief_effect("entities/explosion_boss", nil, x, y)
         enemy:start_death()
+        audio_manager:play_sound("enemies/boss_explode")
       end)
       return
     end
@@ -89,7 +91,7 @@ local function eat_bomb(bomb)
         local angle = head_sprite:get_direction() * quarter
         local effect_x = math.cos(angle) * 16
         local effect_y = -math.sin(angle) * 16
-        enemy:start_brief_effect("entities/effects/brake_smoke", "default", effect_x, effect_y)
+        enemy:start_brief_effect("entities/effects/dust_smoke", "default", effect_x, effect_y)
         enemy:hurt(1)
       end)
     end)
@@ -133,6 +135,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(3)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
+  enemy:set_hurt_style("boss")
 
   body_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed() .. "/body")
   head_sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())

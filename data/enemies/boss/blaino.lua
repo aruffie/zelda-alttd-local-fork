@@ -12,6 +12,7 @@
 
 -- Global variables
 local enemy = ...
+local audio_manager = require("scripts/audio_manager")
 require("enemies/lib/common_actions").learn(enemy)
 
 local game = enemy:get_game()
@@ -37,15 +38,18 @@ local minimum_jumping_distance_x = 4
 local jumping_speed = 120
 local jumping_height = 6
 local jumping_duration = 200
-local straight_arming_duration = 1000
-local straight_speed = 248
-local straight_maximum_distance = 96
+local straight_arming_duration = 500
+local straight_arming_speed = 44
+local straight_arming_distance = 12
+local straight_speed = 300
+local straight_maximum_distance = 72
 local straight_duration = 1000
-local uppercut_arming_duration = 2000
+local uppercut_arming_duration = 1400
+local uppercut_arming_loop_number = 3
 local uppercut_arming_speed = 88
 local uppercut_arming_distance = 24
-local uppercut_speed = 248
-local uppercut_maximum_distance = 48
+local uppercut_speed = 300
+local uppercut_maximum_distance = 64
 local uppercut_duration = 1000
 local minimum_jump_in_a_row = 4
 local maximum_jump_in_a_row = 12
@@ -97,17 +101,19 @@ local function on_attack_received(damage)
     enemy:stop_all()
     enemy:start_death(function()
       sprite:set_animation("hurt")
-      sol.timer.start(enemy, 1500, function()
-        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -10, function()
+      sol.timer.start(enemy, 3000, function()
+        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -10, "enemies/moldorm_segment_explode", function()
           sol.timer.start(enemy, 1000, function()
             enemy:start_brief_effect("entities/explosion_boss", nil, 0, -10)
+            audio_manager:play_sound("enemies/boss_explode")
             finish_death()
           end)
         end)
         sol.timer.start(enemy, 200, function()
-          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, -10)
+          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, -10, "enemies/moldorm_segment_explode")
         end)
       end)
+      audio_manager:play_sound("enemies/boss_die")
     end)
     return
   end
@@ -135,12 +141,18 @@ local function start_uppercut()
       end
     end)
   end)
+  sol.timer.start(enemy, sprite:get_num_frames() * sprite:get_frame_delay() * uppercut_arming_loop_number, function()
+    if sprite:get_animation() == "arming_uppercut" then
+      sprite:set_paused()
+    end
+  end)
 end
 
 -- Start a straight punch that stun the hero if hit, and directly start an uppercut in this case.
 local function start_straight()
 
   sprite:set_animation("arming_straight")
+  start_straight_movement(enemy, straight_arming_speed, straight_arming_distance, is_hero_on_left and 0 or math.pi)
   sol.timer.start(enemy, straight_arming_duration, function()
 
     is_straight_punching = true
@@ -271,9 +283,10 @@ end)
 -- Initialization.
 enemy:register_event("on_created", function(enemy)
 
-  enemy:set_life(1)
+  enemy:set_life(8)
   enemy:set_size(16, 16)
   enemy:set_origin(8, 13)
+  enemy:set_hurt_style("boss")
   enemy:start_shadow()
 end)
 

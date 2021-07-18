@@ -13,6 +13,7 @@
 -- Global variables.
 local enemy = ...
 local map_tools = require("scripts/maps/map_tools")
+local audio_manager = require("scripts/audio_manager")
 require("enemies/lib/common_actions").learn(enemy)
 
 local game = enemy:get_game()
@@ -102,17 +103,19 @@ local function hurt(damage)
     -- Wait a few time, start 2 sets of explosions close from the enemy, wait a few time again and finally make the final explosion and enemy die.
     enemy:start_death(function()
       sprite:set_shader(hurt_shader)
-      sol.timer.start(enemy, 1500, function()
-        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -34, function()
+      sol.timer.start(enemy, 3000, function()
+        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -34, "enemies/moldorm_segment_explode", function()
           sol.timer.start(enemy, 1000, function()
             enemy:start_brief_effect("entities/explosion_boss", nil, 0, -34)
+            audio_manager:play_sound("enemies/boss_explode")
             finish_death()
           end)
         end)
         sol.timer.start(enemy, 200, function()
-          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, -34)
+          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, -34, "enemies/moldorm_segment_explode")
         end)
       end)
+      audio_manager:play_sound("enemies/boss_die")
     end)
     return
   end
@@ -196,6 +199,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(10)
   enemy:set_size(60, 52)
   enemy:set_origin(30, 26)
+  enemy:set_hurt_style("boss")
 
   local x, y = enemy:get_position()
   initial_position = {x = x, y = y}

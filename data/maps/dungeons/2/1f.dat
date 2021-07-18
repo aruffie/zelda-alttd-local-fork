@@ -19612,14 +19612,6 @@ destructible{
   weight = 1,
 }
 
-destination{
-  name = "dungeon_2_1_B",
-  layer = 0,
-  x = 800,
-  y = 1653,
-  direction = 1,
-}
-
 enemy{
   name = "enemy_group_7_1",
   layer = 0,
@@ -22356,6 +22348,14 @@ enemy{
   direction = 0,
   breed = "stalfos_blue",
   treasure_name = "random_with_charm",
+}
+
+destination{
+  name = "dungeon_2_1_B",
+  layer = 0,
+  x = 800,
+  y = 1653,
+  direction = 1,
 }
 
 tile{
