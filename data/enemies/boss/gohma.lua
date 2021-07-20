@@ -16,6 +16,7 @@
 
 -- Global variables
 local enemy = ...
+local audio_manager = require("scripts/audio_manager")
 require("enemies/lib/common_actions").learn(enemy)
 
 local game = enemy:get_game()
@@ -74,17 +75,19 @@ local function hurt(damage)
     enemy:start_death(function()
       body_sprite:set_animation("hurt")
       eye_sprite:set_opacity(0)
-      sol.timer.start(enemy, 1500, function()
-        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -13, function()
+      sol.timer.start(enemy, 3000, function()
+        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -13, "enemies/moldorm_segment_explode", function()
           sol.timer.start(enemy, 1000, function()
             enemy:start_brief_effect("entities/explosion_boss", nil, 0, -13)
+            audio_manager:play_sound("enemies/boss_explode")
             finish_death()
           end)
         end)
         sol.timer.start(enemy, 200, function()
-          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, -13)
+          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, -13, "enemies/moldorm_segment_explode")
         end)
       end)
+      audio_manager:play_sound("enemies/boss_die")
     end)
     return
   end
@@ -195,6 +198,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(6)
   enemy:set_size(40, 16)
   enemy:set_origin(20, 13)
+  enemy:set_hurt_style("boss")
 
   -- Create the first gohma with the classic red skin and others with the blue one.
   local body_sprite_name = "enemies/" .. enemy:get_breed()

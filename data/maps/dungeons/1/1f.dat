@@ -13475,6 +13475,24 @@ tile{
   pattern = "wall_border.corner.4-2",
 }
 
+tile{
+  layer = 0,
+  x = 2096,
+  y = 496,
+  width = 16,
+  height = 32,
+  pattern = "door_boss.1.pillar.2-1",
+}
+
+tile{
+  layer = 0,
+  x = 2048,
+  y = 496,
+  width = 16,
+  height = 32,
+  pattern = "door_boss.1.pillar.1-1",
+}
+
 sensor{
   name = "sensor_16",
   layer = 0,
@@ -14528,14 +14546,6 @@ door{
   sprite = "entities/doors/door_normal",
   opening_condition = "dungeon_1_small_keys",
   opening_condition_consumed = true,
-}
-
-destination{
-  name = "dungeon_1_1_B",
-  layer = 0,
-  x = 1120,
-  y = 1653,
-  direction = 1,
 }
 
 destination{
@@ -16604,7 +16614,6 @@ pickable{
   layer = 0,
   x = 2080,
   y = 597,
-  enabled_at_start = false,
   treasure_name = "heart_container",
   treasure_savegame_variable = "dungeon_1_heart_container",
 }
@@ -16854,6 +16863,32 @@ sensor{
   y = 725,
   width = 16,
   height = 16,
+}
+
+wall{
+  layer = 0,
+  x = 2064,
+  y = 672,
+  width = 32,
+  height = 8,
+  stops_enemies = true,
+}
+
+wall{
+  layer = 0,
+  x = 2064,
+  y = 520,
+  width = 32,
+  height = 8,
+  stops_enemies = true,
+}
+
+destination{
+  name = "dungeon_1_1_B",
+  layer = 0,
+  x = 1120,
+  y = 1653,
+  direction = 1,
 }
 
 tile{
@@ -17191,9 +17226,9 @@ tile{
 
 tile{
   layer = 1,
-  x = 2048,
+  x = 2064,
   y = 496,
-  width = 64,
+  width = 32,
   height = 8,
   pattern = "door_cache.1-2",
 }

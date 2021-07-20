@@ -16,6 +16,7 @@
 
 -- Global variables.
 local enemy = ...
+local audio_manager = require("scripts/audio_manager")
 require("enemies/lib/common_actions").learn(enemy)
 
 local game = enemy:get_game()
@@ -41,17 +42,17 @@ local horizontal_oscillation_height = 62
 local fireball_number = 8
 local fireball_juggling_duration = 1000
 local fireball_juggling_height = 48
-local fireball_throwing_duration = 600
+local fireball_throwing_duration = 500
 local fireball_throwing_height = 24
-local fireball_throwing_speed = 200
+local fireball_throwing_speed = 240
 local between_juggling_fireballs_duration = 330
 local before_throwing_fireballs_duration = 4000
 local between_fireball_throw_duration = 800
 local back_to_center_speed = 44
 local bottle_speed = 56
-local chasing_speed = 88
-local chasing_acceleration = 88
-local chasing_deceleration = 88
+local chasing_speed = 120
+local chasing_acceleration = 120
+local chasing_deceleration = 120
 local blinking_step_duration = 50
 local circle_duration = 1000
 local circle_radius_diminution = 0.1
@@ -157,17 +158,19 @@ local function hurt(damage)
     -- Wait a few time, start 2 sets of explosions close from the enemy, wait a few time again and finally make the final explosion and enemy die.
     enemy:start_death(function()
       sprite:set_animation("hurt")
-      sol.timer.start(enemy, 1500, function()
-        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -30, function()
+      sol.timer.start(enemy, 3000, function()
+        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -30, "enemies/moldorm_segment_explode", function()
           sol.timer.start(enemy, 1000, function()
             enemy:start_brief_effect("entities/explosion_boss", nil, 0, -30)
+            audio_manager:play_sound("enemies/boss_explode")
             finish_death()
           end)
         end)
         sol.timer.start(enemy, 200, function()
-          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, -30)
+          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", "enemies/moldorm_segment_explode", 0, -30)
         end)
       end)
+      audio_manager:play_sound("enemies/boss_die")
     end)
     return
   end
@@ -400,6 +403,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(4)
   enemy:set_size(32, 32)
   enemy:set_origin(16, 29)
+  enemy:set_hurt_style("boss")
   enemy:set_drawn_in_y_order(false) -- Display as a flat entity to draw fireball over it.
   steps_callback = {start_step_1, start_step_2, start_step_3, start_step_4, start_step_5} -- Fill steps_callback table.
   create_bottle()

@@ -147,7 +147,7 @@ end
 
 -- Push the given entity, not using a built-in movement to not stop a possible running movement.
 local is_pushed = {}
-local function push(entity, pushing_entity, speed, duration, entity_sprite, pushing_entity_sprite)
+local function push(entity, pushing_entity, speed, duration, sound_id, entity_sprite, pushing_entity_sprite)
 
   if is_pushed[entity] then
     return
@@ -221,6 +221,10 @@ local function push(entity, pushing_entity, speed, duration, entity_sprite, push
       end
     end
   end)
+
+  if sound_id then
+    audio_manager:play_sound(sound_id)
+  end
 end
 
 -- Some items needs to push the enemy, the hero or both on a protected reaction.
@@ -231,13 +235,13 @@ local function on_protected(enemy, attack)
 
   -- Push the hero if attacked by close range hand weapon.
   if attack == "sword" or attack == "shield" or attack == "thrust" or attack == "hammer" then
-    push(hero, enemy, 150, 100)
+    push(hero, enemy, 150, 100, "items/sword_tap")
   end
 
   -- Push the enemy on all weapon type except fire and magic powder, and if the enemy allow it.
   if attack ~= "fire" and attack ~= "magic_powder" then
     if enemy:is_pushed_back_when_hurt() then -- Workaround : Use the pushed back when hurt behavior to know if the enemy should be pushed by the attack.
-      push(enemy, hero, 150, 100)
+      push(enemy, hero, 150, 100, "items/sword_tap")
     end
   end
 end
@@ -253,7 +257,10 @@ function enemy_meta:receive_attack_consequence(attack, reaction)
       self:immobilize()
     elseif reaction == "protected" then
       on_protected(self, attack)
-      audio_manager:play_sound("items/sword_tap")
+    elseif reaction == "pushed" then
+      push(self:get_map():get_hero(), self, 180, 100, "items/sword_tap")
+    elseif reaction == "repels" then
+      push(self, self:get_map():get_hero(), 150, 100, "items/sword_tap")
     elseif reaction == "custom" then
       if self.on_custom_attack_received ~= nil then
         self:on_custom_attack_received(attack)

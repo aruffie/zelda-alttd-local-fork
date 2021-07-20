@@ -12,6 +12,7 @@
 
 -- Global variables
 local enemy = ...
+local audio_manager = require("scripts/audio_manager")
 require("enemies/lib/common_actions").learn(enemy)
 
 local game = enemy:get_game()
@@ -62,17 +63,19 @@ local function on_attack_received()
     enemy:stop_all()
     enemy:start_death(function()
       sprite:set_animation("hurt")
-      sol.timer.start(enemy, 1500, function()
-        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -13, function()
+      sol.timer.start(enemy, 3000, function()
+        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, -13, "enemies/moldorm_segment_explode", function()
           sol.timer.start(enemy, 1000, function()
             enemy:start_brief_effect("entities/explosion_boss", nil, 0, -13)
+            audio_manager:play_sound("enemies/boss_explode")
             finish_death()
           end)
         end)
         sol.timer.start(enemy, 200, function()
-          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, -13)
+          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, -13, "enemies/moldorm_segment_explode")
         end)
       end)
+      audio_manager:play_sound("enemies/boss_die")
     end)
     return
   end
@@ -135,6 +138,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_size(48, 48)
   enemy:set_origin(24, 24)
   enemy:set_position(get_grid_position()) -- Set the position to the center of the current 16*16 case instead of 8, 13.
+  enemy:set_hurt_style("boss")
   enemy:start_shadow("enemies/boss/cue_ball/shadow")
   enemy:set_drawn_in_y_order(false) -- Display the enemy as a flat entity.
   enemy:bring_to_front()

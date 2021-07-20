@@ -62,10 +62,7 @@ local function hurt(damage)
   sol.timer.start(enemy, hurt_duration, function()
     is_hurt = false
     sprite:set_shader(nil)
-    enemy:set_hero_weapons_reactions({
-      sword = function() hurt(1) end,
-      thrust = function() hurt(2) end
-    })
+    enemy:set_vulnerable()
   end)
 
   if enemy.on_hurt then
@@ -205,21 +202,9 @@ local function start_taking_axe()
   end)
 end
 
--- Initialization.
-enemy:register_event("on_created", function(enemy)
+-- Set enemy vulnerable.
+enemy:register_event("set_vulnerable", function(enemy)
 
-  enemy:set_life(12)
-  enemy:set_size(16, 16)
-  enemy:set_origin(8, 13)
-
-  local camera_x, camera_y, camera_width, camera_height = camera:get_bounding_box()
-  center_x, center_y = camera_x + camera_width * 0.5, camera_y + camera_height * 0.5
-end)
-
--- Restart settings.
-enemy:register_event("on_restarted", function(enemy)
-
-  -- Behavior for each items.
   enemy:set_hero_weapons_reactions({
   	arrow = "protected",
   	boomerang = "protected",
@@ -234,6 +219,23 @@ enemy:register_event("on_restarted", function(enemy)
   	shield = "protected",
   	thrust = function() hurt(2) end
   })
+end)
+
+-- Initialization.
+enemy:register_event("on_created", function(enemy)
+
+  enemy:set_life(12)
+  enemy:set_size(16, 16)
+  enemy:set_origin(8, 13)
+
+  local camera_x, camera_y, camera_width, camera_height = camera:get_bounding_box()
+  center_x, center_y = camera_x + camera_width * 0.5, camera_y + camera_height * 0.5
+end)
+
+-- Restart settings.
+enemy:register_event("on_restarted", function(enemy)
+
+  enemy:set_vulnerable()
 
   -- States.
   enemy:set_pushed_back_when_hurt(false)

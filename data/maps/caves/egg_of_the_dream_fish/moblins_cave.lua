@@ -207,6 +207,7 @@ function map:launch_cinematic_2()
     moblin_chief:get_sprite():set_animation("walking")
     moblin_chief:get_sprite():set_ignore_suspend(true)
     moblin_chief.xy = { x = x_moblin_chief, y = y_moblin_chief }
+    moblin_chief:set_layer(1)
     -- Init movement
     local m = sol.movement.create("target")
     m:set_speed(96)

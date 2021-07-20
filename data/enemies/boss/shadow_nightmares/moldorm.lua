@@ -28,7 +28,7 @@ local is_angry
 local walking_speed = 88
 local walking_angle = 0.035
 local running_speed = 140
-local tied_sprites_frame_lags = {25, 45, 61, 73}
+local tied_sprites_frame_lags = {25, 45, 65, 80}
 local keeping_angle_duration = 250
 local angry_duration = 3000
 

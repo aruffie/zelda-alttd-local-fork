@@ -11,6 +11,7 @@
 local explosion = ...
 local map = explosion:get_map()
 local sprite = explosion:create_sprite("entities/explosion")
+local audio_manager = require("scripts/audio_manager")
 
 -- Configuration variables.
 local explosed_entities = {}
@@ -135,4 +136,5 @@ explosion:register_event("on_created", function(explosion)
     end
     explosion:remove()
   end)
+  audio_manager:play_sound("items/bomb_explode")
 end)

@@ -173,14 +173,33 @@ sensor_7:register_event("on_activated", function()
   end
 end)
 
-sensor_small_boss:register_event("on_activated", function()
-  sensor_small_boss:set_enabled(false)
-  enemy_manager:launch_small_boss_if_not_dead(map)
+-- Deactivate the small boss if going out the room while active.
+separator_small_boss:register_event("on_activating", function(separator_small_boss, direction4)
 
-  -- Teleport the hero to the dungeon entrance if ejected.
-  if enemy_small_boss then
-    function enemy_small_boss:on_hero_ejected()
-      hero:teleport("dungeons/8/1f", "dungeon_8_1_B", "fade")
+  if direction4 == 1 and enemy_small_boss then
+    enemy_small_boss:set_enabled(false)
+    game:play_dungeon_music()
+  end
+end)
+
+-- Launch the small boss if needed.
+separator_small_boss:register_event("on_activated", function(separator_small_boss, direction4)
+
+  if direction4 == 3 then
+    if not enemy_small_boss then
+      enemy_manager:launch_small_boss_if_not_dead(map)
+
+      -- Teleport the hero to the dungeon entrance if ejected.
+      function enemy_small_boss:on_hero_ejected()
+        hero:teleport("dungeons/8/1f", "dungeon_8_1_B", "fade")
+        enemy_small_boss:set_enabled(false)
+        game:play_dungeon_music()
+      end
+    else
+      enemy_small_boss:set_position(placeholder_small_boss:get_position())
+      enemy_small_boss:set_life(8)
+      enemy_small_boss:set_enabled(true)
+      audio_manager:play_music("21_mini_boss_battle")
     end
   end
 end)

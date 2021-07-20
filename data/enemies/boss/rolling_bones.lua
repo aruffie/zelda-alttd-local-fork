@@ -12,8 +12,9 @@
 
 -- Global variables
 local enemy = ...
-require("enemies/lib/common_actions").learn(enemy)
+local audio_manager = require("scripts/audio_manager")
 local map_tools = require("scripts/maps/map_tools")
+require("enemies/lib/common_actions").learn(enemy)
 
 local game = enemy:get_game()
 local map = enemy:get_map()
@@ -70,17 +71,19 @@ local function hurt(damage)
     enemy:start_death(function()
       local _, offset_y = sprite:get_xy()
       sprite:set_animation("hurt")
-      sol.timer.start(enemy, 1500, function()
-        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, offset_y - 14, function()
+      sol.timer.start(enemy, 3000, function()
+        enemy:start_close_explosions(32, 2500, "entities/explosion_boss", 0, offset_y - 14, "enemies/moldorm_segment_explode", function()
           sol.timer.start(enemy, 1000, function()
             enemy:start_brief_effect("entities/explosion_boss", nil, 0, offset_y - 14)
+            audio_manager:play_sound("enemies/boss_explode")
             finish_death()
           end)
         end)
         sol.timer.start(enemy, 200, function()
-          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, offset_y - 14)
+          enemy:start_close_explosions(32, 2300, "entities/explosion_boss", 0, offset_y - 14, "enemies/moldorm_segment_explode")
         end)
       end)
+      audio_manager:play_sound("enemies/boss_die")
     end)
     return
   end
@@ -177,6 +180,7 @@ enemy:register_event("on_created", function(enemy)
   enemy:set_life(8)
   enemy:set_size(48, 24)
   enemy:set_origin(24, 21)
+  enemy:set_hurt_style("boss")
   enemy:start_shadow("entities/shadows/giant_shadow")
 
   -- Create the spike.
