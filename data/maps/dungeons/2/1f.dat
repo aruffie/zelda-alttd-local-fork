@@ -22356,6 +22356,7 @@ destination{
   x = 800,
   y = 1653,
   direction = 1,
+  default = true,
 }
 
 tile{
