@@ -197,7 +197,7 @@ enemy:register_event("on_restarted", function(enemy)
   	hammer = on_attack_received,
   	hookshot = on_attack_received,
   	magic_powder = on_attack_received,
-  	shield = "pushed",
+  	shield = "repels",
   	thrust = on_attack_received
   })
 

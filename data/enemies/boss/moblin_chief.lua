@@ -103,6 +103,17 @@ local function hurt(damage)
   audio_manager:play_sound("enemies/boss_hit")
 end
 
+-- Start pushing the hero back.
+local function start_pushing_hero_back()
+
+  if not is_pushing_back then
+    is_pushing_back = true
+    enemy:start_pushing_back(hero, 200, 100, sprite, nil, function()
+      is_pushing_back = false
+    end)
+  end
+end
+
 -- Start the enemy jumping movement to the hero.
 function enemy:start_moving()
 
@@ -237,7 +248,7 @@ enemy:register_event("on_restarted", function(enemy)
     arrow = "protected",
     boomerang = "protected",
     explosion = "ignored",
-    sword = "protected",
+    sword = start_pushing_hero_back,
     thrown_item = "protected",
     fire = "protected",
     jump_on = "ignored",
