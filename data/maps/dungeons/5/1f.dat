@@ -19830,6 +19830,7 @@ destination{
   x = 2080,
   y = 1893,
   direction = 1,
+  default = true,
 }
 
 tile{

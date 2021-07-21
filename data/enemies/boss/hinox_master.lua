@@ -16,6 +16,7 @@
 -- Global variables
 local enemy = ...
 local audio_manager = require("scripts/audio_manager")
+local throwed_state = require("scripts/states/throwed")
 require("enemies/lib/common_actions").learn(enemy)
 
 local game = enemy:get_game()
@@ -188,7 +189,7 @@ function enemy:throw_hero()
 
   -- Freeze the hero and make it hold in the enemy hand.
   local hero_sprite = hero:get_sprite()
-  hero:freeze()
+  hero:start_state(throwed_state)
   hero:set_position(x + hand_offset_x, y, layer + 1) -- Layer + 1 to not interact with a possible ground after moved.
   hero_sprite:set_xy(0, right_hand_offset_y)
   hero_sprite:set_animation("scared")
@@ -201,6 +202,8 @@ function enemy:throw_hero()
     local movement = enemy:start_throwing(hero, hero_throwing_duration, -right_hand_offset_y, hero_throwing_height, angle, hero_throwing_speed, function()
 
       -- Stun the hero for some time when throw finished.
+      hero:unfreeze() -- Stop the throwed state.
+      hero:freeze()
       game:remove_life(4)
       if hero_sprite:get_animation() ~= "collapse" then
         hero_sprite:set_animation("collapse")
