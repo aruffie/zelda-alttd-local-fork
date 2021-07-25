@@ -15613,24 +15613,6 @@ switch{
   inactivate_when_leaving = false,
 }
 
-teletransporter{
-  layer = 0,
-  x = 1112,
-  y = 1592,
-  width = 16,
-  height = 16,
-  destination_map = "dungeons/4/1f",
-  destination = "destination",
-}
-
-destination{
-  name = "destination",
-  layer = 0,
-  x = 1120,
-  y = 405,
-  direction = 1,
-}
-
 destination{
   name = "dungeon_4_1_B",
   layer = 0,
@@ -15638,6 +15620,33 @@ destination{
   y = 1653,
   direction = 1,
   default = true,
+}
+
+teletransporter{
+  name = "stairs_1_A",
+  layer = 0,
+  x = 472,
+  y = 608,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/4/sideview_4",
+  destination = "stairs_1_B",
+}
+
+destination{
+  name = "stairs_2_B",
+  layer = 0,
+  x = 480,
+  y = 621,
+  direction = 1,
+}
+
+stairs{
+  layer = 0,
+  x = 472,
+  y = 608,
+  direction = 1,
+  subtype = 3,
 }
 
 tile{

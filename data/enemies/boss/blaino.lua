@@ -48,9 +48,9 @@ local uppercut_arming_duration = 1400
 local uppercut_arming_loop_number = 3
 local uppercut_arming_speed = 88
 local uppercut_arming_distance = 24
-local uppercut_speed = 300
-local uppercut_maximum_distance = 64
-local uppercut_duration = 1000
+local uppercut_speed = 256
+local uppercut_maximum_distance = 72
+local uppercut_finished_duration = 200
 local minimum_jump_in_a_row = 4
 local maximum_jump_in_a_row = 12
 local minimum_jab_in_a_row = 1
@@ -62,7 +62,7 @@ local ejecting_speed = 248
 local front_angle = 2.0 * math.pi / 3.0
 
 -- Start a straight movement.
-local function start_straight_movement(entity, speed, distance, angle)
+local function start_straight_movement(entity, speed, distance, angle, on_stopped_callback)
 
   local movement = sol.movement.create("straight")
   movement:set_speed(speed)
@@ -70,6 +70,19 @@ local function start_straight_movement(entity, speed, distance, angle)
   movement:set_angle(angle)
   movement:set_smooth(false)
   movement:start(entity)
+
+  -- Consider the current move as stopped if finished or stuck.
+  function movement:on_finished()
+    if on_stopped_callback then
+      on_stopped_callback()
+    end
+  end
+  function movement:on_obstacle_reached()
+    movement:stop()
+    if on_stopped_callback then
+      on_stopped_callback()
+    end
+  end
 
   return movement
 end
@@ -130,16 +143,15 @@ local function start_uppercut()
   sol.timer.start(enemy, uppercut_arming_duration, function()
 
     is_uppercut_punching = true
-    start_straight_movement(enemy, uppercut_speed, uppercut_maximum_distance, is_hero_on_left and math.pi or 0)
-    sprite:set_animation("uppercut")
-
-    -- Stop the uppercut after some time.
-    sol.timer.start(enemy, uppercut_duration, function()
-      is_uppercut_punching = false
-      if not is_hero_hurt_by_uppercut then
-        enemy:restart()
-      end
+    start_straight_movement(enemy, uppercut_speed, uppercut_maximum_distance, is_hero_on_left and math.pi or 0, function()
+      sol.timer.start(enemy, uppercut_finished_duration, function()
+        is_uppercut_punching = false
+        if not is_hero_hurt_by_uppercut then
+          enemy:restart()
+        end
+      end)
     end)
+    sprite:set_animation("uppercut")
   end)
   sol.timer.start(enemy, sprite:get_num_frames() * sprite:get_frame_delay() * uppercut_arming_loop_number, function()
     if sprite:get_animation() == "arming_uppercut" then

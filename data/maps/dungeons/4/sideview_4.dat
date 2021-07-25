@@ -269,10 +269,10 @@ custom_entity{
 }
 
 destination{
-  name = "destination",
+  name = "stairs_1_B",
   layer = 0,
-  x = 88,
-  y = 237,
+  x = 40,
+  y = 29,
   direction = 3,
 }
 
@@ -315,6 +315,17 @@ separator{
   y = 232,
   width = 320,
   height = 16,
+}
+
+teletransporter{
+  name = "stairs_2_A",
+  layer = 0,
+  x = 32,
+  y = 0,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/4/1f",
+  destination = "stairs_2_B",
 }
 
 dynamic_tile{
