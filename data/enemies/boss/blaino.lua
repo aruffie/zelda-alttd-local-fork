@@ -57,7 +57,7 @@ local minimum_jab_in_a_row = 1
 local maximum_jab_in_a_row = 8
 local jab_probability = 0.5
 local straight_probability = 0.3
-local hero_frozen_duration_on_straight_received = 3000
+local hero_frozen_duration_on_straight_received = 2500
 local ejecting_speed = 248
 local front_angle = 2.0 * math.pi / 3.0
 
@@ -245,7 +245,10 @@ enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
   -- Push the hero back and start an uppercut on hurt by a straight punch.
   if is_straight_punching then
     is_hero_hurt_by_straight = true
-    enemy:get_movement():stop()
+    local enemy_movement = enemy:get_movement()
+    if enemy_movement then
+      enemy_movement:stop()
+    end
     hero:freeze()
     hero:set_animation("collapse")
 
@@ -258,7 +261,10 @@ enemy:register_event("on_attacking_hero", function(enemy, hero, enemy_sprite)
   -- Eject the hero on hurt by the uppercut.
   if is_uppercut_punching then
     is_hero_hurt_by_uppercut = true
-    enemy:get_movement():stop()
+    local enemy_movement = enemy:get_movement()
+    if enemy_movement then
+      enemy_movement:stop()
+    end
     hero:freeze()
     hero:set_animation("collapse")
 
