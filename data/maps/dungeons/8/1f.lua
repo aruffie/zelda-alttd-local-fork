@@ -191,7 +191,9 @@ separator_small_boss:register_event("on_activated", function(separator_small_bos
 
       -- Teleport the hero to the dungeon entrance if ejected.
       function enemy_small_boss:on_hero_ejected()
+        local _, destination_y = dungeon_8_1_B:get_position()
         hero:teleport("dungeons/8/1f", "dungeon_8_1_B", "fade")
+        hero:fall_from_ceiling(destination_y % 240)
         enemy_small_boss:set_enabled(false)
         game:play_dungeon_music()
       end
