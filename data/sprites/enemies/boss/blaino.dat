@@ -96,7 +96,7 @@ animation{
 animation{
   name = "uppercut",
   src_image = "enemies/boss/blaino.png",
-  frame_delay = 40,
+  frame_delay = 30,
   frame_to_loop_on = 8,
   directions = {
     { x = 320, y = 288, frame_width = 64, frame_height = 48, origin_x = 26, origin_y = 30, num_frames = 9 },

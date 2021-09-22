@@ -126,11 +126,12 @@ function enemy_meta:on_dying()
 
 end
 
--- Redefine how to calculate the damage inflicted by the sword.
-function enemy_meta:on_hurt_by_sword(hero, enemy_sprite)
+-- Get sword hit strength.
+function enemy_meta:get_sword_hit_strength()
 
   local game = self:get_game()
   local hero = game:get_hero()
+
   -- Calculate force. Check tunic, sword, spin attack and powerups.
   local base_life_points = self:get_attack_consequence("sword")
   local force_sword = hero:get_game():get_value("force_sword") or 1 
@@ -140,9 +141,14 @@ function enemy_meta:on_hurt_by_sword(hero, enemy_sprite)
   if hero:get_state() == "sword spin attack" then
     force = 2 * force -- Double force for spin attack.
   end
-  -- Remove life.
-  self:remove_life(force)
 
+  return force
+end
+
+-- Redefine how to calculate the damage inflicted by the sword.
+function enemy_meta:on_hurt_by_sword(hero, enemy_sprite)
+
+  self:remove_life(self:get_sword_hit_strength())
 end
 
 -- Push the given entity, not using a built-in movement to not stop a possible running movement.

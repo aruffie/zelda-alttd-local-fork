@@ -19,4 +19,10 @@ state:set_affected_by_ground("grass", false)
 state:set_affected_by_ground("shallow_water", false)
 state:set_affected_by_ground("prickles", false)
 
+function state:on_started(previous_state_name, previous_state)
+  
+  local entity = state:get_entity()
+  entity:freeze()
+end
+
 return state
