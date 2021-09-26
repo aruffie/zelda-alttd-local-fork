@@ -75,11 +75,20 @@ map{ id = "dungeons/5/sideview_2", description = "Sideview 2" }
 map{ id = "dungeons/5/sideview_3", description = "Sideview 3" }
 map{ id = "dungeons/5/sideview_4", description = "Sideview 4" }
 map{ id = "dungeons/6/1f", description = "Dungeon 6 1F" }
+map{ id = "dungeons/6/sideview_1", description = "Sideview 1" }
+map{ id = "dungeons/6/sideview_2", description = "Sideview 2" }
+map{ id = "dungeons/6/sideview_3", description = "Sideview 3" }
 map{ id = "dungeons/7/1f", description = "Dungeon 7 1F" }
 map{ id = "dungeons/7/2f", description = "Dungeon 7 2F" }
 map{ id = "dungeons/7/3f", description = "Dungeon 7 3F" }
 map{ id = "dungeons/7/sideview", description = "Sideview" }
 map{ id = "dungeons/8/1f", description = "Dungeon 8 1F" }
+map{ id = "dungeons/8/sideview 6", description = "Sideview 6" }
+map{ id = "dungeons/8/sideview_1", description = "Sideview 1" }
+map{ id = "dungeons/8/sideview_2", description = "Sideview 2" }
+map{ id = "dungeons/8/sideview_3", description = "Sideview 3" }
+map{ id = "dungeons/8/sideview_4", description = "Sideview 4" }
+map{ id = "dungeons/8/sideview_5", description = "Sideview 5" }
 map{ id = "dungeons/9/1f", description = "Dungeon 9 1F" }
 map{ id = "examples/beach_store", description = "Beach Store" }
 map{ id = "examples/cave_store", description = "Cave Store" }
@@ -181,6 +190,7 @@ tileset{ id = "out/outside_buildings", description = "Outside buildings" }
 tileset{ id = "out/outside_main", description = "Outside main" }
 tileset{ id = "out/outside_special", description = "Outside special" }
 tileset{ id = "sideview/eagletower", description = "Eagle tower" }
+tileset{ id = "sideview/sidetile" }
 tileset{ id = "sideview/sideview", description = "Side view tileset" }
 tileset{ id = "sideview/sideview_dungeon", description = "Sideview Dungeon" }
 tileset{ id = "testing/basic_terrain_test", description = "Grounds (for collision testing)" }
@@ -461,6 +471,7 @@ sprite{ id = "entities/destructibles/bush", description = "Bush" }
 sprite{ id = "entities/destructibles/bush_grass", description = "Bush grass" }
 sprite{ id = "entities/destructibles/crystal_blue", description = "Crystal blue" }
 sprite{ id = "entities/destructibles/crystal_green", description = "Crystal green" }
+sprite{ id = "entities/destructibles/fibonacci", description = "Fibonacci" }
 sprite{ id = "entities/destructibles/genie_bottle", description = "Genie bottle entity" }
 sprite{ id = "entities/destructibles/grass", description = "Grass" }
 sprite{ id = "entities/destructibles/pot", description = "Pot" }
@@ -533,6 +544,7 @@ sprite{ id = "entities/ground_effects/grass", description = "Leaves" }
 sprite{ id = "entities/ground_effects/sand", description = "Sand" }
 sprite{ id = "entities/ground_effects/walrus_diving_effect", description = "Walrus diving effect" }
 sprite{ id = "entities/ground_effects/water", description = "Water splash" }
+sprite{ id = "entities/grounds/big_ladder_wooden", description = "Big ladder wooden" }
 sprite{ id = "entities/grounds/color_platform_green", description = "Color platform green" }
 sprite{ id = "entities/grounds/color_platform_orange", description = "Color platform orange" }
 sprite{ id = "entities/grounds/color_platform_red", description = "Color platform red" }
@@ -627,8 +639,7 @@ sprite{ id = "entities/shadows/shadow", description = "Shadow" }
 sprite{ id = "entities/shadows/walrus_shadow", description = "Walrus shadow" }
 sprite{ id = "entities/star", description = "Star" }
 sprite{ id = "entities/statues/block" }
-sprite{ id = "entities/statues/grave_gray", description = "Grave gray" }
-sprite{ id = "entities/statues/grave_pink", description = "Grave pink" }
+sprite{ id = "entities/statues/grave", description = "Grave " }
 sprite{ id = "entities/statues/pillar", description = "Pillar base" }
 sprite{ id = "entities/statues/statue_darknut", description = "Statue darknut" }
 sprite{ id = "entities/statues/statue_koopa", description = "Statue koopa" }
@@ -2829,6 +2840,7 @@ file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_9.dat", author = "J
 file{ path = "sprites/entities/effects/collapse_star.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/effects/dust_smoke.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/ground_effects/walrus_diving_effect.dat", author = "JulioTanaka", }
+file{ path = "sprites/entities/grounds/big_ladder_wooden.dat", author = "Julien Van Steerteghem", }
 file{ path = "sprites/entities/grounds/weak_floor_ghost_house.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/iron_ball.dat", author = "Christopho", license = "CC BY-SA 4.0" }
 file{ path = "sprites/entities/misc/gift.dat", author = "JulioTanka", }
