@@ -20546,8 +20546,8 @@ destructible{
 destination{
   name = "witch_2_A",
   layer = 1,
-  x = 352,
-  y = 461,
+  x = 704,
+  y = 605,
   direction = 3,
 }
 
@@ -23467,9 +23467,9 @@ pickable{
 destination{
   name = "stair_cave_heart_piece_east",
   layer = 1,
-  x = 648,
+  x = 640,
   y = 685,
-  direction = 0,
+  direction = 3,
 }
 
 enemy{
@@ -23998,7 +23998,7 @@ block{
   name = "grave_pushable_3",
   layer = 1,
   x = 880,
-  y = 597,
+  y = 613,
   sprite = "entities/statues/grave",
   pushable = true,
   pullable = false,
@@ -24100,8 +24100,7 @@ block{
   name = "grave_18",
   layer = 1,
   x = 640,
-  y = 645,
-  enabled_at_start = false,
+  y = 661,
   sprite = "entities/statues/grave",
   pushable = true,
   pullable = false,
@@ -24177,22 +24176,6 @@ block{
   sprite = "entities/statues/grave",
   pushable = false,
   pullable = false,
-}
-
-stairs{
-  layer = 1,
-  x = 632,
-  y = 648,
-  direction = 3,
-  subtype = 3,
-}
-
-stairs{
-  layer = 1,
-  x = 872,
-  y = 600,
-  direction = 3,
-  subtype = 3,
 }
 
 teletransporter{
