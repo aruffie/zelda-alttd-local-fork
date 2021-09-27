@@ -20403,6 +20403,16 @@ tile{
   tileset = "addition/out",
 }
 
+tile{
+  layer = 1,
+  x = 48,
+  y = 520,
+  width = 16,
+  height = 24,
+  pattern = "205",
+  tileset = "addition/out",
+}
+
 block{
   name = "grave_16",
   layer = 1,
@@ -26756,16 +26766,6 @@ tile{
   width = 8,
   height = 48,
   pattern = "1444",
-}
-
-tile{
-  layer = 2,
-  x = 48,
-  y = 520,
-  width = 16,
-  height = 24,
-  pattern = "205",
-  tileset = "addition/out",
 }
 
 tile{
