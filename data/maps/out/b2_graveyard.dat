@@ -20546,8 +20546,8 @@ destructible{
 destination{
   name = "witch_2_A",
   layer = 1,
-  x = 704,
-  y = 605,
+  x = 352,
+  y = 461,
   direction = 3,
 }
 
