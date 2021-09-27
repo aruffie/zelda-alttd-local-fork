@@ -557,9 +557,9 @@ wall{
 custom_entity{
   name = "ladder_bottom",
   layer = 1,
-  x = 192,
+  x = 184,
   y = 165,
-  width = 16,
+  width = 32,
   height = 256,
   origin_y = 5,
   direction = 0,
@@ -580,7 +580,7 @@ teletransporter{
 
 wall{
   layer = 1,
-  x = 176,
+  x = 168,
   y = 160,
   width = 8,
   height = 224,
@@ -593,7 +593,7 @@ wall{
 
 wall{
   layer = 1,
-  x = 200,
+  x = 208,
   y = 160,
   width = 8,
   height = 224,
