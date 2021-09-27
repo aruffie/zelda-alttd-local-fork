@@ -11,8 +11,8 @@ local audio_manager = require("scripts/audio_manager")
 local function initialize_graves()
 
   for grave in map:get_entities("grave_") do
-    grave:set_size(32, 32) -- Workaround : No way to set the correct size to the bloc directly on the editor, so do it here.
-    grave:set_origin(16, 29)
+    grave:set_size(24, 24) -- Workaround : No way to set the correct size to the bloc directly on the editor, so do it here.
+    grave:set_origin(12, 21)
     for enemy in map:get_entities_by_type("enemy") do
       if (enemy:get_breed() == "ghini" or enemy:get_breed() == "ghini_giant") and enemy:overlaps(grave) then
 
@@ -34,8 +34,8 @@ local function initialize_graves()
         enemy:set_enabled(false)
         trigger:add_collision_test("facing", function(trigger, entity)
           if entity:get_type() == "hero" then
-            enemy:wake_up()
             trigger:remove()
+            enemy:wake_up()
           end
         end)
       end

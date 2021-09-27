@@ -20403,6 +20403,16 @@ tile{
   tileset = "addition/out",
 }
 
+tile{
+  layer = 1,
+  x = 48,
+  y = 520,
+  width = 16,
+  height = 24,
+  pattern = "205",
+  tileset = "addition/out",
+}
+
 block{
   name = "grave_16",
   layer = 1,
@@ -23467,9 +23477,9 @@ pickable{
 destination{
   name = "stair_cave_heart_piece_east",
   layer = 1,
-  x = 648,
+  x = 640,
   y = 685,
-  direction = 0,
+  direction = 3,
 }
 
 enemy{
@@ -23998,7 +24008,7 @@ block{
   name = "grave_pushable_3",
   layer = 1,
   x = 880,
-  y = 597,
+  y = 613,
   sprite = "entities/statues/grave",
   pushable = true,
   pullable = false,
@@ -24100,8 +24110,7 @@ block{
   name = "grave_18",
   layer = 1,
   x = 640,
-  y = 645,
-  enabled_at_start = false,
+  y = 661,
   sprite = "entities/statues/grave",
   pushable = true,
   pullable = false,
@@ -24177,22 +24186,6 @@ block{
   sprite = "entities/statues/grave",
   pushable = false,
   pullable = false,
-}
-
-stairs{
-  layer = 1,
-  x = 632,
-  y = 648,
-  direction = 3,
-  subtype = 3,
-}
-
-stairs{
-  layer = 1,
-  x = 872,
-  y = 600,
-  direction = 3,
-  subtype = 3,
 }
 
 teletransporter{
@@ -26773,16 +26766,6 @@ tile{
   width = 8,
   height = 48,
   pattern = "1444",
-}
-
-tile{
-  layer = 2,
-  x = 48,
-  y = 520,
-  width = 16,
-  height = 24,
-  pattern = "205",
-  tileset = "addition/out",
 }
 
 tile{
