@@ -578,6 +578,106 @@ tile_pattern{
 }
 
 tile_pattern{
+  id = "150",
+  ground = "wall",
+  default_layer = 0,
+  x = 16,
+  y = 336,
+  width = 16,
+  height = 16,
+}
+
+tile_pattern{
+  id = "151",
+  ground = "wall",
+  default_layer = 0,
+  x = 16,
+  y = 352,
+  width = 16,
+  height = 16,
+}
+
+tile_pattern{
+  id = "152",
+  ground = "wall",
+  default_layer = 0,
+  x = 16,
+  y = 368,
+  width = 16,
+  height = 16,
+}
+
+tile_pattern{
+  id = "153",
+  ground = "wall",
+  default_layer = 0,
+  x = 32,
+  y = 376,
+  width = 32,
+  height = 8,
+}
+
+tile_pattern{
+  id = "154",
+  ground = "wall",
+  default_layer = 0,
+  x = 32,
+  y = 368,
+  width = 32,
+  height = 8,
+}
+
+tile_pattern{
+  id = "155",
+  ground = "wall",
+  default_layer = 0,
+  x = 32,
+  y = 360,
+  width = 32,
+  height = 8,
+}
+
+tile_pattern{
+  id = "156",
+  ground = "wall",
+  default_layer = 0,
+  x = 32,
+  y = 352,
+  width = 32,
+  height = 8,
+}
+
+tile_pattern{
+  id = "157",
+  ground = "wall",
+  default_layer = 0,
+  x = 32,
+  y = 336,
+  width = 16,
+  height = 16,
+}
+
+tile_pattern{
+  id = "158",
+  ground = "wall",
+  default_layer = 0,
+  x = 48,
+  y = 336,
+  width = 16,
+  height = 16,
+}
+
+tile_pattern{
+  id = "159",
+  ground = "wall",
+  default_layer = 0,
+  x = 64,
+  y = 336,
+  width = 16,
+  height = 16,
+}
+
+tile_pattern{
   id = "16",
   ground = "wall",
   default_layer = 0,
@@ -585,6 +685,46 @@ tile_pattern{
   y = 120,
   width = 16,
   height = 8,
+}
+
+tile_pattern{
+  id = "161",
+  ground = "traversable",
+  default_layer = 0,
+  x = 16,
+  y = 384,
+  width = 16,
+  height = 16,
+}
+
+tile_pattern{
+  id = "162",
+  ground = "traversable",
+  default_layer = 0,
+  x = 80,
+  y = 336,
+  width = 8,
+  height = 16,
+}
+
+tile_pattern{
+  id = "163",
+  ground = "traversable",
+  default_layer = 0,
+  x = 88,
+  y = 336,
+  width = 8,
+  height = 16,
+}
+
+tile_pattern{
+  id = "164",
+  ground = "wall",
+  default_layer = 0,
+  x = 0,
+  y = 368,
+  width = 16,
+  height = 16,
 }
 
 tile_pattern{
