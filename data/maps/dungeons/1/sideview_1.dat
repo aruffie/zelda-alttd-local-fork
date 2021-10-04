@@ -2156,9 +2156,9 @@ enemy{
 teletransporter{
   name = "stairs_4_A",
   layer = 0,
-  x = 72,
+  x = 64,
   y = 0,
-  width = 16,
+  width = 32,
   height = 16,
   destination_map = "dungeons/1/1f",
   destination = "stairs_3_B",
@@ -2227,9 +2227,9 @@ destination{
 teletransporter{
   name = "stairs_2_A",
   layer = 0,
-  x = 552,
+  x = 544,
   y = 0,
-  width = 16,
+  width = 32,
   height = 16,
   destination_map = "dungeons/1/1f",
   destination = "stairs_1_B",
