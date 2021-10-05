@@ -3,7 +3,7 @@ properties{
   y = 0,
   width = 640,
   height = 240,
-  min_layer = 0,
+  min_layer = -1,
   max_layer = 2,
   world = "dungeon_1",
   floor = 0,
@@ -2466,7 +2466,7 @@ custom_entity{
   x = 560,
   y = 13,
   width = 32,
-  height = 192,
+  height = 176,
   origin_x = 16,
   direction = 0,
   sprite = "entities/grounds/big_ladder_wooden",
@@ -2485,12 +2485,25 @@ destination{
 teletransporter{
   name = "stairs_5_A",
   layer = 0,
-  x = 552,
+  x = 544,
   y = 0,
-  width = 16,
+  width = 32,
   height = 16,
   destination_map = "dungeons/1/1f",
   destination = "stairs_5_B",
+}
+
+custom_entity{
+  layer = 0,
+  x = 560,
+  y = 189,
+  width = 32,
+  height = 16,
+  origin_x = 16,
+  direction = 3,
+  sprite = "entities/grounds/big_ladder_wooden",
+  tiled = true,
+  model = "ladder",
 }
 
 tile{

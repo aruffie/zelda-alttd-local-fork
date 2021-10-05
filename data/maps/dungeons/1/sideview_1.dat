@@ -2106,7 +2106,7 @@ custom_entity{
   x = 560,
   y = 13,
   width = 32,
-  height = 192,
+  height = 176,
   origin_x = 16,
   direction = 0,
   sprite = "entities/grounds/big_ladder_wooden",
@@ -2119,7 +2119,7 @@ custom_entity{
   x = 80,
   y = 13,
   width = 32,
-  height = 192,
+  height = 176,
   origin_x = 16,
   direction = 0,
   sprite = "entities/grounds/big_ladder_wooden",
@@ -2156,9 +2156,9 @@ enemy{
 teletransporter{
   name = "stairs_4_A",
   layer = 0,
-  x = 72,
+  x = 64,
   y = 0,
-  width = 16,
+  width = 32,
   height = 16,
   destination_map = "dungeons/1/1f",
   destination = "stairs_3_B",
@@ -2227,9 +2227,9 @@ destination{
 teletransporter{
   name = "stairs_2_A",
   layer = 0,
-  x = 552,
+  x = 544,
   y = 0,
-  width = 16,
+  width = 32,
   height = 16,
   destination_map = "dungeons/1/1f",
   destination = "stairs_1_B",
@@ -2242,6 +2242,32 @@ enemy{
   direction = 0,
   breed = "goomba",
   treasure_name = "heart",
+}
+
+custom_entity{
+  layer = 0,
+  x = 80,
+  y = 189,
+  width = 32,
+  height = 16,
+  origin_x = 16,
+  direction = 3,
+  sprite = "entities/grounds/big_ladder_wooden",
+  tiled = true,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 560,
+  y = 189,
+  width = 32,
+  height = 16,
+  origin_x = 16,
+  direction = 3,
+  sprite = "entities/grounds/big_ladder_wooden",
+  tiled = true,
+  model = "ladder",
 }
 
 tile{

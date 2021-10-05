@@ -26777,6 +26777,15 @@ tile{
   pattern = "4558",
 }
 
+tile{
+  layer = 2,
+  x = 864,
+  y = -40,
+  width = 8,
+  height = 48,
+  pattern = "1452",
+}
+
 custom_entity{
   name = "butterfly_1",
   layer = 2,
