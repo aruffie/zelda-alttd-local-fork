@@ -1672,7 +1672,7 @@ enemy{
 }
 
 custom_entity{
-  layer = 1,
+  layer = 0,
   x = 64,
   y = 13,
   width = 32,
@@ -1684,8 +1684,27 @@ custom_entity{
   model = "ladder",
 }
 
+teletransporter{
+  name = "stairs_4_A",
+  layer = 0,
+  x = 48,
+  y = 0,
+  width = 32,
+  height = 16,
+  destination_map = "dungeons/4/1f",
+  destination = "stairs_4_B",
+}
+
+destination{
+  name = "stairs_3_B",
+  layer = 0,
+  x = 64,
+  y = 29,
+  direction = 3,
+}
+
 custom_entity{
-  layer = 1,
+  layer = 0,
   x = 576,
   y = 13,
   width = 32,
@@ -1695,6 +1714,25 @@ custom_entity{
   sprite = "entities/grounds/big_ladder_wooden",
   tiled = true,
   model = "ladder",
+}
+
+teletransporter{
+  name = "stairs_6_A",
+  layer = 0,
+  x = 560,
+  y = 0,
+  width = 32,
+  height = 16,
+  destination_map = "dungeons/4/1f",
+  destination = "stairs_6_B",
+}
+
+destination{
+  name = "stairs_5_B",
+  layer = 0,
+  x = 576,
+  y = 29,
+  direction = 3,
 }
 
 dynamic_tile{

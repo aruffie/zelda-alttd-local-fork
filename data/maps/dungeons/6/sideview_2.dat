@@ -1818,3 +1818,41 @@ enemy{
   treasure_name = "heart",
 }
 
+destination{
+  name = "stairs_1_B",
+  layer = 0,
+  x = 552,
+  y = 29,
+  direction = 3,
+}
+
+teletransporter{
+  name = "stairs_2_A",
+  layer = 0,
+  x = 536,
+  y = 0,
+  width = 32,
+  height = 16,
+  destination_map = "dungeons/6/1f",
+  destination = "stairs_2_B",
+}
+
+destination{
+  name = "stairs_3_B",
+  layer = 0,
+  x = 88,
+  y = 29,
+  direction = 3,
+}
+
+teletransporter{
+  name = "stairs_4_A",
+  layer = 0,
+  x = 72,
+  y = 0,
+  width = 32,
+  height = 16,
+  destination_map = "dungeons/6/1f",
+  destination = "stairs_4_B",
+}
+

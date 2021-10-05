@@ -1177,3 +1177,22 @@ custom_entity{
   model = "ladder",
 }
 
+destination{
+  name = "stairs_1_B",
+  layer = 1,
+  x = 592,
+  y = 29,
+  direction = 3,
+}
+
+teletransporter{
+  name = "stairs_2_A",
+  layer = 1,
+  x = 576,
+  y = 0,
+  width = 32,
+  height = 16,
+  destination_map = "dungeons/8/1f",
+  destination = "stairs_2_B",
+}
+

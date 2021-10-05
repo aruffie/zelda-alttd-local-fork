@@ -1490,11 +1490,24 @@ enemy{
 }
 
 custom_entity{
-  layer = 1,
+  layer = 0,
+  x = 560,
+  y = 173,
+  width = 32,
+  height = 16,
+  origin_x = 16,
+  direction = 3,
+  sprite = "entities/grounds/big_ladder_wooden",
+  tiled = true,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
   x = 560,
   y = 13,
   width = 32,
-  height = 176,
+  height = 160,
   origin_x = 16,
   direction = 0,
   sprite = "entities/grounds/big_ladder_wooden",
@@ -1502,8 +1515,27 @@ custom_entity{
   model = "ladder",
 }
 
+destination{
+  name = "stairs_9_B",
+  layer = 0,
+  x = 560,
+  y = 29,
+  direction = 3,
+}
+
+teletransporter{
+  name = "stairs_10_A_2",
+  layer = 0,
+  x = 544,
+  y = 0,
+  width = 32,
+  height = 16,
+  destination_map = "dungeons/6/1f",
+  destination = "stairs_10_B",
+}
+
 custom_entity{
-  layer = 1,
+  layer = 0,
   x = 80,
   y = 13,
   width = 32,
@@ -1513,5 +1545,24 @@ custom_entity{
   sprite = "entities/grounds/big_ladder_wooden",
   tiled = true,
   model = "ladder",
+}
+
+destination{
+  name = "stairs_11_B",
+  layer = 0,
+  x = 80,
+  y = 29,
+  direction = 3,
+}
+
+teletransporter{
+  name = "stairs_12_A",
+  layer = 0,
+  x = 64,
+  y = 0,
+  width = 32,
+  height = 16,
+  destination_map = "dungeons/6/1f",
+  destination = "stairs_12_B",
 }
 
