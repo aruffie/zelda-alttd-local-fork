@@ -1245,7 +1245,7 @@ custom_entity{
   x = 576,
   y = 13,
   width = 32,
-  height = 192,
+  height = 176,
   origin_x = 16,
   direction = 0,
   sprite = "entities/grounds/big_ladder_wooden",
@@ -1301,9 +1301,9 @@ custom_entity{
 teletransporter{
   name = "stairs_4_A",
   layer = 0,
-  x = 56,
+  x = 48,
   y = 0,
-  width = 16,
+  width = 32,
   height = 16,
   transition = "immediate",
   destination_map = "dungeons/5/1f",
@@ -1329,12 +1329,25 @@ destination{
 teletransporter{
   name = "stairs_2_A",
   layer = 0,
-  x = 568,
+  x = 560,
   y = 0,
-  width = 16,
+  width = 32,
   height = 16,
   transition = "immediate",
   destination_map = "dungeons/5/1f",
   destination = "stairs_1_B",
+}
+
+custom_entity{
+  layer = 0,
+  x = 576,
+  y = 189,
+  width = 32,
+  height = 16,
+  origin_x = 16,
+  direction = 3,
+  sprite = "entities/grounds/big_ladder_wooden",
+  tiled = true,
+  model = "ladder",
 }
 

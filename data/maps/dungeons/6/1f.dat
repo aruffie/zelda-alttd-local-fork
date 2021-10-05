@@ -6588,78 +6588,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 416,
-  y = 1552,
-  width = 8,
-  height = 32,
-  pattern = "163",
-}
-
-tile{
-  layer = 0,
-  x = 424,
-  y = 1552,
-  width = 24,
-  height = 8,
-  pattern = "stairs_down.2.border.3-4",
-}
-
-tile{
-  layer = 0,
-  x = 424,
-  y = 1576,
-  width = 24,
-  height = 8,
-  pattern = "stairs_down.2.border.2-4",
-}
-
-tile{
-  layer = 0,
-  x = 424,
-  y = 1560,
-  width = 24,
-  height = 16,
-  pattern = "stairs_down.2-4",
-}
-
-tile{
-  layer = 0,
-  x = 1664,
-  y = 576,
-  width = 8,
-  height = 32,
-  pattern = "163",
-}
-
-tile{
-  layer = 0,
-  x = 1672,
-  y = 576,
-  width = 24,
-  height = 8,
-  pattern = "stairs_down.2.border.3-4",
-}
-
-tile{
-  layer = 0,
-  x = 1672,
-  y = 600,
-  width = 24,
-  height = 8,
-  pattern = "stairs_down.2.border.2-4",
-}
-
-tile{
-  layer = 0,
-  x = 1672,
-  y = 584,
-  width = 24,
-  height = 16,
-  pattern = "stairs_down.2-4",
-}
-
-tile{
-  layer = 0,
   x = 976,
   y = 1480,
   width = 24,
@@ -14499,42 +14427,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 432,
-  y = 648,
-  width = 24,
-  height = 8,
-  pattern = "stairs_down.2.border.3-3",
-}
-
-tile{
-  layer = 0,
-  x = 456,
-  y = 624,
-  width = 8,
-  height = 32,
-  pattern = "162",
-}
-
-tile{
-  layer = 0,
-  x = 432,
-  y = 624,
-  width = 24,
-  height = 8,
-  pattern = "stairs_down.2.border.2-3",
-}
-
-tile{
-  layer = 0,
-  x = 432,
-  y = 632,
-  width = 24,
-  height = 16,
-  pattern = "stairs_down.2-3",
-}
-
-tile{
-  layer = 0,
   x = 1984,
   y = 304,
   width = 192,
@@ -18962,6 +18854,114 @@ tile{
   pattern = "hole.corner.4",
 }
 
+tile{
+  layer = 0,
+  x = 432,
+  y = 624,
+  width = 32,
+  height = 8,
+  pattern = "stairs_down.2.border.1-2",
+}
+
+tile{
+  layer = 0,
+  x = 432,
+  y = 632,
+  width = 8,
+  height = 24,
+  pattern = "stairs_down.2.border.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 440,
+  y = 632,
+  width = 16,
+  height = 24,
+  pattern = "stairs_down.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 456,
+  y = 632,
+  width = 8,
+  height = 24,
+  pattern = "stairs_down.2.border.3-2",
+}
+
+tile{
+  layer = 0,
+  x = 1664,
+  y = 576,
+  width = 32,
+  height = 8,
+  pattern = "stairs_down.2.border.1-2",
+}
+
+tile{
+  layer = 0,
+  x = 1664,
+  y = 584,
+  width = 8,
+  height = 24,
+  pattern = "stairs_down.2.border.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 1672,
+  y = 584,
+  width = 16,
+  height = 24,
+  pattern = "stairs_down.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 1688,
+  y = 584,
+  width = 8,
+  height = 24,
+  pattern = "stairs_down.2.border.3-2",
+}
+
+tile{
+  layer = 0,
+  x = 424,
+  y = 1560,
+  width = 16,
+  height = 24,
+  pattern = "stairs_down.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 416,
+  y = 1560,
+  width = 8,
+  height = 24,
+  pattern = "stairs_down.2.border.2-2",
+}
+
+tile{
+  layer = 0,
+  x = 440,
+  y = 1560,
+  width = 8,
+  height = 24,
+  pattern = "stairs_down.2.border.3-2",
+}
+
+tile{
+  layer = 0,
+  x = 416,
+  y = 1552,
+  width = 32,
+  height = 8,
+  pattern = "stairs_down.2.border.1-2",
+}
+
 wall{
   layer = 0,
   x = 1432,
@@ -20009,17 +20009,6 @@ custom_entity{
   width = 32,
   height = 32,
   direction = 2,
-  sprite = "entities/destructibles/statue_elephant",
-  model = "heavy_object",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1672,
-  y = 589,
-  width = 32,
-  height = 32,
-  direction = 0,
   sprite = "entities/destructibles/statue_elephant",
   model = "heavy_object",
 }
@@ -25043,15 +25032,6 @@ pickable{
   treasure_savegame_variable = "dungeon_6_heart_container",
 }
 
-wall{
-  layer = 0,
-  x = 1016,
-  y = 792,
-  width = 16,
-  height = 8,
-  stops_enemies = true,
-}
-
 dynamic_tile{
   name = "enemy_group_29_before_1_1",
   layer = 0,
@@ -26008,6 +25988,161 @@ wall{
   stops_enemies = true,
   stops_blocks = true,
   stops_projectiles = true,
+}
+
+teletransporter{
+  name = "stairs_1_A",
+  layer = 0,
+  x = 1672,
+  y = 592,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/6/sideview_2",
+  destination = "stairs_1_B",
+}
+
+destination{
+  name = "stairs_2_B",
+  layer = 0,
+  x = 1680,
+  y = 605,
+  direction = 3,
+}
+
+stairs{
+  layer = 0,
+  x = 1672,
+  y = 592,
+  direction = 1,
+  subtype = 3,
+}
+
+custom_entity{
+  layer = 0,
+  x = 1672,
+  y = 589,
+  width = 32,
+  height = 32,
+  direction = 0,
+  sprite = "entities/destructibles/statue_elephant",
+  model = "heavy_object",
+}
+
+teletransporter{
+  name = "stairs_3_A",
+  layer = 0,
+  x = 1016,
+  y = 784,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/6/sideview_2",
+  destination = "stairs_3_B",
+}
+
+destination{
+  name = "stairs_4_B",
+  layer = 0,
+  x = 1024,
+  y = 797,
+  direction = 3,
+}
+
+stairs{
+  layer = 0,
+  x = 1016,
+  y = 784,
+  direction = 1,
+  subtype = 3,
+}
+
+teletransporter{
+  name = "stairs_5_A",
+  layer = 0,
+  x = 440,
+  y = 640,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/6/sideview_3",
+  destination = "stairs_5_B",
+}
+
+destination{
+  name = "stairs_6_B",
+  layer = 0,
+  x = 448,
+  y = 653,
+  direction = 3,
+}
+
+stairs{
+  layer = 0,
+  x = 440,
+  y = 640,
+  direction = 1,
+  subtype = 3,
+}
+
+wall{
+  layer = 0,
+  x = 1016,
+  y = 792,
+  width = 16,
+  height = 8,
+  stops_enemies = true,
+}
+
+teletransporter{
+  name = "stairs_9_A",
+  layer = 0,
+  x = 888,
+  y = 784,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/6/sideview_1",
+  destination = "stairs_9_B",
+}
+
+destination{
+  name = "stairs_10_B",
+  layer = 0,
+  x = 896,
+  y = 797,
+  direction = 3,
+}
+
+stairs{
+  layer = 0,
+  x = 888,
+  y = 784,
+  direction = 1,
+  subtype = 3,
+}
+
+teletransporter{
+  name = "stairs_11_A",
+  layer = 0,
+  x = 424,
+  y = 1568,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/6/sideview_1",
+  destination = "stairs_11_B",
+}
+
+destination{
+  name = "stairs_12_B",
+  layer = 0,
+  x = 432,
+  y = 1581,
+  direction = 3,
+}
+
+stairs{
+  layer = 0,
+  x = 424,
+  y = 1568,
+  direction = 1,
+  subtype = 3,
 }
 
 tile{
@@ -29498,6 +29633,60 @@ custom_entity{
   direction = 0,
   sprite = "entities/items/arrow_fly",
   model = "pickable_fly",
+}
+
+teletransporter{
+  name = "stairs_7_A",
+  layer = 1,
+  x = 2520,
+  y = 520,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/6/sideview_3",
+  destination = "stairs_7_B",
+}
+
+destination{
+  name = "stairs_8_B",
+  layer = 1,
+  x = 2528,
+  y = 533,
+  direction = 3,
+}
+
+stairs{
+  layer = 1,
+  x = 2520,
+  y = 520,
+  direction = 1,
+  subtype = 3,
+}
+
+teletransporter{
+  name = "stairs_out_A",
+  layer = 1,
+  x = 224,
+  y = 24,
+  width = 16,
+  height = 16,
+  destination_map = "out/d2_rafting",
+  destination = "stairs_mask_shrine_B",
+}
+
+destination{
+  name = "stairs_out_B",
+  layer = 1,
+  x = 232,
+  y = 37,
+  direction = 3,
+}
+
+stairs{
+  layer = 1,
+  x = 224,
+  y = 24,
+  direction = 1,
+  subtype = 0,
 }
 
 tile{

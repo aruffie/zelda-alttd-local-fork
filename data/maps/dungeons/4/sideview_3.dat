@@ -1405,6 +1405,25 @@ custom_entity{
   model = "platform_moving",
 }
 
+teletransporter{
+  name = "stairs_12_A",
+  layer = 0,
+  x = 512,
+  y = 0,
+  width = 32,
+  height = 16,
+  destination_map = "dungeons/4/1f",
+  destination = "stairs_12_B",
+}
+
+destination{
+  name = "stairs_11_B",
+  layer = 0,
+  x = 528,
+  y = 29,
+  direction = 3,
+}
+
 tile{
   layer = 1,
   x = 304,

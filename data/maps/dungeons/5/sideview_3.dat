@@ -1241,26 +1241,6 @@ tile{
   tileset = "sideview/sidetile",
 }
 
-teletransporter{
-  name = "stairs_10_A",
-  layer = 0,
-  x = 552,
-  y = 0,
-  width = 16,
-  height = 16,
-  transition = "immediate",
-  destination_map = "dungeons/5/1f",
-  destination = "stairs_9_B",
-}
-
-destination{
-  name = "stairs_10_B",
-  layer = 0,
-  x = 560,
-  y = 29,
-  direction = 3,
-}
-
 custom_entity{
   layer = 0,
   x = 560,
@@ -1380,9 +1360,9 @@ custom_entity{
 teletransporter{
   name = "stairs_12_A",
   layer = 0,
-  x = 104,
+  x = 96,
   y = 0,
-  width = 16,
+  width = 32,
   height = 16,
   transition = "immediate",
   destination_map = "dungeons/5/1f",
@@ -1415,5 +1395,25 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/grounds/ladder_iron",
+}
+
+teletransporter{
+  name = "stairs_10_A",
+  layer = 0,
+  x = 552,
+  y = 0,
+  width = 16,
+  height = 16,
+  transition = "immediate",
+  destination_map = "dungeons/5/1f",
+  destination = "stairs_9_B",
+}
+
+destination{
+  name = "stairs_10_B",
+  layer = 0,
+  x = 560,
+  y = 29,
+  direction = 3,
 }
 
