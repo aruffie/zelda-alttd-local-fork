@@ -151,6 +151,7 @@ function carriable_behavior.apply(carriable, properties)
     local unhittable_entities = {}
 
     carriable:set_direction(direction)
+    carriable:bring_to_back() -- Workaround : Ensure the created destructible is under a possible invisible entity such as lights, to let it liftable again after thrown.
     sprite:set_xy(0, -hero_height - 6)
     set_animation_if_exists("thrown")
 
@@ -355,6 +356,7 @@ function carriable_behavior.apply(carriable, properties)
   carriable:set_follow_streams(true)
   carriable:set_drawn_in_y_order()
   carriable:set_weight(0)
+  carriable:bring_to_back() -- Workaround : Ensure the created destructible is under a possible invisible entity such as lights, to let it liftable.
   set_animation_if_exists("stopped")
 
   carriable:set_traversable_by(true)
