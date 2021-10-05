@@ -2152,7 +2152,7 @@ enemy{
 enemy{
   layer = 0,
   x = 408,
-  y = 173,
+  y = 181,
   direction = 0,
   breed = "goomba",
 }
