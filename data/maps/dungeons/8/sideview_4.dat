@@ -540,7 +540,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 0,
   y = 16,
   width = 16,
@@ -549,7 +549,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 0,
   y = 0,
   width = 176,
@@ -558,7 +558,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 16,
   y = 16,
   width = 16,
@@ -567,7 +567,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 48,
   y = 80,
   width = 16,
@@ -576,7 +576,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 48,
   y = 64,
   width = 16,
@@ -585,7 +585,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 64,
   y = 64,
   width = 16,
@@ -594,7 +594,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 64,
   y = 80,
   width = 16,
@@ -603,7 +603,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 96,
   y = 192,
   width = 192,
@@ -612,7 +612,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 80,
   y = 192,
   width = 16,
@@ -621,7 +621,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 288,
   y = 192,
   width = 16,
@@ -630,7 +630,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 80,
   y = 208,
   width = 16,
@@ -639,7 +639,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 96,
   y = 208,
   width = 192,
@@ -648,7 +648,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 288,
   y = 208,
   width = 16,
@@ -657,7 +657,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 32,
   y = 16,
   width = 80,
@@ -666,7 +666,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 176,
   y = 0,
   width = 16,
@@ -675,7 +675,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 176,
   y = 16,
   width = 16,
@@ -684,7 +684,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 592,
   y = 16,
   width = 16,
@@ -693,7 +693,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 608,
   y = 0,
   width = 16,
@@ -702,7 +702,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 288,
   y = 0,
   width = 320,
@@ -711,7 +711,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 192,
   y = 16,
   width = 16,
@@ -720,7 +720,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 208,
   y = 16,
   width = 352,
@@ -729,7 +729,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 192,
   y = 0,
   width = 96,
@@ -738,7 +738,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 208,
   y = 32,
   width = 16,
@@ -747,7 +747,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 208,
   y = 80,
   width = 16,
@@ -756,7 +756,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 224,
   y = 88,
   width = 16,
@@ -765,7 +765,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 240,
   y = 80,
   width = 16,
@@ -774,7 +774,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 224,
   y = 40,
   width = 16,
@@ -783,7 +783,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 256,
   y = 32,
   width = 16,
@@ -792,7 +792,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 544,
   y = 208,
   width = 16,
@@ -801,7 +801,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 544,
   y = 192,
   width = 16,
@@ -810,7 +810,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 496,
   y = 192,
   width = 48,
@@ -819,7 +819,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 240,
   y = 32,
   width = 16,
@@ -828,7 +828,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 272,
   y = 32,
   width = 32,
@@ -837,7 +837,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 496,
   y = 208,
   width = 48,
@@ -846,7 +846,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 544,
   y = 32,
   width = 16,
@@ -855,7 +855,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 560,
   y = 48,
   width = 32,
@@ -864,7 +864,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 576,
   y = 16,
   width = 16,
@@ -873,7 +873,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 560,
   y = 32,
   width = 16,
@@ -882,7 +882,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 560,
   y = 16,
   width = 16,
@@ -891,7 +891,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 304,
   y = 128,
   width = 16,
@@ -900,7 +900,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 304,
   y = 144,
   width = 16,
@@ -909,7 +909,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 368,
   y = 32,
   width = 16,
@@ -918,7 +918,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 368,
   y = 96,
   width = 16,
@@ -927,7 +927,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 384,
   y = 80,
   width = 32,
@@ -936,7 +936,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 384,
   y = 96,
   width = 32,
@@ -945,7 +945,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 416,
   y = 80,
   width = 16,
@@ -954,7 +954,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 400,
   y = 64,
   width = 16,
@@ -963,7 +963,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 384,
   y = 32,
   width = 16,
@@ -972,7 +972,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 416,
   y = 64,
   width = 16,
@@ -981,7 +981,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 320,
   y = 128,
   width = 96,
@@ -990,7 +990,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 416,
   y = 128,
   width = 16,
@@ -999,7 +999,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 416,
   y = 144,
   width = 16,
@@ -1008,7 +1008,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 304,
   y = 40,
   width = 16,
@@ -1017,7 +1017,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 320,
   y = 40,
   width = 16,
@@ -1026,7 +1026,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 304,
   y = 32,
   width = 32,
@@ -1035,7 +1035,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 336,
   y = 40,
   width = 16,
@@ -1044,7 +1044,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 336,
   y = 32,
   width = 16,
@@ -1053,7 +1053,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 352,
   y = 32,
   width = 16,
@@ -1062,7 +1062,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 480,
   y = 192,
   width = 16,
@@ -1071,7 +1071,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 480,
   y = 208,
   width = 16,
@@ -1080,7 +1080,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 320,
   y = 144,
   width = 96,
@@ -1089,7 +1089,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 416,
   y = 96,
   width = 16,
@@ -1098,7 +1098,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 400,
   y = 32,
   width = 144,
@@ -1107,7 +1107,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 432,
   y = 176,
   width = 16,
@@ -1116,7 +1116,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 464,
   y = 176,
   width = 16,
@@ -1125,7 +1125,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 432,
   y = 192,
   width = 16,
@@ -1134,7 +1134,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 464,
   y = 192,
   width = 16,
@@ -1143,7 +1143,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 528,
   y = 144,
   width = 16,
@@ -1152,7 +1152,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 544,
   y = 144,
   width = 16,
@@ -1161,7 +1161,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 512,
   y = 144,
   width = 16,
@@ -1170,7 +1170,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 528,
   y = 96,
   width = 32,
@@ -1179,7 +1179,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 528,
   y = 104,
   width = 32,
@@ -1188,7 +1188,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 528,
   y = 136,
   width = 32,
@@ -1197,7 +1197,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 544,
   y = 80,
   width = 16,
@@ -1206,7 +1206,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 528,
   y = 80,
   width = 16,
@@ -1215,7 +1215,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 464,
   y = 64,
   width = 16,
@@ -1224,7 +1224,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 480,
   y = 64,
   width = 16,
@@ -1233,7 +1233,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 480,
   y = 112,
   width = 16,
@@ -1242,7 +1242,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 464,
   y = 112,
   width = 16,
@@ -1251,7 +1251,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 464,
   y = 96,
   width = 32,
@@ -1260,7 +1260,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 464,
   y = 80,
   width = 32,
@@ -1269,7 +1269,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 464,
   y = 88,
   width = 32,
@@ -1278,7 +1278,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 448,
   y = 176,
   width = 16,
@@ -1287,7 +1287,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 448,
   y = 192,
   width = 16,
@@ -1296,7 +1296,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 624,
   y = 0,
   width = 16,
@@ -1305,7 +1305,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 240,
   y = 176,
   width = 8,
@@ -1314,7 +1314,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 120,
   y = 16,
   width = 16,
@@ -1323,7 +1323,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 136,
   y = 16,
   width = 48,
@@ -1332,7 +1332,7 @@ tile{
 }
 
 tile{
-  layer = 1,
+  layer = 0,
   x = 120,
   y = 24,
   width = 16,
@@ -1342,7 +1342,7 @@ tile{
 
 custom_entity{
   name = "ice_block",
-  layer = 1,
+  layer = 0,
   x = 104,
   y = 189,
   width = 16,
@@ -1353,7 +1353,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_2",
-  layer = 1,
+  layer = 0,
   x = 104,
   y = 173,
   width = 16,
@@ -1364,7 +1364,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_3",
-  layer = 1,
+  layer = 0,
   x = 104,
   y = 157,
   width = 16,
@@ -1375,7 +1375,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_4",
-  layer = 1,
+  layer = 0,
   x = 88,
   y = 93,
   width = 16,
@@ -1386,7 +1386,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_5",
-  layer = 1,
+  layer = 0,
   x = 88,
   y = 109,
   width = 16,
@@ -1397,7 +1397,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_6",
-  layer = 1,
+  layer = 0,
   x = 104,
   y = 125,
   width = 16,
@@ -1408,7 +1408,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_7",
-  layer = 1,
+  layer = 0,
   x = 104,
   y = 141,
   width = 16,
@@ -1419,7 +1419,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_8",
-  layer = 1,
+  layer = 0,
   x = 120,
   y = 141,
   width = 16,
@@ -1430,7 +1430,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_9",
-  layer = 1,
+  layer = 0,
   x = 120,
   y = 125,
   width = 16,
@@ -1441,7 +1441,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_10",
-  layer = 1,
+  layer = 0,
   x = 104,
   y = 109,
   width = 16,
@@ -1452,7 +1452,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_11",
-  layer = 1,
+  layer = 0,
   x = 120,
   y = 189,
   width = 16,
@@ -1463,7 +1463,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_12",
-  layer = 1,
+  layer = 0,
   x = 120,
   y = 173,
   width = 16,
@@ -1474,7 +1474,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_13",
-  layer = 1,
+  layer = 0,
   x = 120,
   y = 157,
   width = 16,
@@ -1485,7 +1485,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_14",
-  layer = 1,
+  layer = 0,
   x = 136,
   y = 189,
   width = 16,
@@ -1496,7 +1496,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_15",
-  layer = 1,
+  layer = 0,
   x = 136,
   y = 173,
   width = 16,
@@ -1507,7 +1507,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_16",
-  layer = 1,
+  layer = 0,
   x = 136,
   y = 157,
   width = 16,
@@ -1518,7 +1518,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_17",
-  layer = 1,
+  layer = 0,
   x = 152,
   y = 189,
   width = 16,
@@ -1529,7 +1529,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_18",
-  layer = 1,
+  layer = 0,
   x = 152,
   y = 173,
   width = 16,
@@ -1540,7 +1540,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_19",
-  layer = 1,
+  layer = 0,
   x = 152,
   y = 157,
   width = 16,
@@ -1551,7 +1551,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_20",
-  layer = 1,
+  layer = 0,
   x = 136,
   y = 141,
   width = 16,
@@ -1562,7 +1562,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_21",
-  layer = 1,
+  layer = 0,
   x = 136,
   y = 125,
   width = 16,
@@ -1573,7 +1573,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_22",
-  layer = 1,
+  layer = 0,
   x = 152,
   y = 141,
   width = 16,
@@ -1584,7 +1584,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_23",
-  layer = 1,
+  layer = 0,
   x = 168,
   y = 189,
   width = 16,
@@ -1595,7 +1595,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_24",
-  layer = 1,
+  layer = 0,
   x = 168,
   y = 173,
   width = 16,
@@ -1606,7 +1606,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_25",
-  layer = 1,
+  layer = 0,
   x = 168,
   y = 157,
   width = 16,
@@ -1617,7 +1617,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_26",
-  layer = 1,
+  layer = 0,
   x = 168,
   y = 141,
   width = 16,
@@ -1628,7 +1628,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_27",
-  layer = 1,
+  layer = 0,
   x = 184,
   y = 189,
   width = 16,
@@ -1639,7 +1639,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_28",
-  layer = 1,
+  layer = 0,
   x = 184,
   y = 173,
   width = 16,
@@ -1650,7 +1650,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_29",
-  layer = 1,
+  layer = 0,
   x = 184,
   y = 157,
   width = 16,
@@ -1661,7 +1661,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_30",
-  layer = 1,
+  layer = 0,
   x = 184,
   y = 141,
   width = 16,
@@ -1672,7 +1672,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_31",
-  layer = 1,
+  layer = 0,
   x = 200,
   y = 189,
   width = 16,
@@ -1683,7 +1683,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_32",
-  layer = 1,
+  layer = 0,
   x = 200,
   y = 173,
   width = 16,
@@ -1694,7 +1694,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_33",
-  layer = 1,
+  layer = 0,
   x = 200,
   y = 157,
   width = 16,
@@ -1705,7 +1705,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_34",
-  layer = 1,
+  layer = 0,
   x = 424,
   y = 61,
   width = 16,
@@ -1716,7 +1716,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_35",
-  layer = 1,
+  layer = 0,
   x = 216,
   y = 189,
   width = 16,
@@ -1727,7 +1727,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_36",
-  layer = 1,
+  layer = 0,
   x = 216,
   y = 173,
   width = 16,
@@ -1738,7 +1738,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_37",
-  layer = 1,
+  layer = 0,
   x = 216,
   y = 157,
   width = 16,
@@ -1749,7 +1749,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_38",
-  layer = 1,
+  layer = 0,
   x = 152,
   y = 125,
   width = 16,
@@ -1760,7 +1760,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_39",
-  layer = 1,
+  layer = 0,
   x = 232,
   y = 189,
   width = 16,
@@ -1771,7 +1771,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_40",
-  layer = 1,
+  layer = 0,
   x = 232,
   y = 173,
   width = 16,
@@ -1782,7 +1782,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_41",
-  layer = 1,
+  layer = 0,
   x = 232,
   y = 157,
   width = 16,
@@ -1793,7 +1793,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_42",
-  layer = 1,
+  layer = 0,
   x = 232,
   y = 141,
   width = 16,
@@ -1803,11 +1803,11 @@ custom_entity{
 }
 
 custom_entity{
-  layer = 1,
+  layer = 0,
   x = 32,
   y = 77,
   width = 32,
-  height = 176,
+  height = 168,
   origin_x = 16,
   direction = 0,
   sprite = "entities/grounds/big_ladder_wooden",
@@ -1817,7 +1817,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_43",
-  layer = 1,
+  layer = 0,
   x = 184,
   y = 53,
   width = 16,
@@ -1828,7 +1828,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_44",
-  layer = 1,
+  layer = 0,
   x = 184,
   y = 37,
   width = 16,
@@ -1839,7 +1839,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_45",
-  layer = 1,
+  layer = 0,
   x = 200,
   y = 53,
   width = 16,
@@ -1850,7 +1850,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_46",
-  layer = 1,
+  layer = 0,
   x = 200,
   y = 37,
   width = 16,
@@ -1861,7 +1861,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_47",
-  layer = 1,
+  layer = 0,
   x = 232,
   y = 125,
   width = 16,
@@ -1872,7 +1872,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_48",
-  layer = 1,
+  layer = 0,
   x = 232,
   y = 109,
   width = 16,
@@ -1883,7 +1883,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_51",
-  layer = 1,
+  layer = 0,
   x = 456,
   y = 45,
   width = 16,
@@ -1894,7 +1894,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_52",
-  layer = 1,
+  layer = 0,
   x = 120,
   y = 109,
   width = 16,
@@ -1905,7 +1905,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_49",
-  layer = 1,
+  layer = 0,
   x = 248,
   y = 189,
   width = 16,
@@ -1916,7 +1916,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_50",
-  layer = 1,
+  layer = 0,
   x = 248,
   y = 173,
   width = 16,
@@ -1927,7 +1927,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_55",
-  layer = 1,
+  layer = 0,
   x = 264,
   y = 173,
   width = 16,
@@ -1938,7 +1938,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_56",
-  layer = 1,
+  layer = 0,
   x = 440,
   y = 61,
   width = 16,
@@ -1948,7 +1948,7 @@ custom_entity{
 }
 
 custom_entity{
-  layer = 1,
+  layer = 0,
   x = 576,
   y = 205,
   width = 32,
@@ -1962,7 +1962,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_59",
-  layer = 1,
+  layer = 0,
   x = 200,
   y = 69,
   width = 16,
@@ -1973,7 +1973,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_60",
-  layer = 1,
+  layer = 0,
   x = 184,
   y = 69,
   width = 16,
@@ -1984,7 +1984,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_57",
-  layer = 1,
+  layer = 0,
   x = 264,
   y = 189,
   width = 16,
@@ -1995,7 +1995,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_58",
-  layer = 1,
+  layer = 0,
   x = 88,
   y = 125,
   width = 16,
@@ -2006,7 +2006,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_61",
-  layer = 1,
+  layer = 0,
   x = 88,
   y = 141,
   width = 16,
@@ -2017,7 +2017,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_62",
-  layer = 1,
+  layer = 0,
   x = 88,
   y = 157,
   width = 16,
@@ -2028,7 +2028,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_63",
-  layer = 1,
+  layer = 0,
   x = 88,
   y = 173,
   width = 16,
@@ -2039,7 +2039,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_64",
-  layer = 1,
+  layer = 0,
   x = 88,
   y = 189,
   width = 16,
@@ -2050,7 +2050,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_65",
-  layer = 1,
+  layer = 0,
   x = 408,
   y = 61,
   width = 16,
@@ -2060,7 +2060,7 @@ custom_entity{
 }
 
 custom_entity{
-  layer = 1,
+  layer = 0,
   x = 568,
   y = 85,
   width = 32,
@@ -2074,7 +2074,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_53",
-  layer = 1,
+  layer = 0,
   x = 248,
   y = 157,
   width = 16,
@@ -2085,7 +2085,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_66",
-  layer = 1,
+  layer = 0,
   x = 552,
   y = 189,
   width = 16,
@@ -2096,7 +2096,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_67",
-  layer = 1,
+  layer = 0,
   x = 536,
   y = 189,
   width = 16,
@@ -2107,7 +2107,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_68",
-  layer = 1,
+  layer = 0,
   x = 536,
   y = 173,
   width = 16,
@@ -2118,7 +2118,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_69",
-  layer = 1,
+  layer = 0,
   x = 552,
   y = 173,
   width = 16,
@@ -2129,7 +2129,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_70",
-  layer = 1,
+  layer = 0,
   x = 440,
   y = 45,
   width = 16,
@@ -2140,7 +2140,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_71",
-  layer = 1,
+  layer = 0,
   x = 408,
   y = 45,
   width = 16,
@@ -2151,7 +2151,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_72",
-  layer = 1,
+  layer = 0,
   x = 440,
   y = 77,
   width = 16,
@@ -2162,7 +2162,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_73",
-  layer = 1,
+  layer = 0,
   x = 440,
   y = 93,
   width = 16,
@@ -2173,7 +2173,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_75",
-  layer = 1,
+  layer = 0,
   x = 424,
   y = 125,
   width = 16,
@@ -2184,7 +2184,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_76",
-  layer = 1,
+  layer = 0,
   x = 408,
   y = 125,
   width = 16,
@@ -2195,7 +2195,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_78",
-  layer = 1,
+  layer = 0,
   x = 424,
   y = 109,
   width = 16,
@@ -2206,7 +2206,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_79",
-  layer = 1,
+  layer = 0,
   x = 408,
   y = 109,
   width = 16,
@@ -2217,7 +2217,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_80",
-  layer = 1,
+  layer = 0,
   x = 456,
   y = 93,
   width = 16,
@@ -2228,7 +2228,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_81",
-  layer = 1,
+  layer = 0,
   x = 456,
   y = 77,
   width = 16,
@@ -2239,7 +2239,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_82",
-  layer = 1,
+  layer = 0,
   x = 456,
   y = 61,
   width = 16,
@@ -2250,7 +2250,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_83",
-  layer = 1,
+  layer = 0,
   x = 424,
   y = 45,
   width = 16,
@@ -2261,7 +2261,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_54",
-  layer = 1,
+  layer = 0,
   x = 472,
   y = 45,
   width = 16,
@@ -2272,7 +2272,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_84",
-  layer = 1,
+  layer = 0,
   x = 472,
   y = 61,
   width = 16,
@@ -2283,7 +2283,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_85",
-  layer = 1,
+  layer = 0,
   x = 536,
   y = 77,
   width = 16,
@@ -2294,7 +2294,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_86",
-  layer = 1,
+  layer = 0,
   x = 552,
   y = 77,
   width = 16,
@@ -2305,7 +2305,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_87",
-  layer = 1,
+  layer = 0,
   x = 536,
   y = 61,
   width = 16,
@@ -2316,7 +2316,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_88",
-  layer = 1,
+  layer = 0,
   x = 552,
   y = 61,
   width = 16,
@@ -2327,7 +2327,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_89",
-  layer = 1,
+  layer = 0,
   x = 536,
   y = 45,
   width = 16,
@@ -2338,7 +2338,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_90",
-  layer = 1,
+  layer = 0,
   x = 488,
   y = 61,
   width = 16,
@@ -2349,7 +2349,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_91",
-  layer = 1,
+  layer = 0,
   x = 504,
   y = 61,
   width = 16,
@@ -2360,7 +2360,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_92",
-  layer = 1,
+  layer = 0,
   x = 520,
   y = 61,
   width = 16,
@@ -2371,7 +2371,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_93",
-  layer = 1,
+  layer = 0,
   x = 488,
   y = 45,
   width = 16,
@@ -2382,7 +2382,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_94",
-  layer = 1,
+  layer = 0,
   x = 504,
   y = 45,
   width = 16,
@@ -2393,7 +2393,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_95",
-  layer = 1,
+  layer = 0,
   x = 520,
   y = 45,
   width = 16,
@@ -2404,7 +2404,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_96",
-  layer = 1,
+  layer = 0,
   x = 520,
   y = 77,
   width = 16,
@@ -2415,7 +2415,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_97",
-  layer = 1,
+  layer = 0,
   x = 504,
   y = 77,
   width = 16,
@@ -2426,7 +2426,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_98",
-  layer = 1,
+  layer = 0,
   x = 504,
   y = 93,
   width = 16,
@@ -2437,7 +2437,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_99",
-  layer = 1,
+  layer = 0,
   x = 520,
   y = 93,
   width = 16,
@@ -2448,7 +2448,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_100",
-  layer = 1,
+  layer = 0,
   x = 504,
   y = 141,
   width = 16,
@@ -2459,7 +2459,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_102",
-  layer = 1,
+  layer = 0,
   x = 488,
   y = 173,
   width = 16,
@@ -2470,7 +2470,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_103",
-  layer = 1,
+  layer = 0,
   x = 488,
   y = 157,
   width = 16,
@@ -2481,7 +2481,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_105",
-  layer = 1,
+  layer = 0,
   x = 440,
   y = 125,
   width = 16,
@@ -2492,7 +2492,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_106",
-  layer = 1,
+  layer = 0,
   x = 440,
   y = 109,
   width = 16,
@@ -2503,7 +2503,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_74",
-  layer = 1,
+  layer = 0,
   x = 264,
   y = 157,
   width = 16,
@@ -2513,7 +2513,7 @@ custom_entity{
 }
 
 custom_entity{
-  layer = 1,
+  layer = 0,
   x = 296,
   y = 133,
   width = 16,
@@ -2527,7 +2527,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_107",
-  layer = 1,
+  layer = 0,
   x = 456,
   y = 109,
   width = 16,
@@ -2538,7 +2538,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_108",
-  layer = 1,
+  layer = 0,
   x = 456,
   y = 125,
   width = 16,
@@ -2549,7 +2549,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_109",
-  layer = 1,
+  layer = 0,
   x = 456,
   y = 141,
   width = 16,
@@ -2560,7 +2560,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_110",
-  layer = 1,
+  layer = 0,
   x = 472,
   y = 157,
   width = 16,
@@ -2571,7 +2571,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_111",
-  layer = 1,
+  layer = 0,
   x = 456,
   y = 157,
   width = 16,
@@ -2582,7 +2582,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_112",
-  layer = 1,
+  layer = 0,
   x = 472,
   y = 141,
   width = 16,
@@ -2593,7 +2593,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_113",
-  layer = 1,
+  layer = 0,
   x = 488,
   y = 141,
   width = 16,
@@ -2604,7 +2604,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_114",
-  layer = 1,
+  layer = 0,
   x = 504,
   y = 173,
   width = 16,
@@ -2615,7 +2615,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_115",
-  layer = 1,
+  layer = 0,
   x = 504,
   y = 157,
   width = 16,
@@ -2626,7 +2626,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_101",
-  layer = 1,
+  layer = 0,
   x = 504,
   y = 109,
   width = 16,
@@ -2637,7 +2637,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_104",
-  layer = 1,
+  layer = 0,
   x = 520,
   y = 109,
   width = 16,
@@ -2648,7 +2648,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_116",
-  layer = 1,
+  layer = 0,
   x = 504,
   y = 125,
   width = 16,
@@ -2659,7 +2659,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_117",
-  layer = 1,
+  layer = 0,
   x = 520,
   y = 125,
   width = 16,
@@ -2670,7 +2670,7 @@ custom_entity{
 
 custom_entity{
   name = "ice_block_118",
-  layer = 1,
+  layer = 0,
   x = 520,
   y = 141,
   width = 16,
@@ -2680,11 +2680,49 @@ custom_entity{
 }
 
 enemy{
-  layer = 1,
+  layer = 0,
   x = 456,
   y = 173,
   direction = 0,
   breed = "goomba",
   treasure_name = "heart",
+}
+
+destination{
+  name = "stairs_9_B",
+  layer = 0,
+  x = 576,
+  y = 221,
+  direction = 1,
+}
+
+teletransporter{
+  name = "stairs_10_A",
+  layer = 0,
+  x = 560,
+  y = 224,
+  width = 32,
+  height = 16,
+  destination_map = "dungeons/8/1f",
+  destination = "stairs_10_B",
+}
+
+destination{
+  name = "stairs_11_B",
+  layer = 0,
+  x = 32,
+  y = 221,
+  direction = 1,
+}
+
+teletransporter{
+  name = "stairs_12_A",
+  layer = 0,
+  x = 16,
+  y = 224,
+  width = 32,
+  height = 16,
+  destination_map = "dungeons/8/1f",
+  destination = "stairs_12_B",
 }
 

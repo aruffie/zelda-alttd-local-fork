@@ -29478,6 +29478,249 @@ destination{
   default = true,
 }
 
+teletransporter{
+  name = "stairs_3_A",
+  layer = 0,
+  x = 1424,
+  y = 896,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/8/sideview_3",
+  destination = "stairs_3_B",
+}
+
+stairs{
+  layer = 0,
+  x = 1424,
+  y = 896,
+  direction = 3,
+  subtype = 3,
+}
+
+destination{
+  name = "stairs_4_B",
+  layer = 0,
+  x = 1432,
+  y = 909,
+  direction = 1,
+}
+
+teletransporter{
+  name = "stairs_5_A",
+  layer = 0,
+  x = 1496,
+  y = 64,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/8/sideview_1",
+  destination = "stairs_5_B",
+}
+
+stairs{
+  layer = 0,
+  x = 1496,
+  y = 64,
+  direction = 1,
+  subtype = 3,
+}
+
+destination{
+  name = "stairs_6_B",
+  layer = 0,
+  x = 1504,
+  y = 77,
+  direction = 3,
+}
+
+teletransporter{
+  name = "stairs_7_A",
+  layer = 0,
+  x = 2080,
+  y = 1088,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/8/sideview_1",
+  destination = "stairs_7_B",
+}
+
+stairs{
+  layer = 0,
+  x = 2080,
+  y = 1088,
+  direction = 1,
+  subtype = 2,
+}
+
+destination{
+  name = "stairs_8_B",
+  layer = 0,
+  x = 2088,
+  y = 1101,
+  direction = 3,
+}
+
+teletransporter{
+  name = "stairs_9_A",
+  layer = 0,
+  x = 1848,
+  y = 1264,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/8/sideview_4",
+  destination = "stairs_9_B",
+}
+
+stairs{
+  layer = 0,
+  x = 1848,
+  y = 1264,
+  direction = 1,
+  subtype = 2,
+}
+
+destination{
+  name = "stairs_10_B",
+  layer = 0,
+  x = 1856,
+  y = 1277,
+  direction = 3,
+}
+
+teletransporter{
+  name = "stairs_11_A",
+  layer = 0,
+  x = 1112,
+  y = 592,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/8/sideview_4",
+  destination = "stairs_11_B",
+}
+
+stairs{
+  layer = 0,
+  x = 1112,
+  y = 592,
+  direction = 3,
+  subtype = 3,
+}
+
+destination{
+  name = "stairs_12_B",
+  layer = 0,
+  x = 1120,
+  y = 605,
+  direction = 1,
+}
+
+teletransporter{
+  name = "stairs_19_A",
+  layer = 0,
+  x = 2296,
+  y = 1840,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/8/sideview_2",
+  destination = "stairs_19_B",
+}
+
+destination{
+  name = "stairs_20_B",
+  layer = 0,
+  x = 2304,
+  y = 1853,
+  direction = 1,
+}
+
+stairs{
+  layer = 0,
+  x = 2296,
+  y = 1840,
+  direction = 3,
+  subtype = 3,
+}
+
+teletransporter{
+  name = "stairs_21_A",
+  layer = 0,
+  x = 2296,
+  y = 1264,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/8/sideview_6",
+  destination = "stairs_21_B",
+}
+
+destination{
+  name = "stairs_22_B",
+  layer = 0,
+  x = 2304,
+  y = 1277,
+  direction = 3,
+}
+
+stairs{
+  layer = 0,
+  x = 2296,
+  y = 1264,
+  direction = 1,
+  subtype = 3,
+}
+
+teletransporter{
+  name = "stairs_23_A",
+  layer = 0,
+  x = 1520,
+  y = 1744,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/8/sideview_6",
+  destination = "stairs_23_B",
+}
+
+destination{
+  name = "stairs_24_B",
+  layer = 0,
+  x = 1528,
+  y = 1757,
+  direction = 3,
+}
+
+stairs{
+  layer = 0,
+  x = 1520,
+  y = 1744,
+  direction = 1,
+  subtype = 3,
+}
+
+teletransporter{
+  name = "stairs_17_A",
+  layer = 0,
+  x = 1016,
+  y = 1120,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/8/sideview_2",
+  destination = "stairs_17_B",
+}
+
+stairs{
+  layer = 0,
+  x = 1016,
+  y = 1120,
+  direction = 1,
+  subtype = 3,
+}
+
+destination{
+  name = "stairs_18_B",
+  layer = 0,
+  x = 1024,
+  y = 1133,
+  direction = 3,
+}
+
 tile{
   layer = 1,
   x = 1896,
@@ -34074,6 +34317,33 @@ stairs{
   subtype = 3,
 }
 
+teletransporter{
+  name = "stairs_13_A",
+  layer = 1,
+  x = 1496,
+  y = 1408,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/8/sideview_5",
+  destination = "stairs_13_B",
+}
+
+stairs{
+  layer = 1,
+  x = 1496,
+  y = 1408,
+  direction = 3,
+  subtype = 3,
+}
+
+destination{
+  name = "stairs_14_B",
+  layer = 1,
+  x = 1504,
+  y = 1421,
+  direction = 1,
+}
+
 tile{
   layer = 2,
   x = 1168,
@@ -35845,5 +36115,32 @@ separator{
   y = 0,
   width = 16,
   height = 1920,
+}
+
+teletransporter{
+  name = "stairs_15_A",
+  layer = 2,
+  x = 480,
+  y = 496,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/8/sideview_5",
+  destination = "stairs_15_B",
+}
+
+stairs{
+  layer = 2,
+  x = 480,
+  y = 496,
+  direction = 1,
+  subtype = 3,
+}
+
+destination{
+  name = "stairs_16_B",
+  layer = 2,
+  x = 488,
+  y = 509,
+  direction = 3,
 }
 
