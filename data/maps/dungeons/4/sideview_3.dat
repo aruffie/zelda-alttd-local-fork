@@ -6,7 +6,7 @@ properties{
   min_layer = 0,
   max_layer = 2,
   world = "dungeon_4",
-  tileset = "sideview/sideview_dungeon",
+  tileset = "sideview/sidetile",
   music = "same",
 }
 
@@ -1336,26 +1336,6 @@ custom_entity{
   model = "ladder",
 }
 
-dynamic_tile{
-  layer = 0,
-  x = 64,
-  y = 152,
-  width = 224,
-  height = 8,
-  pattern = "197",
-  tileset = "sideview/sideview_dungeon",
-}
-
-dynamic_tile{
-  layer = 0,
-  x = 64,
-  y = 160,
-  width = 224,
-  height = 48,
-  pattern = "181",
-  tileset = "sideview/sideview_dungeon",
-}
-
 custom_entity{
   layer = 0,
   x = 264,
@@ -1451,6 +1431,26 @@ tile{
   width = 16,
   height = 8,
   pattern = "81",
+  tileset = "sideview/sidetile",
+}
+
+tile{
+  layer = 2,
+  x = 64,
+  y = 152,
+  width = 224,
+  height = 8,
+  pattern = "26",
+  tileset = "sideview/sidetile",
+}
+
+tile{
+  layer = 2,
+  x = 64,
+  y = 160,
+  width = 224,
+  height = 48,
+  pattern = "22",
   tileset = "sideview/sidetile",
 }
 

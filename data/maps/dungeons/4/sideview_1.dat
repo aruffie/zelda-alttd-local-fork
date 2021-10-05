@@ -6,7 +6,7 @@ properties{
   min_layer = 0,
   max_layer = 2,
   world = "dungeon_4",
-  tileset = "sideview/sideview_dungeon",
+  tileset = "sideview/sidetile",
   music = "same",
 }
 
@@ -207,36 +207,6 @@ tile{
   width = 96,
   height = 16,
   pattern = "45",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 56,
-  y = 192,
-  width = 16,
-  height = 16,
-  pattern = "26",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 48,
-  y = 192,
-  width = 8,
-  height = 16,
-  pattern = "22",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 72,
-  y = 192,
-  width = 8,
-  height = 16,
-  pattern = "24",
   tileset = "sideview/sidetile",
 }
 
@@ -715,18 +685,9 @@ tile{
   x = 544,
   y = 176,
   width = 32,
-  height = 32,
+  height = 64,
   pattern = "45",
   tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 544,
-  y = 208,
-  width = 32,
-  height = 32,
-  pattern = "206",
 }
 
 tile{
@@ -1676,7 +1637,7 @@ custom_entity{
   x = 64,
   y = 13,
   width = 32,
-  height = 192,
+  height = 208,
   origin_x = 16,
   direction = 0,
   sprite = "entities/grounds/big_ladder_wooden",
@@ -1735,23 +1696,48 @@ destination{
   direction = 3,
 }
 
-dynamic_tile{
+tile{
   layer = 2,
-  x = 0,
-  y = 112,
-  width = 640,
-  height = 128,
-  pattern = "181",
-  tileset = "sideview/sideview_dungeon",
+  x = 48,
+  y = 104,
+  width = 544,
+  height = 8,
+  pattern = "26",
 }
 
-dynamic_tile{
+tile{
   layer = 2,
-  x = 0,
-  y = 104,
-  width = 640,
-  height = 8,
-  pattern = "197",
-  tileset = "sideview/sideview_dungeon",
+  x = 48,
+  y = 112,
+  width = 544,
+  height = 48,
+  pattern = "22",
+}
+
+tile{
+  layer = 2,
+  x = 48,
+  y = 160,
+  width = 128,
+  height = 48,
+  pattern = "22",
+}
+
+tile{
+  layer = 2,
+  x = 240,
+  y = 160,
+  width = 288,
+  height = 48,
+  pattern = "22",
+}
+
+tile{
+  layer = 2,
+  x = 176,
+  y = 160,
+  width = 64,
+  height = 32,
+  pattern = "22",
 }
 
