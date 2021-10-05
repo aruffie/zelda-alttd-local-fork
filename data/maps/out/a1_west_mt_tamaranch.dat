@@ -13802,7 +13802,7 @@ destination{
   name = "dungeon_8_4_B",
   layer = 1,
   x = 72,
-  y = 109,
+  y = 101,
   direction = 3,
 }
 
@@ -13810,7 +13810,7 @@ teletransporter{
   name = "dungeon_8_3_A",
   layer = 1,
   x = 64,
-  y = 80,
+  y = 72,
   width = 16,
   height = 16,
   destination_map = "dungeons/8/1f",
@@ -13821,19 +13821,8 @@ destination{
   name = "dungeon_8_6_B",
   layer = 1,
   x = 592,
-  y = 101,
+  y = 93,
   direction = 3,
-}
-
-teletransporter{
-  name = "dungeon_8_5_A",
-  layer = 1,
-  x = 584,
-  y = 72,
-  width = 16,
-  height = 16,
-  destination_map = "dungeons/8/1f",
-  destination = "dungeon_8_5_B",
 }
 
 enemy{
@@ -13987,6 +13976,17 @@ enemy{
   y = 181,
   direction = 0,
   breed = "boss/turtle_rock",
+}
+
+teletransporter{
+  name = "dungeon_8_5_A",
+  layer = 1,
+  x = 584,
+  y = 64,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/8/1f",
+  destination = "dungeon_8_5_B",
 }
 
 tile{

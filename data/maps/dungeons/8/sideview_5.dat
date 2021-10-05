@@ -211,7 +211,7 @@ tile{
   x = 544,
   y = 8,
   width = 96,
-  height = 240,
+  height = 224,
   pattern = "87",
 }
 
@@ -850,7 +850,7 @@ custom_entity{
   x = 64,
   y = 149,
   width = 32,
-  height = 112,
+  height = 104,
   origin_x = 16,
   direction = 0,
   sprite = "entities/grounds/big_ladder_wooden",
@@ -863,7 +863,7 @@ custom_entity{
   x = 576,
   y = 181,
   width = 32,
-  height = 80,
+  height = 72,
   origin_x = 16,
   direction = 0,
   sprite = "entities/grounds/big_ladder_wooden",
@@ -912,7 +912,7 @@ separator{
   x = 320,
   y = 0,
   width = 16,
-  height = 256,
+  height = 240,
 }
 
 custom_entity{
@@ -1411,17 +1411,6 @@ custom_entity{
 }
 
 custom_entity{
-  name = "ice_block_69",
-  layer = 0,
-  x = 424,
-  y = 117,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/destructibles/block_ice",
-}
-
-custom_entity{
   name = "ice_block_70",
   layer = 0,
   x = 440,
@@ -1433,32 +1422,10 @@ custom_entity{
 }
 
 custom_entity{
-  name = "ice_block_71",
-  layer = 0,
-  x = 440,
-  y = 117,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/destructibles/block_ice",
-}
-
-custom_entity{
   name = "ice_block_72",
   layer = 0,
   x = 456,
   y = 101,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/destructibles/block_ice",
-}
-
-custom_entity{
-  name = "ice_block_73",
-  layer = 0,
-  x = 456,
-  y = 117,
   width = 16,
   height = 16,
   direction = 0,
@@ -1642,17 +1609,6 @@ custom_entity{
 }
 
 custom_entity{
-  name = "ice_block_83",
-  layer = 0,
-  x = 440,
-  y = 133,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/destructibles/block_ice",
-}
-
-custom_entity{
   name = "ice_block_84",
   layer = 0,
   x = 440,
@@ -1675,28 +1631,6 @@ custom_entity{
 }
 
 custom_entity{
-  name = "ice_block_102",
-  layer = 0,
-  x = 424,
-  y = 133,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/destructibles/block_ice",
-}
-
-custom_entity{
-  name = "ice_block_57",
-  layer = 0,
-  x = 456,
-  y = 133,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/destructibles/block_ice",
-}
-
-custom_entity{
   name = "ice_block_103",
   layer = 0,
   x = 456,
@@ -1705,5 +1639,120 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/destructibles/block_ice",
+}
+
+custom_entity{
+  name = "ice_block_69",
+  layer = 0,
+  x = 392,
+  y = 117,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/block_ice",
+}
+
+custom_entity{
+  name = "ice_block_71",
+  layer = 0,
+  x = 408,
+  y = 117,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/block_ice",
+}
+
+custom_entity{
+  name = "ice_block_73",
+  layer = 0,
+  x = 424,
+  y = 117,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/block_ice",
+}
+
+custom_entity{
+  name = "ice_block_77",
+  layer = 0,
+  x = 440,
+  y = 117,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/block_ice",
+}
+
+custom_entity{
+  name = "ice_block_83",
+  layer = 0,
+  x = 456,
+  y = 117,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/block_ice",
+}
+
+custom_entity{
+  name = "ice_block_85",
+  layer = 0,
+  x = 472,
+  y = 117,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/block_ice",
+}
+
+custom_entity{
+  name = "ice_block_34",
+  layer = 0,
+  x = 488,
+  y = 117,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/destructibles/block_ice",
+}
+
+teletransporter{
+  name = "stairs_14_A",
+  layer = 0,
+  x = 560,
+  y = 224,
+  width = 32,
+  height = 16,
+  destination_map = "dungeons/8/1f",
+  destination = "stairs_14_B",
+}
+
+destination{
+  name = "stairs_13_B",
+  layer = 0,
+  x = 576,
+  y = 221,
+  direction = 1,
+}
+
+teletransporter{
+  name = "stairs_16_A",
+  layer = 0,
+  x = 48,
+  y = 224,
+  width = 32,
+  height = 16,
+  destination_map = "dungeons/8/1f",
+  destination = "stairs_16_B",
+}
+
+destination{
+  name = "stairs_15_B",
+  layer = 0,
+  x = 64,
+  y = 221,
+  direction = 1,
 }
 
