@@ -31,9 +31,10 @@ local crushed_duration = 500
 function enemy:start_walking()
 
   local distance = not is_sideview and math.random(walking_minimum_distance, walking_maximum_distance)
-  enemy:start_straight_walking(walking_angles[math.random(4)], walking_speed, distance, function()
+  local movement = enemy:start_straight_walking(walking_angles[math.random(4)], walking_speed, distance, function()
     enemy:start_walking()
   end)
+  movement:set_smooth(false)
 end
 
 -- Don't hurt the hero if enemy is below on sideview maps.
