@@ -259,6 +259,7 @@ function entity_respawn_manager:init(map)
             })
           -- We don't recreate the treasure.
           destructible_place.destructible = destructible
+          destructible:bring_to_back() -- Workaround : Ensure the created destructible is under a possible invisible entity such as lights, to let it liftable.
         end
       end
     end

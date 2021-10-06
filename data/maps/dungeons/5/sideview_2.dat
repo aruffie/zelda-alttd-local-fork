@@ -1402,6 +1402,19 @@ separator{
   height = 240,
 }
 
+custom_entity{
+  layer = 0,
+  x = 64,
+  y = 13,
+  width = 32,
+  height = 32,
+  origin_x = 16,
+  direction = 0,
+  sprite = "entities/grounds/big_ladder_wooden",
+  tiled = true,
+  model = "ladder",
+}
+
 teletransporter{
   name = "stairs_8_A",
   layer = 0,
@@ -1420,19 +1433,6 @@ destination{
   x = 64,
   y = 29,
   direction = 3,
-}
-
-custom_entity{
-  layer = 0,
-  x = 64,
-  y = 13,
-  width = 32,
-  height = 32,
-  origin_y = 5,
-  direction = 0,
-  sprite = "entities/grounds/big_ladder_wooden",
-  tiled = true,
-  model = "ladder",
 }
 
 tile{

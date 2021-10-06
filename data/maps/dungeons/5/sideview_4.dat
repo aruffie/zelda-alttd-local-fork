@@ -1576,6 +1576,32 @@ enemy{
   breed = "cheep_cheep",
 }
 
+custom_entity{
+  layer = 0,
+  x = 80,
+  y = 13,
+  width = 32,
+  height = 112,
+  origin_x = 16,
+  direction = 0,
+  sprite = "entities/grounds/big_ladder_wooden",
+  tiled = true,
+  model = "ladder",
+}
+
+custom_entity{
+  layer = 0,
+  x = 560,
+  y = 13,
+  width = 32,
+  height = 112,
+  origin_x = 16,
+  direction = 0,
+  sprite = "entities/grounds/big_ladder_wooden",
+  tiled = true,
+  model = "ladder",
+}
+
 teletransporter{
   name = "stairs_16_A",
   layer = 0,
@@ -1614,32 +1640,6 @@ teletransporter{
   transition = "immediate",
   destination_map = "dungeons/5/1f",
   destination = "stairs_13_B",
-}
-
-custom_entity{
-  layer = 0,
-  x = 80,
-  y = 13,
-  width = 32,
-  height = 112,
-  origin_x = 16,
-  direction = 0,
-  sprite = "entities/grounds/big_ladder_wooden",
-  tiled = true,
-  model = "ladder",
-}
-
-custom_entity{
-  layer = 0,
-  x = 560,
-  y = 13,
-  width = 32,
-  height = 112,
-  origin_x = 16,
-  direction = 0,
-  sprite = "entities/grounds/big_ladder_wooden",
-  tiled = true,
-  model = "ladder",
 }
 
 tile{
