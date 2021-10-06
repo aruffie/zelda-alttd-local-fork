@@ -2181,25 +2181,6 @@ enemy{
   breed = "piranha_plant",
 }
 
-teletransporter{
-  name = "stairs_1_A",
-  layer = 0,
-  x = 552,
-  y = 224,
-  width = 16,
-  height = 16,
-  destination_map = "dungeons/2/1f",
-  destination = "stairs_4_B",
-}
-
-destination{
-  name = "stairs_1_B",
-  layer = 0,
-  x = 560,
-  y = 221,
-  direction = 1,
-}
-
 custom_entity{
   layer = 0,
   x = 536,
@@ -2231,7 +2212,7 @@ custom_entity{
   x = 560,
   y = 181,
   width = 32,
-  height = 80,
+  height = 72,
   origin_x = 16,
   direction = 0,
   sprite = "entities/grounds/big_ladder_wooden",
@@ -2255,9 +2236,9 @@ custom_entity{
 teletransporter{
   name = "stairs_2_A",
   layer = 0,
-  x = 72,
+  x = 64,
   y = 224,
-  width = 16,
+  width = 32,
   height = 16,
   destination_map = "dungeons/2/1f",
   destination = "stairs_3_B",
@@ -2267,6 +2248,25 @@ destination{
   name = "stairs_2_B",
   layer = 0,
   x = 80,
+  y = 221,
+  direction = 1,
+}
+
+teletransporter{
+  name = "stairs_1_A",
+  layer = 0,
+  x = 544,
+  y = 224,
+  width = 32,
+  height = 16,
+  destination_map = "dungeons/2/1f",
+  destination = "stairs_4_B",
+}
+
+destination{
+  name = "stairs_1_B",
+  layer = 0,
+  x = 560,
   y = 221,
   direction = 1,
 }
