@@ -3,7 +3,7 @@ properties{
   y = 0,
   width = 640,
   height = 240,
-  min_layer = 0,
+  min_layer = -1,
   max_layer = 2,
   world = "dungeon_2",
   floor = 0,
@@ -12,62 +12,134 @@ properties{
 }
 
 tile{
-  layer = 0,
+  layer = -1,
   x = 0,
   y = 0,
-  width = 648,
+  width = 640,
   height = 240,
   pattern = "25",
   tileset = "sideview/sidetile",
 }
 
+dynamic_tile{
+  name = "thin_column_1",
+  layer = -1,
+  x = 80,
+  y = 16,
+  properties = {
+    {
+      key = "parallax_scrolling",
+      value = "0.83",
+    },
+  },
+  width = 16,
+  height = 256,
+  pattern = "241",
+  tileset = "sideview/sidetile",
+}
+
+dynamic_tile{
+  name = "thin_column_2",
+  layer = -1,
+  x = 176,
+  y = 16,
+  properties = {
+    {
+      key = "parallax_scrolling",
+      value = "0.83",
+    },
+  },
+  width = 16,
+  height = 256,
+  pattern = "241",
+  tileset = "sideview/sidetile",
+}
+
+dynamic_tile{
+  name = "thin_column_3",
+  layer = -1,
+  x = 272,
+  y = 16,
+  properties = {
+    {
+      key = "parallax_scrolling",
+      value = "0.83",
+    },
+  },
+  width = 16,
+  height = 256,
+  pattern = "241",
+  tileset = "sideview/sidetile",
+}
+
+dynamic_tile{
+  name = "thin_column_4",
+  layer = -1,
+  x = 376,
+  y = 16,
+  properties = {
+    {
+      key = "parallax_scrolling",
+      value = "0.83",
+    },
+  },
+  width = 16,
+  height = 256,
+  pattern = "241",
+  tileset = "sideview/sidetile",
+}
+
+dynamic_tile{
+  name = "thin_column_5",
+  layer = -1,
+  x = 472,
+  y = 16,
+  properties = {
+    {
+      key = "parallax_scrolling",
+      value = "0.83",
+    },
+  },
+  width = 16,
+  height = 256,
+  pattern = "241",
+  tileset = "sideview/sidetile",
+}
+
+dynamic_tile{
+  name = "thin_column_6",
+  layer = -1,
+  x = 576,
+  y = 16,
+  properties = {
+    {
+      key = "parallax_scrolling",
+      value = "0.83",
+    },
+  },
+  width = 16,
+  height = 256,
+  pattern = "241",
+  tileset = "sideview/sidetile",
+}
+
+tile{
+  layer = 0,
+  x = 0,
+  y = 0,
+  width = 640,
+  height = 240,
+  pattern = "71",
+  tileset = "out/outside_main",
+}
+
 tile{
   layer = 0,
   x = 24,
   y = 8,
   width = 32,
-  height = 112,
+  height = 224,
   pattern = "240",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 80,
-  y = 16,
-  width = 16,
-  height = 64,
-  pattern = "241",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 24,
-  y = 120,
-  width = 32,
-  height = 112,
-  pattern = "240",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 80,
-  y = 80,
-  width = 16,
-  height = 64,
-  pattern = "241",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 80,
-  y = 144,
-  width = 16,
-  height = 64,
-  pattern = "241",
   tileset = "sideview/sidetile",
 }
 
@@ -76,48 +148,8 @@ tile{
   x = 120,
   y = 8,
   width = 32,
-  height = 112,
+  height = 224,
   pattern = "240",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 176,
-  y = 16,
-  width = 16,
-  height = 64,
-  pattern = "241",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 120,
-  y = 120,
-  width = 32,
-  height = 112,
-  pattern = "240",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 176,
-  y = 80,
-  width = 16,
-  height = 64,
-  pattern = "241",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 176,
-  y = 144,
-  width = 16,
-  height = 64,
-  pattern = "241",
   tileset = "sideview/sidetile",
 }
 
@@ -126,48 +158,8 @@ tile{
   x = 216,
   y = 8,
   width = 32,
-  height = 112,
+  height = 224,
   pattern = "240",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 272,
-  y = 16,
-  width = 16,
-  height = 64,
-  pattern = "241",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 216,
-  y = 120,
-  width = 32,
-  height = 112,
-  pattern = "240",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 272,
-  y = 80,
-  width = 16,
-  height = 64,
-  pattern = "241",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 272,
-  y = 144,
-  width = 16,
-  height = 64,
-  pattern = "241",
   tileset = "sideview/sidetile",
 }
 
@@ -176,48 +168,8 @@ tile{
   x = 320,
   y = 8,
   width = 32,
-  height = 112,
+  height = 224,
   pattern = "240",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 376,
-  y = 16,
-  width = 16,
-  height = 64,
-  pattern = "241",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 320,
-  y = 120,
-  width = 32,
-  height = 112,
-  pattern = "240",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 376,
-  y = 80,
-  width = 16,
-  height = 64,
-  pattern = "241",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 376,
-  y = 144,
-  width = 16,
-  height = 64,
-  pattern = "241",
   tileset = "sideview/sidetile",
 }
 
@@ -233,41 +185,11 @@ tile{
 
 tile{
   layer = 0,
-  x = 472,
-  y = 16,
-  width = 16,
-  height = 64,
-  pattern = "241",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
   x = 416,
   y = 120,
   width = 32,
   height = 112,
   pattern = "240",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 472,
-  y = 80,
-  width = 16,
-  height = 64,
-  pattern = "241",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 472,
-  y = 144,
-  width = 16,
-  height = 64,
-  pattern = "241",
   tileset = "sideview/sidetile",
 }
 
@@ -283,41 +205,11 @@ tile{
 
 tile{
   layer = 0,
-  x = 576,
-  y = 16,
-  width = 16,
-  height = 64,
-  pattern = "241",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
   x = 520,
   y = 120,
   width = 32,
   height = 112,
   pattern = "240",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 576,
-  y = 80,
-  width = 16,
-  height = 64,
-  pattern = "241",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 576,
-  y = 144,
-  width = 16,
-  height = 64,
-  pattern = "241",
   tileset = "sideview/sidetile",
 }
 
@@ -1034,7 +926,7 @@ tile{
 tile{
   layer = 0,
   x = 184,
-  y = 96,
+  y = 104,
   width = 32,
   height = 16,
   pattern = "87",
