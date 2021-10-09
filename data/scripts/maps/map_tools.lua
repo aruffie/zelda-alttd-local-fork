@@ -46,6 +46,22 @@ function map_tools.start_close_explosions(entity, duration, max_distance, callba
   end
 end
 
+-- Start a parallax effect on the given entity.
+function map_tools.start_parallax_scrolling(entity, scrolling_ratio)
+
+  if not scrolling_ratio then
+    return
+  end
+
+  local map = entity:get_map()
+  local camera = map:get_camera()
+  local initial_x, initial_y = entity:get_position()
+
+  map:register_event("on_update", function(map)
+    entity:set_position(initial_x + camera:get_position() * scrolling_ratio, initial_y)
+  end)
+end
+
 -----------------------
 -- Saving tools.
 -----------------------
