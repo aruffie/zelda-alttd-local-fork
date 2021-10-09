@@ -83,12 +83,12 @@ map{ id = "dungeons/7/2f", description = "Dungeon 7 2F" }
 map{ id = "dungeons/7/3f", description = "Dungeon 7 3F" }
 map{ id = "dungeons/7/sideview", description = "Sideview" }
 map{ id = "dungeons/8/1f", description = "Dungeon 8 1F" }
-map{ id = "dungeons/8/sideview 6", description = "Sideview 6" }
 map{ id = "dungeons/8/sideview_1", description = "Sideview 1" }
 map{ id = "dungeons/8/sideview_2", description = "Sideview 2" }
 map{ id = "dungeons/8/sideview_3", description = "Sideview 3" }
 map{ id = "dungeons/8/sideview_4", description = "Sideview 4" }
 map{ id = "dungeons/8/sideview_5", description = "Sideview 5" }
+map{ id = "dungeons/8/sideview_6", description = "Sideview 6" }
 map{ id = "dungeons/9/1f", description = "Dungeon 9 1F" }
 map{ id = "examples/beach_store", description = "Beach Store" }
 map{ id = "examples/cave_store", description = "Cave Store" }
@@ -156,6 +156,7 @@ map{ id = "out/d4_yarna_desert", description = "D4 - Yarna desert" }
 map{ id = "sideviews/east_prairie/seashell_mansion", description = "Seashell's Mansion" }
 map{ id = "sideviews/kanalet_castle/sideview_1", description = "Sideview 1" }
 map{ id = "sideviews/mabe_village/sideview_1", description = "Sideview 1" }
+map{ id = "sideviews/mambos_cave/mambos_cave", description = "Mambo's cave" }
 map{ id = "sideviews/martha_bay/sideview_1", description = "Sideview 1" }
 map{ id = "sideviews/martha_bay/sideview_2", description = "Sideview 2" }
 map{ id = "test/A", description = "A" }
@@ -2099,6 +2100,8 @@ file{ path = "maps/dungeons/7/3f.lua", author = "Benjamin Schweitzer, Vlag", lic
 file{ path = "maps/dungeons/8", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/dungeons/8/1f.dat", author = "Benjamin Schweitzer, Vlag", license = "CC BY-SA 4.0" }
 file{ path = "maps/dungeons/8/1f.lua", author = "Benjamin Schweitzer, Vlag", license = "GPL v3" }
+file{ path = "maps/dungeons/8/sideview_6.dat", author = "Julio Tanaka", }
+file{ path = "maps/dungeons/8/sideview_6.lua", author = "Julio Tanaka", }
 file{ path = "maps/dungeons/9", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/dungeons/9/1f.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/dungeons/9/1f.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
@@ -2230,6 +2233,8 @@ file{ path = "maps/sideviews/kanalet_castle/sideview_1.lua", author = "Benjamin 
 file{ path = "maps/sideviews/mabe_village", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/sideviews/mabe_village/sideview_1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/sideviews/mabe_village/sideview_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/sideviews/mambos_cave/mambos_cave.dat", author = "Julien Van Steerteghem", }
+file{ path = "maps/sideviews/mambos_cave/mambos_cave.lua", author = "Julien Van Steerteghem", }
 file{ path = "maps/sideviews/martha_bay", author = "Benjamin Schweitzer", license = "GPL v3, CC BY-SA 4.0" }
 file{ path = "maps/sideviews/martha_bay/sideview_1.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/sideviews/martha_bay/sideview_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }

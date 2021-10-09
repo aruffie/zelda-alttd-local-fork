@@ -12,52 +12,16 @@ properties{
 
 tile{
   layer = 0,
-  x = 40,
-  y = 24,
-  width = 88,
-  height = 192,
-  pattern = "67",
-}
-
-tile{
-  layer = 0,
-  x = 128,
-  y = 24,
-  width = 88,
-  height = 192,
-  pattern = "67",
-}
-
-tile{
-  layer = 0,
-  x = 216,
+  x = 0,
   y = 16,
-  width = 88,
+  width = 616,
   height = 192,
   pattern = "67",
 }
 
 tile{
   layer = 0,
-  x = 400,
-  y = 24,
-  width = 88,
-  height = 192,
-  pattern = "67",
-}
-
-tile{
-  layer = 0,
-  x = 512,
-  y = 16,
-  width = 88,
-  height = 192,
-  pattern = "67",
-}
-
-tile{
-  layer = 0,
-  x = 208,
+  x = 224,
   y = 144,
   width = 16,
   height = 16,
@@ -67,9 +31,9 @@ tile{
 
 tile{
   layer = 0,
-  x = 224,
+  x = 240,
   y = 144,
-  width = 144,
+  width = 128,
   height = 16,
   pattern = "158",
   tileset = "sideview/sidetile",
@@ -1447,7 +1411,7 @@ tile{
 enemy{
   layer = 0,
   x = 176,
-  y = 93,
+  y = 141,
   direction = 0,
   breed = "thwomp",
 }
@@ -1457,7 +1421,7 @@ custom_entity{
   x = 576,
   y = 13,
   width = 32,
-  height = 208,
+  height = 192,
   origin_x = 16,
   direction = 0,
   sprite = "entities/grounds/big_ladder_wooden",
@@ -1483,7 +1447,7 @@ custom_entity{
   x = 120,
   y = 133,
   width = 16,
-  height = 72,
+  height = 64,
   origin_y = 5,
   direction = 0,
   sprite = "entities/grounds/ladder_iron",
@@ -1497,5 +1461,56 @@ enemy{
   y = 93,
   direction = 0,
   breed = "thwomp",
+}
+
+teletransporter{
+  name = "stairs_8_A",
+  layer = 0,
+  x = 560,
+  y = 0,
+  width = 32,
+  height = 16,
+  destination_map = "dungeons/4/1f",
+  destination = "stairs_8_B",
+}
+
+destination{
+  name = "stairs_7_B",
+  layer = 0,
+  x = 576,
+  y = 29,
+  direction = 3,
+}
+
+custom_entity{
+  layer = 0,
+  x = 576,
+  y = 205,
+  width = 32,
+  height = 16,
+  origin_x = 16,
+  direction = 3,
+  sprite = "entities/grounds/big_ladder_wooden",
+  tiled = true,
+  model = "ladder",
+}
+
+teletransporter{
+  name = "stairs_10_A",
+  layer = 0,
+  x = 48,
+  y = 0,
+  width = 32,
+  height = 16,
+  destination_map = "dungeons/4/1f",
+  destination = "stairs_10_B",
+}
+
+destination{
+  name = "stairs_9_B",
+  layer = 0,
+  x = 64,
+  y = 29,
+  direction = 3,
 }
 

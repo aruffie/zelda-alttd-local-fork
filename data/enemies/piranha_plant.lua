@@ -54,6 +54,22 @@ local function rush_out()
       go_back()
     end)
   end
+
+  -- Behavior for each items.
+  enemy:set_hero_weapons_reactions({
+  	arrow = 1,
+  	boomerang = 1,
+  	explosion = 1,
+  	sword = 1,
+  	thrown_item = 1,
+  	fire = 1,
+  	jump_on = "ignored",
+  	hammer = 1,
+  	hookshot = 1,
+  	magic_powder = 1,
+  	shield = "protected",
+  	thrust = 1
+  })
 end
 
 -- Workaround: No way to set a clipping rectangle to a drawable or entity, do it manually to not draw the hidden part in case tiles under are too skinny.
@@ -79,24 +95,8 @@ end)
 -- Restart settings.
 enemy:register_event("on_restarted", function(enemy)
 
-  -- Behavior for each items.
-  enemy:set_hero_weapons_reactions({
-  	arrow = 1,
-  	boomerang = 1,
-  	explosion = 1,
-  	sword = 1,
-  	thrown_item = 1,
-  	fire = 1,
-  	jump_on = "ignored",
-  	hammer = 1,
-  	hookshot = 1,
-  	magic_powder = 1,
-  	shield = "protected",
-  	thrust = 1
-  })
-
-  -- States.
   sprite:set_animation("immobile")
+  enemy:set_invincible()
   enemy:set_pushed_back_when_hurt(false)
   enemy:set_can_attack(true)
   enemy:set_damage(2)

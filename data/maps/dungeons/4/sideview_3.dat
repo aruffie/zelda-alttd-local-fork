@@ -6,7 +6,7 @@ properties{
   min_layer = 0,
   max_layer = 2,
   world = "dungeon_4",
-  tileset = "sideview/sideview_dungeon",
+  tileset = "sideview/sidetile",
   music = "same",
 }
 
@@ -1336,26 +1336,6 @@ custom_entity{
   model = "ladder",
 }
 
-dynamic_tile{
-  layer = 0,
-  x = 64,
-  y = 152,
-  width = 224,
-  height = 8,
-  pattern = "197",
-  tileset = "sideview/sideview_dungeon",
-}
-
-dynamic_tile{
-  layer = 0,
-  x = 64,
-  y = 160,
-  width = 224,
-  height = 48,
-  pattern = "181",
-  tileset = "sideview/sideview_dungeon",
-}
-
 custom_entity{
   layer = 0,
   x = 264,
@@ -1405,6 +1385,25 @@ custom_entity{
   model = "platform_moving",
 }
 
+teletransporter{
+  name = "stairs_12_A",
+  layer = 0,
+  x = 512,
+  y = 0,
+  width = 32,
+  height = 16,
+  destination_map = "dungeons/4/1f",
+  destination = "stairs_12_B",
+}
+
+destination{
+  name = "stairs_11_B",
+  layer = 0,
+  x = 528,
+  y = 29,
+  direction = 3,
+}
+
 tile{
   layer = 1,
   x = 304,
@@ -1432,6 +1431,26 @@ tile{
   width = 16,
   height = 8,
   pattern = "81",
+  tileset = "sideview/sidetile",
+}
+
+tile{
+  layer = 2,
+  x = 64,
+  y = 152,
+  width = 224,
+  height = 8,
+  pattern = "26",
+  tileset = "sideview/sidetile",
+}
+
+tile{
+  layer = 2,
+  x = 64,
+  y = 160,
+  width = 224,
+  height = 48,
+  pattern = "22",
   tileset = "sideview/sidetile",
 }
 
