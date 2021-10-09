@@ -1596,7 +1596,7 @@ tile_pattern{
   width = 32,
   height = 112,
   scrolling = "parallax",
-  repeat_mode = "none",
+  repeat_mode = "vertical",
 }
 
 tile_pattern{
@@ -1607,8 +1607,7 @@ tile_pattern{
   y = 0,
   width = 16,
   height = 64,
-  scrolling = "parallax",
-  repeat_mode = "none",
+  repeat_mode = "vertical",
 }
 
 tile_pattern{
@@ -1702,7 +1701,6 @@ tile_pattern{
   y = 16,
   width = 8,
   height = 8,
-  scrolling = "parallax",
 }
 
 tile_pattern{
