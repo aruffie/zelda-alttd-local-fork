@@ -12,6 +12,105 @@ properties{
 
 tile{
   layer = 0,
+  x = 0,
+  y = 8,
+  width = 640,
+  height = 240,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 16,
+  width = 32,
+  height = 192,
+  pattern = "254",
+}
+
+tile{
+  layer = 0,
+  x = 136,
+  y = 24,
+  width = 32,
+  height = 192,
+  pattern = "254",
+}
+
+tile{
+  layer = 0,
+  x = 216,
+  y = 24,
+  width = 32,
+  height = 192,
+  pattern = "254",
+}
+
+tile{
+  layer = 0,
+  x = 304,
+  y = 24,
+  width = 32,
+  height = 192,
+  pattern = "254",
+}
+
+tile{
+  layer = 0,
+  x = 360,
+  y = 24,
+  width = 32,
+  height = 192,
+  pattern = "254",
+}
+
+tile{
+  layer = 0,
+  x = 456,
+  y = 24,
+  width = 32,
+  height = 192,
+  pattern = "254",
+}
+
+tile{
+  layer = 0,
+  x = 536,
+  y = 24,
+  width = 32,
+  height = 192,
+  pattern = "254",
+}
+
+tile{
+  layer = 0,
+  x = 160,
+  y = 160,
+  width = 32,
+  height = 32,
+  pattern = "254",
+}
+
+tile{
+  layer = 0,
+  x = 160,
+  y = 64,
+  width = 32,
+  height = 32,
+  pattern = "256",
+}
+
+tile{
+  layer = 0,
+  x = 456,
+  y = 104,
+  width = 16,
+  height = 64,
+  pattern = "258",
+}
+
+tile{
+  layer = 0,
   x = 240,
   y = 160,
   width = 176,
@@ -182,7 +281,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 144,
+  x = 176,
   y = 112,
   width = 64,
   height = 16,
@@ -212,8 +311,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 176,
-  y = 128,
+  x = 248,
+  y = 112,
   width = 64,
   height = 16,
   pattern = "144",
@@ -222,8 +321,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 224,
-  y = 112,
+  x = 176,
+  y = 128,
   width = 64,
   height = 16,
   pattern = "144",
@@ -282,8 +381,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 216,
-  y = 112,
+  x = 104,
+  y = 128,
   width = 8,
   height = 16,
   pattern = "138",
@@ -303,9 +402,9 @@ tile{
 tile{
   layer = 0,
   x = 120,
-  y = 64,
+  y = 48,
   width = 8,
-  height = 16,
+  height = 32,
   pattern = "138",
   tileset = "sideview/sidetile",
 }
@@ -332,17 +431,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 136,
-  y = 112,
-  width = 8,
-  height = 16,
-  pattern = "138",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 208,
+  x = 240,
   y = 112,
   width = 8,
   height = 16,
@@ -373,9 +462,9 @@ tile{
 tile{
   layer = 0,
   x = 272,
-  y = 64,
+  y = 48,
   width = 8,
-  height = 16,
+  height = 32,
   pattern = "139",
   tileset = "sideview/sidetile",
 }
@@ -452,7 +541,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 288,
+  x = 312,
   y = 112,
   width = 8,
   height = 16,
@@ -473,7 +562,7 @@ tile{
 tile{
   layer = 0,
   x = 144,
-  y = 120,
+  y = 128,
   width = 32,
   height = 32,
   pattern = "119",
@@ -562,7 +651,7 @@ tile{
 
 tile{
   layer = 0,
-  x = 80,
+  x = 88,
   y = 208,
   width = 144,
   height = 32,
@@ -859,7 +948,7 @@ tile{
 tile{
   layer = 0,
   x = 520,
-  y = 40,
+  y = 32,
   width = 80,
   height = 192,
   pattern = "144",
@@ -1065,15 +1154,6 @@ tile{
   height = 16,
   pattern = "139",
   tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 376,
-  y = 144,
-  width = 16,
-  height = 16,
-  pattern = "19",
 }
 
 tile{
@@ -1565,6 +1645,26 @@ tile{
   tileset = "sideview/sidetile",
 }
 
+tile{
+  layer = 0,
+  x = 128,
+  y = 112,
+  width = 48,
+  height = 16,
+  pattern = "144",
+  tileset = "sideview/sidetile",
+}
+
+tile{
+  layer = 0,
+  x = 120,
+  y = 112,
+  width = 8,
+  height = 16,
+  pattern = "138",
+  tileset = "sideview/sidetile",
+}
+
 custom_entity{
   layer = 0,
   x = 64,
@@ -1576,14 +1676,6 @@ custom_entity{
   sprite = "entities/grounds/big_ladder_wooden",
   tiled = true,
   model = "ladder",
-}
-
-separator{
-  layer = 0,
-  x = 312,
-  y = 0,
-  width = 16,
-  height = 240,
 }
 
 destination{

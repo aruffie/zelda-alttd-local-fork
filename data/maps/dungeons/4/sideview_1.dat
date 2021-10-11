@@ -22,8 +22,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 80,
-  y = 40,
+  x = 112,
+  y = 32,
   width = 120,
   height = 160,
   pattern = "253",
@@ -31,8 +31,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 272,
-  y = 40,
+  x = 280,
+  y = 32,
   width = 120,
   height = 160,
   pattern = "253",
@@ -40,8 +40,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 456,
-  y = 40,
+  x = 480,
+  y = 32,
   width = 120,
   height = 160,
   pattern = "253",
