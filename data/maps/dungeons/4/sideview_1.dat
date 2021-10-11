@@ -6,6 +6,7 @@ properties{
   min_layer = 0,
   max_layer = 2,
   world = "dungeon_4",
+  floor = 0,
   tileset = "sideview/sidetile",
   music = "same",
 }
@@ -1423,7 +1424,7 @@ tile{
 tile{
   layer = 0,
   x = 272,
-  y = 48,
+  y = 56,
   width = 32,
   height = 32,
   pattern = "96",
@@ -1433,20 +1434,10 @@ tile{
 tile{
   layer = 0,
   x = 272,
-  y = 80,
+  y = 88,
   width = 32,
   height = 16,
   pattern = "97",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 272,
-  y = 96,
-  width = 32,
-  height = 8,
-  pattern = "98",
   tileset = "sideview/sidetile",
 }
 
@@ -1573,7 +1564,7 @@ tile{
 tile{
   layer = 0,
   x = 448,
-  y = 48,
+  y = 56,
   width = 32,
   height = 32,
   pattern = "96",
@@ -1583,20 +1574,10 @@ tile{
 tile{
   layer = 0,
   x = 448,
-  y = 80,
+  y = 88,
   width = 32,
   height = 16,
   pattern = "97",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 448,
-  y = 96,
-  width = 32,
-  height = 8,
-  pattern = "98",
   tileset = "sideview/sidetile",
 }
 
@@ -1739,5 +1720,25 @@ tile{
   width = 64,
   height = 32,
   pattern = "22",
+}
+
+tile{
+  layer = 2,
+  x = 272,
+  y = 104,
+  width = 32,
+  height = 8,
+  pattern = "98",
+  tileset = "sideview/sidetile",
+}
+
+tile{
+  layer = 2,
+  x = 448,
+  y = 104,
+  width = 32,
+  height = 8,
+  pattern = "98",
+  tileset = "sideview/sidetile",
 }
 

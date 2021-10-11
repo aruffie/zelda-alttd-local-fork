@@ -5,12 +5,22 @@
 ----------------------------------
 local swimming_manager = {}
 
--- Variables.
-local swimming_speed = 66
+-- Global variables.
 local is_swimming = false
+
+-- Configuration variables.
+local swimming_speed = 66
 
 -- Update the hero while swimming.
 local function update_hero()
+
+  if desc == "sideview_swim" then
+    if speed ~= 0 then
+      new_animation = "swimming_scroll"
+    else
+      new_animation = "stopped_swimming_scroll"
+    end
+  end
 
   if desc == "sword_loading" then
 
@@ -25,7 +35,7 @@ local function update_hero()
       if hero.has_grabbed_ladder and check_for_ladder(hero) then
         new_animation = "climbing_walking"
       elseif not is_on_ground(hero) then
-        if map:get_ground(x,y+4,layer)=="deep_water" then
+        if map:get_ground(x, y + 4, layer) == "deep_water" then
           new_animation ="swimming_scroll"
         else
           new_animation = "jumping"
@@ -37,7 +47,7 @@ local function update_hero()
       if hero.has_grabbed_ladder and check_for_ladder(hero) then
         new_animation = "climbing_stopped"
       elseif not is_on_ground(hero) then
-        if map:get_ground(x,y+4,layer)=="deep_water" then
+        if map:get_ground(x, y + 4, layer)=="deep_water" then
           new_animation = "stopped_swimming_scroll"
         else
           new_animation = "jumping"
@@ -50,38 +60,54 @@ local function update_hero()
 end
 
 -- Start the hero swim.
-local function start_swimming()
-
+local function start_swimming(hero)
+  hero.vspeed = 0
+  is_swimming = true
 end
 
--- Get swimming speed.
-function swimming_manager.get_swimming_speed()
-  return swimming_speed
-end
-
--- Check for water below the entity.
-function swimming_manager.check_for_water(entity)
+-- Check for water the entity at the entity position, whatever the layer is.
+function swimming_manager:is_in_water(entity)
 
   local map = entity:get_map()
-  local x,y,layer = entity:get_position() 
-  local bx, by, w, h = entity:get_bounding_box()
-  local ox, oy = entity:get_origin()
+  local x, y = entity:get_position()
 
-  for i = bx, bx + w - 1, 8 do
-    if map:get_ground(i, by + h, layer) ~= "deep_water" then
-      return false
+  for layer = map:get_max_layer(), map:get_min_layer(), -1 do
+    if map:get_ground(x, y, layer) == "deep_water" then
+      return true
     end
   end
-  return map:get_ground(bx + w - 1, by + h, layer) =="deep_water"
+  
+  return false
+end
+
+-- Return whether the water gravity process is needed.
+function swimming_manager.is_water_gravity_needed(entity)
+
+  return entity:get_type() ~= "hero" and not entity.water_processed and not entity.vspeed and entity:test_obstacles(0, 1) and is_in_water(entity)
+end
+
+-- Start water gravity on an entity
+function swimming_manager.start_water_gravity(entity)
+  
+  entity.water_processed = true
+
+  sol.timer.start(entity, 50, function()
+    entity.water_processed = nil
+    local x, y = entity:get_position()
+    entity:set_position(x, y + 1)
+  end)
 end
 
 -- Initialize the swimming ability.
 function swimming_manager.initialize()
 
   local hero_meta=sol.main.get_metatable("hero")
+  if hero_meta.start_swimming then
+    return
+  end
 
   function hero_meta:start_swimming()
-    is_swimming = true
+    start_swimming(self)
   end
 
   function hero_meta:is_swimming()
@@ -108,3 +134,6 @@ function state:on_position_changed(x,y,layer)
   end
 end
 ]]
+
+swimming_manager.initialize()
+return swimming_manager

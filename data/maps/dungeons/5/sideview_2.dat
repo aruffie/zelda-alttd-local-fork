@@ -761,7 +761,7 @@ tile{
 tile{
   layer = 0,
   x = 136,
-  y = 32,
+  y = 40,
   width = 32,
   height = 32,
   pattern = "96",
@@ -1138,24 +1138,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 136,
-  y = 80,
-  width = 32,
-  height = 8,
-  pattern = "98",
-}
-
-tile{
-  layer = 0,
-  x = 128,
-  y = 88,
-  width = 48,
-  height = 8,
-  pattern = "26",
-}
-
-tile{
-  layer = 0,
   x = 176,
   y = 88,
   width = 16,
@@ -1184,7 +1166,7 @@ tile{
 tile{
   layer = 0,
   x = 136,
-  y = 64,
+  y = 72,
   width = 32,
   height = 16,
   pattern = "97",
@@ -1739,5 +1721,23 @@ tile{
   width = 16,
   height = 88,
   pattern = "21",
+}
+
+tile{
+  layer = 2,
+  x = 128,
+  y = 88,
+  width = 48,
+  height = 8,
+  pattern = "26",
+}
+
+tile{
+  layer = 2,
+  x = 136,
+  y = 88,
+  width = 32,
+  height = 8,
+  pattern = "98",
 }
 
