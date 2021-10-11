@@ -29,7 +29,7 @@ dynamic_tile{
   properties = {
     {
       key = "parallax_scrolling",
-      value = "0.83",
+      value = "0.17",
     },
   },
   width = 16,
@@ -46,7 +46,7 @@ dynamic_tile{
   properties = {
     {
       key = "parallax_scrolling",
-      value = "0.83",
+      value = "0.17",
     },
   },
   width = 16,
@@ -63,7 +63,7 @@ dynamic_tile{
   properties = {
     {
       key = "parallax_scrolling",
-      value = "0.83",
+      value = "0.17",
     },
   },
   width = 16,
@@ -80,7 +80,7 @@ dynamic_tile{
   properties = {
     {
       key = "parallax_scrolling",
-      value = "0.83",
+      value = "0.17",
     },
   },
   width = 16,
@@ -97,7 +97,7 @@ dynamic_tile{
   properties = {
     {
       key = "parallax_scrolling",
-      value = "0.83",
+      value = "0.17",
     },
   },
   width = 16,
@@ -114,7 +114,7 @@ dynamic_tile{
   properties = {
     {
       key = "parallax_scrolling",
-      value = "0.83",
+      value = "0.17",
     },
   },
   width = 16,
@@ -125,7 +125,7 @@ dynamic_tile{
 
 tile{
   layer = 0,
-  x = 16,
+  x = 0,
   y = 0,
   width = 640,
   height = 240,
@@ -178,17 +178,7 @@ tile{
   x = 416,
   y = 8,
   width = 32,
-  height = 112,
-  pattern = "240",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 416,
-  y = 120,
-  width = 32,
-  height = 112,
+  height = 224,
   pattern = "240",
   tileset = "sideview/sidetile",
 }
@@ -198,17 +188,7 @@ tile{
   x = 520,
   y = 8,
   width = 32,
-  height = 112,
-  pattern = "240",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 520,
-  y = 120,
-  width = 32,
-  height = 112,
+  height = 224,
   pattern = "240",
   tileset = "sideview/sidetile",
 }

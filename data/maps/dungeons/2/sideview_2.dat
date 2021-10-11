@@ -29,7 +29,7 @@ dynamic_tile{
   properties = {
     {
       key = "parallax_scrolling",
-      value = "0.83",
+      value = "0.17",
     },
   },
   width = 16,
@@ -46,7 +46,7 @@ dynamic_tile{
   properties = {
     {
       key = "parallax_scrolling",
-      value = "0.83",
+      value = "0.17",
     },
   },
   width = 16,
@@ -63,7 +63,7 @@ dynamic_tile{
   properties = {
     {
       key = "parallax_scrolling",
-      value = "0.83",
+      value = "0.17",
     },
   },
   width = 16,
@@ -80,7 +80,7 @@ dynamic_tile{
   properties = {
     {
       key = "parallax_scrolling",
-      value = "0.83",
+      value = "0.17",
     },
   },
   width = 16,
@@ -97,7 +97,7 @@ dynamic_tile{
   properties = {
     {
       key = "parallax_scrolling",
-      value = "0.83",
+      value = "0.17",
     },
   },
   width = 16,
@@ -114,7 +114,7 @@ dynamic_tile{
   properties = {
     {
       key = "parallax_scrolling",
-      value = "0.83",
+      value = "0.17",
     },
   },
   width = 16,
