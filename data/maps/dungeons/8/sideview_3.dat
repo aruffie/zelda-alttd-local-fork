@@ -10,6 +10,69 @@ properties{
 
 tile{
   layer = 0,
+  x = 0,
+  y = 0,
+  width = 640,
+  height = 240,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 0,
+  width = 48,
+  height = 240,
+  pattern = "255",
+}
+
+tile{
+  layer = 0,
+  x = 152,
+  y = 0,
+  width = 48,
+  height = 240,
+  pattern = "255",
+}
+
+tile{
+  layer = 0,
+  x = 224,
+  y = 0,
+  width = 48,
+  height = 240,
+  pattern = "255",
+}
+
+tile{
+  layer = 0,
+  x = 376,
+  y = 0,
+  width = 48,
+  height = 240,
+  pattern = "255",
+}
+
+tile{
+  layer = 0,
+  x = 456,
+  y = 0,
+  width = 48,
+  height = 240,
+  pattern = "255",
+}
+
+tile{
+  layer = 0,
+  x = 536,
+  y = 0,
+  width = 48,
+  height = 240,
+  pattern = "255",
+}
+
+tile{
+  layer = 0,
   x = 72,
   y = 168,
   width = 192,

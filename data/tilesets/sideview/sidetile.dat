@@ -1701,6 +1701,7 @@ tile_pattern{
   y = 16,
   width = 8,
   height = 8,
+  scrolling = "parallax",
 }
 
 tile_pattern{
@@ -1741,6 +1742,39 @@ tile_pattern{
   y = 288,
   width = 120,
   height = 160,
+}
+
+tile_pattern{
+  id = "254",
+  ground = "traversable",
+  default_layer = 0,
+  x = 400,
+  y = 0,
+  width = 32,
+  height = 64,
+  scrolling = "parallax",
+}
+
+tile_pattern{
+  id = "255",
+  ground = "traversable",
+  default_layer = 0,
+  x = 432,
+  y = 0,
+  width = 48,
+  height = 48,
+  scrolling = "parallax",
+}
+
+tile_pattern{
+  id = "256",
+  ground = "traversable",
+  default_layer = 0,
+  x = 480,
+  y = 0,
+  width = 32,
+  height = 88,
+  scrolling = "parallax",
 }
 
 tile_pattern{

@@ -10,6 +10,51 @@ properties{
 
 tile{
   layer = 0,
+  x = 0,
+  y = 0,
+  width = 640,
+  height = 240,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 64,
+  y = 0,
+  width = 48,
+  height = 240,
+  pattern = "255",
+}
+
+tile{
+  layer = 0,
+  x = 160,
+  y = 0,
+  width = 48,
+  height = 240,
+  pattern = "255",
+}
+
+tile{
+  layer = 0,
+  x = 256,
+  y = 0,
+  width = 48,
+  height = 240,
+  pattern = "255",
+}
+
+tile{
+  layer = 0,
+  x = 352,
+  y = 0,
+  width = 48,
+  height = 240,
+  pattern = "255",
+}
+
+tile{
+  layer = 0,
   x = 368,
   y = 0,
   width = 272,
@@ -1043,6 +1088,24 @@ tile{
   pattern = "206",
 }
 
+tile{
+  layer = 0,
+  x = 0,
+  y = 160,
+  width = 32,
+  height = 80,
+  pattern = "45",
+}
+
+tile{
+  layer = 0,
+  x = 0,
+  y = 0,
+  width = 16,
+  height = 160,
+  pattern = "45",
+}
+
 custom_entity{
   layer = 0,
   x = 48,
@@ -1176,23 +1239,5 @@ teletransporter{
   height = 16,
   destination_map = "dungeons/8/1f",
   destination = "stairs_20_B",
-}
-
-tile{
-  layer = 1,
-  x = 0,
-  y = 160,
-  width = 32,
-  height = 80,
-  pattern = "45",
-}
-
-tile{
-  layer = 1,
-  x = 0,
-  y = 0,
-  width = 16,
-  height = 160,
-  pattern = "45",
 }
 

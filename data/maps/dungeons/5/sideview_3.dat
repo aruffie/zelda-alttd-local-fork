@@ -7,8 +7,72 @@ properties{
   max_layer = 2,
   world = "dungeon_1",
   floor = 0,
-  tileset = "sideview/sideview",
+  tileset = "sideview/sidetile",
   music = "same",
+}
+
+tile{
+  layer = 0,
+  x = 0,
+  y = 0,
+  width = 640,
+  height = 240,
+  pattern = "25",
+  tileset = "sideview/sidetile",
+}
+
+tile{
+  layer = 0,
+  x = 64,
+  y = 0,
+  width = 48,
+  height = 240,
+  pattern = "255",
+}
+
+tile{
+  layer = 0,
+  x = 168,
+  y = 0,
+  width = 48,
+  height = 240,
+  pattern = "255",
+}
+
+tile{
+  layer = 0,
+  x = 272,
+  y = 0,
+  width = 48,
+  height = 240,
+  pattern = "255",
+}
+
+tile{
+  layer = 0,
+  x = 376,
+  y = 0,
+  width = 48,
+  height = 240,
+  pattern = "255",
+}
+
+tile{
+  layer = 0,
+  x = 472,
+  y = 0,
+  width = 48,
+  height = 240,
+  pattern = "255",
+}
+
+tile{
+  layer = 0,
+  x = 568,
+  y = 0,
+  width = 48,
+  height = 240,
+  pattern = "255",
 }
 
 tile{
