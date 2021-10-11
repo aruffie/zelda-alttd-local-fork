@@ -14,6 +14,54 @@ tile{
   layer = 0,
   x = 0,
   y = 0,
+  width = 640,
+  height = 240,
+  pattern = "25",
+}
+
+tile{
+  layer = 0,
+  x = 256,
+  y = 32,
+  width = 120,
+  height = 160,
+  pattern = "253",
+}
+
+tile{
+  layer = 0,
+  x = 304,
+  y = 144,
+  width = 32,
+  height = 16,
+  pattern = "42",
+  tileset = "sideview/sidetile",
+}
+
+tile{
+  layer = 0,
+  x = 288,
+  y = 144,
+  width = 16,
+  height = 16,
+  pattern = "41",
+  tileset = "sideview/sidetile",
+}
+
+tile{
+  layer = 0,
+  x = 352,
+  y = 168,
+  width = 16,
+  height = 8,
+  pattern = "81",
+  tileset = "sideview/sidetile",
+}
+
+tile{
+  layer = 0,
+  x = 0,
+  y = 0,
   width = 256,
   height = 240,
   pattern = "161",
@@ -842,9 +890,9 @@ tile{
 
 tile{
   layer = 0,
-  x = 352,
+  x = 368,
   y = 32,
-  width = 48,
+  width = 32,
   height = 160,
   pattern = "161",
   tileset = "sideview/sidetile",
@@ -942,16 +990,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 320,
-  y = 32,
-  width = 32,
-  height = 16,
-  pattern = "161",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
   x = 400,
   y = 48,
   width = 32,
@@ -962,59 +1000,9 @@ tile{
 
 tile{
   layer = 0,
-  x = 288,
-  y = 48,
-  width = 32,
-  height = 16,
-  pattern = "161",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 320,
-  y = 48,
-  width = 32,
-  height = 16,
-  pattern = "161",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 304,
-  y = 64,
-  width = 32,
-  height = 16,
-  pattern = "161",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 320,
-  y = 80,
-  width = 32,
-  height = 16,
-  pattern = "161",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 320,
-  y = 96,
-  width = 32,
-  height = 16,
-  pattern = "161",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
   x = 256,
   y = 32,
-  width = 32,
+  width = 16,
   height = 16,
   pattern = "161",
   tileset = "sideview/sidetile",
@@ -1043,9 +1031,9 @@ tile{
 tile{
   layer = 0,
   x = 256,
-  y = 80,
+  y = 112,
   width = 32,
-  height = 128,
+  height = 96,
   pattern = "161",
   tileset = "sideview/sidetile",
 }
@@ -1142,31 +1130,11 @@ tile{
 
 tile{
   layer = 0,
-  x = 280,
-  y = 48,
-  width = 8,
-  height = 16,
-  pattern = "162",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
   x = 288,
-  y = 80,
-  width = 8,
-  height = 48,
-  pattern = "163",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 312,
-  y = 32,
+  y = 112,
   width = 8,
   height = 16,
-  pattern = "162",
+  pattern = "163",
   tileset = "sideview/sidetile",
 }
 
@@ -1175,18 +1143,8 @@ tile{
   x = 256,
   y = 48,
   width = 8,
-  height = 32,
+  height = 64,
   pattern = "163",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 344,
-  y = 112,
-  width = 8,
-  height = 16,
-  pattern = "162",
   tileset = "sideview/sidetile",
 }
 
@@ -1222,16 +1180,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 344,
-  y = 64,
-  width = 8,
-  height = 16,
-  pattern = "162",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
   x = 424,
   y = 32,
   width = 8,
@@ -1242,51 +1190,21 @@ tile{
 
 tile{
   layer = 0,
-  x = 336,
-  y = 64,
-  width = 8,
-  height = 16,
-  pattern = "163",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 296,
-  y = 64,
-  width = 8,
-  height = 16,
-  pattern = "162",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 288,
+  x = 272,
   y = 32,
   width = 8,
   height = 16,
   pattern = "163",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 0,
-  x = 312,
-  y = 80,
-  width = 8,
-  height = 32,
-  pattern = "162",
   tileset = "sideview/sidetile",
 }
 
 tile{
   layer = 0,
   x = 360,
-  y = 80,
-  width = 32,
-  height = 32,
-  pattern = "120",
+  y = 32,
+  width = 8,
+  height = 96,
+  pattern = "162",
   tileset = "sideview/sidetile",
 }
 
@@ -1307,6 +1225,16 @@ tile{
   width = 32,
   height = 32,
   pattern = "95",
+  tileset = "sideview/sidetile",
+}
+
+tile{
+  layer = 0,
+  x = 368,
+  y = 80,
+  width = 32,
+  height = 32,
+  pattern = "120",
   tileset = "sideview/sidetile",
 }
 
@@ -1405,32 +1333,12 @@ destination{
 }
 
 tile{
-  layer = 1,
-  x = 304,
-  y = 144,
-  width = 32,
-  height = 16,
-  pattern = "42",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 1,
-  x = 288,
-  y = 144,
-  width = 16,
-  height = 16,
-  pattern = "41",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 1,
-  x = 352,
-  y = 168,
-  width = 16,
-  height = 8,
-  pattern = "81",
+  layer = 2,
+  x = 64,
+  y = 160,
+  width = 224,
+  height = 48,
+  pattern = "22",
   tileset = "sideview/sidetile",
 }
 
@@ -1441,16 +1349,6 @@ tile{
   width = 224,
   height = 8,
   pattern = "26",
-  tileset = "sideview/sidetile",
-}
-
-tile{
-  layer = 2,
-  x = 64,
-  y = 160,
-  width = 224,
-  height = 48,
-  pattern = "22",
   tileset = "sideview/sidetile",
 }
 

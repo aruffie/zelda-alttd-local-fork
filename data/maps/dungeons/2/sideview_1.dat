@@ -125,7 +125,7 @@ dynamic_tile{
 
 tile{
   layer = 0,
-  x = 0,
+  x = 16,
   y = 0,
   width = 640,
   height = 240,
@@ -2340,6 +2340,26 @@ tile{
   width = 16,
   height = 24,
   pattern = "58",
+  tileset = "sideview/sidetile",
+}
+
+tile{
+  layer = 0,
+  x = 512,
+  y = 176,
+  width = 8,
+  height = 8,
+  pattern = "72",
+  tileset = "sideview/sidetile",
+}
+
+tile{
+  layer = 0,
+  x = 512,
+  y = 168,
+  width = 16,
+  height = 8,
+  pattern = "32",
   tileset = "sideview/sidetile",
 }
 

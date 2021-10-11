@@ -16,8 +16,35 @@ tile{
   y = 0,
   width = 640,
   height = 240,
-  pattern = "158",
-  tileset = "sideview/sideview_dungeon",
+  pattern = "25",
+  tileset = "sideview/sidetile",
+}
+
+tile{
+  layer = 0,
+  x = 80,
+  y = 40,
+  width = 120,
+  height = 160,
+  pattern = "253",
+}
+
+tile{
+  layer = 0,
+  x = 272,
+  y = 40,
+  width = 120,
+  height = 160,
+  pattern = "253",
+}
+
+tile{
+  layer = 0,
+  x = 456,
+  y = 40,
+  width = 120,
+  height = 160,
+  pattern = "253",
 }
 
 tile{
@@ -1600,6 +1627,15 @@ tile{
   tileset = "sideview/sidetile",
 }
 
+tile{
+  layer = 0,
+  x = 176,
+  y = 160,
+  width = 64,
+  height = 32,
+  pattern = "22",
+}
+
 enemy{
   layer = 0,
   x = 144,
@@ -1699,19 +1735,19 @@ destination{
 tile{
   layer = 2,
   x = 48,
-  y = 104,
+  y = 112,
   width = 544,
-  height = 8,
-  pattern = "26",
+  height = 48,
+  pattern = "22",
 }
 
 tile{
   layer = 2,
   x = 48,
-  y = 112,
+  y = 104,
   width = 544,
-  height = 48,
-  pattern = "22",
+  height = 8,
+  pattern = "26",
 }
 
 tile{
@@ -1729,15 +1765,6 @@ tile{
   y = 160,
   width = 288,
   height = 48,
-  pattern = "22",
-}
-
-tile{
-  layer = 2,
-  x = 176,
-  y = 160,
-  width = 64,
-  height = 32,
   pattern = "22",
 }
 
