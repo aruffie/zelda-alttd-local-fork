@@ -58,7 +58,7 @@ function map_tools.start_parallax_scrolling(entity, scrolling_ratio)
   local initial_x, initial_y = entity:get_position()
 
   map:register_event("on_update", function(map)
-    entity:set_position(initial_x + camera:get_position() * scrolling_ratio, initial_y)
+    entity:set_position(initial_x + camera:get_position() * (1.0 - scrolling_ratio), initial_y) -- 1 - X to compensate the engine scrolling.
   end)
 end
 
