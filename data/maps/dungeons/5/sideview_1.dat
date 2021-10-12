@@ -1396,3 +1396,57 @@ custom_entity{
   model = "ladder",
 }
 
+tile{
+  layer = 2,
+  x = 112,
+  y = 32,
+  width = 16,
+  height = 8,
+  pattern = "233",
+}
+
+tile{
+  layer = 2,
+  x = 152,
+  y = 32,
+  width = 16,
+  height = 8,
+  pattern = "233",
+}
+
+tile{
+  layer = 2,
+  x = 200,
+  y = 32,
+  width = 16,
+  height = 8,
+  pattern = "233",
+}
+
+tile{
+  layer = 2,
+  x = 240,
+  y = 32,
+  width = 16,
+  height = 8,
+  pattern = "233",
+}
+
+tile{
+  layer = 2,
+  x = 448,
+  y = 32,
+  width = 16,
+  height = 8,
+  pattern = "233",
+}
+
+tile{
+  layer = 2,
+  x = 488,
+  y = 32,
+  width = 16,
+  height = 8,
+  pattern = "233",
+}
+
