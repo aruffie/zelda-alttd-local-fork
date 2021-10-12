@@ -1278,3 +1278,12 @@ teletransporter{
   destination = "stairs_4_B",
 }
 
+tile{
+  layer = 2,
+  x = 160,
+  y = 40,
+  width = 16,
+  height = 8,
+  pattern = "233",
+}
+
