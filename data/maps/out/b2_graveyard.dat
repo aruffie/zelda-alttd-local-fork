@@ -15327,16 +15327,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 472,
-  y = 56,
-  width = 16,
-  height = 16,
-  pattern = "6113",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 1,
   x = 432,
   y = 24,
   width = 16,
@@ -15378,46 +15368,6 @@ tile{
   width = 32,
   height = 32,
   pattern = "1037",
-}
-
-tile{
-  layer = 1,
-  x = 488,
-  y = 56,
-  width = 16,
-  height = 16,
-  pattern = "6110",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 1,
-  x = 504,
-  y = 56,
-  width = 8,
-  height = 16,
-  pattern = "6114",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 1,
-  x = 448,
-  y = 56,
-  width = 8,
-  height = 16,
-  pattern = "6111",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 1,
-  x = 456,
-  y = 56,
-  width = 16,
-  height = 16,
-  pattern = "6110",
-  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -20413,6 +20363,36 @@ tile{
   tileset = "addition/out",
 }
 
+tile{
+  layer = 1,
+  x = 488,
+  y = 56,
+  width = 24,
+  height = 16,
+  pattern = "215",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 448,
+  y = 56,
+  width = 24,
+  height = 16,
+  pattern = "214",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 472,
+  y = 56,
+  width = 16,
+  height = 16,
+  pattern = "220",
+  tileset = "addition/out",
+}
+
 block{
   name = "grave_16",
   layer = 1,
@@ -20427,15 +20407,6 @@ wall{
   layer = 1,
   x = 344,
   y = 432,
-  width = 16,
-  height = 16,
-  stops_enemies = true,
-}
-
-wall{
-  layer = 1,
-  x = 472,
-  y = 56,
   width = 16,
   height = 16,
   stops_enemies = true,
@@ -23902,19 +23873,6 @@ dynamic_tile{
   pattern = "4035",
 }
 
-wall{
-  layer = 1,
-  x = 448,
-  y = 24,
-  width = 64,
-  height = 32,
-  stops_hero = true,
-  stops_npcs = true,
-  stops_enemies = true,
-  stops_blocks = true,
-  stops_projectiles = true,
-}
-
 enemy{
   layer = 1,
   x = 128,
@@ -24251,6 +24209,17 @@ destructible{
   destruction_sound = "arrow_hit",
   weight = 1,
   can_be_cut = true,
+}
+
+dynamic_tile{
+  name = "witch_1_A_door_2",
+  layer = 1,
+  x = 472,
+  y = 56,
+  width = 16,
+  height = 16,
+  pattern = "6020",
+  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -26751,25 +26720,6 @@ tile{
 
 tile{
   layer = 2,
-  x = 448,
-  y = 24,
-  width = 64,
-  height = 32,
-  pattern = "6173",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 2,
-  x = 504,
-  y = 8,
-  width = 8,
-  height = 48,
-  pattern = "1444",
-}
-
-tile{
-  layer = 2,
   x = 40,
   y = 536,
   width = 8,
@@ -26784,6 +26734,45 @@ tile{
   width = 8,
   height = 48,
   pattern = "1452",
+}
+
+tile{
+  layer = 2,
+  x = 448,
+  y = 24,
+  width = 64,
+  height = 32,
+  pattern = "213",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 2,
+  x = 504,
+  y = 8,
+  width = 8,
+  height = 48,
+  pattern = "1444",
+}
+
+tile{
+  layer = 2,
+  x = 464,
+  y = 16,
+  width = 16,
+  height = 24,
+  pattern = "205",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 2,
+  x = 480,
+  y = 16,
+  width = 16,
+  height = 24,
+  pattern = "204",
+  tileset = "addition/out",
 }
 
 custom_entity{

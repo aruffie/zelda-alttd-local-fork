@@ -9933,56 +9933,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 48,
-  y = 624,
-  width = 8,
-  height = 16,
-  pattern = "6111",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 1,
-  x = 104,
-  y = 624,
-  width = 8,
-  height = 16,
-  pattern = "6114",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 1,
-  x = 72,
-  y = 624,
-  width = 16,
-  height = 16,
-  pattern = "6113",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 1,
-  x = 56,
-  y = 624,
-  width = 16,
-  height = 16,
-  pattern = "6110",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 1,
-  x = 88,
-  y = 624,
-  width = 16,
-  height = 16,
-  pattern = "6110",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 1,
   x = 352,
   y = 32,
   width = 8,
@@ -10028,56 +9978,6 @@ tile{
   width = 8,
   height = 16,
   pattern = "6114",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 1,
-  x = 584,
-  y = 496,
-  width = 8,
-  height = 16,
-  pattern = "6111",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 1,
-  x = 640,
-  y = 496,
-  width = 8,
-  height = 16,
-  pattern = "6114",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 1,
-  x = 608,
-  y = 496,
-  width = 16,
-  height = 16,
-  pattern = "6113",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 1,
-  x = 592,
-  y = 496,
-  width = 16,
-  height = 16,
-  pattern = "6110",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 1,
-  x = 624,
-  y = 496,
-  width = 16,
-  height = 16,
-  pattern = "6110",
   tileset = "out/outside_buildings",
 }
 
@@ -13414,28 +13314,8 @@ tile{
 
 tile{
   layer = 1,
-  x = 584,
-  y = 464,
-  width = 64,
-  height = 32,
-  pattern = "12842",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 1,
   x = 744,
   y = 24,
-  width = 64,
-  height = 32,
-  pattern = "12842",
-  tileset = "out/outside_special",
-}
-
-tile{
-  layer = 1,
-  x = 48,
-  y = 592,
   width = 64,
   height = 32,
   pattern = "12842",
@@ -14339,6 +14219,76 @@ tile{
   pattern = "974",
 }
 
+tile{
+  layer = 1,
+  x = 584,
+  y = 496,
+  width = 24,
+  height = 16,
+  pattern = "214",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 624,
+  y = 496,
+  width = 24,
+  height = 16,
+  pattern = "215",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 608,
+  y = 496,
+  width = 16,
+  height = 16,
+  pattern = "220",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 48,
+  y = 592,
+  width = 64,
+  height = 32,
+  pattern = "218",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 48,
+  y = 624,
+  width = 24,
+  height = 16,
+  pattern = "216",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 88,
+  y = 624,
+  width = 24,
+  height = 16,
+  pattern = "217",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 72,
+  y = 624,
+  width = 16,
+  height = 16,
+  pattern = "219",
+  tileset = "addition/out",
+}
+
 custom_entity{
   layer = 1,
   x = 584,
@@ -14454,17 +14404,8 @@ wall{
 
 wall{
   layer = 1,
-  x = 72,
-  y = 624,
-  width = 16,
-  height = 16,
-  stops_enemies = true,
-}
-
-wall{
-  layer = 1,
-  x = 608,
-  y = 496,
+  x = 632,
+  y = 512,
   width = 16,
   height = 16,
   stops_enemies = true,
@@ -22005,6 +21946,17 @@ destination{
   direction = 3,
 }
 
+dynamic_tile{
+  name = "grandpa_house_1_2_A_door_2",
+  layer = 1,
+  x = 608,
+  y = 496,
+  width = 16,
+  height = 16,
+  pattern = "6020",
+  tileset = "out/outside_buildings",
+}
+
 tile{
   layer = 2,
   x = 560,
@@ -24287,16 +24239,6 @@ tile{
 
 tile{
   layer = 2,
-  x = 584,
-  y = 464,
-  width = 64,
-  height = 32,
-  pattern = "7065",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 2,
   x = 704,
   y = 64,
   width = 16,
@@ -24635,16 +24577,6 @@ tile{
   width = 8,
   height = 48,
   pattern = "1444",
-}
-
-tile{
-  layer = 2,
-  x = 48,
-  y = 592,
-  width = 64,
-  height = 32,
-  pattern = "6173",
-  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -25399,6 +25331,16 @@ tile{
   width = 16,
   height = 8,
   pattern = "1350",
+}
+
+tile{
+  layer = 2,
+  x = 584,
+  y = 464,
+  width = 64,
+  height = 32,
+  pattern = "213",
+  tileset = "addition/out",
 }
 
 custom_entity{
