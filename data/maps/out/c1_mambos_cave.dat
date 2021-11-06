@@ -9132,15 +9132,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 584,
-  y = -8,
-  width = 8,
-  height = 16,
-  pattern = "1108",
-}
-
-tile{
-  layer = 1,
   x = 552,
   y = -8,
   width = 8,
@@ -9168,81 +9159,11 @@ tile{
 
 tile{
   layer = 1,
-  x = 520,
-  y = 16,
-  width = 16,
-  height = 16,
-  pattern = "6112",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 1,
-  x = 512,
-  y = 16,
-  width = 8,
-  height = 16,
-  pattern = "6111",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 1,
-  x = 584,
-  y = 16,
-  width = 8,
-  height = 16,
-  pattern = "6114",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 1,
-  x = 568,
-  y = 16,
-  width = 16,
-  height = 16,
-  pattern = "6112",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 1,
-  x = 536,
-  y = 16,
-  width = 8,
-  height = 16,
-  pattern = "6109",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 1,
-  x = 560,
-  y = 16,
-  width = 8,
-  height = 16,
-  pattern = "6109",
-  tileset = "out/outside_buildings",
-}
-
-tile{
-  layer = 1,
   x = 544,
   y = 16,
   width = 16,
   height = 16,
   pattern = "1682",
-}
-
-tile{
-  layer = 1,
-  x = 544,
-  y = 16,
-  width = 16,
-  height = 16,
-  pattern = "6113",
-  tileset = "out/outside_buildings",
 }
 
 tile{
@@ -15245,7 +15166,7 @@ tile{
 
 tile{
   layer = 1,
-  x = 608,
+  x = 592,
   y = 8,
   width = 16,
   height = 24,
@@ -15254,7 +15175,7 @@ tile{
 
 tile{
   layer = 1,
-  x = 480,
+  x = 496,
   y = 8,
   width = 16,
   height = 24,
@@ -16802,6 +16723,46 @@ tile{
   width = 8,
   height = 8,
   pattern = "100",
+}
+
+tile{
+  layer = 1,
+  x = 520,
+  y = -8,
+  width = 64,
+  height = 32,
+  pattern = "218",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 520,
+  y = 24,
+  width = 24,
+  height = 16,
+  pattern = "216",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 560,
+  y = 24,
+  width = 24,
+  height = 16,
+  pattern = "217",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 544,
+  y = 24,
+  width = 16,
+  height = 16,
+  pattern = "219",
+  tileset = "addition/out",
 }
 
 wall{
@@ -19028,15 +18989,6 @@ wall{
   stops_blocks = true,
 }
 
-wall{
-  layer = 1,
-  x = 544,
-  y = 16,
-  width = 16,
-  height = 16,
-  stops_enemies = true,
-}
-
 enemy{
   layer = 1,
   x = 576,
@@ -19074,7 +19026,7 @@ teletransporter{
   name = "hen_house_1_A",
   layer = 1,
   x = 544,
-  y = 16,
+  y = 24,
   width = 16,
   height = 16,
   destination_map = "houses/mambos_cave/hen_house",
@@ -19085,7 +19037,7 @@ destination{
   name = "hen_house_2_B",
   layer = 1,
   x = 552,
-  y = 45,
+  y = 53,
   direction = 3,
 }
 
@@ -19177,16 +19129,6 @@ tile{
   width = 96,
   height = 8,
   pattern = "1453",
-}
-
-tile{
-  layer = 2,
-  x = 512,
-  y = -16,
-  width = 80,
-  height = 32,
-  pattern = "6817",
-  tileset = "out/outside_buildings",
 }
 
 tile{
