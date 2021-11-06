@@ -95,7 +95,7 @@ function map:monkey_leave_bridge()
   for i = 1, 9 do
     local monkey_entity = map:get_entity("monk_" .. i)
     local monkey_sprite = monkey_entity:get_sprite()
-    monkey_sprite:set_animation("walking")    
+    monkey_sprite:set_animation("jumping")    
     monkey_sprite:set_direction(1)    
     local sprite = monkey_entity:get_sprite()
     local movement = sol.movement.create("target")
@@ -216,7 +216,7 @@ function map:launch_cinematic_1()
         local target_entity = map:get_entity("monkey_" .. i)
         local monkey_entity = map:create_custom_entity({
           name = "monk_"..i,
-          sprite = "entities/animals/monkey",
+          sprite = "npc/animals/kiki",
           x = x_monkey,
           y = y_monkey,
           width = 24,

@@ -1,33 +1,23 @@
 animation{
-  name = "stopped",
+  name = "waiting",
   src_image = "npc/animals/kiki.png",
+  frame_delay = 120,
+  frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 24 },
-    { x = 0, y = 32, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 24 },
-    { x = 48, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 24 },
-    { x = 0, y = 64, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 24 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 24, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
+    { x = 0, y = 0, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21, num_frames = 4 },
   },
 }
 animation{
   name = "brandish",
   src_image = "npc/animals/kiki.png",
   directions = {
-    { x = 48, y = 32, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 24 },
-    { x = 48, y = 32, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 24 },
-    { x = 48, y = 32, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 24 },
-    { x = 48, y = 32, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 24 },
-  },
-}
-animation{
-  name = "hurt",
-  src_image = "npc/animals/kiki.png",
-  frame_delay = 50,
-  frame_to_loop_on = 0,
-  directions = {
-    { x = 168, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 24, num_frames = 3 },
-    { x = 96, y = 32, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 24, num_frames = 3 },
-    { x = 96, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 24, num_frames = 3 },
-    { x = 96, y = 64, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 24, num_frames = 3 },
+    { x = 48, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 48, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 48, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 48, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
   },
 }
 animation{
@@ -36,21 +26,33 @@ animation{
   frame_delay = 250,
   frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 96, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 24, num_frames = 2 },
-    { x = 0, y = 96, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 24, num_frames = 2 },
-    { x = 48, y = 96, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 24, num_frames = 2 },
-    { x = 48, y = 96, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 24, num_frames = 2 },
+    { x = 24, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 24, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 0, y = 48, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
   },
 }
 animation{
-  name = "walking",
+  name = "landing_back",
   src_image = "npc/animals/kiki.png",
-  frame_delay = 125,
+  frame_delay = 250,
   frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 24, num_frames = 2 },
-    { x = 0, y = 32, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 24, num_frames = 2 },
-    { x = 48, y = 0, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 24, num_frames = 2 },
-    { x = 0, y = 64, frame_width = 24, frame_height = 32, origin_x = 12, origin_y = 24, num_frames = 4 },
+    { x = 24, y = 96, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 24, y = 96, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 0, y = 96, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 0, y = 96, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+  },
+}
+animation{
+  name = "landing_face",
+  src_image = "npc/animals/kiki.png",
+  frame_delay = 250,
+  frame_to_loop_on = 0,
+  directions = {
+    { x = 24, y = 72, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 24, y = 72, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 0, y = 72, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
+    { x = 0, y = 72, frame_width = 24, frame_height = 24, origin_x = 12, origin_y = 21 },
   },
 }
