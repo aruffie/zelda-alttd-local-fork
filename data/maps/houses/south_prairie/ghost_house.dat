@@ -525,6 +525,16 @@ tile{
   pattern = "bed.default",
 }
 
+tile{
+  layer = 0,
+  x = 192,
+  y = 72,
+  width = 32,
+  height = 32,
+  pattern = "159",
+  tileset = "addition/dungeon",
+}
+
 destination{
   name = "ghost_house_1_B",
   layer = 0,
@@ -911,15 +921,5 @@ tile{
   width = 240,
   height = 16,
   pattern = "ceiling.2",
-}
-
-tile{
-  layer = 2,
-  x = 192,
-  y = 72,
-  width = 32,
-  height = 32,
-  pattern = "159",
-  tileset = "addition/dungeon",
 }
 
