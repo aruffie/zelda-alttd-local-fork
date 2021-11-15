@@ -3886,6 +3886,16 @@ custom_entity{
   model = "pickable_underwater",
 }
 
+dynamic_tile{
+  name = "bridge",
+  layer = 0,
+  x = 776,
+  y = 536,
+  width = 16,
+  height = 88,
+  pattern = "3979",
+}
+
 tile{
   layer = 1,
   x = 304,
@@ -6040,17 +6050,8 @@ tile{
 
 tile{
   layer = 1,
-  x = 784,
-  y = 664,
-  width = 8,
-  height = 8,
-  pattern = "101",
-}
-
-tile{
-  layer = 1,
-  x = 776,
-  y = 664,
+  x = 768,
+  y = 632,
   width = 8,
   height = 8,
   pattern = "100",
@@ -6058,8 +6059,8 @@ tile{
 
 tile{
   layer = 1,
-  x = 784,
-  y = 672,
+  x = 760,
+  y = 640,
   width = 8,
   height = 8,
   pattern = "100",
@@ -6067,8 +6068,8 @@ tile{
 
 tile{
   layer = 1,
-  x = 776,
-  y = 672,
+  x = 792,
+  y = 632,
   width = 8,
   height = 8,
   pattern = "101",
@@ -6220,8 +6221,8 @@ tile{
 
 tile{
   layer = 1,
-  x = 776,
-  y = 688,
+  x = 768,
+  y = 640,
   width = 8,
   height = 8,
   pattern = "84",
@@ -9044,6 +9045,84 @@ tile{
   pattern = "972",
 }
 
+tile{
+  layer = 1,
+  x = 776,
+  y = 536,
+  width = 16,
+  height = 16,
+  pattern = "30",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 776,
+  y = 552,
+  width = 16,
+  height = 16,
+  pattern = "31",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 776,
+  y = 568,
+  width = 16,
+  height = 16,
+  pattern = "30",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 776,
+  y = 584,
+  width = 16,
+  height = 16,
+  pattern = "31",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 776,
+  y = 600,
+  width = 16,
+  height = 16,
+  pattern = "30",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 776,
+  y = 616,
+  width = 16,
+  height = 16,
+  pattern = "31",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 792,
+  y = 640,
+  width = 8,
+  height = 8,
+  pattern = "84",
+}
+
+tile{
+  layer = 1,
+  x = 800,
+  y = 640,
+  width = 8,
+  height = 8,
+  pattern = "101",
+}
+
 wall{
   layer = 1,
   x = 808,
@@ -9060,25 +9139,6 @@ wall{
   width = 16,
   height = 16,
   stops_enemies = true,
-}
-
-dynamic_tile{
-  name = "bridge",
-  layer = 1,
-  x = 776,
-  y = 536,
-  width = 16,
-  height = 88,
-  pattern = "3979",
-}
-
-pickable{
-  name = "baton",
-  layer = 1,
-  x = 784,
-  y = 589,
-  treasure_name = "magnifying_lens",
-  treasure_variant = 5,
 }
 
 destination{
@@ -9509,7 +9569,7 @@ npc{
   name = "monkey",
   layer = 1,
   x = 784,
-  y = 693,
+  y = 661,
   direction = 3,
   subtype = 1,
   sprite = "npc/animals/kiki",
@@ -10596,6 +10656,15 @@ dynamic_tile{
   height = 40,
   pattern = "7671",
   tileset = "out/outside_buildings",
+}
+
+pickable{
+  name = "baton",
+  layer = 1,
+  x = 784,
+  y = 589,
+  treasure_name = "magnifying_lens",
+  treasure_variant = 5,
 }
 
 tile{

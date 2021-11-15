@@ -17436,7 +17436,7 @@ tile{
 
 tile{
   layer = 1,
-  x = 552,
+  x = 560,
   y = 504,
   width = 16,
   height = 16,
@@ -18576,7 +18576,7 @@ stairs{
 }
 
 destination{
-  name = "marin_house_2_A",
+  name = "rafting_house_2_A",
   layer = 1,
   x = 816,
   y = 621,
@@ -19117,8 +19117,8 @@ teletransporter{
   },
   width = 16,
   height = 16,
-  destination_map = "houses/mabe_village/marin_house",
-  destination = "marin_house_1_B",
+  destination_map = "houses/rafting/rafting_house",
+  destination = "_same",
 }
 
 tile{

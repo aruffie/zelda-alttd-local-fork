@@ -162,6 +162,8 @@ map{ id = "sideviews/martha_bay/sideview_2", description = "Sideview 2" }
 map{ id = "test/A", description = "A" }
 map{ id = "test/B", description = "B" }
 map{ id = "test/inside", description = "Test map 2" }
+map{ id = "test/martha_test", description = "martha test" }
+map{ id = "test/martha_test_B", description = "martha test B" }
 map{ id = "test/outside", description = "Test map" }
 map{ id = "test/sideview", description = "Test map (sideviews)" }
 
