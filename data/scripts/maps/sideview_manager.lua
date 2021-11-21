@@ -185,9 +185,6 @@ local function start_gravity(map)
         entity:remove()
       elseif has_property or is_affected then -- Try to make entity be affected by gravity.
         show_hitbox(entity)
-        if swimming_manager.is_water_gravity_needed(entity) then
-          swimming_manager.start_water_gravity(entity)
-        end
 
         -- Start gravity effect timer loop
         if entity.vspeed and entity.vspeed < 0 or not entity:test_obstacles(0, 2) then
@@ -200,12 +197,15 @@ local function start_gravity(map)
             end
 
             entity.gravity_timer = sol.timer.start(entity, 10, function()
-              local delay = update_gravity(entity)
+              local delay
+              if not entity:is_swimming() then
+                delay = update_gravity(entity)
 
-              -- Start swimming if touching deep water.
-              if entity:get_type() == "hero" and not entity:is_swimming() and swimming_manager:is_in_water(entity) then
-                entity:start_swimming()
-                return false
+                -- Start swimming if touching deep water.
+                if entity:get_type() == "hero" and swimming_manager:is_in_water(entity) then
+                  entity:start_swimming()
+                  return false
+                end
               end
 
               return delay or 10
@@ -400,7 +400,9 @@ hero_meta:register_event("on_state_changed", function(hero, state)
 
       if hero.timer == nil then
         hero.timer = sol.timer.start(hero, 10, function()
-          update_hero(hero) 
+          if not hero:is_swimming() then
+            update_hero(hero)
+          end
           return true
         end)
       end

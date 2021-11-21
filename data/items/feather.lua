@@ -44,7 +44,7 @@ function item:start_using()
       local state = hero:get_state()
       -- Simply apply a vertical impulsion to the hero in sideview maps.
       if state ~= "carrying" and state ~= "lifting" and state ~= "falling" and state ~= "plunging" then
-        if hero.vspeed ~= 0 or hero.has_grabbed_ladder or map:get_ground(hero:get_position()) == "deep_water" then
+        if (hero.vspeed or 0) == 0 or hero.has_grabbed_ladder or map:get_ground(hero:get_position()) == "deep_water" then
           audio_manager:play_sound("hero/jump")
           sol.timer.start(10, function()
 --              hero.has_grabbed_ladder = false

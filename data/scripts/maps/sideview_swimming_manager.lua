@@ -7,9 +7,43 @@ local swimming_manager = {}
 
 -- Global variables.
 local is_swimming = false
+local inertia_angle
+local inertia_speed
+local inertia_timers = {}
 
 -- Configuration variables.
 local swimming_speed = 66
+local walking_hspeed = 1
+local water_inertia_decrease = 0.1
+
+-- Update entity water inertia.
+local function update_water_inertia(hero)
+
+  inertia_speed = inertia_speed - water_inertia_decrease
+end
+
+-- Start the hero swim.
+local function start_swimming(hero)
+
+  is_swimming = true
+  local game = hero:get_game()
+
+  local vspeed = -hero.vspeed or 0
+  local hspeed = game:is_command_pressed("right") and walking_hspeed or game:is_command_pressed("left") and -walking_hspeed or 0
+  inertia_angle = 1.5 * math.pi --math.atan2(vspeed, hspeed)
+  inertia_speed = 88 --math.sqrt(vspeed * vspeed + hspeed * hspeed)
+
+  hero.inertia_timer = sol.timer.start(hero, 10, function()
+    update_water_inertia(hero)
+    return 10
+  end)
+end
+
+-- Stop the hero swim.
+local function stop_swimming(hero)
+
+  is_swimming = false
+end
 
 -- Update the hero while swimming.
 local function update_hero()
@@ -59,13 +93,7 @@ local function update_hero()
   end
 end
 
--- Start the hero swim.
-local function start_swimming(hero)
-  hero.vspeed = 0
-  is_swimming = true
-end
-
--- Check for water the entity at the entity position, whatever the layer is.
+-- Check for water at the entity position, whatever the layer is.
 function swimming_manager:is_in_water(entity)
 
   local map = entity:get_map()
@@ -80,28 +108,11 @@ function swimming_manager:is_in_water(entity)
   return false
 end
 
--- Return whether the water gravity process is needed.
-function swimming_manager.is_water_gravity_needed(entity)
-
-  return entity:get_type() ~= "hero" and not entity.water_processed and not entity.vspeed and entity:test_obstacles(0, 1) and is_in_water(entity)
-end
-
--- Start water gravity on an entity
-function swimming_manager.start_water_gravity(entity)
-  
-  entity.water_processed = true
-
-  sol.timer.start(entity, 50, function()
-    entity.water_processed = nil
-    local x, y = entity:get_position()
-    entity:set_position(x, y + 1)
-  end)
-end
-
 -- Initialize the swimming ability.
 function swimming_manager.initialize()
 
-  local hero_meta=sol.main.get_metatable("hero")
+  -- Hero metatable.
+  local hero_meta = sol.main.get_metatable("hero")
   if hero_meta.start_swimming then
     return
   end
@@ -113,6 +124,12 @@ function swimming_manager.initialize()
   function hero_meta:is_swimming()
     return is_swimming
   end
+
+  -- Game metatable.
+  local game_meta = sol.main.get_metatable("game")
+  game_meta:register_event("on_map_changed", function(game, map)
+    is_swimming = false
+  end)
 end
 
 --[[
