@@ -38,7 +38,7 @@ function map:init_music()
     audio_manager:play_music("07_koholint_island")
   else
     if game:get_value("thief_must_die") then
-      audio_manager:play_music("boss")
+      audio_manager:play_music("21_mini_boss_battle")
     else
       audio_manager:play_music("14_shop")
     end
@@ -132,6 +132,17 @@ function exit_sensor:on_activated()
         end
       end)
     else
+
+      local carried_object = hero:get_carried_object()
+      local state = sol.state.create()
+      state:set_carried_object_action("remove")
+      hero:start_state(state)
+      hero:unfreeze()
+      -- game:remove_money(shop_manager.product.params.price)
+      shop_manager.product.params.buy_callback(map)
+      shop_manager.product = nil
+
+
       game:set_value("hero_is_thief", true)
       game:set_value("hero_is_thief_message", true)
       game:set_value("thief_must_die", true)
@@ -150,6 +161,7 @@ function map:launch_cinematic_1()
     }
     map:set_cinematic_mode(true, options)
     sol.audio.stop_music()
+    audio_manager:play_music("21_mini_boss_battle")
     wait(1000)
     hero:set_animation("walking")
     local m1 = sol.movement.create("path")
@@ -164,6 +176,7 @@ function map:launch_cinematic_1()
     dialog("maps.houses.mabe_village.shop_2.merchant_5")
     symbol:remove()
     laser_manager:start(map, hero, merchant_angry)
+
     wait(5000)
     game:set_value("thief_must_die", false)
     game:set_value("game_over_skip_drug", true)
