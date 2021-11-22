@@ -20393,6 +20393,62 @@ tile{
   tileset = "addition/out",
 }
 
+teletransporter{
+  name = "drugstore_1_A",
+  layer = 1,
+  x = 472,
+  y = 48,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "houses/graveyard/drugstore",
+  destination = "drugstore_1_B",
+}
+
+teletransporter{
+  name = "witch_1_A",
+  layer = 1,
+  x = 344,
+  y = 424,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "houses/graveyard/witch_house",
+  destination = "witch_house_1_B",
+}
+
+dynamic_tile{
+  name = "witch_1_A_door",
+  layer = 1,
+  x = 344,
+  y = 432,
+  width = 16,
+  height = 16,
+  pattern = "6020",
+  tileset = "out/outside_buildings",
+}
+
+dynamic_tile{
+  name = "drugstore_1_A_door",
+  layer = 1,
+  x = 472,
+  y = 56,
+  width = 16,
+  height = 16,
+  pattern = "6020",
+  tileset = "out/outside_buildings",
+}
+
 block{
   name = "grave_16",
   layer = 1,
@@ -20401,15 +20457,6 @@ block{
   sprite = "entities/statues/grave",
   pushable = false,
   pullable = false,
-}
-
-wall{
-  layer = 1,
-  x = 344,
-  y = 432,
-  width = 16,
-  height = 16,
-  stops_enemies = true,
 }
 
 destructible{
@@ -20532,57 +20579,12 @@ destination{
   direction = 3,
 }
 
-teletransporter{
-  name = "witch_1_A",
-  layer = 1,
-  x = 344,
-  y = 432,
-  properties = {
-    {
-      key = "effect",
-      value = "radial_fade_out",
-    },
-  },
-  width = 16,
-  height = 16,
-  destination_map = "houses/graveyard/witch_house",
-  destination = "witch_house_1_B",
-}
-
 destination{
   name = "drugstore_2_A",
   layer = 1,
   x = 480,
   y = 85,
   direction = 3,
-}
-
-teletransporter{
-  name = "drugstore_1_A",
-  layer = 1,
-  x = 472,
-  y = 56,
-  properties = {
-    {
-      key = "effect",
-      value = "radial_fade_out",
-    },
-  },
-  width = 16,
-  height = 16,
-  destination_map = "houses/graveyard/drugstore",
-  destination = "drugstore_1_B",
-}
-
-dynamic_tile{
-  name = "witch_1_A_door",
-  layer = 1,
-  x = 344,
-  y = 432,
-  width = 16,
-  height = 16,
-  pattern = "6020",
-  tileset = "out/outside_buildings",
 }
 
 sensor{
@@ -24211,15 +24213,77 @@ destructible{
   can_be_cut = true,
 }
 
-dynamic_tile{
-  name = "witch_1_A_door_2",
+sensor{
+  name = "open_house_drugstore_1_A_door_sensor",
   layer = 1,
   x = 472,
-  y = 56,
+  y = 85,
+  width = 32,
+  height = 16,
+}
+
+wall{
+  layer = 1,
+  x = 448,
+  y = 24,
+  width = 24,
+  height = 32,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 1,
+  x = 488,
+  y = 24,
+  width = 24,
+  height = 32,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 1,
+  x = 336,
+  y = 416,
+  width = 8,
+  height = 24,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 1,
+  x = 360,
+  y = 416,
+  width = 8,
+  height = 24,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  layer = 1,
+  x = 472,
+  y = 32,
   width = 16,
   height = 16,
-  pattern = "6020",
-  tileset = "out/outside_buildings",
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
 }
 
 tile{
@@ -26838,7 +26902,7 @@ custom_entity{
 custom_entity{
   name = "butterfly_6",
   layer = 2,
-  x = 424,
+  x = 408,
   y = 85,
   width = 16,
   height = 16,
