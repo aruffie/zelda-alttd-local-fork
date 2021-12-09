@@ -149,6 +149,7 @@ map{ id = "out/c1_mambos_cave", description = "C1 - Mambo's cave" }
 map{ id = "out/c2_kanalet_castle", description = "C2 - Kanalet castle" }
 map{ id = "out/c3_east_prairie", description = "C3 - East prairie" }
 map{ id = "out/c4_martha_bay", description = "C4 - Martha bay" }
+map{ id = "out/c4_martha_bay_old", description = "C4 - Martha bay" }
 map{ id = "out/d1_east_mt_tamaranch", description = "D1 - East Mt Tamaranch" }
 map{ id = "out/d2_rafting", description = "D2 - Rafting" }
 map{ id = "out/d3_mask_shrine", description = "D3 - Mask shrine" }
@@ -162,7 +163,6 @@ map{ id = "sideviews/martha_bay/sideview_2", description = "Sideview 2" }
 map{ id = "test/A", description = "A" }
 map{ id = "test/B", description = "B" }
 map{ id = "test/inside", description = "Test map 2" }
-map{ id = "test/martha_test", description = "martha test" }
 map{ id = "test/martha_test_B", description = "martha test B" }
 map{ id = "test/outside", description = "Test map" }
 map{ id = "test/sideview", description = "Test map (sideviews)" }
@@ -2216,8 +2216,10 @@ file{ path = "maps/out/c2_kanalet_castle.dat", author = "Benjamin Schweitzer, Ch
 file{ path = "maps/out/c2_kanalet_castle.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/out/c3_east_prairie.dat", author = "Benjamin Schweitzer, Christopho", license = "CC BY-SA 4.0" }
 file{ path = "maps/out/c3_east_prairie.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/out/c4_martha_bay.dat", author = "Benjamin Schweitzer, Christopho", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/c4_martha_bay.dat", author = "Benjamin Schweitzer, Christopho, Julio Tanaka", license = "CC BY-SA 4.0" }
 file{ path = "maps/out/c4_martha_bay.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/out/c4_martha_bay_old.dat", author = "Benjamin Schweitzer, Christopho", license = "CC BY-SA 4.0" }
+file{ path = "maps/out/c4_martha_bay_old.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/out/d1_east_mt_tamaranch.dat", author = "Benjamin Schweitzer, Christopho", license = "CC BY-SA 4.0" }
 file{ path = "maps/out/d1_east_mt_tamaranch.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/out/d2_rafting.dat", author = "Benjamin Schweitzer, Christopho", license = "CC BY-SA 4.0" }
