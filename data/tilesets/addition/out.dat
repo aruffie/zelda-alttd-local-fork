@@ -1627,7 +1627,7 @@ tile_pattern{
 
 tile_pattern{
   id = "232",
-  ground = "traversable",
+  ground = "hole",
   default_layer = 0,
   x = { 0, 16, 32, 48 },
   y = { 488, 488, 488, 488 },
@@ -1640,7 +1640,7 @@ tile_pattern{
 
 tile_pattern{
   id = "233",
-  ground = "traversable",
+  ground = "hole",
   default_layer = 0,
   x = 8,
   y = 480,
@@ -1651,7 +1651,7 @@ tile_pattern{
 
 tile_pattern{
   id = "234",
-  ground = "traversable",
+  ground = "hole",
   default_layer = 0,
   x = 0,
   y = 504,
@@ -1668,6 +1668,51 @@ tile_pattern{
   y = 480,
   width = 8,
   height = 8,
+  scrolling = "parallax",
+}
+
+tile_pattern{
+  id = "236",
+  ground = "traversable",
+  default_layer = 0,
+  x = 64,
+  y = 488,
+  width = 32,
+  height = 16,
+  scrolling = "parallax",
+}
+
+tile_pattern{
+  id = "237",
+  ground = "traversable",
+  default_layer = 0,
+  x = 96,
+  y = 488,
+  width = 16,
+  height = 16,
+  scrolling = "parallax",
+}
+
+tile_pattern{
+  id = "238",
+  ground = "traversable",
+  default_layer = 0,
+  x = 112,
+  y = 488,
+  width = 32,
+  height = 16,
+  scrolling = "parallax",
+}
+
+tile_pattern{
+  id = "239",
+  ground = "traversable",
+  default_layer = 0,
+  x = { 16, 80 },
+  y = { 504, 504 },
+  width = 64,
+  height = 32,
+  frame_delay = 250,
   scrolling = "parallax",
 }
 
