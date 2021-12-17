@@ -910,8 +910,8 @@ tile{
 
 tile{
   layer = 1,
-  x = 104,
-  y = 440,
+  x = 64,
+  y = 456,
   width = 16,
   height = 16,
   pattern = "1650",
@@ -5532,8 +5532,8 @@ tile{
 
 tile{
   layer = 1,
-  x = 56,
-  y = 448,
+  x = 64,
+  y = 424,
   width = 16,
   height = 16,
   pattern = "1650",
@@ -12326,51 +12326,6 @@ tile{
 
 tile{
   layer = 1,
-  x = 136,
-  y = 80,
-  width = 32,
-  height = 8,
-  pattern = "1892",
-}
-
-tile{
-  layer = 1,
-  x = 144,
-  y = 104,
-  width = 16,
-  height = 8,
-  pattern = "1895",
-}
-
-tile{
-  layer = 1,
-  x = 136,
-  y = 88,
-  width = 8,
-  height = 24,
-  pattern = "1893",
-}
-
-tile{
-  layer = 1,
-  x = 144,
-  y = 88,
-  width = 16,
-  height = 16,
-  pattern = "1896",
-}
-
-tile{
-  layer = 1,
-  x = 160,
-  y = 88,
-  width = 8,
-  height = 24,
-  pattern = "1894",
-}
-
-tile{
-  layer = 1,
   x = 160,
   y = 320,
   width = 16,
@@ -12831,8 +12786,8 @@ tile{
 
 tile{
   layer = 1,
-  x = 64,
-  y = 416,
+  x = 80,
+  y = 448,
   width = 16,
   height = 24,
   pattern = "141",
@@ -14807,6 +14762,88 @@ tile{
   pattern = "959",
 }
 
+tile{
+  layer = 1,
+  x = 144,
+  y = 96,
+  width = 16,
+  height = 16,
+  pattern = "61",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 136,
+  y = 96,
+  width = 8,
+  height = 8,
+  pattern = "12454",
+}
+
+tile{
+  layer = 1,
+  x = 152,
+  y = 112,
+  width = 8,
+  height = 8,
+  pattern = "12454",
+}
+
+tile{
+  layer = 1,
+  x = 144,
+  y = 112,
+  width = 8,
+  height = 8,
+  pattern = "12454",
+}
+
+tile{
+  layer = 1,
+  x = 144,
+  y = 88,
+  width = 8,
+  height = 8,
+  pattern = "12454",
+}
+
+tile{
+  layer = 1,
+  x = 152,
+  y = 88,
+  width = 8,
+  height = 8,
+  pattern = "12454",
+}
+
+tile{
+  layer = 1,
+  x = 160,
+  y = 96,
+  width = 8,
+  height = 8,
+  pattern = "12454",
+}
+
+tile{
+  layer = 1,
+  x = 136,
+  y = 104,
+  width = 8,
+  height = 8,
+  pattern = "12454",
+}
+
+tile{
+  layer = 1,
+  x = 160,
+  y = 104,
+  width = 8,
+  height = 8,
+  pattern = "12454",
+}
+
 wall{
   layer = 1,
   x = 800,
@@ -15567,7 +15604,7 @@ chest{
 destination{
   name = "stair_arrows_upgrade",
   layer = 1,
-  x = 152,
+  x = 168,
   y = 109,
   direction = 3,
 }
@@ -15580,26 +15617,6 @@ teletransporter{
   height = 16,
   destination_map = "caves/egg_of_the_dream_fish/cave_4",
   destination = "stair",
-}
-
-stairs{
-  layer = 1,
-  x = 144,
-  y = 96,
-  direction = 1,
-  subtype = 3,
-}
-
-custom_entity{
-  name = "secret_stone",
-  layer = 1,
-  x = 144,
-  y = 93,
-  width = 32,
-  height = 32,
-  direction = 0,
-  sprite = "entities/destructibles/stone_white_large",
-  model = "heavy_object",
 }
 
 destination{
@@ -15683,7 +15700,7 @@ enemy{
   x = 400,
   y = 485,
   direction = 0,
-  breed = "moblin_pig_sword",
+  breed = "moblin_pig_fork",
   treasure_name = "random_with_charm",
 }
 
@@ -15692,7 +15709,7 @@ enemy{
   x = 424,
   y = 493,
   direction = 3,
-  breed = "moblin_pig_sword",
+  breed = "moblin_pig_fork",
   treasure_name = "random_with_charm",
 }
 
@@ -16467,6 +16484,25 @@ wall{
   width = 16,
   height = 8,
   stops_enemies = true,
+}
+
+enemy{
+  name = "mini_moldorm",
+  layer = 1,
+  x = 96,
+  y = 85,
+  direction = 0,
+  breed = "mini_moldorm",
+}
+
+destructible{
+  layer = 1,
+  x = 152,
+  y = 109,
+  sprite = "entities/destructibles/stone_white_small",
+  destruction_sound = "stone",
+  weight = 1,
+  damage_on_enemies = 2,
 }
 
 tile{
@@ -17507,7 +17543,7 @@ sensor{
   name = "owl_6_position",
   layer = 2,
   x = 584,
-  y = -3,
+  y = 29,
   width = 16,
   height = 16,
 }
@@ -17540,7 +17576,7 @@ npc{
   name = "owl_6",
   layer = 2,
   x = 584,
-  y = -3,
+  y = 29,
   direction = 3,
   subtype = 0,
   sprite = "npc/animals/owl",

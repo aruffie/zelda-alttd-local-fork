@@ -11818,6 +11818,100 @@ tile{
   pattern = "1710",
 }
 
+tile{
+  layer = 1,
+  x = 48,
+  y = 152,
+  width = 8,
+  height = 24,
+  pattern = "1709",
+}
+
+tile{
+  layer = 1,
+  x = 72,
+  y = 152,
+  width = 8,
+  height = 24,
+  pattern = "1708",
+}
+
+tile{
+  layer = 1,
+  x = 56,
+  y = 152,
+  width = 16,
+  height = 24,
+  pattern = "1710",
+}
+
+tile{
+  layer = 1,
+  x = 160,
+  y = 152,
+  width = 8,
+  height = 24,
+  pattern = "1709",
+}
+
+tile{
+  layer = 1,
+  x = 184,
+  y = 152,
+  width = 8,
+  height = 24,
+  pattern = "1708",
+}
+
+tile{
+  layer = 1,
+  x = 168,
+  y = 152,
+  width = 16,
+  height = 24,
+  pattern = "1710",
+}
+
+tile{
+  layer = 1,
+  x = 48,
+  y = 152,
+  width = 32,
+  height = 48,
+  pattern = "63",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 160,
+  y = 152,
+  width = 32,
+  height = 48,
+  pattern = "63",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 32,
+  y = 184,
+  width = 16,
+  height = 16,
+  pattern = "7",
+  tileset = "addition/out",
+}
+
+tile{
+  layer = 1,
+  x = 192,
+  y = 184,
+  width = 16,
+  height = 16,
+  pattern = "7",
+  tileset = "addition/out",
+}
+
 custom_entity{
   name = "owl_slab",
   layer = 1,
@@ -13241,30 +13335,6 @@ custom_entity{
   model = "bubble",
 }
 
-custom_entity{
-  name = "turtlerock_arm",
-  layer = 1,
-  x = 168,
-  y = 157,
-  width = 40,
-  height = 48,
-  direction = 0,
-  sprite = "entities/turtlerock_arms",
-  model = "obstacle",
-}
-
-custom_entity{
-  name = "turtlerock_arm_2",
-  layer = 1,
-  x = 48,
-  y = 157,
-  width = 40,
-  height = 48,
-  direction = 2,
-  sprite = "entities/turtlerock_arms",
-  model = "obstacle",
-}
-
 enemy{
   layer = 1,
   x = 80,
@@ -13673,6 +13743,42 @@ teletransporter{
   height = 16,
   destination_map = "dungeons/8/1f",
   destination = "dungeon_8_5_B",
+}
+
+enemy{
+  name = "raven_3",
+  layer = 1,
+  x = 168,
+  y = 37,
+  direction = 0,
+  breed = "raven",
+}
+
+enemy{
+  name = "raven_4",
+  layer = 1,
+  x = 360,
+  y = 37,
+  direction = 0,
+  breed = "raven",
+}
+
+enemy{
+  name = "shrouded_stalfos",
+  layer = 1,
+  x = 616,
+  y = 109,
+  direction = 0,
+  breed = "shrouded_stalfos",
+}
+
+enemy{
+  name = "mini_moldorm",
+  layer = 1,
+  x = 160,
+  y = 109,
+  direction = 0,
+  breed = "mini_moldorm",
 }
 
 tile{
@@ -14358,7 +14464,7 @@ tile{
 tile{
   layer = 2,
   x = 432,
-  y = 144,
+  y = 128,
   width = 32,
   height = 24,
   pattern = "32",
@@ -14575,6 +14681,24 @@ tile{
   pattern = "1711",
 }
 
+tile{
+  layer = 2,
+  x = 48,
+  y = 144,
+  width = 32,
+  height = 8,
+  pattern = "1711",
+}
+
+tile{
+  layer = 2,
+  x = 160,
+  y = 144,
+  width = 32,
+  height = 8,
+  pattern = "1711",
+}
+
 custom_entity{
   name = "mosquito_2",
   layer = 2,
@@ -14665,5 +14789,23 @@ npc{
   direction = 3,
   subtype = 0,
   sprite = "npc/animals/owl",
+}
+
+enemy{
+  name = "raven_2",
+  layer = 2,
+  x = 176,
+  y = 181,
+  direction = 0,
+  breed = "raven",
+}
+
+enemy{
+  name = "raven",
+  layer = 2,
+  x = 64,
+  y = 181,
+  direction = 0,
+  breed = "raven",
 }
 
