@@ -242,8 +242,18 @@ hero_meta:register_event("on_position_changed", function(hero)
       if world == "outside_world" then
         local map_x, map_y = map:get_location()
         local map_size_x, map_size_y = map:get_size()
-        square_x = math.floor((map_x + 960) / (960) - 1)
-        square_y = math.floor((map_y + 768) / (768) - 1)
+
+        -- Mountain maps add 48 artificial pixels to the North as additional decorations.
+        -- Don't take them into account in the map.
+        if map_y > 0 then
+          map_y = map_y - 48
+        else
+          map_size_y = map_size_y - 48
+          y = y - 48
+        end
+
+        square_x = math.floor((map_x + map_size_x) / (map_size_x) - 1)
+        square_y = math.floor((map_y + map_size_y) / (map_size_y) - 1)
         if x == 0 then
           square_min_x = 0
         else
