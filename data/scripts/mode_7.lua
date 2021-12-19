@@ -102,6 +102,7 @@ function mode_7_manager:teleport(game, src_entity, destination_map_id, destinati
   local owl_sprite = sol.sprite.create("npc/animals/owl")
   if map_texture == nil then
     map_texture = sol.surface.create("work/world_map_scale_1.png")
+    -- TODO update the map texture and take into account the 48 additional pixels of mountains
     cloud_texture = sol.surface.create("work/clouds_and_sea.png")
   end
   assert(map_texture ~= nil)
