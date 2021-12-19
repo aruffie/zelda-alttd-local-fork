@@ -2,10 +2,10 @@ animation{
   name = "stopped",
   src_image = "entities/statues/pillar.png",
   directions = {
-    { x = 0, y = 56, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
-    { x = 0, y = 56, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
-    { x = 0, y = 56, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
-    { x = 0, y = 56, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
+    { x = 0, y = 48, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45 },
+    { x = 0, y = 48, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45 },
+    { x = 0, y = 48, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45 },
+    { x = 0, y = 48, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45 },
   },
 }
 animation{
@@ -13,10 +13,10 @@ animation{
   src_image = "entities/statues/pillar.png",
   frame_delay = 200,
   directions = {
-    { x = 16, y = 56, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 8 },
-    { x = 16, y = 56, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 8 },
-    { x = 16, y = 56, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 8 },
-    { x = 16, y = 56, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21, num_frames = 8 },
+    { x = 0, y = 48, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45, num_frames = 5 },
+    { x = 0, y = 48, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45, num_frames = 5 },
+    { x = 0, y = 48, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45, num_frames = 5 },
+    { x = 0, y = 48, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45, num_frames = 5 },
   },
 }
 animation{
@@ -24,29 +24,29 @@ animation{
   src_image = "entities/statues/pillar.png",
   frame_delay = 200,
   directions = {
-    { x = 16, y = 0, frame_width = 16, frame_height = 56, origin_x = 8, origin_y = 53, num_frames = 8 },
-    { x = 16, y = 0, frame_width = 16, frame_height = 56, origin_x = 8, origin_y = 53, num_frames = 8 },
-    { x = 16, y = 0, frame_width = 16, frame_height = 56, origin_x = 8, origin_y = 53, num_frames = 8 },
-    { x = 16, y = 0, frame_width = 16, frame_height = 56, origin_x = 8, origin_y = 53, num_frames = 8 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 48, origin_x = 12, origin_y = 45, num_frames = 5 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 48, origin_x = 12, origin_y = 45, num_frames = 5 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 48, origin_x = 12, origin_y = 45, num_frames = 5 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 48, origin_x = 12, origin_y = 45, num_frames = 5 },
   },
 }
 animation{
   name = "destroyed",
   src_image = "entities/statues/pillar.png",
   directions = {
-    { x = 16, y = 56, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
-    { x = 16, y = 56, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
-    { x = 16, y = 56, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
-    { x = 16, y = 56, frame_width = 16, frame_height = 24, origin_x = 8, origin_y = 21 },
+    { x = 160, y = 64, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29 },
+    { x = 160, y = 64, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29 },
+    { x = 160, y = 64, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29 },
+    { x = 160, y = 64, frame_width = 32, frame_height = 32, origin_x = 16, origin_y = 29 },
   },
 }
 animation{
   name = "stopped_top",
   src_image = "entities/statues/pillar.png",
   directions = {
-    { x = 0, y = 0, frame_width = 16, frame_height = 56, origin_x = 8, origin_y = 53 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 56, origin_x = 8, origin_y = 53 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 56, origin_x = 8, origin_y = 53 },
-    { x = 0, y = 0, frame_width = 16, frame_height = 56, origin_x = 8, origin_y = 53 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 48, origin_x = 16, origin_y = 45 },
   },
 }
