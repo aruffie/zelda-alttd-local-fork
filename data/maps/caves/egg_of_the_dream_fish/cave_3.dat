@@ -4176,6 +4176,12 @@ door{
   layer = 0,
   x = 440,
   y = 176,
+  properties = {
+    {
+      key = "is_weak",
+      value = "true",
+    },
+  },
   direction = 3,
   sprite = "entities/doors/door_weak_wall",
   savegame_variable = "egg_of_the_dream_fish_cave_3_weak_1",

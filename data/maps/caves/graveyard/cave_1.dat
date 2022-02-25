@@ -1620,6 +1620,12 @@ door{
   layer = 0,
   x = 464,
   y = 128,
+  properties = {
+    {
+      key = "is_weak",
+      value = "true",
+    },
+  },
   direction = 3,
   sprite = "entities/doors/door_weak_block",
   savegame_variable = "graveyard_cave_1_weak_2",
@@ -1631,6 +1637,12 @@ door{
   layer = 0,
   x = 464,
   y = 144,
+  properties = {
+    {
+      key = "is_weak",
+      value = "true",
+    },
+  },
   direction = 3,
   sprite = "entities/doors/door_weak_block",
   savegame_variable = "graveyard_cave_1_weak_1",

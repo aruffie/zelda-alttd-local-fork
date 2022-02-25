@@ -25811,10 +25811,6 @@ door{
       key = "is_weak",
       value = "true",
     },
-    {
-      key = "sound_sword",
-      value = "items/sword_tap_bombable",
-    },
   },
   direction = 1,
   sprite = "entities/doors/door_weak_wall",
@@ -25841,10 +25837,6 @@ door{
     {
       key = "is_weak",
       value = "true",
-    },
-    {
-      key = "sound_sword",
-      value = "items/sword_tap_bombable",
     },
   },
   direction = 3,
@@ -27377,10 +27369,6 @@ door{
       key = "is_weak",
       value = "true",
     },
-    {
-      key = "sound_sword",
-      value = "items/sword_tap_bombable",
-    },
   },
   direction = 2,
   sprite = "entities/doors/door_weak_wall",
@@ -27636,10 +27624,6 @@ door{
       key = "is_weak",
       value = "true",
     },
-    {
-      key = "sound_sword",
-      value = "items/sword_tap_bombable",
-    },
   },
   direction = 0,
   sprite = "entities/doors/door_weak_wall",
@@ -27688,10 +27672,6 @@ door{
     {
       key = "is_weak",
       value = "true",
-    },
-    {
-      key = "sound_sword",
-      value = "items/sword_tap_bombable",
     },
   },
   direction = 0,
@@ -27964,10 +27944,6 @@ door{
       key = "is_weak",
       value = "true",
     },
-    {
-      key = "sound_sword",
-      value = "items/sword_tap_bombable",
-    },
   },
   direction = 1,
   sprite = "entities/doors/door_weak_wall",
@@ -28017,10 +27993,6 @@ door{
     {
       key = "is_weak",
       value = "true",
-    },
-    {
-      key = "sound_sword",
-      value = "items/sword_tap_bombable",
     },
   },
   direction = 1,
@@ -28236,10 +28208,6 @@ door{
       key = "is_weak",
       value = "true",
     },
-    {
-      key = "sound_sword",
-      value = "items/sword_tap_bombable",
-    },
   },
   direction = 2,
   sprite = "entities/doors/door_weak_wall",
@@ -28256,10 +28224,6 @@ door{
     {
       key = "is_weak",
       value = "true",
-    },
-    {
-      key = "sound_sword",
-      value = "items/sword_tap_bombable",
     },
   },
   direction = 3,
@@ -28278,10 +28242,6 @@ door{
       key = "is_weak",
       value = "true",
     },
-    {
-      key = "sound_sword",
-      value = "items/sword_tap_bombable",
-    },
   },
   direction = 0,
   sprite = "entities/doors/door_weak_wall",
@@ -28299,10 +28259,6 @@ door{
       key = "is_weak",
       value = "true",
     },
-    {
-      key = "sound_sword",
-      value = "items/sword_tap_bombable",
-    },
   },
   direction = 2,
   sprite = "entities/doors/door_weak_wall",
@@ -28319,10 +28275,6 @@ door{
     {
       key = "is_weak",
       value = "true",
-    },
-    {
-      key = "sound_sword",
-      value = "items/sword_tap_bombable",
     },
   },
   direction = 3,
@@ -28982,10 +28934,6 @@ door{
     {
       key = "is_weak",
       value = "true",
-    },
-    {
-      key = "sound_sword",
-      value = "items/sword_tap_bombable",
     },
   },
   direction = 3,

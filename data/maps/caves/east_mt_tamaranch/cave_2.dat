@@ -1820,6 +1820,12 @@ door{
   layer = 0,
   x = 232,
   y = 288,
+  properties = {
+    {
+      key = "is_weak",
+      value = "true",
+    },
+  },
   direction = 1,
   sprite = "entities/doors/door_very_weak_wall",
   savegame_variable = "east_mt_tamaranch_cave_2_weak_1",

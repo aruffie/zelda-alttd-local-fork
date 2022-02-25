@@ -2511,7 +2511,13 @@ door{
   layer = 0,
   x = 504,
   y = 288,
-  direction = 3,
+  properties = {
+    {
+      key = "is_weak",
+      value = "true",
+    },
+  },
+  direction = 1,
   sprite = "entities/doors/door_very_weak_wall",
   savegame_variable = "yarna_desert_cave_2_weak_1",
   opening_method = "explosion",
@@ -2563,6 +2569,12 @@ door{
   layer = 0,
   x = 504,
   y = 176,
+  properties = {
+    {
+      key = "is_weak",
+      value = "true",
+    },
+  },
   direction = 3,
   sprite = "entities/doors/door_very_weak_wall",
   savegame_variable = "yarna_desert_cave_2_weak_1",
@@ -2602,6 +2614,12 @@ door{
   layer = 0,
   x = 112,
   y = 160,
+  properties = {
+    {
+      key = "is_weak",
+      value = "true",
+    },
+  },
   direction = 3,
   sprite = "entities/doors/door_weak_block",
   savegame_variable = "yarna_desert_cave_1_weak_2",
