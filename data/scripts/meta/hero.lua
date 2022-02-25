@@ -35,8 +35,8 @@ hero_meta:register_event("on_position_changed", function(hero)
 hero_meta:register_event("on_state_changed", function(hero, current_state)
 
     local game = hero:get_game()
-    local state_object=hero:get_state_object()
-    local state_desc=state_object and state_object:get_description() or ""
+    local state_object = hero:get_state_object()
+    local state_desc = state_object and state_object:get_description() or ""
     -- Sounds
     if current_state == "lifting" then
       audio_manager:play_sound("hero/pickup") 
@@ -51,21 +51,22 @@ hero_meta:register_event("on_state_changed", function(hero, current_state)
       -- Sword swinging
       local index = math.random(1, 4)
       audio_manager:play_sound("items/sword_slash" .. index) 
-    elseif current_state == "sword tapping" or state_desc=="sword_tapping" then
+    elseif current_state == "sword tapping" or state_desc == "sword_tapping" then
       if timer_sword_tapping == nil then
         timer_sword_tapping = sol.timer.start(hero, 250, function()
-            local sound_sword = false
-            local entity = hero:get_facing_entity()
-            if entity ~= nil then
-              sound_sword = entity:get_property("sound_sword")          
-            end
-            if sound_sword then
-              audio_manager:play_sound("items/sword_tap_bombable")
-            else
-              audio_manager:play_sound("items/sword_tap") 
-            end
-            return true
-          end)
+          local bombable = false
+          local entity = hero:get_facing_entity()
+          if entity ~= nil then
+            bombable = entity:get_property("sound_sword") ~= nil or
+              entity:get_property("is_weak")
+          end
+          if bombable then
+            audio_manager:play_sound("items/sword_tap_bombable")
+          else
+            audio_manager:play_sound("items/sword_tap") 
+          end
+          return true
+        end)
       end
     elseif current_state == "hurt" then
       -- Hurt
