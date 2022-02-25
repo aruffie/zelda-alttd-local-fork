@@ -498,7 +498,7 @@ sprite{ id = "entities/doors/door_b_wallturn_dungeon_9", description = "Door b w
 sprite{ id = "entities/doors/door_boss", description = "Boss door" }
 sprite{ id = "entities/doors/door_boss_key", description = "Boss key door" }
 sprite{ id = "entities/doors/door_egg", description = "Egg door" }
-sprite{ id = "entities/doors/door_egg_top", description = "Egg door top" }
+sprite{ id = "entities/doors/door_egg_top", description = "Door egg top" }
 sprite{ id = "entities/doors/door_entrance_dungeons", description = "Dungeon entrance door" }
 sprite{ id = "entities/doors/door_normal", description = "Door" }
 sprite{ id = "entities/doors/door_normal_cave", description = "Cave door" }

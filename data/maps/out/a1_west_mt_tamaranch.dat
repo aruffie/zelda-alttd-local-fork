@@ -14901,3 +14901,39 @@ enemy{
   breed = "raven",
 }
 
+custom_entity{
+  name = "butterfly_31",
+  layer = 2,
+  x = 496,
+  y = 85,
+  width = 16,
+  height = 16,
+  direction = 3,
+  sprite = "entities/animals/seagull",
+  model = "seagull",
+}
+
+custom_entity{
+  name = "butterfly_32",
+  layer = 2,
+  x = 520,
+  y = 109,
+  width = 16,
+  height = 16,
+  direction = 3,
+  sprite = "entities/animals/seagull",
+  model = "seagull",
+}
+
+custom_entity{
+  name = "butterfly_33",
+  layer = 2,
+  x = 704,
+  y = 141,
+  width = 16,
+  height = 16,
+  direction = 3,
+  sprite = "entities/animals/seagull",
+  model = "seagull",
+}
+
