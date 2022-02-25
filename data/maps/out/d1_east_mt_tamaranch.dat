@@ -17792,3 +17792,87 @@ dynamic_tile{
   pattern = "1800",
 }
 
+custom_entity{
+  name = "butterfly_31",
+  layer = 2,
+  x = 440,
+  y = 165,
+  width = 16,
+  height = 16,
+  direction = 3,
+  sprite = "entities/animals/seagull",
+  model = "seagull",
+}
+
+custom_entity{
+  name = "butterfly_32",
+  layer = 2,
+  x = 408,
+  y = 133,
+  width = 16,
+  height = 16,
+  direction = 2,
+  sprite = "entities/animals/seagull",
+  model = "seagull",
+}
+
+custom_entity{
+  name = "butterfly_33",
+  layer = 2,
+  x = 584,
+  y = 141,
+  width = 16,
+  height = 16,
+  direction = 3,
+  sprite = "entities/animals/seagull",
+  model = "seagull",
+}
+
+custom_entity{
+  name = "butterfly_34",
+  layer = 2,
+  x = 672,
+  y = 157,
+  width = 16,
+  height = 16,
+  direction = 3,
+  sprite = "entities/animals/seagull",
+  model = "seagull",
+}
+
+custom_entity{
+  name = "butterfly_35",
+  layer = 2,
+  x = 616,
+  y = 157,
+  width = 16,
+  height = 16,
+  direction = 3,
+  sprite = "entities/animals/seagull",
+  model = "seagull",
+}
+
+custom_entity{
+  name = "butterfly_36",
+  layer = 2,
+  x = 704,
+  y = 141,
+  width = 16,
+  height = 16,
+  direction = 3,
+  sprite = "entities/animals/seagull",
+  model = "seagull",
+}
+
+custom_entity{
+  name = "butterfly_37",
+  layer = 2,
+  x = 896,
+  y = 133,
+  width = 16,
+  height = 16,
+  direction = 3,
+  sprite = "entities/animals/seagull",
+  model = "seagull",
+}
+

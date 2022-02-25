@@ -52,8 +52,9 @@ function item:on_obtained(variant)
   if num_pieces_of_heart == 3 then
     game:start_dialog("_treasure.piece_of_heart.2", function()
       game:add_max_life(4)
+      game:set_life(game:get_max_life())
     end)
   end
-  game:add_life(game:get_max_life())
+  game:set_life(game:get_max_life())
 
 end

@@ -1,24 +1,12 @@
 animation{
-  name = "closed",
+  name = "Default",
   src_image = "entities/doors/door_egg_top.png",
   frame_delay = 1000,
   frame_to_loop_on = 0,
   directions = {
-    { x = 0, y = 0, frame_width = 64, frame_height = 32, origin_x = 32, origin_y = 29 },
-    { x = 0, y = 0, frame_width = 64, frame_height = 32, origin_x = 32, origin_y = 29 },
-    { x = 0, y = 0, frame_width = 64, frame_height = 32, origin_x = 32, origin_y = 29 },
-    { x = 0, y = 0, frame_width = 64, frame_height = 32, origin_x = 32, origin_y = 29 },
-  },
-}
-animation{
-  name = "opened",
-  src_image = "entities/doors/door_egg_top.png",
-  frame_delay = 1000,
-  frame_to_loop_on = 0,
-  directions = {
-    { x = 64, y = 0, frame_width = 64, frame_height = 32, origin_x = 32, origin_y = 29 },
-    { x = 64, y = 0, frame_width = 64, frame_height = 32, origin_x = 32, origin_y = 29 },
-    { x = 64, y = 0, frame_width = 64, frame_height = 32, origin_x = 32, origin_y = 29 },
-    { x = 64, y = 0, frame_width = 64, frame_height = 32, origin_x = 32, origin_y = 29 },
+    { x = 0, y = 0, frame_width = 76, frame_height = 16, origin_x = 38, origin_y = 13 },
+    { x = 0, y = 0, frame_width = 76, frame_height = 16, origin_x = 38, origin_y = 13 },
+    { x = 0, y = 0, frame_width = 76, frame_height = 16, origin_x = 38, origin_y = 13 },
+    { x = 0, y = 0, frame_width = 76, frame_height = 16, origin_x = 38, origin_y = 13 },
   },
 }
