@@ -22653,7 +22653,7 @@ tile{
   y = 736,
   width = 16,
   height = 8,
-  pattern = "door_top.stairs_up.2-2",
+  pattern = "door_top.stairs_down.1-1",
 }
 
 tile{
@@ -22671,7 +22671,7 @@ tile{
   y = 976,
   width = 16,
   height = 8,
-  pattern = "door_top.stairs_up.2-2",
+  pattern = "door_top.stairs_down.1-1",
 }
 
 tile{
@@ -22689,7 +22689,7 @@ tile{
   y = 936,
   width = 16,
   height = 8,
-  pattern = "door_top.stairs_up.1-2",
+  pattern = "door_top.stairs_down.2-1",
 }
 
 tile{
@@ -23212,7 +23212,7 @@ tile{
   y = 16,
   width = 16,
   height = 8,
-  pattern = "door_top.stairs_up.2-1",
+  pattern = "door_top.stairs_down.1-1",
 }
 
 tile{
