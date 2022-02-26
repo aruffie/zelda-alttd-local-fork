@@ -71,13 +71,12 @@ function item:on_using()
        }
        dug_entity:bring_to_front()
 
-
       -- Detect treasures
       local x1, y1 = item:get_position_from_index(dig_indexes[1])
       local x2, y2 = item:get_position_from_index(dig_indexes[2])
       local x3, y3 = item:get_position_from_index(dig_indexes[3])
       local x4, y4 = item:get_position_from_index(dig_indexes[4])
-      local treasure_found = false
+      local treasure_found = nil
       for pickable in map:get_entities("auto_shovel") do
         local x_pickable, y_pickable, layer_pickable = pickable:get_position()
         local sprite = pickable:get_sprite()
@@ -97,17 +96,39 @@ function item:on_using()
           treasure_found = pickable
         end
       end
-      if treasure_found then
+      if treasure_found ~= nil then
         treasure_found:bring_to_front()
         treasure_found:set_enabled(true)
       else
-        map:create_pickable{
+        random_treasure = map:create_pickable{
           layer = layer,
           x = x,
           y = y,
           treasure_name = "random",
           treasure_variant = 1,
         }
+        -- The random treasure was replaced by a real pickable, or nil.
+        treasure_found = random_treasure:get_final_pickable()
+      end
+      if treasure_found ~= nil and
+          treasure_found:get_movement() == nil  -- Because hearts already have their own movement.
+          then
+        local movement = sol.movement.create("pixel")
+        movement:set_trajectory({
+          {0, -1},
+          {0, -1},
+          {0, -1},
+          {0, -1},
+          {0, 1},
+          {0, 1},
+          {0, 1},
+          {0, 1},
+          {0, -1},
+          {0, -1},
+          {0, 1},
+          {0, 1}
+        })
+        movement:start(treasure_found)
       end
     end)
   end

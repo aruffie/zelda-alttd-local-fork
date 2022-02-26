@@ -32,6 +32,9 @@ function item:on_pickable_created(pickable)
     }
   end
   pickable:remove()
+  function pickable:get_final_pickable()
+    return pickable
+  end
   game.charm_treasure_is_loading = nil
 end
 
