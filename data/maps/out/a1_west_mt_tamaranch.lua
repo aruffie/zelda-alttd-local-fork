@@ -41,6 +41,9 @@ function map:init_map_entities()
   if game:get_value("travel_2") then
     owl_slab:get_sprite():set_animation("activated")
   end
+  if game:get_value("travel_5") then
+    owl_slab_2:get_sprite():set_animation("activated")
+  end
   
 end
 

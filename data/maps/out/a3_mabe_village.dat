@@ -21938,7 +21938,7 @@ teletransporter{
   name = "dream_shine_1_A",
   layer = 1,
   x = 768,
-  y = 40,
+  y = 56,
   properties = {
     {
       key = "effect",
