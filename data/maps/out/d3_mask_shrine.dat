@@ -15489,8 +15489,8 @@ door{
   y = 48,
   properties = {
     {
-      key = "sound_sword",
-      value = "items/sword_tap_bombable",
+      key = "is_weak",
+      value = "true",
     },
   },
   direction = 0,

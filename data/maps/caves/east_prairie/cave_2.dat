@@ -2379,6 +2379,12 @@ door{
   layer = 0,
   x = 368,
   y = 104,
+  properties = {
+    {
+      key = "is_weak",
+      value = "true",
+    },
+  },
   direction = 2,
   sprite = "entities/doors/door_weak_wall",
   savegame_variable = "east_prairie_cave_2_weak_1",
