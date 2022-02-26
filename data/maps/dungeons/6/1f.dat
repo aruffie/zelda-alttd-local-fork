@@ -22748,7 +22748,7 @@ enemy{
   layer = 0,
   x = 1144,
   y = 517,
-  direction = 0,
+  direction = 2,
   breed = "fireball",
   treasure_name = "random",
 }
@@ -23901,8 +23901,8 @@ enemy{
   name = "enemy_group_29_1",
   layer = 0,
   x = 104,
-  y = 365,
-  direction = 1,
+  y = 357,
+  direction = 0,
   breed = "fireball",
   treasure_name = "random",
 }
@@ -23912,7 +23912,7 @@ enemy{
   layer = 0,
   x = 152,
   y = 293,
-  direction = 0,
+  direction = 2,
   breed = "fireball",
   treasure_name = "random",
 }

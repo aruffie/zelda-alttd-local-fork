@@ -21,7 +21,6 @@ map:register_event("on_started", function()
   treasure_manager:appear_chest_if_savegame_exist(map, "chest_map",  "dungeon_6_map")
   treasure_manager:appear_chest_when_enemies_dead(map, "enemy_group_5_", "chest_map")
   -- Doors
-  map:set_doors_open("door_group_1", true)
   map:set_doors_open("door_group_3", true)
   map:set_doors_open("door_group_7", true)
   map:set_doors_open("door_group_18", true)

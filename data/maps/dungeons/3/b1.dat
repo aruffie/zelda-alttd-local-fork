@@ -3758,7 +3758,7 @@ tile{
 tile{
   layer = 0,
   x = 1488,
-  y = 768,
+  y = 776,
   width = 32,
   height = 16,
   pattern = "wall_torch.1",

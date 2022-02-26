@@ -20591,7 +20591,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/items/bomb_fly",
-  model = "bomb_fly",
+  model = "pickable_fly",
 }
 
 custom_entity{
