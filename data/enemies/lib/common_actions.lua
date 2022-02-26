@@ -742,6 +742,17 @@ function common_actions.learn(enemy)
     local angle = math.atan2(enemy_y - entity_y, entity_x - enemy_x)
     local step_axis = {math.max(-1, math.min(1, entity_x - enemy_x)), math.max(-1, math.min(1, entity_y - enemy_y))}
 
+    -- Returns whether an entity would overlap a teletransporter if moved of some offset.
+    local function overlaps_teletransporter(entity, offset_x, offset_y)
+      local map = entity:get_map()
+      local x, y, width, height = entity:get_bounding_box()
+      for other_entity in map:get_entities_in_rectangle(x + offset_x, y + offset_y, width, height) do
+        if other_entity:get_type() == "teletransporter" and other_entity:get_layer() == entity:get_layer() then
+          return true
+        end
+      end
+    end
+
     local function attract_on_axis(axis)
 
       -- Clean the timer if the entity was removed from outside.
@@ -761,7 +772,10 @@ function common_actions.learn(enemy)
         axis_move_delay = 1000.0 / math.max(1, math.min(1000, math.abs(speed * trigonometric_functions[axis](angle))))
 
         -- Move the entity.
-        if not entity:test_obstacles(axis_move[1], axis_move[2]) then
+        if not entity:test_obstacles(axis_move[1], axis_move[2]) and
+            not overlaps_teletransporter(entity, axis_move[1], axis_move[2]) then
+          -- We have to avoid obstacles and teletransporters explicitly because
+          -- we directly call entity:set_position() instead of using a movement.
           entity:set_position(entity_x + axis_move[1], entity_y + axis_move[2])
         end
       end
