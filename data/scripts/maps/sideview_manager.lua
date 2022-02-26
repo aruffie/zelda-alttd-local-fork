@@ -6,7 +6,7 @@ This script implements gravity and interaction of the hero with ladders, which a
 To initialize, just require it in a game setup script, like features.lua, 
    then call map:set_sidewiew(true) in the on_started event of each map you want to be in sideview mode.
    
-If you need to make things jump like the hero when he uses the feather, then simply do <your_entity>.vspeed=<sosv_utils:me_negative_number>, then the gravity will do the rest.
+If you need to make things jump like the hero when he uses the feather, then simply do <your_entity>.vspeed=<some_negative_number>, then the gravity will do the rest.
 
 In the same way, you can make any entity be affected by gravity by adding "has_gravity" in its custom properties.
 --]]
