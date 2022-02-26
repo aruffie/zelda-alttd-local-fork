@@ -6,7 +6,7 @@ This script implements gravity and interaction of the hero with ladders, which a
 To initialize, just require it in a game setup script, like features.lua, 
    then call map:set_sidewiew(true) in the on_started event of each map you want to be in sideview mode.
    
-If you need to make things jump like the hero when he uses the feather, then simply do <your_entity>.vspeed=<some_negative_number>, then the gravity will do the rest.
+If you need to make things jump like the hero when he uses the feather, then simply do <your_entity>.vspeed=<sosv_utils:me_negative_number>, then the gravity will do the rest.
 
 In the same way, you can make any entity be affected by gravity by adding "has_gravity" in its custom properties.
 --]]
@@ -15,6 +15,7 @@ local map_meta = sol.main.get_metatable("map")
 local hero_meta = sol.main.get_metatable("hero")
 local game_meta = sol.main.get_metatable("game")
 require("scripts/multi_events")
+local sv_utils = require("scripts/tools/sideview_utils")
 local audio_manager = require("scripts/audio_manager")
 local swimming_manager = require("scripts/maps/sideview_swimming_manager")
 local walking_speed = 88
@@ -22,17 +23,6 @@ local ladder_speed = 52
 local gravity = 0.2
 local max_vspeed = 2
 
--- Returns whether the ground at given coordinates is a ladder.
-local function is_position_on_ladder(map, x, y)
-  
-  for entity in map:get_entities_in_rectangle(x, y, 1, 1) do
-    if entity:get_type() == "custom_entity" and entity:get_model() == "ladder" then
-      return true
-    end
-  end
-
-  return false
-end
 
 -- Set the sideview mode flag for the map to the given parameter.
 function map_meta.set_sideview(map, enabled)
@@ -54,38 +44,6 @@ function map_meta.get_vspeed(entity)
   return entity.vspeed or 0
 end
 
--- Return whether the ground over the entity is a ladder.
-local function is_on_ladder(entity)
-
-  local map = entity:get_map()
-  local x, y = entity:get_position() 
-  return is_position_on_ladder(map, x, y - 2) or is_position_on_ladder(map, x, y + 2)
-end
-
--- Return whether the hero is above a ladder.
-local function is_above_ladder(entity)
-
-  local x, y = entity:get_position()
-  return entity:test_obstacles(0, 1) or not is_on_ladder(entity) and is_position_on_ladder(entity:get_map(), x, y + 3)
-end
-
--- Check if an enemy sensible to jump is overlapping the hero, then hurt it and bounce.
-local function on_bounce_possible(entity)
-
-  local map = entity:get_map()
-  local hero = map:get_hero()
-  for enemy in map:get_entities_by_type("enemy") do
-    if hero:overlaps(enemy, "overlapping") and enemy:get_life() > 0 and not enemy:is_immobilized() then
-      local reaction = enemy:get_jump_on_reaction()
-      if reaction ~= "ignored" then
-        enemy:receive_attack_consequence("jump_on", reaction)
-        entity.vspeed = 0 - math.abs(entity.vspeed)
-      end
-    end
-  end
-  return entity.vspeed or 0
-end
-
 
 -- Applies a semi-realistic gravity to the given entity, and resets the vertical speed if the reached a solid obstacle or is above a ladder
 local function update_gravity(entity)
@@ -97,10 +55,10 @@ local function update_gravity(entity)
   -- Update the vertical speed.
   local vspeed = entity.vspeed or 0
   if vspeed > 0 then
-    vspeed = on_bounce_possible(entity)
+    vspeed = sv_utils:on_bounce_possible(entity)
 
     -- Try to apply downwards movement.
-    if entity.has_grabbed_ladder or is_above_ladder(entity) then
+    if entity:has_grabbed_ladder or sv_utils:is_above_ladder(entity) then
 
       -- We are on an obstacle, reset the speed and bail.
       if entity:get_type() == "hero" and not entity.landing_sound_played then
@@ -191,7 +149,7 @@ local function start_gravity(map)
           if not entity.gravity_timer then
             if entity:get_type() == "hero" then
               local x, y = entity:get_position()
-              if not is_on_ladder(entity) and not is_position_on_ladder(map, x, y + 3) then
+              if not sv_utils:is_on_ladder(entity) and not sv_utils:is_position_on_ladder(map, x, y + 3) then
                 entity.landing_sound_played = nil
               end
             end
@@ -241,7 +199,7 @@ local function update_hero(hero)
   local wanted_angle
   local can_move_vertically = true
   local _left, _right, _up, _down
-  local ladder_found = is_on_ladder(hero)
+  local ladder_found = sv_utils:is_on_ladder(hero)
 
   --------------------
   -- Command inputs --
@@ -251,7 +209,7 @@ local function update_hero(hero)
     _up = true
     if ladder_found then
       hero.has_grabbed_ladder = true
-      if is_position_on_ladder(map, x, y) then
+      if sv_utils:is_position_on_ladder(map, x, y) then
         speed = ladder_speed
       end
     else
@@ -259,9 +217,9 @@ local function update_hero(hero)
     end
   elseif command("down") and not command("up") then
     _down = true
-    if ladder_found or is_position_on_ladder(map, x, y + 3) then
+    if ladder_found or sv_utils:is_position_on_ladder(map, x, y + 3) then
       hero.has_grabbed_ladder = true
-      if is_position_on_ladder(map, x, y) then
+      if sv_utils:is_position_on_ladder(map, x, y) then
         speed = ladder_speed
       end
     else
@@ -270,7 +228,7 @@ local function update_hero(hero)
   end
 
   -- Check if we are on the top of a ladder
-  if not (ladder_found or is_position_on_ladder(map, x, y + 3)) then
+  if not (ladder_found or sv_utils:is_position_on_ladder(map, x, y + 3)) then
     hero.has_grabbed_ladder = false
   end
 
@@ -286,7 +244,7 @@ local function update_hero(hero)
   end
 
   -- Force the hero on a ladder if we came from the side
-  if hero:test_obstacles(0, 1) and is_on_ladder(hero) and is_position_on_ladder(map, x, y + 3) then
+  if hero:test_obstacles(0, 1) and sv_utils:is_on_ladder(hero) and sv_utils:is_position_on_ladder(map, x, y + 3) then
     hero.is_jumping = nil
     hero.has_grabbed_ladder = true
   end
@@ -335,9 +293,9 @@ local function update_hero(hero)
   end
 
   if state == "free" and not (hero.frozen) then
-    if hero.has_grabbed_ladder and is_on_ladder(hero) then
+    if hero.has_grabbed_ladder and sv_utils:is_on_ladder(hero) then
       new_animation = speed == 0 and "climbing_stopped" or "climbing_walking"
-    elseif not is_above_ladder(hero) then
+    elseif not sv_utils:is_above_ladder(hero) then
       new_animation = "jumping"
     else
       new_animation = speed == 0 and "stopped" or "walking" 
@@ -359,7 +317,7 @@ game_meta:register_event("on_map_changed", function(game, map)
 
   if map:is_sideview() then
     hero.land_sound_played = true -- Don't play landing sound at the start of the map
-    hero.has_grabbed_ladder = is_on_ladder(hero, -1) 
+    hero.has_grabbed_ladder = sv_utils:is_on_ladder(hero, -1) 
     if hero.has_grabbed_ladder then
       hero:set_walking_speed(ladder_speed)
     end

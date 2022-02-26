@@ -93,7 +93,7 @@ tile{
 tile{
   layer = 0,
   x = 336,
-  y = 0,
+  y = -8,
   width = 304,
   height = 416,
   pattern = "15",
@@ -1498,7 +1498,7 @@ teletransporter{
   y = 264,
   width = 16,
   height = 16,
-  destination_map = "test/sideview",
+  destination_map = "dev/sideview",
   sprite = "entities/misc/teletransporter",
 }
 
@@ -1666,8 +1666,9 @@ teletransporter{
   y = 16,
   width = 16,
   height = 16,
-  destination_map = "test/outside",
-  destination = "destination_2",
+  transition = "immediate",
+  destination_map = "dev/outside",
+  destination = "_same",
   sprite = "entities/misc/teletransporter",
 }
 
@@ -1924,7 +1925,7 @@ teletransporter{
   y = 376,
   width = 16,
   height = 16,
-  destination_map = "test/inside",
+  destination_map = "dev/inside",
   destination = "from_stairs",
 }
 
@@ -1952,7 +1953,7 @@ teletransporter{
   width = 16,
   height = 16,
   transition = "immediate",
-  destination_map = "test/inside",
+  destination_map = "dev/inside",
   destination = "from_hole",
 }
 
@@ -2070,7 +2071,7 @@ teletransporter{
   y = 288,
   width = 16,
   height = 16,
-  destination_map = "test/A",
+  destination_map = "dev/A",
 }
 
 stream{

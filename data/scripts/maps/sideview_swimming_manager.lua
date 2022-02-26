@@ -4,6 +4,7 @@
 --
 ----------------------------------
 local swimming_manager = {}
+local sv_utils = require("scripts/tools/sideview_utils")
 
 -- Global variables.
 local is_swimming = false
@@ -46,8 +47,14 @@ local function stop_swimming(hero)
 end
 
 -- Update the hero while swimming.
-local function update_hero()
-
+local function update_hero(hero)
+  local state, cstate = hero:get_state()
+  local desc = cstate and cstate:get_description() or ""
+  local x, y, layer = hero:get_position()
+  local new_animation
+  local movement = hero:get_movement()
+  local speed = movement and movement:get_speed() or 0
+  
   if desc == "sideview_swim" then
     if speed ~= 0 then
       new_animation = "swimming_scroll"
@@ -66,9 +73,9 @@ local function update_hero()
 
   if state=="free" and not (hero.frozen) then
     if speed ~= 0 then
-      if hero.has_grabbed_ladder and check_for_ladder(hero) then
+      if hero.has_grabbed_ladder and sv_utils:check_for_ladder(hero) then
         new_animation = "climbing_walking"
-      elseif not is_on_ground(hero) then
+      elseif not sv_utils:is_on_ground(hero) then
         if map:get_ground(x, y + 4, layer) == "deep_water" then
           new_animation ="swimming_scroll"
         else
@@ -78,9 +85,9 @@ local function update_hero()
         new_animation = "walking"
       end
     else
-      if hero.has_grabbed_ladder and check_for_ladder(hero) then
+      if hero.has_grabbed_ladder and sv_utils:check_for_ladder(hero) then
         new_animation = "climbing_stopped"
-      elseif not is_on_ground(hero) then
+      elseif not sv_utils:is_on_ground(hero) then
         if map:get_ground(x, y + 4, layer)=="deep_water" then
           new_animation = "stopped_swimming_scroll"
         else

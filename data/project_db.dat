@@ -159,11 +159,6 @@ map{ id = "sideviews/mabe_village/sideview_1", description = "Sideview 1" }
 map{ id = "sideviews/mambos_cave/mambos_cave", description = "Mambo's cave" }
 map{ id = "sideviews/martha_bay/sideview_1", description = "Sideview 1" }
 map{ id = "sideviews/martha_bay/sideview_2", description = "Sideview 2" }
-map{ id = "test/A", description = "A" }
-map{ id = "test/B", description = "B" }
-map{ id = "test/inside", description = "Test map 2" }
-map{ id = "test/outside", description = "Test map" }
-map{ id = "test/sideview", description = "Test map (sideviews)" }
 
 tileset{ id = "addition/dungeon", description = "Dungeon additions" }
 tileset{ id = "addition/out", description = "Out additions" }
