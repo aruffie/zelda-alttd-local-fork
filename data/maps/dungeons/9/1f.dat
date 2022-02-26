@@ -18263,9 +18263,9 @@ dynamic_tile{
 wall{
   layer = 1,
   x = 1408,
-  y = 32,
+  y = 40,
   width = 32,
-  height = 24,
+  height = 16,
   stops_hero = true,
   stops_npcs = true,
   stops_enemies = true,
@@ -18280,7 +18280,7 @@ chest{
   y = 53,
   treasure_name = "boss_key",
   treasure_savegame_variable = "dungeon_9_boss_key",
-  sprite = "entities/big_chest",
+  sprite = "entities/chests/chest_big",
 }
 
 jumper{

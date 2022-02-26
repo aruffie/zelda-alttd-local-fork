@@ -26133,6 +26133,19 @@ stairs{
   subtype = 3,
 }
 
+wall{
+  layer = 0,
+  x = 2032,
+  y = 336,
+  width = 32,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
 tile{
   layer = 1,
   x = 96,
@@ -28646,6 +28659,19 @@ tile{
   pattern = "barrier.1-1",
 }
 
+wall{
+  layer = 1,
+  x = 368,
+  y = 1248,
+  width = 32,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
 chest{
   name = "chest_power_bracelet",
   layer = 1,
@@ -29499,16 +29525,6 @@ jumper{
   jump_length = 40,
 }
 
-chest{
-  name = "chest_boss_key",
-  layer = 1,
-  x = 2048,
-  y = 349,
-  treasure_name = "boss_key",
-  treasure_savegame_variable = "dungeon_6_boss_key",
-  sprite = "entities/chests/chest_big",
-}
-
 custom_entity{
   layer = 1,
   x = 728,
@@ -29675,6 +29691,16 @@ stairs{
   y = 24,
   direction = 1,
   subtype = 0,
+}
+
+chest{
+  name = "chest_boss_key",
+  layer = 1,
+  x = 2048,
+  y = 349,
+  treasure_name = "boss_key",
+  treasure_savegame_variable = "dungeon_6_boss_key",
+  sprite = "entities/chests/chest_big",
 }
 
 tile{

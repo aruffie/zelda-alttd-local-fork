@@ -11674,16 +11674,6 @@ custom_entity{
   direction = 0,
 }
 
-chest{
-  name = "chest_pegasus_shoes_2",
-  layer = 0,
-  x = 1408,
-  y = 325,
-  treasure_name = "pegasus_shoes",
-  treasure_savegame_variable = "dungeon_3_pegasus_shoes",
-  sprite = "entities/chests/chest_big",
-}
-
 destination{
   name = "destination_ocarina",
   layer = 0,
@@ -12729,6 +12719,29 @@ destination{
   y = 1893,
   direction = 1,
   default = true,
+}
+
+wall{
+  layer = 0,
+  x = 1392,
+  y = 312,
+  width = 32,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+chest{
+  name = "chest_pegasus_shoes_2",
+  layer = 0,
+  x = 1408,
+  y = 325,
+  treasure_name = "pegasus_shoes",
+  treasure_savegame_variable = "dungeon_3_pegasus_shoes",
+  sprite = "entities/chests/chest_big",
 }
 
 tile{
@@ -14326,16 +14339,6 @@ custom_entity{
   model = "pickable_fly",
 }
 
-chest{
-  name = "chest_boss_key",
-  layer = 1,
-  x = 1888,
-  y = 293,
-  treasure_name = "boss_key",
-  treasure_savegame_variable = "dungeon_3_boss_key",
-  sprite = "entities/chests/chest_big",
-}
-
 custom_entity{
   layer = 1,
   x = 792,
@@ -14412,6 +14415,29 @@ sensor{
   y = 493,
   width = 32,
   height = 16,
+}
+
+wall{
+  layer = 1,
+  x = 1872,
+  y = 280,
+  width = 32,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+chest{
+  name = "chest_boss_key",
+  layer = 1,
+  x = 1888,
+  y = 293,
+  treasure_name = "boss_key",
+  treasure_savegame_variable = "dungeon_3_boss_key",
+  sprite = "entities/chests/chest_big",
 }
 
 tile{

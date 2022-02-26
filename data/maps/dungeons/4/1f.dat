@@ -17038,16 +17038,6 @@ tile{
 }
 
 chest{
-  name = "chest_boss_key",
-  layer = 1,
-  x = 728,
-  y = 1277,
-  treasure_name = "boss_key",
-  treasure_savegame_variable = "dungeon_4_boss_key",
-  sprite = "entities/chests/chest_big",
-}
-
-chest{
   name = "chest_map",
   layer = 1,
   x = 1656,
@@ -17087,16 +17077,6 @@ custom_entity{
   direction = 0,
   sprite = "entities/items/heart_fly",
   model = "heart_fly",
-}
-
-chest{
-  name = "chest_flippers",
-  layer = 1,
-  x = 1104,
-  y = 85,
-  treasure_name = "flippers",
-  treasure_savegame_variable = "dungeon_4_flippers",
-  sprite = "entities/chests/chest_big",
 }
 
 sensor{
@@ -17164,6 +17144,52 @@ stairs{
   y = 1168,
   direction = 1,
   subtype = 3,
+}
+
+wall{
+  layer = 1,
+  x = 712,
+  y = 1264,
+  width = 32,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+chest{
+  name = "chest_boss_key",
+  layer = 1,
+  x = 728,
+  y = 1277,
+  treasure_name = "boss_key",
+  treasure_savegame_variable = "dungeon_4_boss_key",
+  sprite = "entities/chests/chest_big",
+}
+
+wall{
+  layer = 1,
+  x = 1088,
+  y = 72,
+  width = 32,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+chest{
+  name = "chest_flippers",
+  layer = 1,
+  x = 1104,
+  y = 85,
+  treasure_name = "flippers",
+  treasure_savegame_variable = "dungeon_4_flippers",
+  sprite = "entities/chests/chest_big",
 }
 
 tile{
