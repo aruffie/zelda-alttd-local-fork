@@ -38,8 +38,11 @@ function map:init_map_entities()
   end
   -- Baton and bridge
   if not game:is_step_done("castle_bridge_built") then
+    monkey:get_sprite():set_animation("waiting")
     baton:set_enabled(false)
-    bridge:set_enabled(false)
+    for bridge in map:get_entities("bridge_") do
+      bridge:set_enabled(false)
+    end
   else
     monkey:set_enabled(false)
   end
@@ -187,16 +190,7 @@ function map:launch_cinematic_1()
       end
     end)
     timer_music:set_suspended_with_map(false)
-    local movement_monkey = sol.movement.create("target")
-    movement_monkey:set_target(monkey_0)
-    movement_monkey:set_speed(60)
-    movement_monkey:set_ignore_obstacles(true)
-    movement_monkey:set_ignore_suspend(true)
-    movement_monkey:start(monkey)
-    function movement_monkey:on_finished()
-      monkey:get_sprite():set_animation("stopped")
-      movement_monkey:stop()
-    end
+    monkey:get_sprite():set_animation("waiting")
     local num_monkeys_arrived = 0
     for i = 1, 10 do
       local x_random = math.random(-128, 128)
@@ -239,10 +233,12 @@ function map:launch_cinematic_1()
           end
           if num_monkeys_arrived == 9 then
             local timer = sol.timer.start(monkey, 9000, function()
-              bridge:set_enabled(true)
+              for bridge in map:get_entities("bridge_") do
+                bridge:set_enabled(true)
+              end
               baton:set_enabled(true)
               audio_manager:play_sound("misc/secret1")
-              monkey:get_sprite():set_animation("stopped")
+              monkey:get_sprite():set_animation("waiting")
               monkey:get_sprite():set_direction(3)
               game:start_dialog("maps.out.kanalet_castle.monkey_5", function()
                 animation_finished = true
