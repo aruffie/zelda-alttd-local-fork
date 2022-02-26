@@ -21621,8 +21621,8 @@ door{
   y = 80,
   properties = {
     {
-      key = "sound_sword",
-      value = "items/sword_tap_bombable",
+      key = "is_weak",
+      value = "true",
     },
   },
   direction = 0,
@@ -21716,8 +21716,8 @@ door{
   y = 16,
   properties = {
     {
-      key = "sound_sword",
-      value = "items/sword_tap_bombable",
+      key = "is_weak",
+      value = "true",
     },
   },
   direction = 0,

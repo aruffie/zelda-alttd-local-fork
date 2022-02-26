@@ -12694,6 +12694,12 @@ door{
   layer = 1,
   x = 440,
   y = 32,
+  properties = {
+    {
+      key = "is_weak",
+      value = "true",
+    },
+  },
   direction = 0,
   sprite = "entities/doors/door_weak_wall_out",
   savegame_variable = "d4_yarna_desert_weak_1",

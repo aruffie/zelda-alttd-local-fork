@@ -2293,7 +2293,13 @@ door{
   layer = 0,
   x = 136,
   y = 288,
-  direction = 3,
+  properties = {
+    {
+      key = "is_weak",
+      value = "true",
+    },
+  },
+  direction = 1,
   sprite = "entities/doors/door_weak_wall",
   savegame_variable = "yarna_desert_cave_2_weak_1",
   opening_method = "explosion",
@@ -2302,8 +2308,8 @@ door{
 dynamic_tile{
   name = "weak_door_1_closed_1",
   layer = 0,
-  x = 128,
-  y = 280,
+  x = 136,
+  y = 320,
   width = 32,
   height = 24,
   pattern = "wall_low.1-2",
@@ -2394,7 +2400,7 @@ sensor{
   name = "sensor_2",
   layer = 0,
   x = 144,
-  y = 317,
+  y = 301,
   properties = {
     {
       key = "save_solid_ground",
