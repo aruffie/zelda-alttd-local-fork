@@ -19533,24 +19533,28 @@ crystal_block{
 
 custom_entity{
   layer = 0,
-  x = 1696,
-  y = 1325,
+  x = 1704,
+  y = 1341,
   width = 32,
   height = 32,
+  origin_x = 16,
+  origin_y = 29,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
-  model = "heavy_object",
+  model = "statue_elephant",
 }
 
 custom_entity{
   layer = 0,
-  x = 1808,
-  y = 1325,
+  x = 1816,
+  y = 1341,
   width = 32,
   height = 32,
+  origin_x = 16,
+  origin_y = 29,
   direction = 2,
   sprite = "entities/destructibles/statue_elephant",
-  model = "heavy_object",
+  model = "statue_elephant",
 }
 
 stream{
@@ -19827,46 +19831,54 @@ stream{
 
 custom_entity{
   layer = 0,
-  x = 1480,
-  y = 1573,
-  width = 32,
-  height = 32,
-  direction = 0,
-  sprite = "entities/destructibles/statue_elephant",
-  model = "heavy_object",
-}
-
-custom_entity{
-  layer = 0,
-  x = 1384,
+  x = 1488,
   y = 1589,
   width = 32,
   height = 32,
+  origin_x = 16,
+  origin_y = 29,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
-  model = "heavy_object",
+  model = "statue_elephant",
 }
 
 custom_entity{
   layer = 0,
-  x = 896,
-  y = 1293,
+  x = 1392,
+  y = 1605,
   width = 32,
   height = 32,
+  origin_x = 16,
+  origin_y = 29,
+  direction = 0,
+  sprite = "entities/destructibles/statue_elephant",
+  model = "statue_elephant",
+}
+
+custom_entity{
+  layer = 0,
+  x = 904,
+  y = 1309,
+  width = 32,
+  height = 32,
+  origin_x = 16,
+  origin_y = 29,
   direction = 2,
   sprite = "entities/destructibles/statue_elephant",
-  model = "heavy_object",
+  model = "statue_elephant",
 }
 
 custom_entity{
   layer = 0,
-  x = 848,
-  y = 1293,
+  x = 856,
+  y = 1309,
   width = 32,
   height = 32,
+  origin_x = 16,
+  origin_y = 29,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
-  model = "heavy_object",
+  model = "statue_elephant",
 }
 
 chest{
@@ -19882,13 +19894,15 @@ chest{
 
 custom_entity{
   layer = 0,
-  x = 792,
-  y = 1013,
+  x = 800,
+  y = 1029,
   width = 32,
   height = 32,
+  origin_x = 16,
+  origin_y = 29,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
-  model = "heavy_object",
+  model = "arrow",
 }
 
 crystal_block{
@@ -19982,35 +19996,41 @@ chest{
 
 custom_entity{
   layer = 0,
-  x = 136,
-  y = 333,
+  x = 144,
+  y = 349,
   width = 32,
   height = 32,
+  origin_x = 16,
+  origin_y = 29,
   direction = 2,
   sprite = "entities/destructibles/statue_elephant",
-  model = "heavy_object",
+  model = "arrow",
 }
 
 custom_entity{
   layer = 0,
-  x = 88,
-  y = 333,
+  x = 96,
+  y = 349,
   width = 32,
   height = 32,
+  origin_x = 16,
+  origin_y = 29,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
-  model = "heavy_object",
+  model = "arrow",
 }
 
 custom_entity{
   layer = 0,
-  x = 1832,
-  y = 589,
+  x = 1840,
+  y = 605,
   width = 32,
   height = 32,
+  origin_x = 16,
+  origin_y = 29,
   direction = 2,
   sprite = "entities/destructibles/statue_elephant",
-  model = "heavy_object",
+  model = "arrow",
 }
 
 crystal{
@@ -20051,10 +20071,12 @@ enemy{
 
 custom_entity{
   layer = 0,
-  x = 440,
-  y = 1117,
+  x = 472,
+  y = 1133,
   width = 32,
   height = 32,
+  origin_x = 16,
+  origin_y = 29,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
   model = "statue_elephant",
@@ -20062,10 +20084,12 @@ custom_entity{
 
 custom_entity{
   layer = 0,
-  x = 472,
-  y = 1277,
+  x = 480,
+  y = 1301,
   width = 32,
   height = 32,
+  origin_x = 16,
+  origin_y = 29,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
   model = "statue_elephant",
@@ -21777,13 +21801,15 @@ block{
 
 custom_entity{
   layer = 0,
-  x = 784,
-  y = 797,
+  x = 792,
+  y = 813,
   width = 32,
   height = 32,
+  origin_x = 16,
+  origin_y = 29,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
-  model = "heavy_object",
+  model = "arrow",
 }
 
 block{
@@ -23884,17 +23910,6 @@ destructible{
   sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
-}
-
-custom_entity{
-  layer = 0,
-  x = 488,
-  y = 1117,
-  width = 32,
-  height = 32,
-  direction = 2,
-  sprite = "entities/destructibles/statue_elephant",
-  model = "statue_elephant",
 }
 
 enemy{
@@ -26007,13 +26022,15 @@ stairs{
 
 custom_entity{
   layer = 0,
-  x = 1672,
-  y = 589,
+  x = 1680,
+  y = 605,
   width = 32,
   height = 32,
+  origin_x = 16,
+  origin_y = 29,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
-  model = "heavy_object",
+  model = "arrow",
 }
 
 teletransporter{
