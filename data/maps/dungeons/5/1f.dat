@@ -12967,6 +12967,19 @@ tile{
   pattern = "door.1",
 }
 
+wall{
+  layer = 0,
+  x = 1664,
+  y = 1024,
+  width = 32,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
 dynamic_tile{
   name = "boss_collapsing_floor_3",
   layer = 0,
@@ -18856,16 +18869,6 @@ wall{
   stops_projectiles = true,
 }
 
-chest{
-  name = "chest_boss_key",
-  layer = 0,
-  x = 1040,
-  y = 317,
-  treasure_name = "boss_key",
-  treasure_savegame_variable = "dungeon_5_boss_key",
-  sprite = "entities/chests/chest_big",
-}
-
 destination{
   name = "destination_ocarina",
   layer = 0,
@@ -19822,6 +19825,29 @@ destination{
   y = 1893,
   direction = 1,
   default = true,
+}
+
+wall{
+  layer = 0,
+  x = 1024,
+  y = 304,
+  width = 32,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+chest{
+  name = "chest_boss_key",
+  layer = 0,
+  x = 1040,
+  y = 317,
+  treasure_name = "boss_key",
+  treasure_savegame_variable = "dungeon_5_boss_key",
+  sprite = "entities/chests/chest_big",
 }
 
 tile{

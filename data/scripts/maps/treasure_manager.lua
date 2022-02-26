@@ -220,6 +220,33 @@ function treasure_manager:appear_chest(map, chest, sound)
 
   local chest = map:get_entity(chest)
   local game = map:get_game()
+  local chest_width, chest_height = chest:get_size()
+  local chest_sprite_width, _ = chest:get_sprite():get_size()
+  if chest_sprite_width > chest_width then
+    -- We need to create a wall so that the hero does not overlap the chest sprite.
+    local chest_x, chest_y, layer = chest:get_position()
+    local chest_origin_x, chest_origin_y = chest:get_origin()
+    local wall = map:create_wall({
+      layer = layer,
+      x = chest_x - chest_origin_x - 8,
+      y = chest_y - chest_origin_y,
+      width = chest_sprite_width,
+      height = chest_height,
+      stops_hero = true,
+      stops_npcs = true,
+      stops_enemies = true,
+      stops_blocks = true,
+      stops_projectiles = true,
+      enabled_at_start = false,
+    })
+    sol.timer.start(map, 0, function()
+      if not map:get_hero():overlaps(wall) then
+        wall:set_enabled(true)
+        return false
+      end
+      return 10
+    end)
+  end
   chest:set_enabled(true)
   if sound ~= nil and sound ~= false then
     audio_manager:play_sound("misc/secret1")
