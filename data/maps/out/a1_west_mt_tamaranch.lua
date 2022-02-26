@@ -72,4 +72,5 @@ function temp_sensor:on_activated()
 
   temp_sensor:set_enabled(false)
   turtlerock_head:start_awakening()
+
 end

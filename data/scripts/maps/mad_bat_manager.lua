@@ -153,7 +153,6 @@ function mad_bat_manager:launch_laser(map, mad_bat_name, savegame)
           end
           if item_name == "bombs" then
             local item = game:get_item("bombs_counter")
-            local item = game:get_item("magic_powder_bag")
             item:set_variant(2)
           end
           audio_manager:play_music("18_cave")

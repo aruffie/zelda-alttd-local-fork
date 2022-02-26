@@ -34,7 +34,9 @@ function map:init_map_entities()
   local variant = item:get_variant()
   -- Castle door
   if game:get_value("castle_door_is_open") then
-    castle_door:set_enabled(false)
+    for castle_door in map:get_entities("castle_door_") do
+      castle_door:set_enabled(false)
+    end
   end
   -- Baton and bridge
   if not game:is_step_done("castle_bridge_built") then
