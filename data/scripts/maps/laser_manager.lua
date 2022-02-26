@@ -31,7 +31,7 @@ function laser_manager:start(map, entity, source, callback)
   laser_sprite = sol.sprite.create("entities/effects/lightning_strike")
   -- Play a repeated sound.
   sound_timer = sol.timer.start(map, 150, function()
-    audio_manager:play_sound("laser")
+    audio_manager:play_sound("enemies/laser")
     return true  -- Repeat the timer.
   end)
   effect_model.start_effect(surface, game, 'in', false)

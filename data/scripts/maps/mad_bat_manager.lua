@@ -1,4 +1,5 @@
 local mad_bat_manager = {}
+local audio_manager = require("scripts/audio_manager")
 local laser_manager = require("scripts/maps/laser_manager")
 local is_awake = false
 mad_bat_manager.items = {"magic_powder", "bombs", "arrows"}
@@ -14,10 +15,10 @@ function mad_bat_manager:init_map(map, mad_bat_name, savegame)
     if other:get_type() == "custom_entity" then
       local other_model = other:get_model()
       local savegame_value = game:get_value(savegame)
-      if other_model == "fire" and is_awake == false and savegame_value == nil then
+      if other_model == "powder" and is_awake == false and savegame_value == nil then
         is_awake = true
-         hero:set_direction(1)
-         mad_bat_manager:awakening(map, mad_bat_name, savegame)
+        hero:set_direction(1)
+        mad_bat_manager:awakening(map, mad_bat_name, savegame)
       end
     end
   end)
@@ -32,9 +33,9 @@ function mad_bat_manager:awakening(map, mad_bat_name, savegame)
   local hero = map:get_hero()
   local bat_x,bat_y,bat_layer =  mad_bat:get_position()
   local hero_x,hero_y,hero_layer =  hero:get_position()
+  sol.audio.stop_music()
   hero:set_animation("stopped")
-  game:set_pause_allowed(false)
-  game:set_suspended(true)
+  map:set_cinematic_mode(true)
   bat_y = bat_y - 24
   local npc = map:create_custom_entity({
     name = mad_bat_name .. "_npc",
@@ -130,7 +131,7 @@ function mad_bat_manager:launch_laser(map, mad_bat_name, savegame)
     if animation == "cursing" then
       npc_sprite:set_animation("walking")
       local hero = map:get_hero()
-      laser_manager:init_map(map, hero, npc, function()
+      laser_manager:start(map, hero, npc, function()
         game:start_dialog("scripts.meta.map.mad_bat_3", function()
           npc:remove()
           audio_manager:play_sound(mad_bat_name .. "_disappear")
@@ -155,6 +156,8 @@ function mad_bat_manager:launch_laser(map, mad_bat_name, savegame)
             local item = game:get_item("magic_powder_bag")
             item:set_variant(2)
           end
+          audio_manager:play_music("18_cave")
+          map:set_cinematic_mode(false)
         end)
       end)
     end
