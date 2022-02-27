@@ -1,0 +1,3 @@
+include:
+  - https://gitlab.com/solarus-games/solarus-devops/raw/master/gitlab/quests.yml
+

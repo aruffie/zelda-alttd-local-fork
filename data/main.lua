@@ -39,7 +39,7 @@ function sol.main:on_started()
   sol.menu.start(sol.main, initial_menus[1], on_top)
   for i, menu in ipairs(initial_menus) do
     function menu:on_finished()
-      if sol.main.game ~= nil then
+      if sol.main.get_game() ~= nil then
         -- A game is already running (probably quick start with a debug key).
         return
       end
@@ -59,13 +59,15 @@ function sol.main:on_finished()
 
 end
 
-local effect_manager = require('scripts/maps/effect_manager')
-local fsa = require('scripts/maps/fsa_effect')
-local gb = require('scripts/maps/gb_effect')
 local audio_manager = require('scripts/audio_manager')
 
 -- Event called when the player pressed a keyboard key.
 function sol.main:on_key_pressed(key, modifiers)
+
+  -- Require shader scripts as late as possible so that unit tests can run without a window.
+  local effect_manager = require('scripts/maps/effect_manager')
+  local fsa = require('scripts/maps/fsa_effect')
+  local gb = require('scripts/maps/gb_effect')
 
   local handled = false
   local game = sol.main.get_game()

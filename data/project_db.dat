@@ -166,6 +166,7 @@ map{ id = "test/inside", description = "Test map 2" }
 map{ id = "test/martha_test_B", description = "martha test B" }
 map{ id = "test/outside", description = "Test map" }
 map{ id = "test/sideview", description = "Test map (sideviews)" }
+map{ id = "tests/entities/test_carriable_on_stream", description = "Carriable entity tests" }
 
 tileset{ id = "addition/dungeon", description = "Dungeon additions" }
 tileset{ id = "addition/out", description = "Out additions" }
@@ -2244,6 +2245,8 @@ file{ path = "maps/sideviews/martha_bay/sideview_1.dat", author = "Benjamin Schw
 file{ path = "maps/sideviews/martha_bay/sideview_1.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/sideviews/martha_bay/sideview_2.dat", author = "Benjamin Schweitzer", license = "CC BY-SA 4.0" }
 file{ path = "maps/sideviews/martha_bay/sideview_2.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
+file{ path = "maps/tests/entities/test_carriable_on_stream.dat", author = "Christopho", license = "CC BY-SA 4.0" }
+file{ path = "maps/tests/entities/test_carriable_on_stream.lua", author = "Christopho", license = "GPL v3" }
 file{ path = "musics", author = "Nintendo, Farockt", license = "Proprietary, Fair use" }
 file{ path = "musics/gb", author = "Nintendo", license = "Proprietary, Fair use" }
 file{ path = "musics/gb/01_introduction.ogg", author = "Nintendo", license = "Proprietary, Fair use" }
