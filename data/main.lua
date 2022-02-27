@@ -50,6 +50,13 @@ function sol.main:on_started()
     end
   end
 
+  local game_meta = sol.main.get_metatable("game")
+  game_meta:register_event("on_started", function(game)
+    -- Skip initial menus when a game starts.
+    for _, menu in ipairs(initial_menus) do
+      sol.menu.stop(menu)
+    end
+  end)
 end
 
 -- Event called when the program stops.
