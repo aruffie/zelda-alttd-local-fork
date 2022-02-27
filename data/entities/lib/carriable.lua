@@ -249,12 +249,13 @@ function carriable_behavior.apply(carriable, properties)
     -- Function called when the carriable has fallen.
     local function finish_bounce()
       carriable:stop_movement()
+      carriable:set_follow_streams(true)
       set_animation_if_exists("stopped")
       if carriable.on_finish_throw then
         carriable:on_finish_throw() -- Call event
       end
     end
-      
+
     -- Function to bounce when carriable is thrown.
     local function bounce()
 
@@ -310,6 +311,7 @@ function carriable_behavior.apply(carriable, properties)
             end
           end
         end
+        carriable:set_follow_streams(false)
         is_bounce_movement_starting = false
         movement:start(carriable)
       end

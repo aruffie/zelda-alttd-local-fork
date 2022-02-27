@@ -20,47 +20,57 @@ function game_manager:create(file)
     initial_game:initialize_new_savegame(game)
   end
 
-  function game:get_player_name()
-
-    local name = self:get_value("player_name")
-    local hero_is_thief = game:get_value("hero_is_thief")
-    if hero_is_thief then
-      name = sol.language.get_string("game.thief")
-    end
-    return name
-  end
-
-  function game:set_player_name(player_name)
-    self:set_value("player_name", player_name)
-  end
-
-  -- Returns whether the current map is in the inside world.
-  function game:is_in_inside_world()
-    return game:get_map():get_world() == "inside_world"
-  end
-
-  -- Returns whether the current map is in the outside world.
-  function game:is_in_outside_world()
-    return game:get_map():get_world() == "outside_world"
-  end
-
-  -- Returns whether the current map is in a dungeon.
-  function game:is_in_dungeon()
-    return game:get_dungeon() ~= nil
-  end
-
-  -- Returns whether something is consuming magic continuously.
-  function game:is_magic_decreasing()
-    return game.magic_decreasing or false
-  end
-
-  -- Sets whether something is consuming magic continuously.
-  function game:set_magic_decreasing(magic_decreasing)
-    game.magic_decreasing = magic_decreasing
-  end
-
   return game
-  
+
 end
+
+local game_meta = sol.main.get_metatable("game")
+
+function game_meta:get_player_name()
+
+  local game = self
+  local name = game:get_value("player_name")
+  local hero_is_thief = game:get_value("hero_is_thief")
+  if hero_is_thief then
+    name = sol.language.get_string("game.thief")
+  end
+  return name
+end
+
+function game_meta:set_player_name(player_name)
+  local game = self
+  game:set_value("player_name", player_name)
+end
+
+-- Returns whether the current map is in the inside world.
+function game_meta:is_in_inside_world()
+  local game = self
+  return game:get_map():get_world() == "inside_world"
+end
+
+-- Returns whether the current map is in the outside world.
+function game_meta:is_in_outside_world()
+  local game = self
+  return game:get_map():get_world() == "outside_world"
+end
+
+-- Returns whether the current map is in a dungeon.
+function game_meta:is_in_dungeon()
+  local game = self
+  return game:get_dungeon() ~= nil
+end
+
+-- Returns whether something is consuming magic continuously.
+function game_meta:is_magic_decreasing()
+  local game = self
+  return game.magic_decreasing or false
+end
+
+-- Sets whether something is consuming magic continuously.
+function game_meta:set_magic_decreasing(magic_decreasing)
+  local game = self
+  game.magic_decreasing = magic_decreasing
+end
+
 
 return game_manager

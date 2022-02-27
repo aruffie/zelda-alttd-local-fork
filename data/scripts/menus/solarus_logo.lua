@@ -213,6 +213,12 @@ function solarus_logo_menu:on_key_pressed(key)
   end
 end
 
+local game_meta = sol.main.get_metatable("game")
+game_meta:register_event("on_started", function()
+  -- A game was started during the logo, possibly from a debug key or automated tests.
+  sol.menu.stop(solarus_logo_menu)
+end)
+
 -- Return the menu to the caller.
 return solarus_logo_menu
 

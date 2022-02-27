@@ -1,0 +1,5 @@
+include:
+  - https://gitlab.com/solarus-games/solarus-devops/raw/master/gitlab/quests.yml
+
+variables:
+  SOLARUS_REF: v1.6.5

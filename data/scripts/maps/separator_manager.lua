@@ -9,7 +9,6 @@
 -- - Bombs.
 
 local separator_manager = {}
-local light_manager_fsa = require("scripts/maps/light_manager")
 require("scripts/multi_events")
 local entity_respawn_manager=require("scripts/maps/entity_respawn_manager")
 
