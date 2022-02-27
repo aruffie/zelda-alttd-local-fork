@@ -78,44 +78,44 @@ weak_wall_B_1:register_event("on_opened", function()
 end)
 
 -- Sensors events
-function sensor_1:on_activated()
+sensor_1:register_event("on_activated", function()
 
   flying_tile_manager:init(map, "enemy_group_11")
 
-end
+end)
 
-function sensor_2:on_activated()
+sensor_2:register_event("on_activated", function()
 
   if flying_tile_manager.is_launch == false then
     map:close_doors("door_group_7")
     flying_tile_manager:launch(map, "enemy_group_11")
  end
 
-end
+end)
 
-function sensor_3:on_activated()
+sensor_3:register_event("on_activated", function()
 
   flying_tile_manager:reset(map, "enemy_group_11")
 
-end
+end)
 
-function sensor_4:on_activated()
+sensor_4:register_event("on_activated", function()
 
   flying_tile_manager:init(map, "enemy_group_11")
   map:set_doors_open("door_group_8", true)
 
-end
+end)
 
-function sensor_5:on_activated()
+sensor_5:register_event("on_activated", function()
 
   if flying_tile_manager.is_launch == false then
     map:close_doors("door_group_7")
     flying_tile_manager:launch(map, "enemy_group_11")
  end
 
-end
+end)
 
-function sensor_6:on_activated()
+sensor_6:register_event("on_activated", function()
 
   flying_tile_manager:reset(map, "enemy_group_11")
   local direction4 = hero:get_direction()
@@ -123,9 +123,9 @@ function sensor_6:on_activated()
     map:close_doors("door_group_8")
   end
 
-end
+end)
 
-function sensor_7:on_activated()
+sensor_7:register_event("on_activated", function()
 
   local direction4 = hero:get_direction()
   if direction4 == 0 then
@@ -134,9 +134,9 @@ function sensor_7:on_activated()
     door_manager:close_if_enemies_not_dead(map, "enemy_group_12", "door_group_17")
   end
 
-end
+end)
 
-function sensor_8:on_activated()
+sensor_8:register_event("on_activated", function()
 
   local direction4 = hero:get_direction()
   if direction4 == 3 then
@@ -145,9 +145,9 @@ function sensor_8:on_activated()
     door_manager:close_if_enemies_not_dead(map, "enemy_group_12", "door_group_17")
   end
 
-end
+end)
 
-function sensor_9:on_activated()
+sensor_9:register_event("on_activated", function()
 
   local direction4 = hero:get_direction()
   if direction4 == 1 then
@@ -156,9 +156,9 @@ function sensor_9:on_activated()
     door_manager:close_if_enemies_not_dead(map, "enemy_group_12", "door_group_17")
   end
 
-end
+end)
 
-function sensor_10:on_activated()
+sensor_10:register_event("on_activated", function()
 
   flying_tile_manager:reset(map, "enemy_group_11")
   map:set_doors_open("door_group_8", true)
@@ -169,33 +169,33 @@ function sensor_10:on_activated()
       map:close_doors("door_group_8")
   end
 
-end
+end)
 
-function sensor_11:on_activated()
-
-  map:set_doors_open("door_group_8", true)
-  map:set_doors_open("door_group_10", true)
-  map:set_doors_open("door_group_17", true)
-
-end
-
-
-function sensor_12:on_activated()
+sensor_11:register_event("on_activated", function()
 
   map:set_doors_open("door_group_8", true)
   map:set_doors_open("door_group_10", true)
   map:set_doors_open("door_group_17", true)
 
-end
+end)
 
-function sensor_13:on_activated()
+
+sensor_12:register_event("on_activated", function()
+
+  map:set_doors_open("door_group_8", true)
+  map:set_doors_open("door_group_10", true)
+  map:set_doors_open("door_group_17", true)
+
+end)
+
+sensor_13:register_event("on_activated", function()
 
   local x,y = infinite_hallway:get_position()
   hero:set_position(x,y)
 
-end
+end)
 
-function sensor_14:on_activated()
+sensor_14:register_event("on_activated", function()
 
   if is_boss_active == false then
     is_boss_active = true
@@ -208,84 +208,93 @@ function sensor_14:on_activated()
       game:start_dialog("maps.dungeons.6.boss_dying")
     end
   end
-end
 
-function sensor_16:on_activated()
+end)
+
+sensor_16:register_event("on_activated", function()
 
   flying_tile_manager:reset(map, "enemy_group_29")
   treasure_manager:disappear_pickable(map, "pickable_small_key_2")
 
-end
+end)
 
-function sensor_17:on_activated()
+sensor_17:register_event("on_activated", function()
 
   flying_tile_manager:init(map, "enemy_group_29")
 
-end
+end)
 
-function sensor_18:on_activated()
-
-  flying_tile_manager:launch(map, "enemy_group_29")
-
-end
-
-function sensor_19:on_activated()
+sensor_18:register_event("on_activated", function()
 
   flying_tile_manager:launch(map, "enemy_group_29")
 
-end
+end)
 
-function sensor_20:on_activated()
+sensor_19:register_event("on_activated", function()
+
+  flying_tile_manager:launch(map, "enemy_group_29")
+
+end)
+
+sensor_20:register_event("on_activated", function()
 
   flying_tile_manager:reset(map, "enemy_group_29")
 
-end
+end)
 
-function sensor_21:on_activated()
+sensor_21:register_event("on_activated", function()
 
   flying_tile_manager:init(map, "enemy_group_29")
 
-end
+end)
 
-function sensor_22:on_activated()
+sensor_22:register_event("on_activated", function()
 
   flying_tile_manager:launch(map, "enemy_group_29")
 
-end
+end)
 
-function sensor_23:on_activated()
-
-  door_manager:close_if_enemies_not_dead(map, "enemy_group_26", "door_group_18")
-  door_manager:close_if_enemies_not_dead(map, "enemy_group_26", "door_group_20")
-
-end
-
-function sensor_24:on_activated()
+sensor_23:register_event("on_activated", function()
 
   door_manager:close_if_enemies_not_dead(map, "enemy_group_26", "door_group_18")
   door_manager:close_if_enemies_not_dead(map, "enemy_group_26", "door_group_20")
 
-end
+end)
 
-function sensor_25:on_activated()
+sensor_24:register_event("on_activated", function()
+
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_26", "door_group_18")
+  door_manager:close_if_enemies_not_dead(map, "enemy_group_26", "door_group_20")
+
+end)
+
+sensor_25:register_event("on_activated", function()
 
   door_manager:close_if_enemies_not_dead(map, "enemy_group_26", "door_group_19")
   door_manager:close_if_enemies_not_dead(map, "enemy_group_26", "door_group_20")
 
-end
+end)
 
-function sensor_26:on_activated()
+sensor_26:register_event("on_activated", function()
 
   door_manager:close_if_enemies_not_dead(map, "enemy_group_27", "door_group_19")
   door_manager:close_if_enemies_not_dead(map, "enemy_group_27", "door_group_20")
 
-end
+end)
 
-function sensor_small_boss:on_activated()
+sensor_28:register_event("on_activated", function()
+    
+  map:close_doors("door_group_wallturn")
+
+end)
+
+
+sensor_small_boss:register_event("on_activated", function()
 
   sensor_small_boss:set_enabled(false)
   enemy_manager:launch_small_boss_if_not_dead(map)
-end
+
+end)
 
 -- Separator events
 --[[auto_separator_16:register_event("on_activating", function(separator, direction4)

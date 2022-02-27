@@ -1,14 +1,4 @@
 animation{
-  name = "stopped",
-  src_image = "entities/items/heart_fly.png",
-  directions = {
-    { x = 0, y = 0, frame_width = 32, frame_height = 24, origin_x = 16, origin_y = 17 },
-    { x = 0, y = 0, frame_width = 32, frame_height = 24, origin_x = 16, origin_y = 17 },
-    { x = 0, y = 0, frame_width = 32, frame_height = 24, origin_x = 16, origin_y = 17 },
-    { x = 0, y = 0, frame_width = 32, frame_height = 24, origin_x = 16, origin_y = 17 },
-  },
-}
-animation{
   name = "normal",
   src_image = "entities/items/heart_fly.png",
   frame_delay = 100,
@@ -18,5 +8,15 @@ animation{
     { x = 0, y = 0, frame_width = 32, frame_height = 24, origin_x = 16, origin_y = 21, num_frames = 4 },
     { x = 0, y = 0, frame_width = 32, frame_height = 24, origin_x = 16, origin_y = 21, num_frames = 4 },
     { x = 0, y = 0, frame_width = 32, frame_height = 24, origin_x = 16, origin_y = 21, num_frames = 4 },
+  },
+}
+animation{
+  name = "stopped",
+  src_image = "entities/items/heart_fly.png",
+  directions = {
+    { x = 0, y = 0, frame_width = 32, frame_height = 24, origin_x = 16, origin_y = 17 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 24, origin_x = 16, origin_y = 17 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 24, origin_x = 16, origin_y = 17 },
+    { x = 0, y = 0, frame_width = 32, frame_height = 24, origin_x = 16, origin_y = 17 },
   },
 }

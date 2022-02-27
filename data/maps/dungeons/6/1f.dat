@@ -14950,24 +14950,6 @@ tile{
 tile{
   layer = 0,
   x = 584,
-  y = 1296,
-  width = 8,
-  height = 8,
-  pattern = "stairs_inner_up.1.top.border.2-1",
-}
-
-tile{
-  layer = 0,
-  x = 560,
-  y = 1296,
-  width = 8,
-  height = 8,
-  pattern = "stairs_inner_up.1.top.border.1-1",
-}
-
-tile{
-  layer = 0,
-  x = 584,
   y = 1304,
   width = 8,
   height = 24,
@@ -14990,33 +14972,6 @@ tile{
   width = 8,
   height = 24,
   pattern = "stairs_inner_up.1.border.1-1",
-}
-
-tile{
-  layer = 0,
-  x = 568,
-  y = 1296,
-  width = 16,
-  height = 8,
-  pattern = "stairs_inner_up.1.top-1",
-}
-
-tile{
-  layer = 0,
-  x = 392,
-  y = 1296,
-  width = 8,
-  height = 8,
-  pattern = "stairs_inner_up.1.top.border.2-1",
-}
-
-tile{
-  layer = 0,
-  x = 368,
-  y = 1296,
-  width = 8,
-  height = 8,
-  pattern = "stairs_inner_up.1.top.border.1-1",
 }
 
 tile{
@@ -15044,15 +14999,6 @@ tile{
   width = 8,
   height = 24,
   pattern = "stairs_inner_up.1.border.1-1",
-}
-
-tile{
-  layer = 0,
-  x = 376,
-  y = 1296,
-  width = 16,
-  height = 8,
-  pattern = "stairs_inner_up.1.top-1",
 }
 
 tile{
@@ -19902,7 +19848,7 @@ custom_entity{
   origin_y = 29,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
-  model = "arrow",
+  model = "statue_elephant",
 }
 
 crystal_block{
@@ -20071,7 +20017,7 @@ enemy{
 
 custom_entity{
   layer = 0,
-  x = 472,
+  x = 456,
   y = 1133,
   width = 32,
   height = 32,
@@ -21809,7 +21755,7 @@ custom_entity{
   origin_y = 29,
   direction = 0,
   sprite = "entities/destructibles/statue_elephant",
-  model = "arrow",
+  model = "statue_pig",
 }
 
 block{
@@ -23925,7 +23871,7 @@ enemy{
   layer = 0,
   x = 104,
   y = 357,
-  direction = 0,
+  direction = 2,
   breed = "fireball",
   treasure_name = "random",
 }
@@ -23994,6 +23940,12 @@ custom_entity{
   layer = 0,
   x = 480,
   y = 1237,
+  properties = {
+    {
+      key = "door_prefix",
+      value = "door_group_wallturn",
+    },
+  },
   width = 16,
   height = 16,
   direction = 0,
@@ -26169,6 +26121,53 @@ wall{
   stops_enemies = true,
   stops_blocks = true,
   stops_projectiles = true,
+}
+
+custom_entity{
+  name = "torch_group_1_1",
+  layer = 0,
+  x = 728,
+  y = 813,
+  properties = {
+    {
+      key = "timer",
+      value = "true",
+    },
+  },
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/misc/torch",
+  model = "torch",
+}
+
+custom_entity{
+  name = "torch_group_1_2",
+  layer = 0,
+  x = 856,
+  y = 813,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/misc/torch",
+  model = "torch",
+}
+
+destination{
+  name = "wallturn_teletransporter",
+  layer = 0,
+  x = 480,
+  y = 1213,
+  direction = 1,
+}
+
+sensor{
+  name = "sensor_28",
+  layer = 0,
+  x = 480,
+  y = 1157,
+  width = 16,
+  height = 16,
 }
 
 tile{
@@ -28684,6 +28683,60 @@ tile{
   pattern = "barrier.1-1",
 }
 
+tile{
+  layer = 1,
+  x = 584,
+  y = 1296,
+  width = 8,
+  height = 8,
+  pattern = "stairs_inner_up.1.top.border.2-1",
+}
+
+tile{
+  layer = 1,
+  x = 560,
+  y = 1296,
+  width = 8,
+  height = 8,
+  pattern = "stairs_inner_up.1.top.border.1-1",
+}
+
+tile{
+  layer = 1,
+  x = 568,
+  y = 1296,
+  width = 16,
+  height = 8,
+  pattern = "stairs_inner_up.1.top-1",
+}
+
+tile{
+  layer = 1,
+  x = 392,
+  y = 1296,
+  width = 8,
+  height = 8,
+  pattern = "stairs_inner_up.1.top.border.2-1",
+}
+
+tile{
+  layer = 1,
+  x = 368,
+  y = 1296,
+  width = 8,
+  height = 8,
+  pattern = "stairs_inner_up.1.top.border.1-1",
+}
+
+tile{
+  layer = 1,
+  x = 376,
+  y = 1296,
+  width = 16,
+  height = 8,
+  pattern = "stairs_inner_up.1.top-1",
+}
+
 wall{
   layer = 1,
   x = 368,
@@ -29330,34 +29383,10 @@ destructible{
   layer = 1,
   x = 576,
   y = 1261,
-  treasure_name = "random",
+  treasure_name = "fairy",
   sprite = "entities/destructibles/pot",
   destruction_sound = "stone",
   weight = 1,
-}
-
-custom_entity{
-  name = "auto_torch_group_1_1",
-  layer = 1,
-  x = 728,
-  y = 813,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/misc/torch",
-  model = "torch",
-}
-
-custom_entity{
-  name = "auto_torch_group_1_2",
-  layer = 1,
-  x = 856,
-  y = 813,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/misc/torch",
-  model = "torch",
 }
 
 block{
@@ -29550,17 +29579,6 @@ jumper{
   jump_length = 40,
 }
 
-custom_entity{
-  layer = 1,
-  x = 728,
-  y = 1045,
-  width = 16,
-  height = 16,
-  direction = 0,
-  sprite = "entities/items/heart_fly",
-  model = "heart_fly",
-}
-
 jumper{
   layer = 1,
   x = 560,
@@ -29715,6 +29733,17 @@ chest{
   treasure_name = "boss_key",
   treasure_savegame_variable = "dungeon_6_boss_key",
   sprite = "entities/chests/chest_big",
+}
+
+custom_entity{
+  layer = 1,
+  x = 728,
+  y = 1045,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/items/heart_fly",
+  model = "pickable_fly",
 }
 
 tile{

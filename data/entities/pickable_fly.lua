@@ -23,7 +23,7 @@ entity:register_event("on_created", function()
     width = 16,
     height = 8,
     direction = 0,
-    layer = 0 ,
+    layer = layer - 1 ,
     sprite ="entities/shadows/pickable_flying"
   }
   sprite_shadow = shadow:get_sprite()
