@@ -88,7 +88,7 @@ map{ id = "dungeons/8/sideview_2", description = "Sideview 2" }
 map{ id = "dungeons/8/sideview_3", description = "Sideview 3" }
 map{ id = "dungeons/8/sideview_4", description = "Sideview 4" }
 map{ id = "dungeons/8/sideview_5", description = "Sideview 5" }
-map{ id = "dungeons/8/sideview_6", description = "Sideview 6" }
+map{ id = "dungeons/8/sideview_6", description = "dungeon_8" }
 map{ id = "dungeons/9/1f", description = "Dungeon 9 1F" }
 map{ id = "examples/beach_store", description = "Beach Store" }
 map{ id = "examples/cave_store", description = "Cave Store" }

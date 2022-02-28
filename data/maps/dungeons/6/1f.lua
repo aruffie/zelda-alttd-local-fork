@@ -10,6 +10,7 @@ local audio_manager = require("scripts/audio_manager")
 local door_manager = require("scripts/maps/door_manager")
 local enemy_manager = require("scripts/maps/enemy_manager")
 local flying_tile_manager = require("scripts/maps/flying_tile_manager")
+local light_manager = require("scripts/maps/light_manager")
 local separator_manager = require("scripts/maps/separator_manager")
 local switch_manager = require("scripts/maps/switch_manager")
 local treasure_manager = require("scripts/maps/treasure_manager")
@@ -46,6 +47,8 @@ map:register_event("on_started", function()
   door_manager:open_if_small_boss_dead(map)
   -- Enemies
   enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
+  -- Light
+  light_manager:init(map)
   -- Music
   game:play_dungeon_music()
   -- Pickables

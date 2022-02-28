@@ -26128,12 +26128,6 @@ custom_entity{
   layer = 0,
   x = 728,
   y = 813,
-  properties = {
-    {
-      key = "timer",
-      value = "true",
-    },
-  },
   width = 16,
   height = 16,
   direction = 0,
