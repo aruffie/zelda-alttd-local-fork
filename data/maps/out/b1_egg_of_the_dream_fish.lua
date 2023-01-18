@@ -19,6 +19,7 @@ map:register_event("on_started", function(map, destination)
   map:init_map_entities()
   -- Digging
   map:set_digging_allowed(true)
+
 end)
 
 -- Initialize the music of the map
@@ -50,11 +51,7 @@ end
 function map:set_egg_opened(is_opened)
   
   if is_opened then
-    egg_door:get_sprite():set_animation("opened")
-    egg_door_top:get_sprite():set_animation("opened")
-  else
-    egg_door:get_sprite():set_animation("closed")
-    egg_door_top:get_sprite():set_animation("closed")
+    egg_door:get_sprite():remove()
   end
   
 end
