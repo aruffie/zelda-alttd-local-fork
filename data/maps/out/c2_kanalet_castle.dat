@@ -12024,6 +12024,182 @@ custom_entity{
   model = "non_diggable",
 }
 
+custom_entity{
+  layer = 1,
+  x = 776,
+  y = 533,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/utils/non_diggable",
+  model = "non_diggable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 792,
+  y = 533,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/utils/non_diggable",
+  model = "non_diggable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 776,
+  y = 549,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/utils/non_diggable",
+  model = "non_diggable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 792,
+  y = 549,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/utils/non_diggable",
+  model = "non_diggable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 776,
+  y = 565,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/utils/non_diggable",
+  model = "non_diggable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 792,
+  y = 565,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/utils/non_diggable",
+  model = "non_diggable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 776,
+  y = 581,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/utils/non_diggable",
+  model = "non_diggable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 792,
+  y = 581,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/utils/non_diggable",
+  model = "non_diggable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 776,
+  y = 597,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/utils/non_diggable",
+  model = "non_diggable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 792,
+  y = 597,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/utils/non_diggable",
+  model = "non_diggable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 776,
+  y = 613,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/utils/non_diggable",
+  model = "non_diggable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 792,
+  y = 613,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/utils/non_diggable",
+  model = "non_diggable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 776,
+  y = 629,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/utils/non_diggable",
+  model = "non_diggable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 792,
+  y = 629,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/utils/non_diggable",
+  model = "non_diggable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 776,
+  y = 645,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/utils/non_diggable",
+  model = "non_diggable",
+}
+
+custom_entity{
+  layer = 1,
+  x = 792,
+  y = 645,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/utils/non_diggable",
+  model = "non_diggable",
+}
+
 tile{
   layer = 2,
   x = 280,
