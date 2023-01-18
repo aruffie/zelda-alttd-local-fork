@@ -1,4 +1,4 @@
-![](data/logos/logo.png)
+![](data/logos/thumbnail.png)
 
 # Zelda: A Link to the Dream
 
@@ -12,11 +12,9 @@ This quest is a free, open-source game that works with Solarus, a free and open-
 - **License:** Copyright, CC BY-SA 4.0, GPL v3
 - **Languages:** French
 
-
 ## Synopsis
 
-After a violent storm while he was navigating on the sea, Link finds himself on Koholint Island. To escape, he needs to find the Instruments of the Sirens, which will awaken the Wind Fish and allow Link to leave the island he is marooned on. 
-
+After a violent storm while he was navigating on the sea, Link finds himself on Koholint Island. To escape, he needs to find the Instruments of the Sirens, which will awaken the Wind Fish and allow Link to leave the island he is marooned on.
 
 ## How to play
 
@@ -24,36 +22,34 @@ Installing the game is not needed to play it.
 
 ### Solarus Launcher
 
-The easiest way is by using Solarus Launcher, the GUI made to manage and play Solarus quests. Launch it, and then add this quest with the menu **File > Add a quest...** and select the folder `zelda-alttd`. Then, select this game in the list, and click on **Play** (shortcut **F5**).
-
+The easiest way is by using Solarus Launcher, the GUI made to manage and play Solarus quests. Launch it, and then add this quest with the menu **File > Add a quest...** and select the folder `zelda-alttd`. Then, select this game in the list, and click on **Play** (shortcut <kbd>F5</kbd>).
 
 ### Command Line
 
 Assuming the directory `zelda-alttd` contains either a subdirectory `data` or a `data.solarus` archive, and that Solarus is installed, type the following line in the console:
 
-```
-$ solarus-run path/to/zelda-alttd
+```bash
+solarus-run path/to/zelda-alttd
 ```
 
-
-## How to install
+## How to install (Linux)
 
 ### Install the quest
 
 First, generate the `data.solarus` archive, that will contain all data files for the quest, by typing this:
 
-```
-$ cd path/to/zelda-alttd
-$ cmake .
-$ make
+```bash
+cd path/to/zelda-alttd
+cmake .
+make
 ```
 
 **NB:** Add the parameter `-D CMAKE_INSTALL_PREFIX=/home/your_directory` to `cmake` if you want to change the install directory, which is `/usr/local/` (e.g. to a place where no root access is necessary).
 
 Then, to install the quest, type:
 
-```
-$ make install
+```bash
+make install
 ```
 
 This will install the following files:
@@ -61,17 +57,16 @@ This will install the following files:
 - The quest data archive `data.solarus` in `/usr/local/share/solarus/zelda-alttd/`
 - A script called `zelda-alttd` in `/usr/local/bin/`
 
-
 ### Run the quest
 
 The `zelda-alttd` script launches `solarus` with the appropriate command-line argument to specify the quest path. This means that you can launch the `zelda-alttd` quest directly with the command:
 
-```
-$ zelda-alttd
+```bash
+zelda-alttd
 ```
 
 which is equivalent to:
 
-```
-$ solarus-run /usr/local/share/solarus/zelda-alttd
+```bash
+solarus-run /usr/local/share/solarus/zelda-alttd
 ```
