@@ -331,6 +331,14 @@ local function initialize_dungeon_features(game)
       cols= 8,
       music = "53_level_5_catfish_maw",
       music_instrument = "55_the_wind_marimba",
+      destination_ocarina = {
+        map_id = "dungeons/5/1f",
+        destination_name = "destination_ocarina"
+      },
+      teletransporter_end_dungeon = {
+        map_id = "out/c4_martha_bay",
+        destination_name = "dungeon_5_2_A"
+      },
       secrets = {
       },
       small_boss = {

@@ -7885,7 +7885,7 @@ teletransporter{
 }
 
 destination{
-  name = "dungeon_5_2_B",
+  name = "dungeon_5_2_A",
   layer = 0,
   x = 376,
   y = 301,

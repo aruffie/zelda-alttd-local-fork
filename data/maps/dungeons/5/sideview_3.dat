@@ -1339,6 +1339,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/grounds/ladder_iron",
+  model = "ladder",
 }
 
 custom_entity{
@@ -1359,6 +1360,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/grounds/ladder_iron",
+  model = "ladder",
 }
 
 custom_entity{
@@ -1379,6 +1381,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/grounds/ladder_iron",
+  model = "ladder",
 }
 
 custom_entity{
@@ -1399,6 +1402,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/grounds/ladder_iron",
+  model = "ladder",
 }
 
 custom_entity{
@@ -1459,6 +1463,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/grounds/ladder_iron",
+  model = "ladder",
 }
 
 teletransporter{
@@ -1479,5 +1484,25 @@ destination{
   x = 560,
   y = 29,
   direction = 3,
+}
+
+custom_entity{
+  layer = 0,
+  x = 488,
+  y = 37,
+  width = 32,
+  height = 32,
+  direction = 0,
+  model = "hookable",
+}
+
+custom_entity{
+  layer = 0,
+  x = 184,
+  y = 37,
+  width = 32,
+  height = 32,
+  direction = 0,
+  model = "hookable",
 }
 

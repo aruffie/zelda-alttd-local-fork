@@ -128,6 +128,9 @@ map:register_event("on_started", function()
   door_manager:open_when_enemies_dead(map,  "enemy_group_11_",  "door_group_3_")
   door_manager:open_when_enemies_dead(map,  "enemy_group_20_",  "door_group_5_")
   door_manager:open_when_enemies_dead(map,  "enemy_group_22_",  "door_group_5_")
+  map:set_doors_open("door_group_small_boss", true)
+  map:set_doors_open("door_group_boss", true)
+  door_manager:open_if_small_boss_dead(map)
   -- Enemies
   enemy_manager:create_teletransporter_if_small_boss_dead(map, false)
   -- Music
@@ -269,5 +272,13 @@ function chest_hookshot_fail:on_opened()
   game:start_dialog("maps.dungeons.5.chest_hookshot_fail", function()
     hero:unfreeze()
   end)
+
+end
+
+function map:on_obtaining_treasure(item, variant, savegame_variable)
+
+  if savegame_variable == "dungeon_5_big_treasure" then
+    treasure_manager:get_instrument(map)
+  end
 
 end

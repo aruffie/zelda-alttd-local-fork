@@ -13521,7 +13521,7 @@ wall{
 }
 
 door{
-  name = "door_group_boss_6",
+  name = "door_group_boss_2",
   layer = 0,
   x = 2072,
   y = 680,
@@ -13530,7 +13530,7 @@ door{
 }
 
 door{
-  name = "door_group_boss_7",
+  name = "door_group_boss_1",
   layer = 0,
   x = 2072,
   y = 744,
