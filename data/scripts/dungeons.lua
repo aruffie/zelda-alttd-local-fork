@@ -327,8 +327,8 @@ local function initialize_dungeon_features(game)
     [5] = {
       lowest_floor = 0,
       highest_floor = 0,
-      rows = 7,
-      cols= 8,
+      rows = 8,
+      cols= 7,
       music = "53_level_5_catfish_maw",
       music_instrument = "55_the_wind_marimba",
       destination_ocarina = {
@@ -340,6 +340,52 @@ local function initialize_dungeon_features(game)
         destination_name = "dungeon_5_2_A"
       },
       secrets = {
+        [0] = {        
+          [1] = {
+            savegame = "dungeon_5_hookshot",
+            signal = false
+          },
+          [2] = {
+            savegame = "dungeon_5_small_key_1",
+            signal = true
+          },
+          [4] = {
+            savegame = "dungeon_5_map",
+            signal = false
+          },
+          [12] = {
+            savegame = "dungeon_5_boss_key",
+            signal = true
+          },
+          [14] = {
+            savegame = "dungeon_5_rupee_2",
+            signal = false
+          },
+          [22] = {
+            savegame = "dungeon_5_rupee_3",
+            signal = false
+          },
+          [23] = {
+            savegame = "dungeon_5_small_key_2",
+            signal = true
+          },
+          [42] = {
+            savegame = "dungeon_5_small_key_1",
+            signal = true
+          },
+          [51] = {
+            savegame = "dungeon_5_beak_of_stone",
+            signal = false
+          },
+          [60] = {
+            savegame = "dungeon_5_compass",
+            signal = false
+          },
+          [62] = {
+            savegame = "dungeon_5_rupee_1",
+            signal = false
+          },
+        }
       },
       small_boss = {
         floor = 0,

@@ -1,7 +1,7 @@
 properties{
   x = 0,
   y = 0,
-  width = 2240,
+  width = 2560,
   height = 1920,
   min_layer = 0,
   max_layer = 2,
@@ -21593,6 +21593,15 @@ tile{
   y = 1456,
   width = 288,
   height = 208,
+  pattern = "ceiling.1",
+}
+
+tile{
+  layer = 2,
+  x = 2240,
+  y = 0,
+  width = 320,
+  height = 1920,
   pattern = "ceiling.1",
 }
 
