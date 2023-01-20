@@ -13,6 +13,24 @@ properties{
 
 tile{
   layer = 0,
+  x = 1648,
+  y = 288,
+  width = 224,
+  height = 192,
+  pattern = "floor_low.3-1",
+}
+
+tile{
+  layer = 0,
+  x = 1696,
+  y = 280,
+  width = 112,
+  height = 40,
+  pattern = "hole",
+}
+
+tile{
+  layer = 0,
   x = 728,
   y = 1216,
   width = 128,
@@ -98,15 +116,6 @@ tile{
   y = 640,
   width = 32,
   height = 32,
-  pattern = "floor_low.3-1",
-}
-
-tile{
-  layer = 0,
-  x = 1648,
-  y = 288,
-  width = 224,
-  height = 192,
   pattern = "floor_low.3-1",
 }
 
@@ -274,8 +283,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 368,
-  y = 48,
+  x = 376,
+  y = 40,
   width = 224,
   height = 144,
   pattern = "floor_low.3-1",
@@ -3858,7 +3867,7 @@ tile{
   layer = 0,
   x = 1648,
   y = 280,
-  width = 224,
+  width = 48,
   height = 8,
   pattern = "wall_border.1-2",
 }
@@ -6775,7 +6784,7 @@ tile{
   x = 400,
   y = 1248,
   width = 80,
-  height = 112,
+  height = 80,
   pattern = "floor.20-1",
 }
 
@@ -12859,6 +12868,87 @@ tile{
   pattern = "hole.2",
 }
 
+tile{
+  layer = 0,
+  x = 400,
+  y = 1328,
+  width = 80,
+  height = 32,
+  pattern = "floor_low.3-1",
+}
+
+tile{
+  layer = 0,
+  x = 1128,
+  y = 1248,
+  width = 32,
+  height = 32,
+  pattern = "statue_eye-2",
+}
+
+tile{
+  layer = 0,
+  x = 1704,
+  y = 312,
+  width = 96,
+  height = 8,
+  pattern = "hole.2",
+}
+
+tile{
+  layer = 0,
+  x = 1696,
+  y = 312,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner.3",
+}
+
+tile{
+  layer = 0,
+  x = 1800,
+  y = 312,
+  width = 8,
+  height = 8,
+  pattern = "hole.corner.4",
+}
+
+tile{
+  layer = 0,
+  x = 1696,
+  y = 280,
+  width = 112,
+  height = 16,
+  pattern = "wall_hole.1-1",
+}
+
+tile{
+  layer = 0,
+  x = 1696,
+  y = 280,
+  width = 8,
+  height = 32,
+  pattern = "hole.3",
+}
+
+tile{
+  layer = 0,
+  x = 1800,
+  y = 280,
+  width = 8,
+  height = 32,
+  pattern = "hole.4",
+}
+
+tile{
+  layer = 0,
+  x = 1808,
+  y = 280,
+  width = 64,
+  height = 8,
+  pattern = "wall_border.1-2",
+}
+
 door{
   name = "door_group_boss_3",
   layer = 0,
@@ -14689,26 +14779,6 @@ block{
   layer = 0,
   x = 1896,
   y = 557,
-  sprite = "entities/blocks/block",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
-}
-
-block{
-  layer = 0,
-  x = 1800,
-  y = 301,
-  sprite = "entities/blocks/block",
-  pushable = false,
-  pullable = false,
-  maximum_moves = 0,
-}
-
-block{
-  layer = 0,
-  x = 1800,
-  y = 317,
   sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
@@ -19712,6 +19782,209 @@ block{
   maximum_moves = 0,
 }
 
+door{
+  name = "block_small_key_2",
+  layer = 0,
+  x = 1032,
+  y = 1136,
+  direction = 2,
+  sprite = "entities/blocks/block_small_key",
+  savegame_variable = "dungeon_1_block_small_key_2",
+  opening_method = "interaction_if_savegame_variable",
+  opening_condition = "dungeon_1_small_keys",
+  opening_condition_consumed = true,
+}
+
+destructible{
+  layer = 0,
+  x = 1736,
+  y = 557,
+  treasure_name = "random",
+  sprite = "entities/destructibles/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 1736,
+  y = 573,
+  treasure_name = "random",
+  sprite = "entities/destructibles/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 1736,
+  y = 589,
+  treasure_name = "random",
+  sprite = "entities/destructibles/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 1736,
+  y = 605,
+  treasure_name = "random",
+  sprite = "entities/destructibles/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 1688,
+  y = 429,
+  treasure_name = "random",
+  sprite = "entities/destructibles/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 1704,
+  y = 429,
+  treasure_name = "random",
+  sprite = "entities/destructibles/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 1720,
+  y = 429,
+  treasure_name = "random",
+  sprite = "entities/destructibles/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 1736,
+  y = 429,
+  treasure_name = "random",
+  sprite = "entities/destructibles/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+destructible{
+  layer = 0,
+  x = 1752,
+  y = 429,
+  treasure_name = "random",
+  sprite = "entities/destructibles/pot",
+  destruction_sound = "stone",
+  weight = 1,
+}
+
+block{
+  layer = 0,
+  x = 1784,
+  y = 333,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  maximum_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1768,
+  y = 333,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1752,
+  y = 333,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  maximum_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1736,
+  y = 333,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  maximum_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1720,
+  y = 333,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  maximum_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1656,
+  y = 301,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  maximum_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1672,
+  y = 301,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  maximum_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1656,
+  y = 317,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  maximum_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1672,
+  y = 317,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  maximum_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1704,
+  y = 333,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  maximum_moves = 0,
+}
+
 tile{
   layer = 1,
   x = 936,
@@ -21609,7 +21882,7 @@ separator{
   layer = 2,
   x = 0,
   y = 1672,
-  width = 2240,
+  width = 2560,
   height = 16,
 }
 
@@ -21617,7 +21890,7 @@ separator{
   layer = 2,
   x = 0,
   y = 1432,
-  width = 2240,
+  width = 2560,
   height = 16,
 }
 
@@ -21657,7 +21930,7 @@ separator{
   layer = 2,
   x = 0,
   y = 1192,
-  width = 2240,
+  width = 2560,
   height = 16,
 }
 
@@ -21665,7 +21938,7 @@ separator{
   layer = 2,
   x = 0,
   y = 952,
-  width = 2240,
+  width = 2560,
   height = 16,
 }
 
@@ -21682,7 +21955,7 @@ separator{
   layer = 2,
   x = 0,
   y = 712,
-  width = 2240,
+  width = 2560,
   height = 16,
 }
 
@@ -21690,7 +21963,7 @@ separator{
   layer = 2,
   x = 0,
   y = 472,
-  width = 2240,
+  width = 2560,
   height = 16,
 }
 
@@ -21698,7 +21971,7 @@ separator{
   layer = 2,
   x = 0,
   y = 232,
-  width = 2240,
+  width = 2560,
   height = 16,
 }
 
@@ -21748,5 +22021,13 @@ enemy{
   direction = 0,
   breed = "keese",
   treasure_name = "random",
+}
+
+separator{
+  layer = 2,
+  x = 2224,
+  y = 0,
+  width = 16,
+  height = 1920,
 }
 
