@@ -149,7 +149,6 @@ map{ id = "out/c1_mambos_cave", description = "C1 - Mambo's cave" }
 map{ id = "out/c2_kanalet_castle", description = "C2 - Kanalet castle" }
 map{ id = "out/c3_east_prairie", description = "C3 - East prairie" }
 map{ id = "out/c4_martha_bay", description = "C4 - Martha bay" }
-map{ id = "out/c4_martha_bay_old", description = "C4 - Martha bay" }
 map{ id = "out/d1_east_mt_tamaranch", description = "D1 - East Mt Tamaranch" }
 map{ id = "out/d2_rafting", description = "D2 - Rafting" }
 map{ id = "out/d3_mask_shrine", description = "D3 - Mask shrine" }
@@ -968,6 +967,7 @@ music{ id = "snes/58_southern_shrine", description = "58 - Southern Shrine" }
 music{ id = "snes/59_level_6_face_shrine", description = "59 - Level 6 - Face Shrine" }
 music{ id = "snes/60_coral_triangle", description = "60 - Coral Triangle" }
 music{ id = "snes/67_organ_of_evening_calm", description = "67 - Organ of Evening Calm" }
+music{ id = "snes/69_level_8_turtle_rock", description = "69 - Level 8 - Turtle Rock" }
 music{ id = "snes/70_thunder_drum", description = "70 - Thunder Drum" }
 music{ id = "snes/74_wind_fish_egg", description = "74 - Wind fish egg" }
 
@@ -2219,8 +2219,6 @@ file{ path = "maps/out/c3_east_prairie.dat", author = "Benjamin Schweitzer, Chri
 file{ path = "maps/out/c3_east_prairie.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/out/c4_martha_bay.dat", author = "Benjamin Schweitzer, Christopho, Julio Tanaka", license = "CC BY-SA 4.0" }
 file{ path = "maps/out/c4_martha_bay.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
-file{ path = "maps/out/c4_martha_bay_old.dat", author = "Benjamin Schweitzer, Christopho", license = "CC BY-SA 4.0" }
-file{ path = "maps/out/c4_martha_bay_old.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/out/d1_east_mt_tamaranch.dat", author = "Benjamin Schweitzer, Christopho", license = "CC BY-SA 4.0" }
 file{ path = "maps/out/d1_east_mt_tamaranch.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "maps/out/d2_rafting.dat", author = "Benjamin Schweitzer, Christopho", license = "CC BY-SA 4.0" }
