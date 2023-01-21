@@ -283,8 +283,8 @@ tile{
 
 tile{
   layer = 0,
-  x = 376,
-  y = 40,
+  x = 368,
+  y = 48,
   width = 224,
   height = 144,
   pattern = "floor_low.3-1",
