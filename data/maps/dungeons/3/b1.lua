@@ -62,6 +62,7 @@ function map:on_started()
 
   -- Doors
   door_manager:open_when_enemies_dead(map,  "enemy_group_4_",  "door_group_1_")
+  map:set_doors_open("door_group_boss", true)
   -- Heart
   treasure_manager:appear_heart_container_if_boss_dead(map)
   -- Music
@@ -97,6 +98,9 @@ sensor_1:register_event("on_activated", function()
   end
   is_boss_room_entered = true
   game:start_dialog("maps.dungeons.3.boss_room_entered")
+
+  map:close_doors("door_group_boss")
+  audio_manager:play_music("22_boss_battle")
   
   -- Make two green zols fall from the ceiling until the hero bonk on a wall.
   local zol_number = 0

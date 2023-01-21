@@ -165,6 +165,15 @@ function sensor_13:on_activated()
 
   door_manager:close_if_enemies_not_dead(map, "enemy_group_9_", "door_group_4_")
 
+
+  --Reset Mini Boss
+  is_small_boss_active = false
+  map:set_doors_open("door_group_small_boss_1")
+  map:set_doors_open("door_group_small_boss_2")
+  audio_manager:play_music("33_level_3_key_cavern")
+  map:set_entities_enabled("enemy_small_boss",false)
+  
+
 end
 
 sensor_8:register_event("on_activated", function()
