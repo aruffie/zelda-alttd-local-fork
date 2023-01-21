@@ -8,7 +8,7 @@ local sprite = enemy:create_sprite("enemies/" .. enemy:get_breed())
 
 -- Start going to the hero.
 function enemy:go()
-  enemy:straight_go()
+  enemy:straight_go(angle,144)
 end
 
 -- Create an impact effect on hit.

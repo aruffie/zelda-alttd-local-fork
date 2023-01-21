@@ -19938,16 +19938,6 @@ chest{
 }
 
 enemy{
-  name = "enemy_group_15_2",
-  layer = 0,
-  x = 1816,
-  y = 429,
-  direction = 0,
-  breed = "keese",
-  treasure_name = "random_with_charm",
-}
-
-enemy{
   name = "enemy_group_15_1",
   layer = 0,
   x = 1752,
@@ -24358,6 +24348,16 @@ enemy{
   layer = 2,
   x = 1784,
   y = 141,
+  direction = 0,
+  breed = "keese",
+  treasure_name = "random_with_charm",
+}
+
+enemy{
+  name = "enemy_group_15_2",
+  layer = 2,
+  x = 1816,
+  y = 429,
   direction = 0,
   breed = "keese",
   treasure_name = "random_with_charm",
