@@ -25,7 +25,7 @@ local waiting_timer, before_disappear_timer
 
 -- Configuration variables
 local triggering_distance = 48
-local before_disappear_delay = 100
+local before_disappear_delay = 400
 local disappear_duration = 1000
 local after_throwing_delay = 200
 
