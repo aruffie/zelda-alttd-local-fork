@@ -692,7 +692,7 @@ sprite{ id = "hero/sword_stars4", description = "Hero sword stars 4" }
 sprite{ id = "hero/trail", description = "Hero trail" }
 sprite{ id = "hero/tunic1", description = "Hero tunic 1" }
 sprite{ id = "hero/tunic2", description = "Hero tunic 2" }
-sprite{ id = "hero/tunic3", description = "Hero tunic 3" }
+sprite{ id = "hero/tunic3", description = "Hero tunc 3" }
 sprite{ id = "hud/dialog_box_message_end", description = "Dialog end" }
 sprite{ id = "hud/empty_heart", description = "Empty heart" }
 sprite{ id = "hud/heart", description = "Heart" }

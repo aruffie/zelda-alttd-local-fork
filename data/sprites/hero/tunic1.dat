@@ -166,7 +166,7 @@ animation{
   },
 }
 animation{
-  name = "drowning",
+  name = "drowned",
   src_image = "hero/link_drowned.png",
   frame_delay = 100,
   directions = {
