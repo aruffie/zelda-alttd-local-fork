@@ -2773,6 +2773,16 @@ Encore merci !
 }
 
 dialog{
+  id = "maps.houses.south_mabe_village.sales_house_o_bananas.alligator_7",
+  text = [[
+As-tu déjà essayé de       
+descendre des rapides?    
+A l'Est du Plateau Tartare 
+tu peux...
+]],
+}
+
+dialog{
   id = "maps.houses.south_prairie.boomerang_cave.boomerang_question",
   question = "1",
   text = [[

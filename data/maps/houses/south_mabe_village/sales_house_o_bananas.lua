@@ -14,6 +14,17 @@ map:register_event("on_started", function(map, destination)
 
 end)
 
+map:register_event("on_finished", function(map, destination)
+
+  local item = game:get_item("magnifying_lens")
+  local variant = item:get_variant()
+  if variant > 3 and not game:get_value("alligator_thanks") then
+    game:set_value("alligator_thanks", true)
+  end
+
+
+end)
+
 -- Initialize the music of the map
 function map:init_music()
 
@@ -43,6 +54,8 @@ function map:talk_to_alligator()
       end
       symbol:remove()
     end)
+  elseif variant > 3 and game:get_value("alligator_thanks") then
+    game:start_dialog("maps.houses.south_mabe_village.sales_house_o_bananas.alligator_7")
   elseif variant > 3 then
     game:start_dialog("maps.houses.south_mabe_village.sales_house_o_bananas.alligator_6")
   else

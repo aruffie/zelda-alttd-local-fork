@@ -26,7 +26,9 @@ return {
         return false
       end
       local excluded_maps = {
-        ["houses/mabe_village/meow_meow_house"] = true
+        ["houses/mabe_village/meow_meow_house"] = true,
+        ["houses/mabe_village/dream_shine_upper_level"] = true,
+        ["houses/mabe_village/dream_shine_lower_level"] = true
       }
       if excluded_maps[map:get_id()] then
         return false
