@@ -19,6 +19,7 @@ local function follow_hero()
   movement:start(follower)
   sprite:set_animation("walking")
   follower:set_state("following")
+  follower:set_layer(hero:get_layer())
 
 end
 

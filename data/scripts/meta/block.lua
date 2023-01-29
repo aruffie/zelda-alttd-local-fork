@@ -20,7 +20,7 @@ function block_meta:on_removed()
   if self:get_ground_below()== 'hole' then
     local x,y, layer=self:get_position()
     local sprite=self:get_sprite()
-      local falling_entity = self:get_map():create_custom_entity({
+    local falling_entity = self:get_map():create_custom_entity({
       name="falling_block_actor",
       sprite = sprite:get_animation_set(),
       x = x,
@@ -46,7 +46,7 @@ function block_meta:on_removed()
       end)
     m:start(falling_entity, function()
         debug_print "fake block: movement over"
-        entity_manager:fall(falling_entity)
+        entity_manager:fall(self, falling_entity)
       end)
   end
 end
