@@ -143,7 +143,7 @@ function  map:talk_to_tarin()
     if game:has_item("shield") == false then
       local item = game:get_item("shield")
       game:start_dialog("maps.houses.mabe_village.marin_house.tarin_1", game:get_player_name(), function()
-        hero:start_treasure("shield", 1, "schield")
+        hero:start_treasure("shield", 1, "shield")
         game:set_item_assigned(1, item)
         game:set_step_done("shield_obtained")
       end)

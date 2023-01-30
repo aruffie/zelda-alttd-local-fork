@@ -2274,6 +2274,47 @@ Bonne chance !
 }
 
 dialog{
+  id = "maps.houses.mabe_village.shop_1.merchant_4",
+  text = [[
+Ça suffit pour aujourd'hui...  
+Tu reviendras un autre jour!
+]],
+}
+
+dialog{
+  id = "maps.houses.mabe_village.shop_1.retrieve_claw_game_treasure_1",
+  text = [[
+Tu as gagné un Coeur!       
+Toute ton énergie est restaurée!
+]],
+}
+
+dialog{
+  id = "maps.houses.mabe_village.shop_1.retrieve_claw_game_treasure_2",
+  text = [[
+Tu as gagné 30 rubis!       
+Tu peux jouer encore 3 fois !
+]],
+}
+
+dialog{
+  id = "maps.houses.mabe_village.shop_1.retrieve_claw_game_treasure_3",
+  text = [[
+Tu as gagné le Bouclier!    
+Tu peux même y graver ton nom!
+]],
+}
+
+dialog{
+  id = "maps.houses.mabe_village.shop_1.retrieve_claw_game_treasure_4",
+  text = [[
+Tu as gagné la Poudre Magique! 
+Tu peux la saupoudrer sur plein de trucs!
+
+]],
+}
+
+dialog{
   id = "maps.houses.mabe_village.shop_2.merchant_1",
   text = [[
 Bienvenue !      

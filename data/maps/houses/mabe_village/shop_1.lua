@@ -13,6 +13,7 @@ map:register_event("on_started", function(map, destination)
   -- Music
   map:init_music()
 
+
   final_stream:set_visible(false)
   local x, y, layer = final_stream:get_position()
   local hero_blocker = map:create_custom_entity({
@@ -28,6 +29,7 @@ map:register_event("on_started", function(map, destination)
   hero_blocker:set_traversable_by("pickable", true)  -- Allow the pickable to reach the hero at the end.
 
 end)
+
 
 -- Initialize the music of the map
 function map:init_music()
@@ -47,20 +49,24 @@ function merchant:on_interaction()
   if merchant.playing then
     return
   end
-
-  game:start_dialog("maps.houses.mabe_village.shop_1.merchant_1", function(answer)
-    if answer == 1 then
-      local money = game:get_money()
-      if money >= 10 then
-        game:start_dialog("maps.houses.mabe_village.shop_1.merchant_3", function()
-          game:remove_money(10)
-          merchant.playing = true
-        end)
-      else
-        game:start_dialog("maps.houses.mabe_village.shop_1.merchant_2")
+ 
+  if map:get_entities_count("game_item") == 0 then
+      game:start_dialog("maps.houses.mabe_village.shop_1.merchant_4")
+  else 
+    game:start_dialog("maps.houses.mabe_village.shop_1.merchant_1", function(answer)
+      if answer == 1 then
+        local money = game:get_money()
+        if money >= 10 then
+          game:start_dialog("maps.houses.mabe_village.shop_1.merchant_3", function()
+            game:remove_money(10)
+            merchant.playing = true
+          end)
+        else
+          game:start_dialog("maps.houses.mabe_village.shop_1.merchant_2")
+        end
       end
-    end
-  end)
+    end)
+  end
 
 end
 
@@ -81,3 +87,5 @@ function console:on_interaction()
   end
 
 end
+
+

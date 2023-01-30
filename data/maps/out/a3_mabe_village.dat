@@ -81,7 +81,7 @@ teletransporter{
 
 tile{
   layer = 1,
-  x = 0,
+  x = -8,
   y = 0,
   width = 960,
   height = 768,

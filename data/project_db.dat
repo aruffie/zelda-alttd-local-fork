@@ -600,8 +600,10 @@ sprite{ id = "entities/items/item_shop_heart", description = "Item shop heart" }
 sprite{ id = "entities/items/item_shop_shield", description = "Item shop shield" }
 sprite{ id = "entities/items/item_shop_shovel", description = "Item shop shovel" }
 sprite{ id = "entities/items/item_yoshi_price", description = "Item yoshi price" }
+sprite{ id = "entities/items/magic_powder" }
 sprite{ id = "entities/items/magic_powder_fly", description = "Magic powder fly" }
 sprite{ id = "entities/items/mushroom", description = "Mushroom" }
+sprite{ id = "entities/items/rupee" }
 sprite{ id = "entities/items/rupee_fly", description = "Rupee fly" }
 sprite{ id = "entities/items/shield", description = "Shield" }
 sprite{ id = "entities/items/shovel", description = "Shovel" }
@@ -1320,6 +1322,7 @@ item{ id = "bombs_counter", description = "Bombs counter" }
 item{ id = "boomerang", description = "Boomerang" }
 item{ id = "boss_key", description = "Boss key" }
 item{ id = "bow", description = "Bow" }
+item{ id = "claw_game_treasure", description = "Claw game treasure" }
 item{ id = "compass", description = "Compass" }
 item{ id = "console", description = "Console" }
 item{ id = "drug", description = "Drug" }
@@ -1850,6 +1853,7 @@ file{ path = "items/bombs_counter.lua", license = "GPL v3" }
 file{ path = "items/boomerang.lua", license = "GPL v3" }
 file{ path = "items/boss_key.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/bow.lua", license = "GPL v3" }
+file{ path = "items/claw_game_treasure.lua", author = "Benjamin Schweitzer", }
 file{ path = "items/compass.lua", license = "GPL v3" }
 file{ path = "items/console.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
 file{ path = "items/drug.lua", author = "Benjamin Schweitzer", license = "GPL v3" }
