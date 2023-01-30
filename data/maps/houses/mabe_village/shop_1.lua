@@ -47,20 +47,24 @@ function merchant:on_interaction()
   if merchant.playing then
     return
   end
-
-  game:start_dialog("maps.houses.mabe_village.shop_1.merchant_1", function(answer)
-    if answer == 1 then
-      local money = game:get_money()
-      if money >= 10 then
-        game:start_dialog("maps.houses.mabe_village.shop_1.merchant_3", function()
-          game:remove_money(10)
-          merchant.playing = true
-        end)
-      else
-        game:start_dialog("maps.houses.mabe_village.shop_1.merchant_2")
+ 
+  if map:get_entities_count("game_item") == 0 then
+      game:start_dialog("maps.houses.mabe_village.shop_1.merchant_4")
+  else 
+    game:start_dialog("maps.houses.mabe_village.shop_1.merchant_1", function(answer)
+      if answer == 1 then
+        local money = game:get_money()
+        if money >= 10 then
+          game:start_dialog("maps.houses.mabe_village.shop_1.merchant_3", function()
+            game:remove_money(10)
+            merchant.playing = true
+          end)
+        else
+          game:start_dialog("maps.houses.mabe_village.shop_1.merchant_2")
+        end
       end
-    end
-  end)
+    end)
+  end
 
 end
 
@@ -81,3 +85,5 @@ function console:on_interaction()
   end
 
 end
+
+

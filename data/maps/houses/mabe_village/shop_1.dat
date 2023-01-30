@@ -874,34 +874,37 @@ stream{
 pickable{
   name = "game_item_2",
   layer = 0,
-  x = 128,
-  y = 101,
-  treasure_name = "rupee",
+  x = 224,
+  y = 133,
+  treasure_name = "claw_game_treasure",
+  treasure_variant = 2,
+}
+
+pickable{
+  name = "game_item_1",
+  layer = 0,
+  x = 160,
+  y = 133,
+  treasure_name = "claw_game_treasure",
+  treasure_variant = 3,
 }
 
 pickable{
   name = "game_item_3",
   layer = 0,
-  x = 128,
-  y = 125,
-  treasure_name = "shield",
+  x = 224,
+  y = 85,
+  treasure_name = "claw_game_treasure",
+  treasure_variant = 2,
 }
 
 pickable{
   name = "game_item_4",
   layer = 0,
-  x = 224,
-  y = 133,
-  treasure_name = "rupee",
-  treasure_variant = 2,
-}
-
-pickable{
-  name = "game_item_5",
-  layer = 0,
-  x = 224,
-  y = 93,
-  treasure_name = "heart",
+  x = 184,
+  y = 85,
+  treasure_name = "claw_game_treasure",
+  treasure_variant = 4,
 }
 
 pickable{
@@ -933,6 +936,14 @@ stream{
   sprite = "entities/streams/stream_d3",
   speed = 24,
   allow_movement = false,
+}
+
+pickable{
+  name = "game_item_5",
+  layer = 0,
+  x = 128,
+  y = 85,
+  treasure_name = "claw_game_treasure",
 }
 
 tile{

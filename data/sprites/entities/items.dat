@@ -171,6 +171,16 @@ animation{
   },
 }
 animation{
+  name = "claw_game_treasure",
+  src_image = "entities/items.png",
+  directions = {
+    { x = 112, y = 48, frame_width = 8, frame_height = 8, origin_x = 4, origin_y = 8 },
+    { x = 0, y = 48, frame_width = 8, frame_height = 16, origin_x = 4, origin_y = 16 },
+    { x = 544, y = 0, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13 },
+    { x = 128, y = 16, frame_width = 16, frame_height = 16, origin_x = 8, origin_y = 13 },
+  },
+}
+animation{
   name = "compass",
   src_image = "entities/items.png",
   directions = {
