@@ -14,6 +14,42 @@ properties{
 tile{
   layer = 0,
   x = 1008,
+  y = 1488,
+  width = 224,
+  height = 144,
+  pattern = "884",
+}
+
+tile{
+  layer = 0,
+  x = 1008,
+  y = 1488,
+  width = 224,
+  height = 144,
+  pattern = "floor.13-Alpha",
+}
+
+tile{
+  layer = 0,
+  x = 1056,
+  y = 1488,
+  width = 128,
+  height = 144,
+  pattern = "floor_low.20-1",
+}
+
+tile{
+  layer = 0,
+  x = 1008,
+  y = 1520,
+  width = 224,
+  height = 80,
+  pattern = "floor_low.20-1",
+}
+
+tile{
+  layer = 0,
+  x = 1008,
   y = 1248,
   width = 224,
   height = 160,
@@ -27,6 +63,69 @@ tile{
   width = 224,
   height = 160,
   pattern = "floor.13-Alpha",
+}
+
+tile{
+  layer = 0,
+  x = 1056,
+  y = 1344,
+  width = 32,
+  height = 48,
+  pattern = "floor_low.20-1",
+}
+
+tile{
+  layer = 0,
+  x = 1152,
+  y = 1344,
+  width = 32,
+  height = 48,
+  pattern = "floor_low.20-1",
+}
+
+tile{
+  layer = 0,
+  x = 1200,
+  y = 800,
+  width = 32,
+  height = 96,
+  pattern = "884",
+}
+
+tile{
+  layer = 0,
+  x = 1008,
+  y = 800,
+  width = 32,
+  height = 96,
+  pattern = "884",
+}
+
+tile{
+  layer = 0,
+  x = 1040,
+  y = 768,
+  width = 160,
+  height = 144,
+  pattern = "884",
+}
+
+tile{
+  layer = 0,
+  x = 1008,
+  y = 800,
+  width = 224,
+  height = 80,
+  pattern = "floor.13-Alpha",
+}
+
+tile{
+  layer = 0,
+  x = 1072,
+  y = 800,
+  width = 96,
+  height = 80,
+  pattern = "floor_low.20-1",
 }
 
 tile{
@@ -36,24 +135,6 @@ tile{
   width = 64,
   height = 32,
   pattern = "floor.20-1",
-}
-
-tile{
-  layer = 0,
-  x = 1008,
-  y = 1488,
-  width = 224,
-  height = 144,
-  pattern = "884",
-}
-
-tile{
-  layer = 0,
-  x = 1008,
-  y = 1488,
-  width = 224,
-  height = 144,
-  pattern = "floor.13-Alpha",
 }
 
 tile{
@@ -99,42 +180,6 @@ tile{
   width = 224,
   height = 80,
   pattern = "884",
-}
-
-tile{
-  layer = 0,
-  x = 1200,
-  y = 800,
-  width = 32,
-  height = 96,
-  pattern = "884",
-}
-
-tile{
-  layer = 0,
-  x = 1008,
-  y = 800,
-  width = 32,
-  height = 96,
-  pattern = "884",
-}
-
-tile{
-  layer = 0,
-  x = 1040,
-  y = 768,
-  width = 160,
-  height = 144,
-  pattern = "884",
-}
-
-tile{
-  layer = 0,
-  x = 1008,
-  y = 800,
-  width = 224,
-  height = 80,
-  pattern = "floor.13-Alpha",
 }
 
 tile{
@@ -1444,15 +1489,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 1088,
-  y = 1336,
-  width = 64,
-  height = 32,
-  pattern = "alter_stairs",
-}
-
-tile{
-  layer = 0,
   x = 1040,
   y = 1336,
   width = 48,
@@ -1462,15 +1498,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 1080,
-  y = 1344,
-  width = 8,
-  height = 8,
-  pattern = "alter_rail.3",
-}
-
-tile{
-  layer = 0,
   x = 1008,
   y = 1376,
   width = 16,
@@ -1503,87 +1530,6 @@ tile{
   width = 16,
   height = 16,
   pattern = "torch_big.bottom",
-}
-
-tile{
-  layer = 0,
-  x = 1040,
-  y = 1304,
-  width = 32,
-  height = 32,
-  pattern = "statue_eye-2",
-}
-
-tile{
-  layer = 0,
-  x = 1040,
-  y = 1264,
-  width = 32,
-  height = 32,
-  pattern = "statue_eye-2",
-}
-
-tile{
-  layer = 0,
-  x = 1168,
-  y = 1304,
-  width = 32,
-  height = 32,
-  pattern = "statue_eye-2",
-}
-
-tile{
-  layer = 0,
-  x = 1168,
-  y = 1264,
-  width = 32,
-  height = 32,
-  pattern = "statue_eye-2",
-}
-
-tile{
-  layer = 0,
-  x = 1080,
-  y = 1360,
-  width = 8,
-  height = 8,
-  pattern = "alter_rail.3",
-}
-
-tile{
-  layer = 0,
-  x = 1152,
-  y = 1352,
-  width = 8,
-  height = 8,
-  pattern = "alter_rail.3",
-}
-
-tile{
-  layer = 0,
-  x = 1152,
-  y = 1360,
-  width = 8,
-  height = 8,
-  pattern = "alter_rail.3",
-}
-
-tile{
-  layer = 0,
-  x = 1080,
-  y = 1352,
-  width = 8,
-  height = 8,
-  pattern = "alter_rail.3",
-}
-
-tile{
-  layer = 0,
-  x = 1152,
-  y = 1344,
-  width = 8,
-  height = 8,
-  pattern = "alter_rail.3",
 }
 
 tile{
@@ -3677,15 +3623,6 @@ tile{
 tile{
   layer = 0,
   x = 1104,
-  y = 608,
-  width = 8,
-  height = 8,
-  pattern = "barrier.border-1",
-}
-
-tile{
-  layer = 0,
-  x = 1104,
   y = 568,
   width = 8,
   height = 8,
@@ -3705,15 +3642,6 @@ tile{
   layer = 0,
   x = 1128,
   y = 568,
-  width = 8,
-  height = 8,
-  pattern = "barrier.border-1",
-}
-
-tile{
-  layer = 0,
-  x = 1128,
-  y = 608,
   width = 8,
   height = 8,
   pattern = "barrier.border-1",
@@ -4108,9 +4036,9 @@ tile{
 
 tile{
   layer = 0,
-  x = 1104,
+  x = 1088,
   y = 1728,
-  width = 32,
+  width = 64,
   height = 32,
   pattern = "floor.20-1",
 }
@@ -4198,31 +4126,12 @@ tile{
 
 tile{
   layer = 0,
-  x = 1376,
+  x = 1360,
   y = 816,
   width = 160,
   height = 32,
   pattern = "158",
   tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 0,
-  x = 1376,
-  y = 848,
-  width = 32,
-  height = 32,
-  pattern = "158",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 0,
-  x = 1560,
-  y = 824,
-  width = 24,
-  height = 32,
-  pattern = "wall_decor.4-4",
 }
 
 tile{
@@ -4730,6 +4639,321 @@ tile{
   pattern = "stairs_inner_up.2.top.border.2-1",
 }
 
+tile{
+  layer = 0,
+  x = 1008,
+  y = 816,
+  width = 64,
+  height = 48,
+  pattern = "floor_low.20-1",
+}
+
+tile{
+  layer = 0,
+  x = 1168,
+  y = 816,
+  width = 64,
+  height = 48,
+  pattern = "floor_low.20-1",
+}
+
+tile{
+  layer = 0,
+  x = 1104,
+  y = 768,
+  width = 32,
+  height = 32,
+  pattern = "floor_low.20-1",
+}
+
+tile{
+  layer = 0,
+  x = 1104,
+  y = 880,
+  width = 32,
+  height = 32,
+  pattern = "floor_low.20-1",
+}
+
+tile{
+  layer = 0,
+  x = 880,
+  y = 816,
+  width = 32,
+  height = 48,
+  pattern = "floor_low.20-1",
+}
+
+tile{
+  layer = 0,
+  x = 1104,
+  y = 608,
+  width = 32,
+  height = 64,
+  pattern = "floor_low.20-1",
+}
+
+tile{
+  layer = 0,
+  x = 1104,
+  y = 608,
+  width = 8,
+  height = 8,
+  pattern = "barrier.border-1",
+}
+
+tile{
+  layer = 0,
+  x = 1128,
+  y = 608,
+  width = 8,
+  height = 8,
+  pattern = "barrier.border-1",
+}
+
+tile{
+  layer = 0,
+  x = 1104,
+  y = 1008,
+  width = 32,
+  height = 32,
+  pattern = "floor_low.20-1",
+}
+
+tile{
+  layer = 0,
+  x = 1328,
+  y = 816,
+  width = 32,
+  height = 48,
+  pattern = "floor_low.20-1",
+}
+
+tile{
+  layer = 0,
+  x = 1408,
+  y = 848,
+  width = 64,
+  height = 32,
+  pattern = "floor_low.20-1",
+}
+
+tile{
+  layer = 0,
+  x = 1232,
+  y = 592,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.4-5",
+}
+
+tile{
+  layer = 0,
+  x = 976,
+  y = 592,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.3-5",
+}
+
+tile{
+  layer = 0,
+  x = 1104,
+  y = 496,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.1-4",
+}
+
+tile{
+  layer = 0,
+  x = 1488,
+  y = 1728,
+  width = 64,
+  height = 48,
+  pattern = "floor_low.20-1",
+}
+
+tile{
+  layer = 0,
+  x = 1328,
+  y = 1776,
+  width = 224,
+  height = 48,
+  pattern = "floor_low.20-1",
+}
+
+tile{
+  layer = 0,
+  x = 1088,
+  y = 1336,
+  width = 64,
+  height = 24,
+  pattern = "alter_stairs",
+}
+
+tile{
+  layer = 0,
+  x = 1080,
+  y = 1352,
+  width = 8,
+  height = 8,
+  pattern = "alter_rail.3",
+}
+
+tile{
+  layer = 0,
+  x = 1152,
+  y = 1344,
+  width = 8,
+  height = 8,
+  pattern = "alter_rail.3",
+}
+
+tile{
+  layer = 0,
+  x = 1152,
+  y = 1352,
+  width = 8,
+  height = 8,
+  pattern = "alter_rail.3",
+}
+
+tile{
+  layer = 0,
+  x = 1080,
+  y = 1344,
+  width = 8,
+  height = 8,
+  pattern = "alter_rail.3",
+}
+
+tile{
+  layer = 0,
+  x = 1152,
+  y = 1336,
+  width = 8,
+  height = 16,
+  pattern = "alter_rail.2",
+}
+
+tile{
+  layer = 0,
+  x = 1080,
+  y = 1336,
+  width = 8,
+  height = 16,
+  pattern = "alter_rail.1",
+}
+
+tile{
+  layer = 0,
+  x = 1040,
+  y = 1264,
+  width = 32,
+  height = 32,
+  pattern = "158",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1040,
+  y = 1304,
+  width = 32,
+  height = 32,
+  pattern = "158",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1168,
+  y = 1264,
+  width = 32,
+  height = 32,
+  pattern = "158",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1168,
+  y = 1304,
+  width = 32,
+  height = 32,
+  pattern = "158",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1344,
+  y = 848,
+  width = 32,
+  height = 32,
+  pattern = "158",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1424,
+  y = 768,
+  width = 32,
+  height = 24,
+  pattern = "wall_decor.1-4",
+}
+
+tile{
+  layer = 0,
+  x = 1552,
+  y = 832,
+  width = 32,
+  height = 16,
+  pattern = "wall_pillar.4-5",
+}
+
+tile{
+  layer = 0,
+  x = 1040,
+  y = 528,
+  width = 32,
+  height = 32,
+  pattern = "158",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1168,
+  y = 528,
+  width = 32,
+  height = 32,
+  pattern = "158",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1200,
+  y = 1840,
+  width = 32,
+  height = 32,
+  pattern = "158",
+  tileset = "addition/dungeon",
+}
+
+tile{
+  layer = 0,
+  x = 1008,
+  y = 1840,
+  width = 32,
+  height = 32,
+  pattern = "158",
+  tileset = "addition/dungeon",
+}
+
 wall{
   layer = 0,
   x = 1112,
@@ -4764,36 +4988,6 @@ block{
   layer = 0,
   x = 1192,
   y = 1869,
-  sprite = "entities/blocks/block",
-  pushable = false,
-  pullable = false,
-  max_moves = 0,
-}
-
-block{
-  layer = 0,
-  x = 1208,
-  y = 1869,
-  sprite = "entities/blocks/block",
-  pushable = false,
-  pullable = false,
-  max_moves = 0,
-}
-
-block{
-  layer = 0,
-  x = 1224,
-  y = 1869,
-  sprite = "entities/blocks/block",
-  pushable = false,
-  pullable = false,
-  max_moves = 0,
-}
-
-block{
-  layer = 0,
-  x = 1224,
-  y = 1853,
   sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
@@ -5014,26 +5208,6 @@ block{
   layer = 0,
   x = 1080,
   y = 1757,
-  sprite = "entities/blocks/block",
-  pushable = false,
-  pullable = false,
-  max_moves = 0,
-}
-
-block{
-  layer = 0,
-  x = 1016,
-  y = 1869,
-  sprite = "entities/blocks/block",
-  pushable = false,
-  pullable = false,
-  max_moves = 0,
-}
-
-block{
-  layer = 0,
-  x = 1032,
-  y = 1869,
   sprite = "entities/blocks/block",
   pushable = false,
   pullable = false,
@@ -5530,15 +5704,6 @@ stream{
 
 stream{
   layer = 0,
-  x = 1096,
-  y = 1741,
-  direction = 0,
-  sprite = "entities/streams/stream_d3",
-  speed = 48,
-}
-
-stream{
-  layer = 0,
   x = 1016,
   y = 1789,
   direction = 0,
@@ -5586,15 +5751,6 @@ stream{
   layer = 0,
   x = 1112,
   y = 1773,
-  direction = 2,
-  sprite = "entities/streams/stream_d3",
-  speed = 48,
-}
-
-stream{
-  layer = 0,
-  x = 1096,
-  y = 1757,
   direction = 2,
   sprite = "entities/streams/stream_d3",
   speed = 48,
@@ -5845,24 +6001,6 @@ stream{
 
 stream{
   layer = 0,
-  x = 1016,
-  y = 1853,
-  direction = 2,
-  sprite = "entities/streams/stream_d3",
-  speed = 48,
-}
-
-stream{
-  layer = 0,
-  x = 1032,
-  y = 1853,
-  direction = 2,
-  sprite = "entities/streams/stream_d3",
-  speed = 48,
-}
-
-stream{
-  layer = 0,
   x = 1032,
   y = 1789,
   direction = 0,
@@ -5947,15 +6085,6 @@ stream{
   x = 1112,
   y = 1869,
   direction = 4,
-  sprite = "entities/streams/stream_d3",
-  speed = 48,
-}
-
-stream{
-  layer = 0,
-  x = 1144,
-  y = 1757,
-  direction = 0,
   sprite = "entities/streams/stream_d3",
   speed = 48,
 }
@@ -6062,15 +6191,6 @@ stream{
 stream{
   layer = 0,
   x = 1192,
-  y = 1853,
-  direction = 4,
-  sprite = "entities/streams/stream_d3",
-  speed = 48,
-}
-
-stream{
-  layer = 0,
-  x = 1208,
   y = 1853,
   direction = 4,
   sprite = "entities/streams/stream_d3",
@@ -7725,15 +7845,6 @@ pickable{
 
 stream{
   layer = 0,
-  x = 1144,
-  y = 1741,
-  direction = 0,
-  sprite = "entities/streams/stream_d3",
-  speed = 48,
-}
-
-stream{
-  layer = 0,
   x = 1160,
   y = 1741,
   direction = 0,
@@ -7888,8 +7999,8 @@ stream{
 enemy{
   name = "enemy_group_1_1",
   layer = 0,
-  x = 1128,
-  y = 813,
+  x = 1112,
+  y = 797,
   direction = 3,
   breed = "zol_green",
   treasure_name = "random",
@@ -7898,8 +8009,8 @@ enemy{
 enemy{
   name = "enemy_group_1_2",
   layer = 0,
-  x = 1176,
-  y = 813,
+  x = 1192,
+  y = 797,
   direction = 3,
   breed = "zol_green",
   treasure_name = "random",
@@ -7908,8 +8019,8 @@ enemy{
 enemy{
   name = "enemy_group_1_3",
   layer = 0,
-  x = 1128,
-  y = 861,
+  x = 1112,
+  y = 877,
   direction = 3,
   breed = "zol_green",
   treasure_name = "random",
@@ -7918,8 +8029,8 @@ enemy{
 enemy{
   name = "enemy_group_1_4",
   layer = 0,
-  x = 1176,
-  y = 861,
+  x = 1192,
+  y = 877,
   direction = 3,
   breed = "zol_green",
   treasure_name = "random",
@@ -8093,6 +8204,150 @@ enemy{
   direction = 0,
   breed = "zol_green",
   treasure_name = "random",
+}
+
+stream{
+  layer = 0,
+  x = 760,
+  y = 909,
+  direction = 0,
+  sprite = "entities/streams/stream_d3",
+  speed = 48,
+}
+
+stream{
+  layer = 0,
+  x = 760,
+  y = 893,
+  direction = 0,
+  sprite = "entities/streams/stream_d3",
+  speed = 48,
+}
+
+stream{
+  layer = 0,
+  x = 760,
+  y = 797,
+  direction = 0,
+  sprite = "entities/streams/stream_d3",
+  speed = 48,
+}
+
+stream{
+  layer = 0,
+  x = 760,
+  y = 781,
+  direction = 0,
+  sprite = "entities/streams/stream_d3",
+  speed = 48,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 781,
+  direction = 4,
+  sprite = "entities/streams/stream_d3",
+  speed = 48,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 797,
+  direction = 4,
+  sprite = "entities/streams/stream_d3",
+  speed = 48,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 813,
+  direction = 4,
+  sprite = "entities/streams/stream_d3",
+  speed = 48,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 829,
+  direction = 4,
+  sprite = "entities/streams/stream_d3",
+  speed = 48,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 845,
+  direction = 4,
+  sprite = "entities/streams/stream_d3",
+  speed = 48,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 861,
+  direction = 4,
+  sprite = "entities/streams/stream_d3",
+  speed = 48,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 877,
+  direction = 4,
+  sprite = "entities/streams/stream_d3",
+  speed = 48,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 893,
+  direction = 4,
+  sprite = "entities/streams/stream_d3",
+  speed = 48,
+}
+
+stream{
+  layer = 0,
+  x = 824,
+  y = 909,
+  direction = 4,
+  sprite = "entities/streams/stream_d3",
+  speed = 48,
+}
+
+stream{
+  layer = 0,
+  x = 1528,
+  y = 829,
+  direction = 2,
+  sprite = "entities/streams/stream_d3",
+  speed = 48,
+}
+
+stream{
+  layer = 0,
+  x = 1528,
+  y = 845,
+  direction = 2,
+  sprite = "entities/streams/stream_d3",
+  speed = 48,
+}
+
+stream{
+  layer = 0,
+  x = 1368,
+  y = 813,
+  direction = 4,
+  sprite = "entities/streams/stream_d3",
+  speed = 48,
 }
 
 tile{
@@ -8560,15 +8815,6 @@ tile{
 
 tile{
   layer = 2,
-  x = 1264,
-  y = 0,
-  width = 32,
-  height = 1904,
-  pattern = "ceiling.1",
-}
-
-tile{
-  layer = 2,
   x = 976,
   y = 944,
   width = 288,
@@ -8762,6 +9008,15 @@ tile{
   y = 0,
   width = 944,
   height = 1920,
+  pattern = "ceiling.1",
+}
+
+tile{
+  layer = 2,
+  x = 1264,
+  y = 0,
+  width = 32,
+  height = 1904,
   pattern = "ceiling.1",
 }
 
