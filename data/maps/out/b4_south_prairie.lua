@@ -111,8 +111,10 @@ end
 
 function sensor_1:on_activated()
   
-  if game:get_value("ghost_quest_step") == "ghost_joined" then
-    game:set_value("ghost_quest_step", "ghost_saw_his_house")
+  if game:is_step_last("ghost_joined") then
+    game:start_dialog("maps.out.south_prairie.ghost_1", function()
+      game:set_step_done("ghost_saw_his_house")
+    end)
   end
   
 end

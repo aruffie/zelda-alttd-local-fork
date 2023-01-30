@@ -16,7 +16,12 @@ map:register_event("on_started", function(map, destination)
   map:init_map_entities()
  -- Digging
  map:set_digging_allowed(true)
-
+ -- Disable dungeon 2 teleporter when ghost is with the hero
+  if map:get_game():is_step_last("ghost_joined") 
+    or map:get_game():is_step_last("ghost_saw_his_house")
+    or map:get_game():is_step_last("ghost_house_visited") then
+      dungeon_4_1_A:set_enabled(false)
+  end
  --Jumping if coming from the Bird key cave
   if destination == cave_c1_bird_cave_key_hole then
     hero:start_jumping(6,48,true)
@@ -136,6 +141,17 @@ function dungeon_4_lock:on_interaction()
     map:launch_cinematic_2()
   end
   
+end
+
+-- Sensor events
+function sensor_companion:on_activated()
+
+  if map:get_game():is_step_last("ghost_joined") 
+    or map:get_game():is_step_last("ghost_saw_his_house")
+    or map:get_game():is_step_last("ghost_house_visited") then
+        game:start_dialog("scripts.meta.map.companion_ghost_dungeon_in")
+  end
+
 end
 
 -- Cinematics

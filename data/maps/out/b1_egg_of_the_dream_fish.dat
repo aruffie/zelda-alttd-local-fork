@@ -16139,6 +16139,28 @@ custom_entity{
   sprite = "entities/doors/door_egg",
 }
 
+sensor{
+  name = "sensor_companion",
+  layer = 1,
+  x = 72,
+  y = 469,
+  width = 16,
+  height = 16,
+}
+
+wall{
+  layer = 1,
+  x = 64,
+  y = 440,
+  width = 16,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
 tile{
   layer = 2,
   x = 704,

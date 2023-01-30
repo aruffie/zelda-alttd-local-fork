@@ -11521,6 +11521,15 @@ enemy{
   treasure_name = "random_with_charm",
 }
 
+sensor{
+  name = "sensor_companion",
+  layer = 1,
+  x = 864,
+  y = 237,
+  width = 16,
+  height = 16,
+}
+
 tile{
   layer = 2,
   x = 784,

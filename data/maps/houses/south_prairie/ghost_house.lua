@@ -32,7 +32,7 @@ end
 -- Initializes Entities based on player's progress
 function map:init_map_entities()
   
-  if seashell_21 and game:get_value("ghost_quest_step") ~= "ghost_returned_to_tomb" then
+  if seashell_21 and game:is_step_done("ghost_returned_to_tomb") then
     seashell_21:set_enabled(false)
   end
   
@@ -49,7 +49,7 @@ end
 
 function sensor_1:on_activated()
   
-  if game:get_value("ghost_quest_step") == "ghost_saw_his_house" then
+  if game:is_step_last("ghost_saw_his_house") then
     map:launch_cinematic_1()
   end
   
@@ -90,7 +90,7 @@ function map:launch_cinematic_1()
     dialog("maps.houses.south_prairie.ghost_house.ghost_2")
     hero:teleport("out/b4_south_prairie", "ghost_house_2_A")
     map:set_cinematic_mode(false)
-    game:set_value("ghost_quest_step", "ghost_house_visited")
+    game:set_step_done("ghost_house_visited")
   end)
 
 end

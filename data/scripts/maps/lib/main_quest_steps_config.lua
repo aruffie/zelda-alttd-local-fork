@@ -24,6 +24,10 @@ local steps={
   "dungeon_4_key_obtained",
   "dungeon_4_opened",
   "dungeon_4_completed",
+  "ghost_joined",
+  "ghost_saw_his_house",
+  "ghost_house_visited",
+  "ghost_returned_to_tomb"
 }
 
 local index={}

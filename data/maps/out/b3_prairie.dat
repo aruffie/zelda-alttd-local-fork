@@ -22082,6 +22082,15 @@ wall{
   stops_projectiles = true,
 }
 
+sensor{
+  name = "sensor_companion",
+  layer = 1,
+  x = 424,
+  y = 621,
+  width = 16,
+  height = 16,
+}
+
 tile{
   layer = 2,
   x = 344,

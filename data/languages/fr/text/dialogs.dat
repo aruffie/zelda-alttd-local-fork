@@ -4718,6 +4718,31 @@ Une tunique rouge pour le plus beau des héros !
 }
 
 dialog{
+  id = "scripts.meta.map.companion_ghost_dungeon_in",
+  text = [[
+Non!!           
+Pas là!
+]],
+}
+
+dialog{
+  id = "scripts.meta.map.companion_marin_dungeon_in",
+  text = [[
+Quoi? Tu veux entrer là?      
+Heu, je préfère attendre dehors.
+Sois prudent $v !
+]],
+}
+
+dialog{
+  id = "scripts.meta.map.companion_marin_dungeon_out",
+  text = [[
+$v, te voici enfin! 
+Es-tu blessé?
+]],
+}
+
+dialog{
   id = "scripts.meta.map.fairy",
   text = [[
 Je vais panser tes blessures et remonter ton énergie.    

@@ -3197,7 +3197,7 @@ wall{
 }
 
 teletransporter{
-  name = "dungeon_1_1_A",
+  name = "dungeon_4_1_A",
   layer = 0,
   x = 768,
   y = 464,
@@ -3251,6 +3251,15 @@ stairs{
   y = 472,
   direction = 1,
   subtype = 3,
+}
+
+sensor{
+  name = "sensor_companion",
+  layer = 0,
+  x = 776,
+  y = 477,
+  width = 16,
+  height = 16,
 }
 
 tile{

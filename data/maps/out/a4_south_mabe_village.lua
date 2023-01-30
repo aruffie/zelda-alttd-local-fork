@@ -18,6 +18,21 @@ map:register_event("on_started", function(map, destination)
   map:set_digging_allowed(true)
   -- Shore
   map:init_shore()
+  -- Disable dungeon 1 teleporter when ghost is with the hero
+  if game:is_step_last("ghost_joined") 
+    or game:is_step_last("ghost_saw_his_house")
+    or game:is_step_last("ghost_house_visited")
+    or game:is_step_last("marin_joined") then
+        dungeon_1_1_A:set_enabled(false)
+  end
+
+end)
+
+map:register_event("on_opening_transition_finished", function(map, destination)
+
+  if destination == dungeon_1_2_A and game:is_step_last("marin_joined") then
+    game:start_dialog("scripts.meta.map.companion_marin_dungeon_out", game:get_player_name())
+  end
 
 end)
 
@@ -127,6 +142,20 @@ function owl_4_sensor:on_activated()
   if game:is_step_last("dungeon_1_completed") and game:get_value("owl_4") ~= true then
     owl_manager:appear(map, 4, function()
     map:init_music()
+    end)
+  end
+
+end
+
+function sensor_companion:on_activated()
+
+  if game:is_step_last("ghost_joined") 
+    or game:is_step_last("ghost_saw_his_house")
+    or game:is_step_last("ghost_house_visited") then
+        game:start_dialog("scripts.meta.map.companion_ghost_dungeon_in")
+  elseif game:is_step_last("marin_joined") then
+    game:start_dialog("scripts.meta.map.companion_marin_dungeon_in", game:get_player_name(), function()
+      dungeon_1_1_A:set_enabled(true)
     end)
   end
 

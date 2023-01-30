@@ -108,7 +108,8 @@ end
 
 function sensor_1:on_activated()
   
-  if game:get_value("ghost_quest_step") == "ghost_house_visited" then
+  
+  if game:is_step_last("ghost_house_visited") then
     map:launch_cinematic_1()
   end
   
@@ -148,7 +149,7 @@ function map:launch_cinematic_1()
     else
       map:set_cinematic_mode(false, options)
     end
-    game:set_value("ghost_quest_step", "ghost_returned_to_tomb")
+    game:set_step_done("ghost_returned_to_tomb")
   end)
 
 end

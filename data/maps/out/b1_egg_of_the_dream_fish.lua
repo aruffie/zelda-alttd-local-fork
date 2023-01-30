@@ -20,6 +20,22 @@ map:register_event("on_started", function(map, destination)
   -- Digging
   map:set_digging_allowed(true)
 
+  -- Disable dungeon 2 teleporter when ghost is with the hero
+  if game:is_step_last("ghost_joined") 
+    or game:is_step_last("ghost_saw_his_house")
+    or game:is_step_last("ghost_house_visited")
+    or game:is_step_last("marin_joined") then
+        dungeon_2_1_A:set_enabled(false)
+  end
+
+end)
+
+map:register_event("on_opening_transition_finished", function(map, destination)
+
+  if destination == dungeon_2_2_A and game:is_step_last("marin_joined") then
+    game:start_dialog("scripts.meta.map.companion_marin_dungeon_out", game:get_player_name())
+  end
+
 end)
 
 -- Initialize the music of the map
@@ -66,6 +82,21 @@ function owl_6_sensor:on_activated()
   end
 
 end
+
+function sensor_companion:on_activated()
+
+  if map:get_game():is_step_last("ghost_joined") 
+    or map:get_game():is_step_last("ghost_saw_his_house")
+    or map:get_game():is_step_last("ghost_house_visited") then
+        game:start_dialog("scripts.meta.map.companion_ghost_dungeon_in")
+  elseif game:is_step_last("marin_joined") then
+    game:start_dialog("scripts.meta.map.companion_marin_dungeon_in", game:get_player_name(), function()
+      dungeon_2_1_A:set_enabled(true)
+    end)
+  end
+
+end
+
 
 -- Handle boulders spawning depending on activated sensor.
 for sensor in map:get_entities("sensor_activate_boulder_") do

@@ -16,6 +16,13 @@ return {
       if excluded_maps_all_companions[map:get_id()] then
         return false
       end
+      local excluded_maps = {
+        ["houses/mabe_village/dream_shine_upper_level"] = true,
+        ["houses/mabe_village/dream_shine_lower_level"] = true
+      }
+      if excluded_maps[map:get_id()] then
+        return false
+      end
       return map:get_game():is_step_last("marin_joined")
     end
   },
@@ -92,12 +99,19 @@ return {
       if excluded_maps_all_companions[map:get_id()] then
         return false
       end
+      local excluded_maps = {
+        ["houses/mabe_village/dream_shine_upper_level"] = true,
+        ["houses/mabe_village/dream_shine_lower_level"] = true
+      }
+      if excluded_maps[map:get_id()] then
+        return false
+      end
       if map:get_game():is_in_dungeon() then
         return false
       end
-      return map:get_game():get_value("ghost_quest_step") == "ghost_joined"
-        or map:get_game():get_value("ghost_quest_step") == "ghost_saw_his_house"
-        or map:get_game():get_value("ghost_quest_step") == "ghost_house_visited"
+      return map:get_game():is_step_last("ghost_joined") 
+        or map:get_game():is_step_last("ghost_saw_his_house")
+        or map:get_game():is_step_last("ghost_house_visited")
         
     end,
     repeated_behavior_delay = 5000,
