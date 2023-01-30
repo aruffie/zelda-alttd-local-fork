@@ -13,6 +13,7 @@ map:register_event("on_started", function(map, destination)
   -- Music
   map:init_music()
 
+
   final_stream:set_visible(false)
   local x, y, layer = final_stream:get_position()
   local hero_blocker = map:create_custom_entity({
@@ -28,6 +29,7 @@ map:register_event("on_started", function(map, destination)
   hero_blocker:set_traversable_by("pickable", true)  -- Allow the pickable to reach the hero at the end.
 
 end)
+
 
 -- Initialize the music of the map
 function map:init_music()
