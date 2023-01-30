@@ -74,22 +74,22 @@ function map:launch_cinematic_1()
     hero:set_enabled(false)
     bed:get_sprite():set_animation("hero_goes_to_bed")
     timer:set_suspended_with_map(false)
-    wait(1250)
+    wait(200)
     bed:get_sprite():set_animation("hero_sleeping")
     snores:set_enabled(true)
-    wait(1000)
+    wait(800)
     for torch in map:get_entities("light_torch_1") do
       torch:set_lit(false)
     end
-    wait(250)
+    wait(500)
     for torch in map:get_entities("light_torch_2") do
       torch:set_lit(false)
     end
-    wait(250)
+    wait(500)
     for torch in map:get_entities("light_torch_3") do
       torch:set_lit(false)
     end
-    wait(250)
+    wait(500)
     for torch in map:get_entities("light_torch_4") do
       torch:set_lit(false)
     end
