@@ -16582,25 +16582,6 @@ enemy{
   treasure_name = "random_with_charm",
 }
 
-destination{
-  name = "dungeon_6_2_A",
-  layer = 1,
-  x = 80,
-  y = 109,
-  direction = 3,
-}
-
-teletransporter{
-  name = "dungeon_6_1_A",
-  layer = 1,
-  x = 72,
-  y = 80,
-  width = 16,
-  height = 16,
-  destination_map = "dungeons/6/1f",
-  destination = "dungeon_6_1_B",
-}
-
 enemy{
   layer = 1,
   x = 72,
@@ -17246,12 +17227,68 @@ custom_entity{
 custom_entity{
   name = "dungeon_6",
   layer = 1,
-  x = 24,
-  y = 21,
+  x = 80,
+  y = 69,
   width = 16,
   height = 16,
   direction = 0,
   sprite = "entities/dungeons/dungeon_6",
+}
+
+npc{
+  name = "dungeon_6_lock",
+  layer = 1,
+  x = 184,
+  y = 77,
+  direction = 3,
+  subtype = 0,
+}
+
+teletransporter{
+  name = "dungeon_6_1_A",
+  layer = 1,
+  x = 72,
+  y = 48,
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/6/1f",
+  destination = "dungeon_6_1_B",
+}
+
+destination{
+  name = "dungeon_6_2_A",
+  layer = 1,
+  x = 80,
+  y = 77,
+  direction = 3,
+}
+
+wall{
+  name = "dungeon_6_wall_1",
+  layer = 1,
+  x = 16,
+  y = 56,
+  width = 56,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  name = "dungeon_6_wall_2",
+  layer = 1,
+  x = 88,
+  y = 56,
+  width = 56,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
 }
 
 tile{

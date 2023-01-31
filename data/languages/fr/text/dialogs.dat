@@ -3138,6 +3138,14 @@ tout son long !
 }
 
 dialog{
+  id = "maps.out.east_mt_tamaranch.dungeon_7_lock",
+  text = [[
+Une serrure ici ?
+Hum, voyons : Serrure Vautour
+]],
+}
+
+dialog{
   id = "maps.out.east_mt_tamaranch.owl_statue_1",
   text = [[
 Tu es proche de la Tour.
@@ -3633,7 +3641,7 @@ Ci-gît le Coq Volant.
 dialog{
   id = "maps.out.mambos_cave.dungeon_4_lock",
   text = [[
-Une serrure ici?
+Une serrure ici ?
 Hum, voyons :   
 Serrure Poisson
 ]],
@@ -3722,6 +3730,14 @@ dialog{
   id = "maps.out.martha_bay.sign_1",
   text = [[
 \[arrow_right\] Enfin ! Vill. des Animaux
+]],
+}
+
+dialog{
+  id = "maps.out.mask_shrine.dungeon_6_lock",
+  text = [[
+Une serrure ici ?
+Hum, voyons : Serrure Masque
 ]],
 }
 

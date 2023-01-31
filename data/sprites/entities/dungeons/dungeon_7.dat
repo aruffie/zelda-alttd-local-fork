@@ -9,6 +9,16 @@ animation{
   },
 }
 animation{
+  name = "opened",
+  src_image = "entities/dungeons/dungeon_7.png",
+  directions = {
+    { x = 800, y = 144, frame_width = 160, frame_height = 144, origin_x = 80, origin_y = 141 },
+    { x = 800, y = 144, frame_width = 160, frame_height = 144, origin_x = 80, origin_y = 141 },
+    { x = 800, y = 144, frame_width = 160, frame_height = 144, origin_x = 80, origin_y = 141 },
+    { x = 800, y = 144, frame_width = 160, frame_height = 144, origin_x = 80, origin_y = 141 },
+  },
+}
+animation{
   name = "shining",
   src_image = "entities/dungeons/dungeon_7.png",
   frame_delay = 150,

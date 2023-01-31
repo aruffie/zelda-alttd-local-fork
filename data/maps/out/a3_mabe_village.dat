@@ -25574,16 +25574,6 @@ tile{
 
 tile{
   layer = 2,
-  x = 616,
-  y = 256,
-  width = 40,
-  height = 32,
-  pattern = "80",
-  tileset = "addition/out",
-}
-
-tile{
-  layer = 2,
   x = 600,
   y = 664,
   width = 16,
@@ -25921,5 +25911,16 @@ custom_entity{
   direction = 3,
   sprite = "entities/insects/butterfly_red",
   model = "butterfly",
+}
+
+dynamic_tile{
+  name = "weathercook_statue_1",
+  layer = 2,
+  x = 616,
+  y = 256,
+  width = 40,
+  height = 32,
+  pattern = "80",
+  tileset = "addition/out",
 }
 

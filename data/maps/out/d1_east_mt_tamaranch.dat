@@ -16417,23 +16417,6 @@ destination{
   direction = 3,
 }
 
-teletransporter{
-  name = "dungeon_7_1_A",
-  layer = 1,
-  x = 632,
-  y = 88,
-  properties = {
-    {
-      key = "effect",
-      value = "radial_fade_out",
-    },
-  },
-  width = 16,
-  height = 16,
-  destination_map = "dungeons/7/1f",
-  destination = "dungeon_7_1_B",
-}
-
 destination{
   name = "cave_d3_1_north",
   layer = 1,
@@ -17031,7 +17014,7 @@ custom_entity{
 }
 
 custom_entity{
-  name = "eagle_tower",
+  name = "dungeon_7",
   layer = 1,
   x = 640,
   y = 133,
@@ -17041,11 +17024,48 @@ custom_entity{
   sprite = "entities/dungeons/dungeon_7",
 }
 
-wall{
-  name = "eagle_tower_closed",
+npc{
+  name = "dungeon_7_lock",
   layer = 1,
-  x = 632,
-  y = 120,
+  x = 536,
+  y = 133,
+  direction = 3,
+  subtype = 0,
+}
+
+wall{
+  name = "dungeon_7_wall_1",
+  layer = 1,
+  x = 608,
+  y = 96,
+  width = 24,
+  height = 40,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  name = "dungeon_7_wall_2",
+  layer = 1,
+  x = 648,
+  y = 96,
+  width = 24,
+  height = 40,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  name = "dungeon_7_wall_3",
+  layer = 1,
+  x = 592,
+  y = 112,
   width = 16,
   height = 16,
   stops_hero = true,
@@ -17053,6 +17073,93 @@ wall{
   stops_enemies = true,
   stops_blocks = true,
   stops_projectiles = true,
+}
+
+wall{
+  name = "dungeon_7_wall_4",
+  layer = 1,
+  x = 584,
+  y = 104,
+  width = 8,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  name = "dungeon_7_wall_5",
+  layer = 1,
+  x = 576,
+  y = 96,
+  width = 8,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  name = "dungeon_7_wall_6",
+  layer = 1,
+  x = 672,
+  y = 112,
+  width = 16,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  name = "dungeon_7_wall_7",
+  layer = 1,
+  x = 688,
+  y = 104,
+  width = 8,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+wall{
+  name = "dungeon_7_wall_8",
+  layer = 1,
+  x = 696,
+  y = 96,
+  width = 8,
+  height = 16,
+  stops_hero = true,
+  stops_npcs = true,
+  stops_enemies = true,
+  stops_blocks = true,
+  stops_projectiles = true,
+}
+
+teletransporter{
+  name = "dungeon_7_1_A",
+  layer = 1,
+  x = 632,
+  y = 88,
+  properties = {
+    {
+      key = "effect",
+      value = "radial_fade_out",
+    },
+  },
+  width = 16,
+  height = 16,
+  destination_map = "dungeons/7/1f",
+  destination = "dungeon_7_1_B",
 }
 
 tile{
@@ -17515,16 +17622,6 @@ tile{
   width = 80,
   height = 24,
   pattern = "100",
-  tileset = "addition/out",
-}
-
-tile{
-  layer = 2,
-  x = 576,
-  y = -8,
-  width = 128,
-  height = 104,
-  pattern = "224",
   tileset = "addition/out",
 }
 

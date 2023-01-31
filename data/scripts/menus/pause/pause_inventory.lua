@@ -73,8 +73,11 @@ function inventory_submenu:on_started()
   for i,item_name in ipairs(item_names_static) do
     local item = self.game:get_item(item_name)
     local variant = item:get_variant()
-    self.sprites_static[i] = sol.sprite.create("entities/items")
-    self.sprites_static[i]:set_animation(item_name)
+    if variant > 0 then
+      self.sprites_static[i] = sol.sprite.create("entities/items")
+      self.sprites_static[i]:set_animation(item_name)
+      self.sprites_static[i]:set_direction(variant - 1)
+    end
   end
 end
 
@@ -159,7 +162,7 @@ function inventory_submenu:on_draw(dst_surface)
       local menu_ocarina_img_2 = sol.surface.create("menus/pause/inventory/ocarina_2.png")
       menu_ocarina_img_2:draw_region(0, 0, 98, 34, dst_surface, menu_x + 216, menu_y + 72)
     end
-    local melody = self.game:get_item("melody_2")
+    local melody = self.game:get_item("melody_3")
     if melody:get_variant() > 0 then
       local menu_ocarina_img_3 = sol.surface.create("menus/pause/inventory/ocarina_3.png")
       menu_ocarina_img_3:draw_region(0, 0, 98, 34, dst_surface, menu_x + 248, menu_y + 72)

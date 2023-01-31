@@ -29,7 +29,7 @@ map:register_event("on_started", function(map, destination)
 
 end)
 
--- Sensors
+-- Sensors events
 function boss_sensor:on_activated()
 
   if game:get_value("armos_knight_killed") then
