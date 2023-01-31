@@ -31,8 +31,8 @@ end)
 
 map:register_event("on_finished", function(map, destination)
     
-  if game:get_value("possession_instrument_4") and not game:get_value("ghost_quest_step") then
-    game:set_value("ghost_quest_step", "ghost_joined")
+  if game:get_value("possession_instrument_4") and game:is_step_last("dungeon_4_finished") then
+    game:set_step_done("ghost_joined")
   end
 
 end)
