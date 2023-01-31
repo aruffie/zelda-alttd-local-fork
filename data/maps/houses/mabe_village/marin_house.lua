@@ -205,6 +205,7 @@ function map:launch_cinematic_1()
     snores:remove()
     bed:get_sprite():set_animation("hero_waking")
     wait(1000)
+    bed:get_sprite():set_animation("hero_waking_turn_head")
     dialog("maps.houses.mabe_village.marin_house.marin_2")
     wait(500)
 
