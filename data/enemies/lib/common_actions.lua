@@ -6,7 +6,7 @@
 -- Methods : General informations :
 --           enemy:is_aligned(entity, thickness, [sprite])
 --           enemy:is_near(entity, triggering_distance, [sprite])
---           enemy:is_entity_in_front(entity, [front_angle, [sprite]])
+--           enemy:is_enadd_area_entitytity_in_front(entity, [front_angle, [sprite]])
 --           enemy:is_over_grounds(grounds, [x, [y]])
 --           enemy:get_central_symmetry_position(x, y)
 --           enemy:get_random_position_in_area(area)

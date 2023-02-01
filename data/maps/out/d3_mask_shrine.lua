@@ -20,9 +20,6 @@ map:register_event("on_started", function(map, destination)
   mask_shrine_area_1:set_visible(false)
   mask_shrine_area_2:set_visible(false)
 
-  dungeon_6_wall_1:set_enabled(false)
-  dungeon_6_wall_2:set_enabled(false)
-
 end)
 
 -- Initialize the music of the map
@@ -35,6 +32,8 @@ end
 -- Initializes Entities based on player's progress
 function map:init_map_entities()
   
+  dungeon_6_wall_1:set_enabled(false)
+  dungeon_6_wall_2:set_enabled(false)
   if game:get_value("dungeon_6_opened") then
     map:open_dungeon_6()
   end
@@ -97,17 +96,20 @@ function map:launch_cinematic_1()
     end)
     timer_sound:set_suspended_with_map(false)
     local shake_config = {
-        count = 32,
+        count = 88,
         amplitude = 2,
         speed = 90
     }
-    wait_for(camera.shake,camera,shake_config)
-    timer_sound:stop()
-    camera:start_manual()
-    camera:set_position(camera_x - 20, camera_y)
+    camera:shake(shake_config, function()
+      camera:start_manual()
+      camera:set_position(camera_x - 20, camera_y)
+    end)
     animation(dungeon_6:get_sprite(), "awakening")
-    audio_manager:play_sound("misc/secret2")
+    timer_sound:stop()
     map:open_dungeon_6()
+    wait(2000)
+    audio_manager:play_sound("misc/secret2")
+    wait(2000)
     local movement2 = sol.movement.create("straight")
     movement2:set_angle(0)
     movement2:set_max_distance(20)

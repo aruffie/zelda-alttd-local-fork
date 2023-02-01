@@ -20290,6 +20290,53 @@ wall{
   stops_blocks = true,
 }
 
+npc{
+  name = "mermaid_statue_npc",
+  layer = 1,
+  x = 496,
+  y = 453,
+  direction = 3,
+  subtype = 0,
+}
+
+dynamic_tile{
+  name = "mermaid_statue_1",
+  layer = 1,
+  x = 440,
+  y = 432,
+  width = 32,
+  height = 32,
+  pattern = "34",
+  tileset = "addition/out",
+}
+
+teletransporter{
+  name = "martha_bay_cave_1_2_A",
+  layer = 1,
+  x = 488,
+  y = 432,
+  width = 16,
+  height = 16,
+  destination_map = "caves/martha_bay/cave_2",
+  destination = "martha_bay_cave_1_1_B",
+}
+
+destination{
+  name = "martha_bay_cave_1_1_A",
+  layer = 1,
+  x = 496,
+  y = 445,
+  direction = 1,
+}
+
+stairs{
+  layer = 1,
+  x = 488,
+  y = 432,
+  direction = 1,
+  subtype = 3,
+}
+
 tile{
   layer = 2,
   x = 816,
@@ -21608,26 +21655,6 @@ tile{
 
 tile{
   layer = 2,
-  x = 480,
-  y = 424,
-  width = 32,
-  height = 32,
-  pattern = "34",
-  tileset = "addition/out",
-}
-
-tile{
-  layer = 2,
-  x = 480,
-  y = 408,
-  width = 32,
-  height = 16,
-  pattern = "35",
-  tileset = "addition/out",
-}
-
-tile{
-  layer = 2,
   x = 776,
   y = 592,
   width = 48,
@@ -21682,6 +21709,17 @@ tile{
   width = 16,
   height = 16,
   pattern = "91",
+  tileset = "addition/out",
+}
+
+dynamic_tile{
+  name = "mermaid_statue_2",
+  layer = 2,
+  x = 480,
+  y = 408,
+  width = 32,
+  height = 16,
+  pattern = "35",
   tileset = "addition/out",
 }
 

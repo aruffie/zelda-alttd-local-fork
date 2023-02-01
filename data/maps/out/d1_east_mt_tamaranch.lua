@@ -113,17 +113,20 @@ function map:launch_cinematic_1()
     end)
     timer_sound:set_suspended_with_map(false)
     local shake_config = {
-        count = 128,
+        count = 256,
         amplitude = 2,
         speed = 90
     }
-    wait_for(camera.shake,camera,shake_config)
-    timer_sound:stop()
-    camera:start_manual()
-    camera:set_position(camera_x + 72, camera_y)
+    camera:shake(shake_config, function()
+      camera:start_manual()
+      camera:set_position(camera_x + 72, camera_y)
+    end)
+    wait(2000)
     animation(dungeon_7:get_sprite(), "turning")
-    audio_manager:play_sound("misc/secret2")
+    timer_sound:stop()
     map:open_dungeon_7()
+    wait(2000)
+    audio_manager:play_sound("misc/secret2")
     local movement2 = sol.movement.create("straight")
     movement2:set_angle(math.pi)
     movement2:set_max_distance(72)

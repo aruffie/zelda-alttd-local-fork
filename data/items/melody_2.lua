@@ -62,5 +62,17 @@ end
 -- Play sound on obtaining.
 function item:on_obtaining()
   
+  local item_1 = game:get_item_assigned(1)
+  local item_2 = game:get_item_assigned(2)
+  local slot = nil
+  if item_1:get_name() == 'ocarina' then
+    slot = 1
+  elseif item_2:get_name() == 'ocarina' then
+    slot = 2
+  end
+  if slot then
+    game:set_item_assigned(slot, item)
+  end
   audio_manager:play_sound("items/fanfare_item_extended")
+  
 end

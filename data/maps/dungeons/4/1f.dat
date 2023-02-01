@@ -14852,7 +14852,7 @@ pickable{
 }
 
 door{
-  name = "block_bomb_1",
+  name = "block_bomb_1_weak",
   layer = 0,
   x = 2112,
   y = 832,

@@ -3709,12 +3709,22 @@ Non
 }
 
 dialog{
+  id = "maps.out.martha_bay.mermaid_1",
+  text = [[
+J'étais en train de nager et une vague a emporté mon collier !    
+Si tu le trouves je te donnerai une écaille de queue !
+]],
+}
+
+dialog{
   id = "maps.out.martha_bay.mermaid_statue_no_scale",
   skip = "all",
   text = [[
-C'est une statue de Sirène.
-Il y a une écaille manquante.
-DIALOGUE A MODIFIER!
+LA PETITE SIRENE
+Par ALLIGODALI  
+
+?...
+Il manque une écaille...?
 ]],
 }
 

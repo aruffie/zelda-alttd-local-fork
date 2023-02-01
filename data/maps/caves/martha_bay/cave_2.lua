@@ -43,7 +43,7 @@ function map:on_obtained_treasure(item, variant, treasure_savegame_variable)
   
   if item:get_name() == "magnifying_lens" and item:get_variant() == 14 then
     for entity in map:get_entities("invisible_entity") do
-			entity:set_visible(false)
+			entity:set_visible(true)
 		end
   end
   

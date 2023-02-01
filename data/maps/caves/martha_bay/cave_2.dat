@@ -1350,7 +1350,7 @@ enemy{
 }
 
 destination{
-  name = "stair",
+  name = "martha_bay_cave_1_1_B",
   layer = 0,
   x = 160,
   y = 429,
@@ -1370,10 +1370,11 @@ teletransporter{
   width = 16,
   height = 16,
   destination_map = "out/c4_martha_bay",
-  destination = "stair_lens_cave",
+  destination = "martha_bay_cave_1_1_A",
 }
 
 stairs{
+  name = "martha_bay_cave_1_2_B",
   layer = 0,
   x = 152,
   y = 416,

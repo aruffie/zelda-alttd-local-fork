@@ -33,7 +33,7 @@ animation{
 animation{
   name = "turning",
   src_image = "entities/dungeons/dungeon_7.png",
-  frame_delay = 450,
+  frame_delay = 1000,
   directions = {
     { x = 0, y = 144, frame_width = 160, frame_height = 144, origin_x = 80, origin_y = 141, num_frames = 6 },
     { x = 0, y = 144, frame_width = 160, frame_height = 144, origin_x = 80, origin_y = 141, num_frames = 6 },
