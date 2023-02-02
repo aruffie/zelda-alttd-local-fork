@@ -28,7 +28,11 @@ end
 -- Initializes Entities based on player's progress
 function map:init_map_entities()
   
-  --Mermaid statue pushed
+  -- Dungeon 5
+  if game:is_step_done("ghost_returned_to_tomb") then
+    dungeon_5_door:set_enabled(false)
+  end
+  -- Mermaid statue pushed
   if game:get_value("mermaid_statue_pushed") then
     map:open_mermaid_statue()
   end

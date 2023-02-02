@@ -8072,7 +8072,7 @@ npc{
 }
 
 custom_entity{
-  name = "Door_castfish",
+  name = "dungeon_5_door",
   layer = 0,
   x = 376,
   y = 301,
@@ -8080,6 +8080,7 @@ custom_entity{
   height = 16,
   direction = 0,
   sprite = "entities/doors/door_catfish",
+  model = "obstacle",
 }
 
 tile{
@@ -20313,8 +20314,8 @@ npc{
 dynamic_tile{
   name = "mermaid_statue_1",
   layer = 1,
-  x = 440,
-  y = 432,
+  x = 480,
+  y = 424,
   width = 32,
   height = 32,
   pattern = "34",
