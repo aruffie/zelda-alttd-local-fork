@@ -41,6 +41,11 @@ function rupees_builder:new(game, config)
       else
         increment = -1
       end
+      if math.abs(money - rupees.money_displayed) > 50 then 
+        increment = increment * 50
+      elseif math.abs(money - rupees.money_displayed) > 20 then
+        increment = increment * 20
+      end
       rupees.money_displayed = rupees.money_displayed + increment
 
       -- Play a sound if we have just reached the final value.
