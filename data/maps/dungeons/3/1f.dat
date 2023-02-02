@@ -9933,16 +9933,6 @@ tile{
 
 tile{
   layer = 0,
-  x = 1104,
-  y = 768,
-  width = 32,
-  height = 32,
-  pattern = "158",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 0,
   x = 1152,
   y = 928,
   width = 48,
@@ -13455,6 +13445,37 @@ crystal_block{
   subtype = 1,
 }
 
+block{
+  layer = 0,
+  x = 1112,
+  y = 781,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1128,
+  y = 781,
+  sprite = "entities/blocks/block",
+  pushable = false,
+  pullable = false,
+  max_moves = 0,
+}
+
+block{
+  layer = 0,
+  x = 1128,
+  y = 797,
+  direction = 0,
+  sprite = "entities/blocks/block",
+  pushable = true,
+  pullable = false,
+  max_moves = 1,
+}
+
 tile{
   layer = 1,
   x = 1864,
@@ -14898,26 +14919,6 @@ tile{
   width = 16,
   height = 24,
   pattern = "barrier_big.border.2-1",
-}
-
-tile{
-  layer = 1,
-  x = 960,
-  y = 456,
-  width = 32,
-  height = 32,
-  pattern = "158",
-  tileset = "addition/dungeon",
-}
-
-tile{
-  layer = 1,
-  x = 1008,
-  y = 456,
-  width = 32,
-  height = 32,
-  pattern = "158",
-  tileset = "addition/dungeon",
 }
 
 tile{
