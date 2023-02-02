@@ -497,6 +497,7 @@ sprite{ id = "entities/doors/door_b_wallturn_dungeon_8", description = "Door b w
 sprite{ id = "entities/doors/door_b_wallturn_dungeon_9", description = "Door b wallturn dungeon 9" }
 sprite{ id = "entities/doors/door_boss", description = "Boss door" }
 sprite{ id = "entities/doors/door_boss_key", description = "Boss key door" }
+sprite{ id = "entities/doors/door_catfish", description = "Door catfish" }
 sprite{ id = "entities/doors/door_egg", description = "Egg door" }
 sprite{ id = "entities/doors/door_egg_top", description = "Door egg top" }
 sprite{ id = "entities/doors/door_entrance_dungeons", description = "Dungeon entrance door" }
@@ -2851,6 +2852,7 @@ file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_6.dat", author = "J
 file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_7.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_8.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/doors/door_b_wallturn_dungeon_9.dat", author = "JulioTanaka", }
+file{ path = "sprites/entities/doors/door_catfish.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/effects/collapse_star.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/effects/dust_smoke.dat", author = "JulioTanaka", }
 file{ path = "sprites/entities/ground_effects/walrus_diving_effect.dat", author = "JulioTanaka", }
