@@ -14365,7 +14365,7 @@ dynamic_tile{
 }
 
 door{
-  name = "block_bomb_2",
+  name = "block_weak_bomb_2",
   layer = 0,
   x = 2072,
   y = 384,
@@ -14852,7 +14852,7 @@ pickable{
 }
 
 door{
-  name = "block_bomb_1_weak",
+  name = "block_weak_bomb_1",
   layer = 0,
   x = 2112,
   y = 832,
