@@ -36,6 +36,8 @@ end
 function map:init_map_entities()
   
   -- Dungeon 7
+  dungeon_7_highest_layer:get_sprite():set_animation("highest_layer")
+  dungeon_7_highest_layer:set_enabled(false)
   if game:get_value("dungeon_7_opened") then
     map:open_dungeon_7()
   end
@@ -53,6 +55,7 @@ function map:open_dungeon_7()
 
   dungeon_7:get_sprite():set_animation("opened")
   dungeon_7:set_traversable_by(true)
+  dungeon_7_highest_layer:set_enabled(true)
   for wall in map:get_entities("dungeon_7_wall_") do
     wall:set_enabled(true)
   end
@@ -69,7 +72,7 @@ end
 -- NPCs events
 function dungeon_7_lock:on_interaction()
 
-  if not game:get_value("possession_angler_key") then
+  if not game:get_value("possession_bird_key") then
     game:start_dialog("maps.out.east_mt_tamaranch.dungeon_7_lock")
   elseif not game:get_value("dungeon_7_opened") then
     map:launch_cinematic_1()

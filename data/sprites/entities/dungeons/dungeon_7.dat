@@ -9,6 +9,16 @@ animation{
   },
 }
 animation{
+  name = "highest_layer",
+  src_image = "entities/dungeons/dungeon_7.png",
+  directions = {
+    { x = 816, y = 144, frame_width = 128, frame_height = 104, origin_x = 64, origin_y = 101 },
+    { x = 816, y = 144, frame_width = 128, frame_height = 104, origin_x = 64, origin_y = 101 },
+    { x = 816, y = 144, frame_width = 128, frame_height = 104, origin_x = 64, origin_y = 101 },
+    { x = 816, y = 144, frame_width = 128, frame_height = 104, origin_x = 64, origin_y = 101 },
+  },
+}
+animation{
   name = "opened",
   src_image = "entities/dungeons/dungeon_7.png",
   directions = {

@@ -17979,3 +17979,14 @@ custom_entity{
   model = "seagull",
 }
 
+custom_entity{
+  name = "dungeon_7_highest_layer",
+  layer = 2,
+  x = 640,
+  y = 93,
+  width = 16,
+  height = 16,
+  direction = 0,
+  sprite = "entities/dungeons/dungeon_7",
+}
+
